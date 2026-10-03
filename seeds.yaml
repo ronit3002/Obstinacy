@@ -1,0 +1,20 @@
+# Seed list: the ONLY place disease-specific choices live.
+# Swap this file to run the same pipeline on a different cluster.
+seeds:
+  - mondo: MONDO:0014505   # DEE27 (anchor)
+    genes: [GRIN2B]
+  - mondo: MONDO:0013655   # NDHMSD
+    genes: [GRIN1]
+  - mondo: MONDO:0017325   # GRIN2A-related early-onset EE/ID
+    genes: [GRIN2A]
+  - mondo: MONDO:0014947   # DEE46
+    genes: [GRIN2D]
+  - mondo: MONDO:0012812   # DEE4 / STXBP1
+    genes: [STXBP1]
+  - mondo: MONDO:0010396   # CDKL5 deficiency / DEE2
+    genes: [CDKL5]
+  - mondo: MONDO:0100135   # Dravet syndrome
+    genes: [SCN1A]
+    # MONDO keeps Dravet (0100135) separate from DEE6A (0100079, OMIM:607208) and has no ORPHA xref here.
+    # Orphanet's Dravet entry has HPO annotations, so we add it manually.
+    extra_xrefs: [Orphanet:33069]
