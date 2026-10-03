@@ -1,0 +1,344 @@
+[
+ {
+  "id": "MONDO:0014505",
+  "label": "developmental and epileptic encephalopathy, 27",
+  "synonyms": [
+   "DEE27",
+   "EIEE27",
+   "GRIN2B early infantile epileptic encephalopathy",
+   "developmental and epileptic encephalopathy 27",
+   "early infantile epileptic encephalopathy caused by mutation in GRIN2B",
+   "epileptic encephalopathy, early infantile, 27",
+   "epileptic encephalopathy, early infantile, type 27"
+  ],
+  "xrefs": [
+   "DOID:0080444",
+   "GARD:0016063",
+   "MEDGEN:863753",
+   "OMIM:616139",
+   "UMLS:C4015316"
+  ],
+  "definition": "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GRIN2B gene.",
+  "deprecated": false,
+  "rare_subsets": [
+   "gard_rare",
+   "nord_rare",
+   "rare"
+  ],
+  "genes": [
+   "GRIN2B"
+  ],
+  "omim": [
+   "OMIM:616139"
+  ],
+  "orpha": [],
+  "gard": [
+   "GARD:0016063"
+  ],
+  "manual_xrefs": [],
+  "hpo_terms_by_source": {
+   "OMIM:616139": 22
+  },
+  "gene_mentioned_in_mondo": {
+   "GRIN2B": true
+  }
+ },
+ {
+  "id": "MONDO:0013655",
+  "label": "neurodevelopmental disorder with or without hyperkinetic movements and seizures, autosomal dominant",
+  "synonyms": [
+   "GRIN1 autosomal dominant non-syndromic intellectual disability",
+   "MRD8",
+   "NDHMSD",
+   "autosomal dominant intellectual disability 8",
+   "autosomal dominant non-syndromic intellectual disability caused by mutation in GRIN1",
+   "intellectual disability, autosomal dominant 8",
+   "intellectual disability, autosomal dominant type 8",
+   "neurodevelopmental disorder with or without hyperkinetic movements and seizures, autosomal dominant"
+  ],
+  "xrefs": [
+   "DOID:0070038",
+   "GARD:0013686",
+   "MEDGEN:481912",
+   "OMIM:614254",
+   "UMLS:C3280282"
+  ],
+  "definition": "Any autosomal dominant non-syndromic intellectual disability in which the cause of the disease is a mutation in the GRIN1 gene.",
+  "deprecated": false,
+  "rare_subsets": [
+   "gard_rare",
+   "rare"
+  ],
+  "genes": [
+   "GRIN1"
+  ],
+  "omim": [
+   "OMIM:614254"
+  ],
+  "orpha": [],
+  "gard": [
+   "GARD:0013686"
+  ],
+  "manual_xrefs": [],
+  "hpo_terms_by_source": {
+   "OMIM:614254": 36
+  },
+  "gene_mentioned_in_mondo": {
+   "GRIN1": true
+  }
+ },
+ {
+  "id": "MONDO:0017325",
+  "label": "early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation",
+  "synonyms": [
+   "early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation",
+   "epilepsy, focal, with speech disorder and with or without impaired intellectual development"
+  ],
+  "xrefs": [
+   "GARD:0021134",
+   "MEDGEN:1663334",
+   "OMIM:245570",
+   "OMIM:613971",
+   "ORPHA:289266",
+   "UMLS:C4749281",
+   "icd11.foundation:1655554340"
+  ],
+  "definition": "A rare intellectual disability and epilepsy syndrome due to mutation in GRIN2A gene. It is characterized by global developmental delay and mild to profound intellectual disability, multiple types of usually intractable focal and generalized seizures with variable abnormal EEG findings, and bilateral progressive parenchymal volume loss and thin corpus callosum on brain MRI.",
+  "deprecated": false,
+  "rare_subsets": [
+   "gard_rare",
+   "nord_rare",
+   "orphanet_rare",
+   "rare"
+  ],
+  "genes": [
+   "GRIN2A"
+  ],
+  "omim": [
+   "OMIM:245570",
+   "OMIM:613971"
+  ],
+  "orpha": [
+   "ORPHA:289266"
+  ],
+  "gard": [
+   "GARD:0021134"
+  ],
+  "manual_xrefs": [],
+  "hpo_terms_by_source": {
+   "OMIM:245570": 22,
+   "ORPHA:289266": 29
+  },
+  "gene_mentioned_in_mondo": {
+   "GRIN2A": true
+  }
+ },
+ {
+  "id": "MONDO:0014947",
+  "label": "developmental and epileptic encephalopathy, 46",
+  "synonyms": [
+   "DEE46",
+   "EIEE46",
+   "GRIN2D early infantile epileptic encephalopathy",
+   "GRIN2D-related DEE",
+   "GRIN2D-related complex neurodevelopmental disorder",
+   "GRIN2D-related developmental and epileptic encephalopathy",
+   "developmental and epileptic encephalopathy 46",
+   "early infantile epileptic encephalopathy caused by mutation in GRIN2D",
+   "epileptic encephalopathy, early infantile, 46",
+   "epileptic encephalopathy, early infantile, 46; EIEE46",
+   "epileptic encephalopathy, early infantile, type 46"
+  ],
+  "xrefs": [
+   "DOID:0080456",
+   "GARD:0016205",
+   "MEDGEN:934654",
+   "OMIM:617162",
+   "UMLS:C4310687"
+  ],
+  "definition": "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GRIN2D gene.",
+  "deprecated": false,
+  "rare_subsets": [
+   "gard_rare",
+   "nord_rare",
+   "rare"
+  ],
+  "genes": [
+   "GRIN2D"
+  ],
+  "omim": [
+   "OMIM:617162"
+  ],
+  "orpha": [],
+  "gard": [
+   "GARD:0016205"
+  ],
+  "manual_xrefs": [],
+  "hpo_terms_by_source": {
+   "OMIM:617162": 18
+  },
+  "gene_mentioned_in_mondo": {
+   "GRIN2D": true
+  }
+ },
+ {
+  "id": "MONDO:0012812",
+  "label": "developmental and epileptic encephalopathy, 4",
+  "synonyms": [
+   "DEE4",
+   "EIEE4",
+   "STXBP1 early infantile epileptic encephalopathy",
+   "STXBP1-related early-onset encephalopathy",
+   "STXBP1-related encephalopathy",
+   "developmental and epileptic encephalopathy 4",
+   "developmental and epileptic encephalopathy, 4",
+   "early infantile epileptic encephalopathy 4",
+   "early infantile epileptic encephalopathy caused by mutation in STXBP1",
+   "epileptic encephalopathy, early infantile, 4",
+   "epileptic encephalopathy, early infantile, type 4"
+  ],
+  "xrefs": [
+   "DOID:0080436",
+   "GARD:0012900",
+   "MEDGEN:436917",
+   "MESH:C567404",
+   "NCIT:C162472",
+   "OMIM:612164",
+   "ORPHA:599373",
+   "SCTID:768666006",
+   "UMLS:C2677326"
+  ],
+  "definition": "Early infantile epileptic encephalopathy 4 (EIEE4) is a form of early infantile epileptic encephalopathy, which refers to a group of neurological conditions characterized by severe seizures beginning in infancy. EIEE4, specifically, is often associated with partial complex or tonic-clonic seizures, although other seizure types have been reported. Other signs and symptoms mayinclude intellectual disability, reduced muscle tone (hypotonia), hypsarrhythmia (an irregular pattern seen on EEG), dyskinesia (involuntary movement of the body), and spastic di- or quadriplegia. EIEE4 is caused by changes (mutations) in the STXBP1 gene and is inherited in an autosomal dominant manner. Treatment is based on the signs and symptoms present in each person. For example, certain medications are often prescribed to help control seizures, although they are not always effective in all people with the condition.",
+  "deprecated": false,
+  "rare_subsets": [
+   "gard_rare",
+   "nord_rare",
+   "orphanet_rare",
+   "rare"
+  ],
+  "genes": [
+   "STXBP1"
+  ],
+  "omim": [
+   "OMIM:612164"
+  ],
+  "orpha": [
+   "ORPHA:599373"
+  ],
+  "gard": [
+   "GARD:0012900"
+  ],
+  "manual_xrefs": [],
+  "hpo_terms_by_source": {
+   "OMIM:612164": 24,
+   "ORPHA:599373": 31
+  },
+  "gene_mentioned_in_mondo": {
+   "STXBP1": true
+  }
+ },
+ {
+  "id": "MONDO:0010396",
+  "label": "developmental and epileptic encephalopathy, 2",
+  "synonyms": [
+   "CDKL5 early infantile epileptic encephalopathy",
+   "DEE2",
+   "EIEE2",
+   "developmental and epileptic encephalopathy 2, X-linked dominant",
+   "developmental and epileptic encephalopathy, 2",
+   "early infantile epileptic encephalopathy caused by mutation in CDKL5",
+   "epileptic encephalopathy, early infantile, 2",
+   "epileptic encephalopathy, early infantile, type 2"
+  ],
+  "xrefs": [
+   "DOID:0080467",
+   "GARD:0018617",
+   "MEDGEN:1663579",
+   "MESH:C564064",
+   "OMIM:300672",
+   "ORPHA:505652",
+   "UMLS:C4750718"
+  ],
+  "definition": "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the CDKL5 gene.",
+  "deprecated": false,
+  "rare_subsets": [
+   "gard_rare",
+   "nord_rare",
+   "orphanet_rare",
+   "rare"
+  ],
+  "genes": [
+   "CDKL5"
+  ],
+  "omim": [
+   "OMIM:300672"
+  ],
+  "orpha": [
+   "ORPHA:505652"
+  ],
+  "gard": [
+   "GARD:0018617"
+  ],
+  "manual_xrefs": [],
+  "hpo_terms_by_source": {
+   "OMIM:300672": 31,
+   "ORPHA:505652": 52
+  },
+  "gene_mentioned_in_mondo": {
+   "CDKL5": true
+  }
+ },
+ {
+  "id": "MONDO:0100135",
+  "label": "Dravet syndrome",
+  "synonyms": [
+   "DS",
+   "Dravet",
+   "Dravet syndrome",
+   "SME",
+   "SMEB",
+   "myoclonic epilepsy, severe, of infancy",
+   "severe myoclonic epilepsy of infancy"
+  ],
+  "xrefs": [
+   "DOID:0060171",
+   "DOID:0080422",
+   "GARD:0010430",
+   "ICD10CM:G40.83",
+   "ICD9:345.10",
+   "MEDGEN:148243",
+   "NANDO:1200587",
+   "NANDO:2200877",
+   "NCIT:C116573",
+   "NORD:1061",
+   "SCTID:230437002",
+   "UMLS:C0751122",
+   "icd11.foundation:1255654700"
+  ],
+  "definition": "Dravet syndrome is a channelopathy with epilepsy of with onset during the first year of life, typically 4-5 months, characterized by status epilepticus and a variety of drug-resistant seizures often induced by fever, presenting in previously healthy children, and which frequently leads to cognitive and motor impairment. Dravet differs from other channelopathies usually due to a mutation in SCN1A.",
+  "deprecated": false,
+  "rare_subsets": [
+   "doid_rare",
+   "gard_rare",
+   "nord_rare",
+   "rare"
+  ],
+  "genes": [
+   "SCN1A"
+  ],
+  "omim": [],
+  "orpha": [],
+  "gard": [
+   "GARD:0010430"
+  ],
+  "manual_xrefs": [
+   "ORPHA:33069"
+  ],
+  "hpo_terms_by_source": {
+   "ORPHA:33069": 46
+  },
+  "gene_mentioned_in_mondo": {
+   "SCN1A": true
+  }
+ }
+]

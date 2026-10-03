@@ -1,0 +1,147 @@
+[
+ {
+  "input": "CDKL5",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:11411",
+  "symbol": "CDKL5",
+  "name": "cyclin dependent kinase like 5",
+  "aliases": [
+   "CFAP247",
+   "EIEE2",
+   "STK9",
+   "cyclin-dependent kinase-like 5",
+   "serine/threonine kinase 9"
+  ],
+  "entrez_id": "6792",
+  "ensembl_id": "ENSG00000008086",
+  "location": "Xp22.13",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ },
+ {
+  "input": "GRIN1",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:4584",
+  "symbol": "GRIN1",
+  "name": "glutamate ionotropic receptor NMDA type subunit 1",
+  "aliases": [
+   "GluN1",
+   "N-methyl-D-aspartate receptor subunit NR1",
+   "NMDAR1",
+   "NR1",
+   "glutamate receptor, ionotropic, N-methyl D-aspartate 1"
+  ],
+  "entrez_id": "2902",
+  "ensembl_id": "ENSG00000176884",
+  "location": "9q34.3",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ },
+ {
+  "input": "GRIN2A",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:4585",
+  "symbol": "GRIN2A",
+  "name": "glutamate ionotropic receptor NMDA type subunit 2A",
+  "aliases": [
+   "GluN2A",
+   "NMDAR2A",
+   "NR2A",
+   "glutamate receptor, ionotropic, N-methyl D-aspartate 2A"
+  ],
+  "entrez_id": "2903",
+  "ensembl_id": "ENSG00000183454",
+  "location": "16p13.2",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ },
+ {
+  "input": "GRIN2B",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:4586",
+  "symbol": "GRIN2B",
+  "name": "glutamate ionotropic receptor NMDA type subunit 2B",
+  "aliases": [
+   "GluN2B",
+   "NMDAR2B",
+   "NR2B",
+   "glutamate receptor, ionotropic, N-methyl D-aspartate 2B"
+  ],
+  "entrez_id": "2904",
+  "ensembl_id": "ENSG00000273079",
+  "location": "12p13.1",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ },
+ {
+  "input": "GRIN2D",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:4588",
+  "symbol": "GRIN2D",
+  "name": "glutamate ionotropic receptor NMDA type subunit 2D",
+  "aliases": [
+   "EB11",
+   "GluN2D",
+   "N-methyl-d-aspartate receptor subunit 2D",
+   "NMDAR2D",
+   "NR2D",
+   "glutamate receptor, ionotropic, N-methyl D-aspartate 2D"
+  ],
+  "entrez_id": "2906",
+  "ensembl_id": "ENSG00000105464",
+  "location": "19q13.33",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ },
+ {
+  "input": "SCN1A",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:10585",
+  "symbol": "SCN1A",
+  "name": "sodium voltage-gated channel alpha subunit 1",
+  "aliases": [
+   "FEB3",
+   "GEFSP2",
+   "HBSCI",
+   "NAC1",
+   "Nav1.1",
+   "SCN1",
+   "SMEI",
+   "febrile convulsions 3",
+   "sodium channel, voltage gated, type I alpha subunit",
+   "sodium channel, voltage-gated, type I, alpha subunit"
+  ],
+  "entrez_id": "6323",
+  "ensembl_id": "ENSG00000144285",
+  "location": "2q24.3",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ },
+ {
+  "input": "STXBP1",
+  "match": "symbol",
+  "ambiguous": false,
+  "hgnc_id": "HGNC:11444",
+  "symbol": "STXBP1",
+  "name": "syntaxin binding protein 1",
+  "aliases": [
+   "MUNC18-1",
+   "UNC18",
+   "hUNC18",
+   "nSec1",
+   "rbSec1",
+   "syntaxin-binding protein 1"
+  ],
+  "entrez_id": "6812",
+  "ensembl_id": "ENSG00000136854",
+  "location": "9q34.11",
+  "locus_type": "gene with protein product",
+  "status": "Approved"
+ }
+]
