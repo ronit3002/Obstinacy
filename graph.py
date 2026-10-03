@@ -193,7 +193,67 @@ def main():
         data = nx.node_link_data(G)
     json.dump(data, open(PROC / "graph.json", "w"), indent=1)
     print(f"\nwrote {PROC/'graph.json'} and {PROC/'phenotype_similarity.csv'}")
+    G_gephi = G.copy()
 
+    for node, data in G_gephi.nodes(data=True):
+        for key, value in data.items():
+            if isinstance(value, (list, dict, tuple)):
+                data[key] = str(value)
+
+    for u, v, key, data in G_gephi.edges(keys=True, data=True):
+        for attr, value in data.items():
+            if isinstance(value, (list, dict, tuple)):
+                data[attr] = str(value)
+
+    nx.write_gexf(G_gephi, "graph.gexf")
+
+    # One-disease visualization
+    target_disease = "MONDO:0014505"
+
+    G_viz = G.copy()
+
+    # Keep the target disease and everything directly connected to it
+    neighbors = set(G_viz.neighbors(target_disease))
+    neighbors.add(target_disease)
+
+    G_viz = G_viz.subgraph(neighbors).copy()
+    # Set human-readable labels for Gephi
+    for node, data in G_viz.nodes(data=True):
+        node_type = data.get("type")
+
+        if node_type == "Disease":
+            # e.g. "developmental and epileptic encephalopathy 27"
+            data["label"] = data.get("name") or data.get("label") or node
+
+        elif node_type == "Gene":
+            # e.g. "GRIN2B"
+            data["label"] = data.get("symbol") or data.get("name") or data.get("label") or node
+
+        elif node_type == "Phenotype":
+            # e.g. "Epileptic seizure"
+            data["label"] = data.get("name") or data.get("label") or node
+
+        else:
+            data["label"] = data.get("name") or data.get("label") or node
+
+    # Convert complex attributes to strings for Gephi
+    for node, data in G_viz.nodes(data=True):
+        for key, value in data.items():
+            if isinstance(value, (list, dict, tuple)):
+                data[key] = str(value)
+
+    for u, v, key, data in G_viz.edges(keys=True, data=True):
+        for attr, value in data.items():
+            if isinstance(value, (list, dict, tuple)):
+                data[attr] = str(value)
+
+    nx.write_gexf(G_viz, "graph_GRIN2B.gexf")
+
+    print(
+        f"GRIN2B visualization: "
+        f"{G_viz.number_of_nodes()} nodes, "
+        f"{G_viz.number_of_edges()} edges"
+    )
 
 if __name__ == "__main__":
     main()
