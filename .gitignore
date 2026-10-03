@@ -9,6 +9,8 @@ env/
 *.har
 *.cache.json
 raresource_catalog.json
+nord_disease_slugs.json
+
 
 data/raw/
 .venv/

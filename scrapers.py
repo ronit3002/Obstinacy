@@ -11,6 +11,7 @@ import argparse
 import json
 from typing import Any, Dict, Optional
 
+from nord_scraper import NORDScraper
 from rareconnect_scraper import RareConnectScraper
 from raresource_scraper import RAReSourceScraper
 
@@ -19,24 +20,30 @@ def get_disease_knowledge_bundle(
     disease_name: str,
     include_posts: bool = True,
     posts_limit: int = 5,
+    include_nord_orgs: bool = True,
 ) -> Dict[str, Any]:
     """Retrieves an aggregated knowledge bundle combining clinical/genomic data
-    from RARe-SOURCE with patient community data from RareConnect.
+    from RARe-SOURCE, patient community data from RareConnect, and patient organization
+    contact profiles (name, address, website, phone, email, description) from NORD.
 
     Args:
         disease_name: Disease name or alias (e.g. 'Dravet syndrome', 'Cystic fibrosis').
         include_posts: Whether to include sample patient discussions from RareConnect.
         posts_limit: Maximum number of community posts to include.
+        include_nord_orgs: Whether to include NORD patient organizations with full contact details.
 
     Returns:
         Structured dictionary ready for graph ingestion or API consumers:
-          - disease: { name, gard_id, synonyms, database_ids }
+          - disease: { canonical_name, gard_id, synonyms, database_ids }
           - genes: [ { gene_symbol, hgnc_id, uniprot_id, description } ]
           - literature: [ { pmid, title, authors, journal, year } ]
           - patient_community: { name, slug, url, members, posts_count, discussions }
+          - patient_organizations: [ { name, adresse, website, nummer, email, description } ]
     """
     ra_client = RAReSourceScraper()
     rc_client = RareConnectScraper()
+    nord_client = NORDScraper()
+
 
     # 1. Fetch clinical / genomic data from RARe-SOURCE
     ra_data = ra_client.get_disease_details(disease_name)
@@ -80,6 +87,18 @@ def get_disease_knowledge_bundle(
             "sample_posts": posts,
         }
 
+    # 3. Fetch patient organizations from NORD (with contact details)
+    nord_orgs = []
+    if include_nord_orgs:
+        try:
+            lookup_name = ra_data.get("disease_name") or disease_name
+            nord_orgs = nord_client.get_organizations_for_disease(
+                lookup_name,
+                enrich_profiles=True,
+            )
+        except Exception as e:
+            pass
+
     return {
         "query": disease_name,
         "disease": {
@@ -91,7 +110,9 @@ def get_disease_knowledge_bundle(
         "genes": ra_data.get("genes", []),
         "literature": ra_data.get("literature", []),
         "patient_community": community_bundle,
+        "patient_organizations": nord_orgs,
     }
+
 
 
 def to_atlas_graph_nodes_and_edges(bundle: Dict[str, Any]) -> Dict[str, Any]:
@@ -197,7 +218,7 @@ def to_atlas_graph_nodes_and_edges(bundle: Dict[str, Any]) -> Dict[str, Any]:
             }
         )
 
-    # Patient Organization / Community
+    # Patient Organization / Community (RareConnect)
     comm = bundle.get("patient_community")
     if comm:
         org_id = f"PatientOrg:{comm.get('slug')}"
@@ -225,8 +246,38 @@ def to_atlas_graph_nodes_and_edges(bundle: Dict[str, Any]) -> Dict[str, Any]:
             }
         )
 
+    # Patient Organizations (NORD with full contact info)
+    import re
+    for org in bundle.get("patient_organizations", []):
+        name_slug = re.sub(r"[^a-zA-Z0-9]+", "-", org["name"].lower()).strip("-")
+        org_id = f"PatientOrg:nord:{name_slug}"
+        nodes.append(
+            {
+                "id": org_id,
+                "type": "PatientOrg",
+                "name": org["name"],
+                "url": org.get("website") or org.get("nord_url"),
+                "address": org.get("adresse", ""),
+                "phone": org.get("nummer", ""),
+                "email": org.get("email", ""),
+                "description": org.get("description", ""),
+            }
+        )
+        edges.append(
+            {
+                "src": disease_id,
+                "dst": org_id,
+                "rel": "REPRESENTED_BY",
+                "source": "NORD",
+                "source_tier": 3,
+                "retrieved": "2026-10-04",
+                "method": "curated_import",
+                "status": "observation",
+            }
+        )
 
     return {"nodes": nodes, "edges": edges}
+
 
 
 def main() -> None:

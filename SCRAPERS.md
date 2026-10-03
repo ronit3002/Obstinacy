@@ -8,9 +8,13 @@ This repository contains robust scrapers and API clients built from the network 
 2. **RareConnect (EURORDIS)** – [rareconnect_scraper.py](file:///Users/samuelschreiner/Desktop/hacknation031026/rareconnect_scraper.py)
    * Extracted from `rareconnect_search.har`
    * Provides international **patient advocacy communities** across **13 languages**, membership counts, descriptions, and **real-world patient discussions/posts**.
-3. **Unified Knowledge Pipeline** – [scrapers.py](file:///Users/samuelschreiner/Desktop/hacknation031026/scrapers.py)
-   * Combines clinical data with patient community data.
-   * Directly exports **Atlas Graph nodes and edges** (`Disease`, `Gene`, `Paper`, `PatientOrg`) conforming to the schema in [test.py](file:///Users/samuelschreiner/Desktop/hacknation031026/test.py).
+3. **NORD (National Organization for Rare Disorders)** – [nord_scraper.py](file:///Users/samuelschreiner/Desktop/hacknation031026/nord_scraper.py)
+   * Extracted from `rare_diseases_scraper.har`
+   * Request-based scraper that extracts **all patient organizations listed at the bottom of a rare disease report**, including: **name, adresse, website, nummer, email, and description**.
+4. **Unified Knowledge Pipeline** – [scrapers.py](file:///Users/samuelschreiner/Desktop/hacknation031026/scrapers.py)
+   * Combines clinical data with patient community and organization contact profiles.
+   * Directly exports **Atlas Graph nodes and edges** (`Disease`, `Gene`, `Paper`, `Claim`, `PatientOrg`) conforming to the schema in [test.py](file:///Users/samuelschreiner/Desktop/hacknation031026/test.py).
+
 
 ---
 
@@ -227,30 +231,114 @@ Retrieves community discussion threads, questions, and patient-reported outcomes
 
 ---
 
-## 4. Unified Knowledge Pipeline (`scrapers.py`)
+## 4. NORD Scraper (`nord_scraper.py`)
 
 ### Overview
-`scrapers.py` connects clinical/genomic data from RARe-SOURCE with patient community data from RareConnect, producing a single consolidated knowledge bundle.
+NORD (National Organization for Rare Disorders - `rarediseases.org`) publishes comprehensive reports on over **1,400 rare diseases**. At the bottom of each disease report (`<section data-id="orgs">`), NORD maintains a directory of **Patient Organizations** that support patients and families affected by the disease.
+
+[nord_scraper.py](file:///Users/samuelschreiner/Desktop/hacknation031026/nord_scraper.py) is a **request-based** client (using standard Python `requests` with zero heavy browser automation) that parses:
+1. All patient organizations listed at the bottom of the disease report.
+2. For each organization, performs an HTTP request to its profile page (`/organizations/.../`) to extract:
+   * **Name** (`name`): Full organization title
+   * **Adresse** (`adresse`): Physical / mailing address (street, city, state, ZIP)
+   * **Website** (`website`): Official external homepage URL
+   * **Nummer** (`nummer`): Telephone number / toll-free helpline
+   * **Email** (`email`): Decoded contact email (with Cloudflare `cfemail` deobfuscation)
+   * **Description** (`description`): Complete "About [Organization]" mission statement and description
+   * **NORD Profile** (`nord_url`): Canonical link on `rarediseases.org`
+   * **Related Diseases** (`related_diseases`): Other conditions supported by the organization
+
+* **Offline Support:** Automatically reads from `rare_diseases_scraper.har` when offline or when `--har` is specified.
+
+### Available Functions
+
+#### A. `get_organizations_for_disease(disease_query_or_url: str, enrich_profiles: bool = True) -> list[dict]`
+Scrapes all patient organizations for a given rare disease.
+
+* **What to put in:**
+  * `disease_query_or_url` (`str`): Disease name (e.g. `"Dravet syndrome"`), slug (e.g. `"dravet-syndrome-spectrum"`), or full NORD URL.
+  * `enrich_profiles` (`bool`, default `True`): Makes direct HTTP requests to individual organization profile pages to extract complete address, website, and description.
+
+* **What to expect as a response:**
+```json
+[
+  {
+    "name": "Dravet Syndrome Foundation, Inc.",
+    "adresse": "PO Box 3026 Cherry Hill, NJ",
+    "website": "https://www.dravetfoundation.org/",
+    "nummer": "203-392-1950",
+    "email": "info@dravetfoundation.org",
+    "description": "The Dravet Syndrome Foundation (DSF) is a volunteer-based, non-profit organization dedicated to raising research funds for Dravet syndrome and related conditions. Dravet syndrome is a rare and catastrophic form of epilepsy beginning in childhood.",
+    "nord_url": "https://rarediseases.org/organizations/dravet-syndrome-foundation-inc/",
+    "fax": "",
+    "related_diseases": [
+      "Dravet Syndrome"
+    ]
+  },
+  {
+    "name": "Epilepsy Foundation",
+    "adresse": "8301 Professional Place Landover, MD",
+    "website": "https://www.epilepsy.com/",
+    "nummer": "866-330-2718",
+    "email": "ContactUs@efa.org",
+    "description": "The Epilepsy Foundation (formerly the Epilepsy Foundation of America) is a non-profit organization with the goal of ensuring that people with seizures are able to participate in all life experiences...",
+    "nord_url": "https://rarediseases.org/organizations/epilepsy-foundation/",
+    "fax": "877-687-4878",
+    "related_diseases": [
+      "MEF2C Deficiency",
+      "KCNB1 Encephalopathy",
+      "Arginine: Glycine Amidinotransferase Deficiency"
+    ]
+  }
+]
+```
+
+#### B. `to_atlas_graph_patient_orgs(disease_node_id: str, organizations: list[dict]) -> dict`
+Recycles the scraped organization data directly into **Atlas Graph nodes and edges** conforming to the schema in [test.py](file:///Users/samuelschreiner/Desktop/hacknation031026/test.py):
+* Creates `PatientOrg` nodes with `address`, `phone`, `email`, `url`, and `description`.
+* Creates `(Disease) -[:REPRESENTED_BY {source_tier: 3, method: "curated_import"}]-> (PatientOrg)` edges.
+
+### CLI Usage
+```bash
+# Extract all patient organizations for Dravet Syndrome
+python3 nord_scraper.py "Dravet syndrome"
+
+# Output formatted JSON
+python3 nord_scraper.py "Dravet syndrome" --json
+
+# Output as Atlas Graph nodes & edges
+python3 nord_scraper.py "Dravet syndrome" --graph
+```
+
+---
+
+## 5. Unified Knowledge Pipeline (`scrapers.py`)
+
+### Overview
+`scrapers.py` connects clinical/genomic data from RARe-SOURCE, international patient community metrics from RareConnect, and detailed patient organization contact profiles from NORD into a single consolidated knowledge bundle.
 
 ### Python API Usage
 ```python
 from scrapers import get_disease_knowledge_bundle, to_atlas_graph_nodes_and_edges
 
-# 1. Fetch complete bundle
-bundle = get_disease_knowledge_bundle("Dravet syndrome", posts_limit=3)
+# 1. Fetch complete bundle (RARe-SOURCE + RareConnect + NORD)
+bundle = get_disease_knowledge_bundle("Dravet syndrome", posts_limit=3, include_nord_orgs=True)
 
-# 2. Inspect clinical & patient data
+# 2. Inspect clinical, community, and organization data
 print("Canonical Name:", bundle["disease"]["canonical_name"])
 print("GARD ID:", bundle["disease"]["gard_id"])
 print("Genes:", [g["gene_symbol"] for g in bundle["genes"]])
 print("PubMed PMIDs:", [p["pmid"] for p in bundle["literature"]])
-print("Community URL:", bundle["patient_community"]["url"])
-print("Community Members:", bundle["patient_community"]["total_members"])
+print("RareConnect Community:", bundle["patient_community"]["name"], f"({bundle['patient_community']['total_members']} members)")
+print(f"NORD Organizations ({len(bundle['patient_organizations'])}):")
+for org in bundle["patient_organizations"]:
+    print(f"  - {org['name']} | Phone: {org['nummer']} | Email: {org['email']} | Web: {org['website']}")
 
-# 3. Convert to Atlas Graph schema
+# 3. Convert to Atlas Graph schema (verified with 0 schema violations)
 graph = to_atlas_graph_nodes_and_edges(bundle)
 print(f"Generated {len(graph['nodes'])} nodes and {len(graph['edges'])} edges.")
 ```
+
 
 ### Graph Mapping to `test.py`
 The output of `to_atlas_graph_nodes_and_edges()` matches the exact schema defined in [test.py](file:///Users/samuelschreiner/Desktop/hacknation031026/test.py):
