@@ -459,7 +459,8 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
               </Section>
             )}
             {topVariants.length > 0 && (
-              <Section title="Top variants" count={topVariants.length}>
+              <Section title="Top variants" count={topVariants.length}
+                action={<MapToggle ids={topVariants.map((v) => v.id)} label="Show top 5 on map" />}>
                 {topVariants.map((v, i) => {
                   const protein = /\((p\.[^)]+)\)/.exec(v.name)?.[1]
                   const cdna = /:(c\.[^ ]+)/.exec(v.name)?.[1]
