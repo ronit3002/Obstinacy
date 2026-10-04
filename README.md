@@ -40,7 +40,9 @@ cd ui && npm install && npm run dev    # http://localhost:5173
 `data/raw/` is gitignored, so every teammate needs to run step 1 once to download the ontologies.
 
 `enrich.py` uses structured sources only (no LLM): ClinicalTrials.gov API v2, NIH RePORTER API v2, HGNC REST,
-and the repo's NORD, RareConnect and RARe-SOURCE scrapers. Every edge records its source, retrieval date and a
+Orphanet's patient-organisation directory (per Orpha code), and the repo's NORD, RareConnect and RARe-SOURCE
+scrapers. Orphanet attaches general rare-disease alliances to every disease; organisations listed for all seeds
+are marked `scope: umbrella` and never create links between diseases. GRIN1 and GRIN2D have no Orphanet entry. Every edge records its source, retrieval date and a
 `match_reason` (e.g. "lists Dravet syndrome", "mentions the gene CDKL5"). `export_ui_data.py` then adds
 `DISEASE_BRIDGE` links between diseases that share a gene family, trial, tested drug, NIH-funded investigator
 (matched on RePORTER profile ID, never on name) or patient organisation.

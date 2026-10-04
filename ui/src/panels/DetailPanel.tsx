@@ -9,6 +9,7 @@ import {
 } from '../graph/model'
 import type { Model } from '../graph/model'
 import { useStore } from '../store'
+import { LENSES, findNetEdge } from '../graph/lens'
 import type { GEdge, GNode } from '../types'
 import { TYPE_ICON, TypeTile } from '../ui/icons'
 import { Badge, Callout, Chip, Clamp, CopyId, More, Row, Section, Stat, Strength, Tabs } from '../ui/kit'
@@ -191,16 +192,71 @@ function TrialRows({ trials, limit = 5 }: { trials: GNode[]; limit?: number }) {
   )
 }
 
-function OrgRows({ orgs }: { orgs: GNode[] }) {
+const ORG_FOCUS_ORDER = ['Disease-specific', 'Epilepsy', 'Autism', 'Children & disability', 'Rare diseases (general)']
+
+function OrgRows({ orgs, m, self }: { orgs: GNode[]; m: Model; self?: string }) {
   const { reveal } = useStore()
+  const specific = orgs.filter((o) => o.scope !== 'umbrella')
+  const umbrella = orgs.filter((o) => o.scope === 'umbrella')
+  const groups = ORG_FOCUS_ORDER.map((f) => ({ f, items: specific.filter((o) => (o.focus ?? 'Disease-specific') === f) }))
+    .filter((g) => g.items.length)
+  const row = (o: GNode) => {
+    const others = neighbours(m, o.id, ['Disease']).filter((d) => d.node.id !== self)
+    return (
+      <Row key={o.id} leading={<TypeTile type="PatientOrg" />} title={o.name}
+        subtitle={[o.country, o.directory, o.members ? `${o.members} members` : null].filter(Boolean).join(' · ')}
+        trailing={others.length && o.scope !== 'umbrella'
+          ? <Badge color={TYPE_COLOR.PatientOrg}>+{others.length} disease{others.length > 1 ? 's' : ''}</Badge> : undefined}
+        onClick={() => reveal(o.id)} />
+    )
+  }
   return (
     <>
-      {orgs.map((o) => (
-        <Row key={o.id} leading={<TypeTile type="PatientOrg" />} title={o.name}
-          subtitle={`${String(o.org_kind ?? 'Patient group')} · ${String(o.directory ?? '')}${o.members ? ` · ${o.members} members` : ''}`}
-          onClick={() => reveal(o.id)} />
+      {groups.map((g) => (
+        <div key={g.f} className="mb-2">
+          <p className="mb-0.5 mt-1 text-[11px] font-semibold uppercase tracking-[0.05em] text-ink-3">{g.f} · {g.items.length}</p>
+          <More items={g.items} initial={4} wrap="" render={row} />
+        </div>
       ))}
+      {umbrella.length > 0 && (
+        <Section title="General rare-disease alliances" count={umbrella.length} defaultOpen={false}>
+          <p className="mb-1 text-[11.5px] leading-snug text-ink-3">National alliances that Orphanet lists for every rare disease. Useful contacts, but not a sign of shared biology.</p>
+          <More items={umbrella} initial={5} wrap="" render={row} />
+        </Section>
+      )}
     </>
+  )
+}
+
+/** Funding overview: total, ticket sizes and who receives the money (NIH RePORTER, latest fiscal year per project). */
+function FundingSummary({ grants }: { grants: GNode[] }) {
+  const amounts = grants.map((g) => Number(g.award_amount) || 0).filter((v) => v > 0).sort((a, b) => a - b)
+  if (!amounts.length) return null
+  const total = amounts.reduce((s, v) => s + v, 0)
+  const median = amounts[Math.floor(amounts.length / 2)]
+  const orgs = new Map<string, number>()
+  grants.forEach((g) => { const o = String(g.organization ?? 'Unknown'); orgs.set(o, (orgs.get(o) ?? 0) + (Number(g.award_amount) || 0)) })
+  const topOrgs = [...orgs.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4)
+  const max = topOrgs[0]?.[1] || 1
+  const years = grants.map((g) => Number(g.fiscal_year)).filter(Boolean)
+  return (
+    <div className="mb-3">
+      <div className="flex gap-2">
+        <Stat label="Total per year" value={money(total)} hint={`${amounts.length} projects`} color={TYPE_COLOR.Grant} />
+        <Stat label="Typical ticket" value={money(median)} hint="median award" />
+        <Stat label="Largest" value={money(amounts[amounts.length - 1])} hint={years.length ? `FY${Math.min(...years)}–${Math.max(...years)}` : ''} />
+      </div>
+      <p className="mb-1 mt-3 text-[11px] font-semibold uppercase tracking-[0.05em] text-ink-3">Where the money goes</p>
+      {topOrgs.map(([o, v]) => (
+        <div key={o} className="flex items-center gap-2 py-0.5 text-[12px]">
+          <span className="w-[46%] truncate text-ink-2" title={o}>{titleCase(o.toLowerCase())}</span>
+          <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-subtle">
+            <span className="block h-full rounded-full" style={{ width: `${(v / max) * 100}%`, background: TYPE_COLOR.Grant }} />
+          </span>
+          <span className="w-12 text-right tabular-nums text-ink-3">{money(v)}</span>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -284,7 +340,8 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
         <Stat label="Closest match" value={top ? nodeLabel(top.node) : '—'}
           hint={top ? <span className="inline-flex items-center gap-1.5"><Strength level={strengthOf(top.edge.score as number)} />{String(top.edge.connection_label)}</span> : 'none above threshold'} />
         <Stat label="Trials" value={trials.length} hint={`${trials.filter(isActiveTrial).length} active`} />
-        <Stat label="Groups" value={orgs.length} hint={orgs.length ? 'patient groups' : 'none found'} />
+        <Stat label="Funding / yr" value={money(grants.reduce((s, g) => s + (Number(g.award_amount) || 0), 0)) || '–'}
+          hint={`${grants.length} NIH projects`} color={TYPE_COLOR.Grant} />
       </div>
 
       <div className="mt-4"><Tabs value={tab} onChange={setTab} tabs={[
@@ -296,10 +353,10 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
         {tab === 'action' && (
           <>
             <Section title="Patient groups & communities" count={orgs.length}>
-              {orgs.length ? <OrgRows orgs={orgs} /> : (
+              {orgs.length ? <OrgRows orgs={orgs} m={m} self={n.id} /> : (
                 <Callout icon={<Info size={16} />} title="No patient group found yet" color="#8a94a6">
-                  None of the directories we searched (NORD, RareConnect) list a group for this disease. That does not
-                  mean none exists: gene-specific foundations are often missing from directories.
+                  None of the directories we searched (Orphanet, NORD, RareConnect) list a group for this disease. That
+                  does not mean none exists: gene-specific foundations are often missing from directories.
                 </Callout>
               )}
             </Section>
@@ -308,6 +365,7 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
               <p className="mt-2 text-[11.5px] text-ink-3">From ClinicalTrials.gov. A study counts if its conditions or title name this disease or its gene.</p>
             </Section>
             <Section title="Researchers & funding" count={grants.length}>
+              <FundingSummary grants={grants} />
               {grants.length ? <GrantRows grants={grants} m={m} /> : <p className="text-[13px] text-ink-3">No recent NIH-funded project mentions this gene.</p>}
               <p className="mt-2 text-[11.5px] text-ink-3">NIH RePORTER projects (2022–2026) whose text mentions {genes.map((g) => g.node.name).join(', ')}.</p>
             </Section>
@@ -382,7 +440,7 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
               <Row leading={<TypeTile type="Gene" />} title="HGNC" subtitle="Gene identity and aliases" />
               {papers.length > 0 && <Row leading={<TypeTile type="Paper" />} title="PubMed abstracts" subtitle="Claims extracted by an AI model with verbatim evidence" />}
               <Row leading={<TypeTile type="Study" />} title="ClinicalTrials.gov" subtitle={`${trials.length} studies`} />
-              <Row leading={<TypeTile type="PatientOrg" />} title="NORD · RareConnect" subtitle={`${orgs.length} patient groups`} />
+              <Row leading={<TypeTile type="PatientOrg" />} title="Orphanet · NORD · RareConnect" subtitle={`${orgs.length} patient groups`} />
               <Row leading={<TypeTile type="Grant" />} title="NIH RePORTER" subtitle={`${grants.length} funded projects`} />
             </Section>
             {reading.length > 0 && (
@@ -517,6 +575,7 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
               {diseases.length < 2 && <p className="mt-2 text-[11.5px] text-ink-3">No other mapped disease shares this gene.</p>}
             </Section>
             <Section title="NIH-funded research" count={grants.length}>
+              <FundingSummary grants={grants} />
               {grants.length ? <GrantRows grants={grants} m={m} /> : <p className="text-[13px] text-ink-3">No recent NIH project mentions this gene.</p>}
             </Section>
             <OtherConnections n={n} m={m} />
@@ -753,7 +812,14 @@ function StudyCard({ n, m }: { n: GNode; m: Model }) {
 function OrgCard({ n, m }: { n: GNode; m: Model }) {
   return (
     <>
-      <Header n={n} meta={<><Badge color={TYPE_COLOR.PatientOrg}>{String(n.org_kind ?? 'Patient group')}</Badge><Badge color="#64748b">{String(n.directory ?? '')}</Badge></>} />
+      <Header n={n} meta={<><Badge color={TYPE_COLOR.PatientOrg}>{String(n.focus ?? n.org_kind ?? 'Patient group')}</Badge>
+        <Badge color="#64748b">{String(n.directory ?? '')}</Badge>
+        {n.country ? <Badge color="#64748b">{[n.city, n.country].filter(Boolean).join(', ')}</Badge> : null}</>} />
+      {n.scope === 'umbrella' && (
+        <div className="mt-3"><Callout icon={<Info size={16} />} title="General rare-disease alliance" color="#8a94a6">
+          Orphanet lists this alliance for every rare disease, so it does not create a link between diseases here.
+        </Callout></div>
+      )}
       {n.members ? <div className="mt-4 flex gap-2"><Stat label="Members" value={String(n.members)} hint="on RareConnect" /></div> : null}
       <div className="mt-3">
         {typeof n.description === 'string' && n.description && <Section title="About"><Clamp>{n.description}</Clamp></Section>}
@@ -1127,6 +1193,57 @@ function BridgeCard({ e, m }: { e: GEdge; m: Model }) {
   )
 }
 
+function NetCard({ id, m }: { id: string; m: Model }) {
+  const { reveal, modes, minSim } = useStore()
+  const e = findNetEdge(m, modes, minSim, id)
+  if (!e) return <p className="text-[13px] text-ink-3">This connection is not part of the current selection anymore.</p>
+  const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
+  return (
+    <>
+      <p className="text-[12px] font-semibold text-[#4f46e5]">How these diseases connect</p>
+      <div className="mt-3 flex items-center gap-2">
+        {[a, b].map((x, i) => (
+          <div key={x.id} className="contents">
+            {i === 1 && (
+              <div className="flex flex-col items-center px-1">
+                <span className="text-[17px] font-semibold tabular-nums text-ink">{Math.round(e.strength * 100)}</span>
+                <span className="text-[10px] text-ink-3">strength</span>
+              </div>
+            )}
+            <button onClick={() => reveal(x.id)} className="card-shadow min-w-0 flex-1 rounded-xl bg-white p-3 text-left hover:shadow-md">
+              <span className="block h-2.5 w-2.5 rounded-full bg-disease" />
+              <span className="mt-2 block truncate text-[13.5px] font-semibold text-ink">{nodeLabel(x)}</span>
+              <span className="block truncate text-[11.5px] text-ink-3">{String(x.short ?? '')} gene</span>
+            </button>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-[12px] leading-snug text-ink-3">Combined from the connection kinds you selected, weighted by your sliders (0–100).</p>
+      <div className="mt-2">
+        {e.contributions.map((c) => {
+          const def = LENSES.find((l) => l.id === c.mode)!
+          const col = TYPE_COLOR[def.hubType]
+          return (
+            <Section key={c.mode} title={def.label} count={c.items.length}>
+              <div className="mb-2 flex items-center gap-2 text-[12px]">
+                <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-subtle">
+                  <span className="block h-full rounded-full" style={{ width: `${c.strength * 100}%`, background: col }} />
+                </span>
+                <span className="w-24 text-right text-ink-3">{Math.round(c.strength * 100)} · weight {Math.round((modes[c.mode] ?? 0) * 100)}</span>
+              </div>
+              {c.mode === 'symptoms'
+                ? <div className="flex flex-wrap gap-1.5">{c.items.map((x) => <Chip key={x.name} color={TYPE_COLOR.Phenotype}>{x.name}</Chip>)}</div>
+                : <More items={c.items} initial={5} wrap="" render={(x) => (
+                    <Row key={x.id} leading={<TypeTile type={def.hubType} />} title={x.name} onClick={() => reveal(x.id)} />
+                  )} />}
+            </Section>
+          )
+        })}
+      </div>
+    </>
+  )
+}
+
 function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
   const { reveal } = useStore()
   if (e.rel === 'DISEASE_MATCH') return <MatchCard e={e} m={m} />
@@ -1182,11 +1299,12 @@ export default function DetailPanel() {
   const prev = history.length ? history[history.length - 1].selected : null
   const prevNode = prev && model ? (prev.kind === 'node' ? model.nodes.get(prev.id) : model.edges.get(prev.id)) : null
   const sameCard = prev && selected && prev.kind === selected.kind && prev.id === selected.id
-  const prevLabel = sameCard ? 'Undo map change' : !prevNode ? '' : prev?.kind === 'node'
+  const prevLabel = sameCard ? 'Undo map change' : !prevNode ? (prev?.kind === 'edge' ? 'Connection' : 'Back') : prev?.kind === 'node'
     ? nodeLabel(prevNode as GNode) : 'Connection'
   const node = model && selected?.kind === 'node' ? model.nodes.get(selected.id) : null
   const edge = model && selected?.kind === 'edge' ? model.edges.get(selected.id) : null
-  const open = !!(node || edge)
+  const netId = selected?.kind === 'edge' && selected.id.startsWith('NET:') ? selected.id : null
+  const open = !!(node || edge || netId)
 
   return (
     <AnimatePresence>
@@ -1226,6 +1344,7 @@ export default function DetailPanel() {
                 {node?.type === 'Mechanism' && <MechanismCard n={node} m={model} />}
                 {node && !SPECIAL.includes(node.type) && <GenericCard n={node} m={model} />}
                 {edge && <EdgeCard e={edge} m={model} />}
+                {netId && <NetCard id={netId} m={model} />}
               </motion.div>
             </AnimatePresence>
           </div>

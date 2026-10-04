@@ -1,62 +1,78 @@
 import { Layers, Map as MapIcon } from 'lucide-react'
-import { motion } from 'motion/react'
 import { useMemo } from 'react'
-import { LENSES, lensCounts, lensView } from '../graph/lens'
+import { LENSES, modeCounts, networkView } from '../graph/lens'
+import type { LensId } from '../graph/lens'
 import { TYPE_COLOR, nodeLabel } from '../graph/model'
 import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { cx } from '../ui/kit'
 
-/** Left-hand "Explore connections" panel: pick one kind of link and see only how diseases connect through it. */
+const strengthWord = (w: number) => (w >= 0.8 ? 'Strong' : w >= 0.45 ? 'Normal' : 'Weak')
+
+/**
+ * "Explore connections": switch on one or more kinds of connection and set how much each one counts.
+ * The map then shows only the diseases, linked by the blended strength of the selected kinds.
+ */
 export default function LensPanel() {
-  const { model, lens, setLens, lensSharedOnly, setLensSharedOnly, minSim } = useStore()
-  const counts = useMemo(() => (model ? lensCounts(model) : null), [model])
-  const view = useMemo(() => (model && lens ? lensView(model, lens, lensSharedOnly, minSim) : null), [model, lens, lensSharedOnly, minSim])
+  const { model, modes, toggleMode, setModeWeight, clearModes, showHubs, setShowHubs, minSim } = useStore()
+  const counts = useMemo(() => (model ? modeCounts(model) : null), [model])
+  const active = Object.keys(modes) as LensId[]
+  const view = useMemo(() => (model && active.length ? networkView(model, modes, false, minSim) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [model, modes, minSim])
   if (!model || !counts) return null
-  const active = LENSES.find((l) => l.id === lens)
 
   return (
-    <div className="glass absolute left-4 top-[84px] z-20 hidden w-[232px] rounded-2xl p-2 lg:block">
+    <div className="glass scroll-thin absolute left-4 top-[84px] z-20 hidden max-h-[calc(100dvh-200px)] w-[252px] overflow-y-auto rounded-2xl p-2 lg:block">
       <p className="flex items-center gap-1.5 px-2 pb-1.5 pt-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-ink-3">
         <Layers size={12} /> Explore connections
       </p>
-      <button onClick={() => setLens(null)}
-        className={cx('relative flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-[13px] font-medium',
-          !lens ? 'text-ink' : 'text-ink-2 hover:bg-black/[0.03]')}>
-        {!lens && <motion.span layoutId="lens-pill" className="absolute inset-0 rounded-xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.08)]" transition={{ type: 'spring', stiffness: 500, damping: 38 }} />}
-        <MapIcon size={15} className="relative text-ink-3" /><span className="relative">Full map</span>
+      <button onClick={clearModes}
+        className={cx('flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-[13px] font-medium',
+          !active.length ? 'bg-white text-ink shadow-[0_1px_2px_rgba(15,23,42,0.08)]' : 'text-ink-2 hover:bg-black/[0.03]')}>
+        <MapIcon size={15} className="text-ink-3" /> Diseases only
       </button>
+      <p className="px-2.5 pb-1 pt-2 text-[11.5px] leading-snug text-ink-3">Connect the diseases by (pick one or more):</p>
       {LENSES.map((l) => {
         const Icon = TYPE_ICON[l.hubType]
         const c = TYPE_COLOR[l.hubType]
-        const on = lens === l.id
+        const w = modes[l.id]
+        const on = w !== undefined
         const n = counts[l.id]
         return (
-          <button key={l.id} onClick={() => setLens(l.id)} title={l.hint}
-            className={cx('relative flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-[13px] font-medium',
-              on ? 'text-ink' : 'text-ink-2 hover:bg-black/[0.03]', !n && 'opacity-50')}>
-            {on && <motion.span layoutId="lens-pill" className="absolute inset-0 rounded-xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.08)]" transition={{ type: 'spring', stiffness: 500, damping: 38 }} />}
-            <span className="relative flex h-5 w-5 items-center justify-center rounded-md" style={{ background: c + '1a', color: c }}>
-              {Icon && <Icon size={12} strokeWidth={2.4} />}
-            </span>
-            <span className="relative flex-1">{l.label}</span>
-            <span className="relative text-[11.5px] tabular-nums text-ink-3">{n}</span>
-          </button>
+          <div key={l.id} className={cx('rounded-xl', on && 'bg-white shadow-[0_1px_2px_rgba(15,23,42,0.08)]')}>
+            <button onClick={() => toggleMode(l.id)} title={l.hint} disabled={!n}
+              className={cx('flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-[13px] font-medium',
+                on ? 'text-ink' : 'text-ink-2 hover:bg-black/[0.03]', !n && 'cursor-not-allowed opacity-45')}>
+              <span className={cx('flex h-4 w-4 shrink-0 items-center justify-center rounded border text-[10px] font-bold',
+                on ? 'border-transparent text-white' : 'border-[#c9d1de] text-transparent')}
+                style={on ? { background: c } : undefined}>✓</span>
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md" style={{ background: c + '1a', color: c }}>
+                {Icon && <Icon size={12} strokeWidth={2.4} />}
+              </span>
+              <span className="flex-1">{l.label}</span>
+              <span className="text-[11.5px] tabular-nums text-ink-3" title="disease pairs connected this way">{n}</span>
+            </button>
+            {on && (
+              <div className="flex items-center gap-2 px-2.5 pb-2.5 pl-[38px]">
+                <input type="range" min={0.1} max={1} step={0.05} value={w} aria-label={`${l.label} weight`}
+                  onChange={(e) => setModeWeight(l.id, parseFloat(e.target.value))} className="w-full" style={{ accentColor: c }} />
+                <span className="w-12 text-right text-[11px] font-medium text-ink-3">{strengthWord(w!)}</span>
+              </div>
+            )}
+          </div>
         )
       })}
 
-      {active && view && (
+      {view && (
         <div className="mt-1.5 border-t border-line px-2.5 pb-1 pt-2.5">
-          <p className="text-[12px] leading-snug text-ink-2">{active.hint}</p>
-          {active.id !== 'symptoms' && (
-            <label className="mt-2 flex cursor-pointer items-center gap-2 text-[12px] text-ink-2">
-              <input type="checkbox" checked={lensSharedOnly} onChange={(e) => setLensSharedOnly(e.target.checked)} />
-              Only links shared by 2+ diseases
-            </label>
-          )}
+          <label className="flex cursor-pointer items-center gap-2 text-[12px] text-ink-2">
+            <input type="checkbox" checked={showHubs} onChange={(e) => setShowHubs(e.target.checked)} />
+            Show what connects them
+          </label>
           <p className="mt-2 text-[11.5px] leading-snug text-ink-3">
-            {view.hubs} {active.id === 'symptoms' ? 'matches' : 'connecting ' + active.label.toLowerCase()}
-            {view.unconnected.length > 0 && <> · not connected this way: {view.unconnected.map((d) => nodeLabel(d)).join(', ')}</>}
+            Thicker, closer lines = stronger combined connection. {view.netEdges.length} disease pairs linked.
+            {view.unconnected.length > 0 && <> Not connected this way: {view.unconnected.map((d) => nodeLabel(d)).join(', ')}.</>}
           </p>
         </div>
       )}

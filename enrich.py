@@ -196,6 +196,43 @@ def rareconnect_communities(d, gene):
     return hits
 
 
+BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                             "(KHTML, like Gecko) Chrome/126 Safari/537.36"}
+# Orpha codes for seeds whose MONDO record has no Orphanet xref (looked up via api.orphacode.org).
+ORPHA_FALLBACK = {
+    "MONDO:0014505": ("589547", "GRIN2B-related developmental delay, intellectual disability and autism spectrum disorder"),
+}
+
+
+def orpha_code(d):
+    for x in d.get("xrefs", []):
+        if x.upper().startswith(("ORPHA:", "ORPHANET:")):
+            return x.split(":", 1)[1], None
+    return ORPHA_FALLBACK.get(d["id"], (None, None))
+
+
+def orphanet_orgs(code, name):
+    """Patient organisations Orphanet lists for one disease (all countries)."""
+    import html as htmlmod
+
+    def fetch():
+        r = requests.get("https://www.orpha.net/en/patient-organisations",
+                         params={"orphaCode": code, "diseaseName": name}, headers=BROWSER_UA, timeout=60)
+        r.raise_for_status()
+        return r.text
+    page = cached("orphanet_orgs", code, fetch)
+    orgs = {}
+    # each result card: country / region / city block, then the organisation link
+    for m in re.finditer(r'(?s)<div class="fw-bold">([^<]+)</div>(.*?)href="/en/patient-organisations/patient/(\d+)[^"]*">\s*([^<]+?)\s*</a>', page):
+        country, block, oid, oname = m.groups()
+        if oid in orgs:
+            continue
+        places = [htmlmod.unescape(p).strip() for p in re.findall(r"<div>([^<]+)</div>", block)]
+        orgs[oid] = {"id": oid, "name": htmlmod.unescape(oname).strip(), "country": country.strip().title(),
+                     "city": (places[-1].title() if places else "")}
+    return list(orgs.values())
+
+
 def gard_info(d):
     try:
         from raresource_scraper import RAReSourceScraper
@@ -392,7 +429,23 @@ def main():
                        description=(c.get("description") or "")[:700], members=c.get("total_members"),
                        org_kind="Online patient community", directory="RareConnect (EURORDIS)")
             edge(d["id"], oid, "REPRESENTED_BY", "RareConnect", 3, match_reason="community name matches the disease")
-        print(f"  patient groups: NORD {len(orgs)} ({nord_note}), RareConnect {len(comms)}")
+        code, closest = orpha_code(d)
+        orpha = []
+        if code:
+            try:
+                orpha = orphanet_orgs(code, d["name"])
+            except Exception as e:
+                log.append(f"{label}: Orphanet failed ({type(e).__name__})")
+        for o in orpha:
+            oid = node(f"ORG:orphanet:{o['id']}", "PatientOrg", name=o["name"],
+                       url=f"https://www.orpha.net/en/patient-organisations/patient/{o['id']}",
+                       country=o["country"], city=o["city"], org_kind="Patient organisation",
+                       directory="Orphanet")
+            why = f"Orphanet lists it for ORPHA:{code}" + (f" ({closest}, closest Orphanet entry)" if closest else "")
+            edge(d["id"], oid, "REPRESENTED_BY", "Orphanet", 3, match_reason=why)
+        if not code:
+            log.append(f"{label}: no Orphanet entry, so no Orphanet patient organisations")
+        print(f"  patient groups: NORD {len(orgs)} ({nord_note}), RareConnect {len(comms)}, Orphanet {len(orpha)}")
         if not orgs:
             log.append(f"{label}: no NORD organisations ({nord_note})")
 
@@ -443,6 +496,29 @@ def main():
                         url=f"https://www.genenames.org/data/genegroup/#!/group/{gid_num}")
             edge(gene["id"], ggid, "MEMBER_OF", "HGNC", 1, match_reason="HGNC gene group membership")
         print(f"  gene groups: {[n for _, n in groups]}")
+
+    # Patient-organisation scope: Orphanet attaches general rare-disease alliances to every disease, so an
+    # organisation listed for *all* Orphanet-covered seeds says nothing specific and must not link diseases.
+    orpha_seeds = {d["id"] for d in diseases if orpha_code(d)[0]}
+    org_diseases = {}
+    for e in edges:
+        if e["rel"] == "REPRESENTED_BY":
+            org_diseases.setdefault(e["target"], set()).add(e["source"])
+    FOCUS = [("Disease-specific", r"grin|cdkl5|stxbp1|dravet|scn\d|rett|syngap|neurotransmi"),
+             ("Epilepsy", r"epilep|epiless|epilepsi|sudep|seizure"),
+             ("Autism", r"autis|asperger"),
+             ("Rare diseases (general)", r"rare|raras|rares|seltene|harvinai|alliance|alianza|genetic|orphan")]
+    for oid, ds in org_diseases.items():
+        n = nodes[oid]
+        n["focus"] = next((f for f, pat in FOCUS if re.search(pat, n["name"], re.I)), "Children & disability")
+        if n.get("directory") == "Orphanet" and len(orpha_seeds) > 2 and orpha_seeds <= ds:
+            n["scope"] = "umbrella"
+        else:
+            n["scope"] = "shared" if len(ds) > 1 else "specific"
+    scopes = {}
+    for oid in org_diseases:
+        scopes[nodes[oid]["scope"]] = scopes.get(nodes[oid]["scope"], 0) + 1
+    print(f"\n== patient organisations by scope: {scopes}")
 
     # Curated mechanisms with verbatim PubMed quotes (papers already in graph.json keep their node id)
     existing_papers = {n.get("source_id"): n["id"] for n in g["nodes"] if n["type"] == "Paper" and n.get("source_id")}

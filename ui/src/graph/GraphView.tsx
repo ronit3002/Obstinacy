@@ -6,7 +6,7 @@ import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { TYPE_COLOR, nodeLabel, nodeSubtitle } from './model'
 import { drawBlueprint } from './blueprint'
-import { LENSES, lensView } from './lens'
+import { LENSES, networkView } from './lens'
 
 cytoscape.use(fcose)
 
@@ -36,6 +36,11 @@ const style: cytoscape.StylesheetJson = [
   // connection lens: disease -- hub edges coloured like the hub type
   { selector: 'edge[rel="LENS"]', style: { 'line-color': 'data(color)', width: 2, opacity: 0.5 } },
   { selector: 'edge[rel="LENS"].hi', style: { opacity: 0.95 } },
+  // combined connection between two diseases: thicker and more opaque = stronger
+  { selector: 'edge[rel="NET"]', style: {
+      'curve-style': 'unbundled-bezier', 'control-point-distances': [22], 'control-point-weights': [0.5],
+      'line-color': '#6366f1', width: 'mapData(strength, 0, 1, 1.5, 11)', opacity: 'mapData(strength, 0, 1, 0.25, 0.8)' } as never },
+  { selector: 'edge[rel="NET"].hi', style: { opacity: 0.95, 'line-color': '#4f46e5' } },
   { selector: 'edge[rel="DISCUSSES"]', style: { 'line-color': '#94a3b8', 'line-style': 'dashed', 'line-dash-pattern': [3, 4] } as never },
   { selector: 'edge.faded', style: { opacity: 0.05 } },
   // weak links stay in the layout (so similar diseases still sit closer) but are invisible
@@ -51,7 +56,7 @@ export default function GraphView() {
   const cyRef = useRef<cytoscape.Core | null>(null)
   const els = useRef(new Map<string, NodeEls>())
   const [ids, setIds] = useState<string[]>([])
-  const { model, visible, minSim, showBridges, layoutTick, focusTick, selected, lens, lensSharedOnly } = useStore()
+  const { model, visible, minSim, showBridges, layoutTick, focusTick, selected, modes, showHubs } = useStore()
   const mode = useRef('map')
 
   /** Move every HTML node to its Cytoscape position; redraw the warped grid underneath. */
@@ -118,9 +123,12 @@ export default function GraphView() {
     const cy = cyRef.current
     if (!cy || !model) return
     const added: string[] = []
-    const view = lens ? lensView(model, lens, lensSharedOnly, minSim) : null
-    const key = lens ? `${lens}:${lensSharedOnly}:${lens === 'symptoms' ? minSim : ''}` : 'map'
-    if (key !== mode.current) { cy.elements().remove(); mode.current = key }  // switching view starts fresh
+    const activeModes = Object.keys(modes).filter((k) => (modes as Record<string, number>)[k] > 0).sort()
+    const view = activeModes.length ? networkView(model, modes, showHubs, minSim) : null
+    // switching between map and network (or changing which modes are on) starts a fresh layout;
+    // moving a weight slider only re-weights the edges and relaxes the existing layout
+    const key = view ? `net:${activeModes.join(',')}:${showHubs}:${minSim}` : 'map'
+    if (key !== mode.current) { cy.elements().remove(); mode.current = key }
     const want = view ? view.nodes : visible
     cy.batch(() => {
       cy.nodes().forEach((n) => { if (!want.has(n.id())) n.remove() })
@@ -136,12 +144,17 @@ export default function GraphView() {
         added.push(id)
       }
       if (view) {
-        const hubColor = TYPE_COLOR[LENSES.find((l) => l.id === lens)!.hubType] ?? '#94a3b8'
-        for (const e of view.edges) {
+        const keep = new Set(view.netEdges.map((e) => e.id))
+        cy.edges('[rel="NET"]').forEach((e) => { if (!keep.has(e.id())) e.remove() })
+        for (const e of view.netEdges) {
+          const el = cy.getElementById(e.id)
+          if (el.nonempty()) el.data('strength', e.strength)
+          else cy.add({ group: 'edges', data: { id: e.id, source: e.source, target: e.target, rel: 'NET', strength: e.strength } })
+        }
+        for (const e of view.hubEdges) {
           if (cy.getElementById(e.id).nonempty()) continue
-          cy.add({ group: 'edges', data: e.real
-            ? { id: e.id, source: e.source, target: e.target, rel: 'DISEASE_MATCH', status: 'inference', score: e.score ?? 0 }
-            : { id: e.id, source: e.source, target: e.target, rel: 'LENS', color: hubColor, via: e.via } })
+          const color = TYPE_COLOR[LENSES.find((l) => l.id === e.mode)!.hubType] ?? '#94a3b8'
+          cy.add({ group: 'edges', data: { id: e.id, source: e.source, target: e.target, rel: 'LENS', color, via: e.via } })
         }
       }
       for (const id of view ? [] : visible) {
@@ -155,19 +168,21 @@ export default function GraphView() {
       }
     })
     setIds(cy.nodes().map((n) => n.id()))
-    if (!added.length) return
+    if (!added.length && !view) return
 
     const first = added.length === want.size
     const layout = cy.layout({ name: 'fcose', animate: false, randomize: false, fit: false,
       nodeRepulsion: () => 32000, nodeSeparation: 150, quality: 'proof', gravity: 0.15,
       // similar diseases pull together (short ideal length), dissimilar ones drift apart
       idealEdgeLength: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 540 - 11 * e.data('score') : e.data('rel') === 'DISEASE_BRIDGE' ? 420
-        : e.data('rel') === 'MEMBER_OF' ? 110 : e.data('rel') === 'LENS' ? 150 : 80),
-      edgeElasticity: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 0.2 + e.data('score') / 100 : e.data('rel') === 'DISEASE_BRIDGE' ? 0.12 : 0.6),
+        : e.data('rel') === 'MEMBER_OF' ? 110 : e.data('rel') === 'LENS' ? 150
+        : e.data('rel') === 'NET' ? 460 - 340 * e.data('strength') : 80),
+      edgeElasticity: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 0.2 + e.data('score') / 100 : e.data('rel') === 'DISEASE_BRIDGE' ? 0.12
+        : e.data('rel') === 'NET' ? 0.1 + 0.6 * e.data('strength') : 0.6),
     } as never)
     layout.one('layoutstop', () => {
-      if (view) {  // lens overviews keep fcose's positions
-        cy.fit(cy.elements(), Math.min(130, cy.width() * 0.12))
+      if (view) {  // connection views keep fcose's positions
+        if (added.length) cy.fit(cy.elements(), Math.min(130, cy.width() * 0.12))
         place()
         return
       }
@@ -202,7 +217,7 @@ export default function GraphView() {
       place()
     })
     layout.run()
-  }, [model, visible, layoutTick, lens, lensSharedOnly, minSim])
+  }, [model, visible, layoutTick, modes, showHubs, minSim])
 
   useLayoutEffect(place, [ids])
 

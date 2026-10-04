@@ -342,7 +342,8 @@ def add_disease_bridges(nodes, edges, diseases, today):
             "shared_studies": studies,
             "shared_interventions": {i for s in studies for i in out[s]["TESTS"]},
             "shared_researchers": {r for g in grants for r in inc[g]["LEADS"]},
-            "shared_orgs": out[did]["REPRESENTED_BY"],
+            # umbrella alliances (listed for every disease) are not a meaningful overlap
+            "shared_orgs": {o for o in out[did]["REPRESENTED_BY"] if by_id[o].get("scope") != "umbrella"},
         }
 
     n = 0

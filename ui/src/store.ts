@@ -1,14 +1,14 @@
 import { create } from 'zustand'
 import type { Model } from './graph/model'
 import { neighbours, other } from './graph/model'
-import type { LensId } from './graph/lens'
+import type { LensId, ModeWeights } from './graph/lens'
 
 export type Selection = { kind: 'node' | 'edge'; id: string } | null
 
 export const DEFAULT_MIN_SIM = 24 // DISEASE_MATCH score (0-100)
 
 /** One step of card navigation: what was selected and which nodes were on the map. */
-type Snapshot = { selected: Selection; visible: Set<string> }
+type Snapshot = { selected: Selection; visible: Set<string>; modes: ModeWeights; showHubs: boolean }
 const MAX_HISTORY = 60
 
 interface State {
@@ -20,10 +20,12 @@ interface State {
   minSim: number
   showBridges: boolean
   setShowBridges: (v: boolean) => void
-  lens: LensId | null          // overview: diseases connected through one kind of link only
-  lensSharedOnly: boolean
-  setLens: (l: LensId | null) => void
-  setLensSharedOnly: (v: boolean) => void
+  modes: ModeWeights           // active connection modes and their weights (empty = full map)
+  showHubs: boolean            // in the connection view, also draw the connecting drugs, trials, ...
+  toggleMode: (l: LensId) => void
+  setModeWeight: (l: LensId, w: number) => void
+  clearModes: () => void
+  setShowHubs: (v: boolean) => void
   focusTick: number
   layoutTick: number
   setModel: (m: Model) => void
@@ -46,23 +48,12 @@ const DETAIL = new Set(['Phenotype', 'Variant', 'Claim', 'Researcher', 'Interven
 const expandable = (m: Model, id: string) =>
   neighbours(m, id).filter((x) => !DETAIL.has(x.node.type)).map((x) => x.node.id)
 
-/** Start view: every disease with its gene(s), pipeline papers, mechanisms and shared gene families. */
+/** Start view: only the diseases. Genes, mechanisms and the rest appear when a disease is opened. */
 const seedSet = (m: Model) => {
   const s = new Set<string>()
   for (const n of m.nodes.values()) {
     if (n.type !== 'Disease' || n.paper_scoped) continue // paper-only names are not real diseases
     s.add(n.id)
-    neighbours(m, n.id, ['Gene']).forEach((g) => s.add(g.node.id))
-    // mechanisms shared by 2+ diseases are the cross-disease story; disease-specific ones appear on tap
-    neighbours(m, n.id, ['Mechanism']).forEach((x) => {
-      if (new Set(neighbours(m, x.node.id, ['Disease']).map((d) => d.node.id)).size > 1) s.add(x.node.id)
-    })
-    // papers that were read by the pipeline; papers only cited as mechanism evidence stay in the cards
-    neighbours(m, n.id, ['Paper']).forEach((p) => { if (p.node.role !== 'mechanism evidence') s.add(p.node.id) })
-    // gene families shared by 2+ mapped genes make 'different names, same receptor' visible from the start
-    neighbours(m, n.id, ['Gene']).forEach((g) => neighbours(m, g.node.id, ['GeneGroup']).forEach((x) => {
-      if (neighbours(m, x.node.id, ['Gene']).length > 1) s.add(x.node.id)
-    }))
   }
   return s
 }
@@ -70,8 +61,8 @@ const seedSet = (m: Model) => {
 export const useStore = create<State>((set, get) => {
   /** Remember the current step so `back` can return to it (and drop whatever the next step adds). */
   const push = () => {
-    const { selected, visible, history } = get()
-    set({ history: [...history, { selected, visible }].slice(-MAX_HISTORY) })
+    const { selected, visible, history, modes, showHubs } = get()
+    set({ history: [...history, { selected, visible, modes, showHubs }].slice(-MAX_HISTORY) })
   }
   const bump = () => get().layoutTick + 1
 
@@ -84,10 +75,17 @@ export const useStore = create<State>((set, get) => {
     minSim: DEFAULT_MIN_SIM,
     showBridges: false,  // the shared-asset lines are one click away (toggle or lens)
     setShowBridges: (showBridges) => set({ showBridges }),
-    lens: null,
-    lensSharedOnly: true,
-    setLens: (lens) => set({ lens, selected: null, history: [], layoutTick: bump() }),
-    setLensSharedOnly: (lensSharedOnly) => set({ lensSharedOnly, layoutTick: bump() }),
+    modes: {},
+    showHubs: false,
+    toggleMode: (l) => {
+      const modes = { ...get().modes }
+      if (modes[l]) delete modes[l]
+      else modes[l] = 0.5
+      set({ modes, selected: null, history: [], layoutTick: bump() })
+    },
+    setModeWeight: (l, w) => set({ modes: { ...get().modes, [l]: w }, layoutTick: bump() }),
+    clearModes: () => set({ modes: {}, selected: null, history: [], layoutTick: bump() }),
+    setShowHubs: (showHubs) => set({ showHubs, layoutTick: bump() }),
     focusTick: 0,
     layoutTick: 0,
 
@@ -120,8 +118,18 @@ export const useStore = create<State>((set, get) => {
       const { history } = get()
       if (!history.length) return
       const prev = history[history.length - 1]
-      set({ selected: prev.selected, visible: prev.visible, history: history.slice(0, -1), layoutTick: bump() })
-      if (!prev.selected) set({ history: [] })
+      const { model } = get()
+      let visible = prev.visible
+      // the card we return to must be on the map, whatever view it was opened from
+      const sel = prev.selected
+      if (model && sel?.kind === 'node' && !Object.keys(prev.modes).length && !visible.has(sel.id)) {
+        visible = new Set(visible)
+        visible.add(sel.id)
+        neighbours(model, sel.id).slice(0, 12).forEach((x) => visible.add(x.node.id))
+      }
+      set({ selected: sel, visible, modes: prev.modes, showHubs: prev.showHubs, history: history.slice(0, -1),
+            focusTick: get().focusTick + 1, layoutTick: bump() })
+      if (!sel) set({ history: [] })
     },
 
     /** Close the card: the map returns to how it was before the first card was opened. */
@@ -181,12 +189,12 @@ export const useStore = create<State>((set, get) => {
 
     /** Make any node visible (e.g. from search) together with enough context to connect it. */
     reveal: (id) => {
-      const { model, visible, lens } = get()
+      const { model, visible, modes } = get()
       if (!model) return
       const n = model.nodes.get(id)!
-      if (lens) set({ history: [] })  // leaving an overview starts a fresh trail on the full map
-      push()
-      const next = new Set(lens ? get().seeds : visible)
+      const fromOverview = Object.keys(modes).length > 0
+      push()  // the snapshot keeps the overview, so Back returns to it
+      const next = new Set(fromOverview ? get().seeds : visible)
       next.add(id)
       if (n.type === 'Variant') {
         for (const x of neighbours(model, id, ['Gene'])) next.add(x.node.id)
@@ -198,14 +206,14 @@ export const useStore = create<State>((set, get) => {
       if (!neighbours(model, id).some((x) => next.has(x.node.id))) {
         neighbours(model, id).slice(0, 12).forEach((x) => next.add(x.node.id))
       }
-      set({ lens: null, visible: next, selected: { kind: 'node', id }, focusTick: get().focusTick + 1, layoutTick: bump() })
+      set({ modes: {}, visible: next, selected: { kind: 'node', id }, focusTick: get().focusTick + 1, layoutTick: bump() })
     },
 
     reset: () => {
       const { model } = get()
       if (!model) return
       const seeds = seedSet(model)
-      set({ visible: new Set(seeds), seeds, selected: null, history: [], minSim: DEFAULT_MIN_SIM, lens: null, layoutTick: bump() })
+      set({ visible: new Set(seeds), seeds, selected: null, history: [], minSim: DEFAULT_MIN_SIM, modes: {}, layoutTick: bump() })
     },
   }
 })
