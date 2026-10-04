@@ -1,0 +1,871 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-10-04">
+    <creator>NetworkX 3.7</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="12" title="rel" type="string" />
+      <attribute id="13" title="source" type="string" />
+      <attribute id="14" title="source_tier" type="long" />
+      <attribute id="15" title="retrieved" type="string" />
+      <attribute id="16" title="status" type="string" />
+      <attribute id="17" title="method" type="string" />
+      <attribute id="18" title="evidence" type="string" />
+      <attribute id="19" title="networkx_key" type="string" />
+      <attribute id="20" title="score" type="double" />
+      <attribute id="21" title="connection_type" type="string" />
+      <attribute id="22" title="evidence_quality" type="double" />
+      <attribute id="23" title="confidence" type="string" />
+      <attribute id="24" title="why_connected" type="string" />
+      <attribute id="25" title="shared_phenotypes" type="string" />
+      <attribute id="26" title="informative_shared_phenotypes" type="string" />
+      <attribute id="27" title="shared_genes" type="string" />
+      <attribute id="28" title="shared_mechanisms" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="type" type="string" />
+      <attribute id="1" title="name" type="string" />
+      <attribute id="2" title="node_type" type="string" />
+      <attribute id="3" title="selected" type="boolean" />
+      <attribute id="4" title="hgnc_id" type="string" />
+      <attribute id="5" title="full_name" type="string" />
+      <attribute id="6" title="aliases" type="string" />
+      <attribute id="7" title="entrez_id" type="string" />
+      <attribute id="8" title="synonyms" type="string" />
+      <attribute id="9" title="xrefs" type="string" />
+      <attribute id="10" title="definition" type="string" />
+      <attribute id="11" title="short" type="string" />
+    </attributes>
+    <nodes>
+      <node id="HP:0001344" label="Absent speech">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Absent speech" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0200134" label="Epileptic encephalopathy">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Epileptic encephalopathy" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001763" label="Pes planus">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Pes planus" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HGNC:4588" label="GRIN2D">
+        <attvalues>
+          <attvalue for="0" value="Gene" />
+          <attvalue for="1" value="GRIN2D" />
+          <attvalue for="4" value="HGNC:4588" />
+          <attvalue for="5" value="glutamate ionotropic receptor NMDA type subunit 2D" />
+          <attvalue for="6" value="['EB11', 'GluN2D', 'N-methyl-d-aspartate receptor subunit 2D', 'NMDAR2D', 'NR2D', 'glutamate receptor, ionotropic, N-methyl D-aspartate 2D']" />
+          <attvalue for="7" value="2906" />
+          <attvalue for="2" value="Gene" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001336" label="Myoclonus">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Myoclonus" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0012469" label="Infantile spasms">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Infantile spasms" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001250" label="Seizure">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Seizure" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HGNC:4586" label="GRIN2B">
+        <attvalues>
+          <attvalue for="0" value="Gene" />
+          <attvalue for="1" value="GRIN2B" />
+          <attvalue for="4" value="HGNC:4586" />
+          <attvalue for="5" value="glutamate ionotropic receptor NMDA type subunit 2B" />
+          <attvalue for="6" value="['GluN2B', 'NMDAR2B', 'NR2B', 'glutamate receptor, ionotropic, N-methyl D-aspartate 2B']" />
+          <attvalue for="7" value="2904" />
+          <attvalue for="2" value="Gene" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002069" label="Bilateral tonic-clonic seizure">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Bilateral tonic-clonic seizure" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001252" label="Hypotonia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Hypotonia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001263" label="Global developmental delay">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Global developmental delay" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001257" label="Spasticity">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Spasticity" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002197" label="Generalized-onset seizure">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Generalized-onset seizure" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="MONDO:0014505" label="developmental and epileptic encephalopathy, 27">
+        <attvalues>
+          <attvalue for="0" value="Disease" />
+          <attvalue for="1" value="developmental and epileptic encephalopathy, 27" />
+          <attvalue for="8" value="['DEE27', 'EIEE27', 'GRIN2B early infantile epileptic encephalopathy', 'developmental and epileptic encephalopathy 27', 'early infantile epileptic encephalopathy caused by mutation in GRIN2B', 'epileptic encephalopathy, early infantile, 27', 'epileptic encephalopathy, early infantile, type 27']" />
+          <attvalue for="9" value="['DOID:0080444', 'GARD:0016063', 'MEDGEN:863753', 'OMIM:616139', 'UMLS:C4015316']" />
+          <attvalue for="10" value="Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GRIN2B gene." />
+          <attvalue for="11" value="GRIN2B" />
+          <attvalue for="2" value="Disease" />
+          <attvalue for="3" value="true" />
+        </attvalues>
+      </node>
+      <node id="HP:0040196" label="Mild microcephaly">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Mild microcephaly" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001332" label="Dystonia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Dystonia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001558" label="Decreased fetal movement">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Decreased fetal movement" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002521" label="Hypsarrhythmia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Hypsarrhythmia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001508" label="Failure to thrive">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Failure to thrive" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0000817" label="Reduced eye contact">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Reduced eye contact" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0025336" label="Delayed ability to sit">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Delayed ability to sit" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0001249" label="Intellectual disability">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Intellectual disability" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0032794" label="Myoclonic seizure">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Myoclonic seizure" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002059" label="Cerebral atrophy">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Cerebral atrophy" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002015" label="Dysphagia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Dysphagia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0011097" label="Epileptic spasm">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Epileptic spasm" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0011968" label="Feeding difficulties">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Feeding difficulties" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0100660" label="Dyskinesia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Dyskinesia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0100704" label="Cerebral visual impairment">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Cerebral visual impairment" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="MONDO:0014947" label="developmental and epileptic encephalopathy, 46">
+        <attvalues>
+          <attvalue for="0" value="Disease" />
+          <attvalue for="1" value="developmental and epileptic encephalopathy, 46" />
+          <attvalue for="8" value="['DEE46', 'EIEE46', 'GRIN2D early infantile epileptic encephalopathy', 'GRIN2D-related DEE', 'GRIN2D-related complex neurodevelopmental disorder', 'GRIN2D-related developmental and epileptic encephalopathy', 'developmental and epileptic encephalopathy 46', 'early infantile epileptic encephalopathy caused by mutation in GRIN2D', 'epileptic encephalopathy, early infantile, 46', 'epileptic encephalopathy, early infantile, 46; EIEE46', 'epileptic encephalopathy, early infantile, type 46']" />
+          <attvalue for="9" value="['DOID:0080456', 'GARD:0016205', 'MEDGEN:934654', 'OMIM:617162', 'UMLS:C4310687']" />
+          <attvalue for="10" value="Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GRIN2D gene." />
+          <attvalue for="11" value="GRIN2D" />
+          <attvalue for="2" value="Disease" />
+          <attvalue for="3" value="true" />
+        </attvalues>
+      </node>
+      <node id="HP:0001337" label="Tremor">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Tremor" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002509" label="Limb hypertonia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Limb hypertonia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002072" label="Chorea">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Chorea" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0008936" label="Axial hypotonia">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Axial hypotonia" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0002307" label="Drooling">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Drooling" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+      <node id="HP:0000252" label="Microcephaly">
+        <attvalues>
+          <attvalue for="0" value="Phenotype" />
+          <attvalue for="1" value="Microcephaly" />
+          <attvalue for="2" value="Phenotype" />
+          <attvalue for="3" value="false" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="HP:0001344" target="MONDO:0014505" id="0">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001344:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001344" target="MONDO:0014947" id="1">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'OMIM:617162', 'code': 'IEA', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001344:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0200134" target="MONDO:0014505" id="2">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0200134:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0200134" target="MONDO:0014947" id="3">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0200134:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001763" target="MONDO:0014947" id="4">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001763:0" />
+        </attvalues>
+      </edge>
+      <edge source="HGNC:4588" target="MONDO:0014947" id="5">
+        <attvalues>
+          <attvalue for="12" value="ASSOCIATED_WITH" />
+          <attvalue for="13" value="MONDO definition" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="19" value="ASSOCIATED_WITH:MONDO:0014947-&gt;HGNC:4588:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001336" target="MONDO:0014505" id="6">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001336:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0012469" target="MONDO:0014505" id="7">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0012469:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001250" target="MONDO:0014505" id="8">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'OMIM:616139', 'code': 'TAS', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001250:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001250" target="MONDO:0014947" id="9">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001250:0" />
+        </attvalues>
+      </edge>
+      <edge source="HGNC:4586" target="MONDO:0014505" id="10">
+        <attvalues>
+          <attvalue for="12" value="ASSOCIATED_WITH" />
+          <attvalue for="13" value="MONDO definition" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="19" value="ASSOCIATED_WITH:MONDO:0014505-&gt;HGNC:4586:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0002069" target="MONDO:0014505" id="11">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0002069:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001252" target="MONDO:0014505" id="12">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001252:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001263" target="MONDO:0014505" id="13">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001263:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001263" target="MONDO:0014947" id="14">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001263:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001257" target="MONDO:0014505" id="15">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'OMIM:616139', 'code': 'IEA', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001257:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0002197" target="MONDO:0014947" id="16">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0002197:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0000252" id="17">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'OMIM:616139', 'code': 'IEA', 'frequency': 'HP:0040284'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0000252:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0000817" id="18">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0000817:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0001249" id="19">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'OMIM:616139', 'code': 'TAS', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001249:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0001332" id="20">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0001332:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0002072" id="21">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'OMIM:616139', 'code': 'IEA', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0002072:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0002521" id="22">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0002521:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0008936" id="23">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0008936:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0011097" id="24">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0011097:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0011968" id="25">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0011968:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0025336" id="26">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0025336:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0032794" id="27">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0032794:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0040196" id="28">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'PMID:24272827', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0040196:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="HP:0100660" id="29">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:616139', 'reference': 'OMIM:616139', 'code': 'IEA', 'frequency': ''}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014505-&gt;HP:0100660:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014505" target="MONDO:0014947" id="30" label="phenotypic_neighbor (36.9)" weight="36.9">
+        <attvalues>
+          <attvalue for="12" value="DISEASE_MATCH" />
+          <attvalue for="20" value="36.9" />
+          <attvalue for="21" value="phenotypic_neighbor" />
+          <attvalue for="22" value="1.0" />
+          <attvalue for="23" value="high" />
+          <attvalue for="16" value="computed" />
+          <attvalue for="13" value="Atlas disease matching" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="17" value="computed" />
+          <attvalue for="24" value="Meaningful phenotype overlap: Epileptic encephalopathy, Hypsarrhythmia, EEG with generalized epileptiform discharges." />
+          <attvalue for="25" value="Microcephaly; Seizure; Global developmental delay; Absent speech; Hypsarrhythmia; Axial hypotonia; Feeding difficulties; Epileptic encephalopathy" />
+          <attvalue for="26" value="Epileptic encephalopathy; Hypsarrhythmia; EEG with generalized epileptiform discharges" />
+          <attvalue for="27" value="" />
+          <attvalue for="28" value="" />
+          <attvalue for="19" value="DISEASE_MATCH" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001558" target="MONDO:0014947" id="31">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001558:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0002521" target="MONDO:0014947" id="32">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0002521:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0001508" target="MONDO:0014947" id="33">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001508:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0002059" target="MONDO:0014947" id="34">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'OMIM:617162', 'code': 'IEA', 'frequency': 'HP:0040284'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0002059:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0002015" target="MONDO:0014947" id="35">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0002015:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0011968" target="MONDO:0014947" id="36">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0011968:0" />
+        </attvalues>
+      </edge>
+      <edge source="HP:0100704" target="MONDO:0014947" id="37">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0100704:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014947" target="HP:0000252" id="38">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0000252:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014947" target="HP:0001337" id="39">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0001337:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014947" target="HP:0002307" id="40">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '1/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0002307:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014947" target="HP:0002509" id="41">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0002509:0" />
+        </attvalues>
+      </edge>
+      <edge source="MONDO:0014947" target="HP:0008936" id="42">
+        <attvalues>
+          <attvalue for="12" value="HAS_PHENOTYPE" />
+          <attvalue for="13" value="HPO" />
+          <attvalue for="14" value="1" />
+          <attvalue for="15" value="2026-10-04" />
+          <attvalue for="16" value="observation" />
+          <attvalue for="17" value="curated_import" />
+          <attvalue for="18" value="[{'via': 'OMIM:617162', 'reference': 'PMID:27616483', 'code': 'PCS', 'frequency': '2/2'}]" />
+          <attvalue for="19" value="HAS_PHENOTYPE:MONDO:0014947-&gt;HP:0008936:0" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

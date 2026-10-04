@@ -1,0 +1,583 @@
+[
+  {
+    "disease_a": "MONDO:0014505",
+    "disease_b": "MONDO:0014947",
+    "score": 36.9,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.369,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000252",
+      "HP:0001250",
+      "HP:0001263",
+      "HP:0001344",
+      "HP:0002521",
+      "HP:0008936",
+      "HP:0011968",
+      "HP:0200134"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Epileptic encephalopathy, Hypsarrhythmia, EEG with generalized epileptiform discharges."
+    ],
+    "shared_phenotype_labels": [
+      "Microcephaly",
+      "Seizure",
+      "Global developmental delay",
+      "Absent speech",
+      "Hypsarrhythmia",
+      "Axial hypotonia",
+      "Feeding difficulties",
+      "Epileptic encephalopathy"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Epileptic encephalopathy",
+      "Hypsarrhythmia",
+      "EEG with generalized epileptiform discharges"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0012812",
+    "disease_b": "MONDO:0017325",
+    "score": 31.43,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.314,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000729",
+      "HP:0000750",
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001263",
+      "HP:0002069",
+      "HP:0002079",
+      "HP:0002376",
+      "HP:0002384",
+      "HP:0007334",
+      "HP:0010818",
+      "HP:0010819",
+      "HP:0010864",
+      "HP:0011097"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: EEG with abnormally slow frequencies, Generalized tonic seizure, Bilateral tonic-clonic seizure with focal onset."
+    ],
+    "shared_phenotype_labels": [
+      "Autistic behavior",
+      "Delayed speech and language development",
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Global developmental delay",
+      "Bilateral tonic-clonic seizure",
+      "Hypoplasia of the corpus callosum",
+      "Developmental regression",
+      "Focal impaired awareness seizure",
+      "Bilateral tonic-clonic seizure with focal onset",
+      "Generalized tonic seizure",
+      "Atonic seizure",
+      "Severe intellectual disability",
+      "Epileptic spasm"
+    ],
+    "informative_shared_phenotype_labels": [
+      "EEG with abnormally slow frequencies",
+      "Generalized tonic seizure",
+      "Bilateral tonic-clonic seizure with focal onset"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0013655",
+    "disease_b": "MONDO:0017325",
+    "score": 28.09,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.281,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001336",
+      "HP:0002079",
+      "HP:0002384",
+      "HP:0010864",
+      "HP:0011097",
+      "HP:0012171"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Stereotypical hand wringing, Midline hand movements, Stereotypic upper-extremity movements."
+    ],
+    "shared_phenotype_labels": [
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Myoclonus",
+      "Hypoplasia of the corpus callosum",
+      "Focal impaired awareness seizure",
+      "Severe intellectual disability",
+      "Epileptic spasm",
+      "Stereotypical hand wringing"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Stereotypical hand wringing",
+      "Midline hand movements",
+      "Stereotypic upper-extremity movements"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0012812",
+    "disease_b": "MONDO:0014505",
+    "score": 26.2,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.262,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001257",
+      "HP:0001263",
+      "HP:0001332",
+      "HP:0001344",
+      "HP:0002069",
+      "HP:0002521",
+      "HP:0011097",
+      "HP:0012469",
+      "HP:0100660",
+      "HP:0200134"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Epileptic encephalopathy, Dyskinesia, Infantile spasms."
+    ],
+    "shared_phenotype_labels": [
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Spasticity",
+      "Global developmental delay",
+      "Dystonia",
+      "Absent speech",
+      "Bilateral tonic-clonic seizure",
+      "Hypsarrhythmia",
+      "Epileptic spasm",
+      "Infantile spasms",
+      "Dyskinesia",
+      "Epileptic encephalopathy"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Epileptic encephalopathy",
+      "Dyskinesia",
+      "Infantile spasms"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0010396",
+    "disease_b": "MONDO:0013655",
+    "score": 25.14,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.251,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000252",
+      "HP:0000490",
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001332",
+      "HP:0001336",
+      "HP:0002019",
+      "HP:0002072",
+      "HP:0002540",
+      "HP:0002650",
+      "HP:0003763",
+      "HP:0011968",
+      "HP:0012171",
+      "HP:0032794",
+      "HP:0100704"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Stereotypical hand wringing, Midline hand movements, Inappropriate laughter."
+    ],
+    "shared_phenotype_labels": [
+      "Microcephaly",
+      "Deeply set eye",
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Dystonia",
+      "Myoclonus",
+      "Constipation",
+      "Chorea",
+      "Inability to walk",
+      "Scoliosis",
+      "Bruxism",
+      "Feeding difficulties",
+      "Stereotypical hand wringing",
+      "Myoclonic seizure",
+      "Cerebral visual impairment"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Stereotypical hand wringing",
+      "Midline hand movements",
+      "Inappropriate laughter"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0012812",
+    "disease_b": "MONDO:0013655",
+    "score": 24.64,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.246,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001257",
+      "HP:0001332",
+      "HP:0001344",
+      "HP:0002059",
+      "HP:0002079",
+      "HP:0002384",
+      "HP:0002540",
+      "HP:0010864",
+      "HP:0011097",
+      "HP:0100660"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Focal impaired awareness seizure, Dyskinesia, Epileptic spasm."
+    ],
+    "shared_phenotype_labels": [
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Spasticity",
+      "Dystonia",
+      "Absent speech",
+      "Cerebral atrophy",
+      "Hypoplasia of the corpus callosum",
+      "Focal impaired awareness seizure",
+      "Inability to walk",
+      "Severe intellectual disability",
+      "Epileptic spasm",
+      "Dyskinesia"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Focal impaired awareness seizure",
+      "Dyskinesia",
+      "Epileptic spasm"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0013655",
+    "disease_b": "MONDO:0014505",
+    "score": 23.86,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.239,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000252",
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001257",
+      "HP:0001332",
+      "HP:0001336",
+      "HP:0001344",
+      "HP:0002072",
+      "HP:0011097",
+      "HP:0011968",
+      "HP:0032794",
+      "HP:0100660"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Dyskinesia, Epileptic spasm, Myoclonic seizure."
+    ],
+    "shared_phenotype_labels": [
+      "Microcephaly",
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Spasticity",
+      "Dystonia",
+      "Myoclonus",
+      "Absent speech",
+      "Chorea",
+      "Epileptic spasm",
+      "Feeding difficulties",
+      "Myoclonic seizure",
+      "Dyskinesia"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Dyskinesia",
+      "Epileptic spasm",
+      "Myoclonic seizure"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0010396",
+    "disease_b": "MONDO:0017325",
+    "score": 20.6,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.206,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000729",
+      "HP:0000750",
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001263",
+      "HP:0001336",
+      "HP:0002069",
+      "HP:0002376",
+      "HP:0002421",
+      "HP:0007359",
+      "HP:0010818",
+      "HP:0012171"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Stereotypical hand wringing, Midline hand movements, EEG with abnormally slow frequencies."
+    ],
+    "shared_phenotype_labels": [
+      "Autistic behavior",
+      "Delayed speech and language development",
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Global developmental delay",
+      "Myoclonus",
+      "Bilateral tonic-clonic seizure",
+      "Developmental regression",
+      "Poor head control",
+      "Focal-onset seizure",
+      "Generalized tonic seizure",
+      "Stereotypical hand wringing"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Stereotypical hand wringing",
+      "Midline hand movements",
+      "EEG with abnormally slow frequencies"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0012812",
+    "disease_b": "MONDO:0014947",
+    "score": 20.38,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.204,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0001250",
+      "HP:0001263",
+      "HP:0001337",
+      "HP:0001344",
+      "HP:0002059",
+      "HP:0002521",
+      "HP:0200134"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Epileptic encephalopathy, Hypsarrhythmia, EEG with generalized epileptiform discharges."
+    ],
+    "shared_phenotype_labels": [
+      "Seizure",
+      "Global developmental delay",
+      "Tremor",
+      "Absent speech",
+      "Cerebral atrophy",
+      "Hypsarrhythmia",
+      "Epileptic encephalopathy"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Epileptic encephalopathy",
+      "Hypsarrhythmia",
+      "EEG with generalized epileptiform discharges"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0010396",
+    "disease_b": "MONDO:0012812",
+    "score": 20.04,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.2,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000729",
+      "HP:0000750",
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001263",
+      "HP:0001332",
+      "HP:0002069",
+      "HP:0002123",
+      "HP:0002187",
+      "HP:0002376",
+      "HP:0002521",
+      "HP:0002540",
+      "HP:0010818",
+      "HP:0010841",
+      "HP:0011344",
+      "HP:0012469",
+      "HP:0200134"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: EEG with abnormally slow frequencies, Multifocal epileptiform discharges, Generalized tonic seizure."
+    ],
+    "shared_phenotype_labels": [
+      "Autistic behavior",
+      "Delayed speech and language development",
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Global developmental delay",
+      "Dystonia",
+      "Bilateral tonic-clonic seizure",
+      "Generalized myoclonic seizure",
+      "Profound intellectual disability",
+      "Developmental regression",
+      "Hypsarrhythmia",
+      "Inability to walk",
+      "Generalized tonic seizure",
+      "Multifocal epileptiform discharges",
+      "Severe global developmental delay",
+      "Infantile spasms",
+      "Epileptic encephalopathy"
+    ],
+    "informative_shared_phenotype_labels": [
+      "EEG with abnormally slow frequencies",
+      "Multifocal epileptiform discharges",
+      "Generalized tonic seizure"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0013655",
+    "disease_b": "MONDO:0014947",
+    "score": 20.01,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.2,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000252",
+      "HP:0001250",
+      "HP:0001344",
+      "HP:0002059",
+      "HP:0011968",
+      "HP:0100704"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Cerebral visual impairment, Absent speech, EEG abnormality."
+    ],
+    "shared_phenotype_labels": [
+      "Microcephaly",
+      "Seizure",
+      "Absent speech",
+      "Cerebral atrophy",
+      "Feeding difficulties",
+      "Cerebral visual impairment"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Cerebral visual impairment",
+      "Absent speech",
+      "EEG abnormality"
+    ],
+    "evidence_quality": 1.0,
+    "confidence": "high"
+  }
+]
