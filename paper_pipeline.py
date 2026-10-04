@@ -485,54 +485,17 @@ Fail on uncertainty. Explain concrete omissions or unsupported clauses for revis
                 for c in claims if c.get("category") != "authorship" and c.get("relation") != "AUTHORED"], "source": source}, verify=True)
 
 
-class AnthropicBackend(OpenAIBackend):
-    """Same extraction/verification contract using Anthropic's structured output SDK."""
-    provider = "anthropic"
-
-    def __init__(self, model, verifier_model=None):
-        from anthropic import Anthropic
-        workspace = os.environ.get("ANTHROPIC_WORKSPACE_ID")
-        headers = {"anthropic-workspace-id": workspace} if workspace else {}
-        self.client = Anthropic(base_url="https://api.anthropic.com", timeout=90,
-                                max_retries=2, default_headers=headers)
-        self.model = model
-        self.verifier_model = verifier_model or model
-        self.calls = []
-
-    def ask(self, schema, prompt, payload, *, verify=False):
-        if len(self.calls) >= MAX_MODEL_CALLS:
-            raise RuntimeError("Model call budget exhausted; no results published")
-        encoded = json.dumps(payload, ensure_ascii=False)
-        if len(encoded) > MAX_PAYLOAD_CHARS:
-            raise ValueError("Model payload exceeds limit; split the input batch")
-        response = self.client.messages.parse(
-            model=self.verifier_model if verify else self.model,
-            max_tokens=16000 if schema is AnchoredExtraction else 8000, tools=[],
-            system=prompt + "\n" + SECURITY_PROMPT,
-            messages=[{"role": "user", "content": encoded}],
-            output_format=schema,
-        )
-        self.calls.append({"response_id": response.id, "model": response.model,
-                           "status": response.stop_reason, "provider": self.provider})
-        if response.stop_reason != "end_turn" or response.parsed_output is None:
-            raise RuntimeError("Incomplete or refused model output; nothing is published")
-        # Retain all local constraints even when the SDK simplifies the wire schema.
-        return schema.model_validate(response.parsed_output.model_dump())
-
-
 def provider_settings(provider=None, model=None, verifier_model=None):
     """Read only the selected provider's settings; never load review keys or execute .env."""
     from dotenv import dotenv_values
     config = dotenv_values(Path(__file__).parent / ".env", interpolate=False)
-    provider = provider or os.environ.get("LLM_PROVIDER") or config.get("LLM_PROVIDER") or "anthropic"
-    if provider not in {"anthropic", "openai"}:
-        raise ValueError("LLM_PROVIDER must be anthropic or openai")
+    provider = provider or os.environ.get("LLM_PROVIDER") or config.get("LLM_PROVIDER") or "openai"
+    if provider != "openai":
+        raise ValueError("LLM_PROVIDER must be openai")
     prefix = provider.upper()
     for name in (prefix + "_API_KEY", prefix + "_MODEL", prefix + "_VERIFIER_MODEL"):
         if not os.environ.get(name) and config.get(name):
             os.environ[name] = config[name]
-    if provider == "anthropic" and not os.environ.get("ANTHROPIC_WORKSPACE_ID") and config.get("ANTHROPIC_WORKSPACE_ID"):
-        os.environ["ANTHROPIC_WORKSPACE_ID"] = config["ANTHROPIC_WORKSPACE_ID"]
     model = model or os.environ.get(prefix + "_MODEL")
     verifier_model = verifier_model or os.environ.get(prefix + "_VERIFIER_MODEL") or model
     if not os.environ.get(prefix + "_API_KEY"):
@@ -543,8 +506,6 @@ def provider_settings(provider=None, model=None, verifier_model=None):
 
 
 def make_backend(provider, model, verifier_model=None):
-    if provider == "anthropic":
-        return AnthropicBackend(model, verifier_model)
     if provider == "openai":
         return OpenAIBackend(model, verifier_model)
     raise ValueError("Unsupported provider")
@@ -808,7 +769,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="JSON list of papers with source_id and text")
     parser.add_argument("--output", type=Path, default=Path("data/processed/paper_candidates.json"))
-    parser.add_argument("--provider", choices=["anthropic", "openai"])
+    parser.add_argument("--provider", choices=["openai"])
     parser.add_argument("--model")
     parser.add_argument("--verifier-model")
     parser.add_argument("--data-dir", type=Path, default=Path(__file__).parent / "data")

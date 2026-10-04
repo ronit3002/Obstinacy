@@ -1,6 +1,6 @@
 {
-  "_about": "Disease -> mechanism links curated for the demo. Every quote must appear verbatim in the PubMed abstract of its PMID; enrich.py fetches the abstract and drops any row whose quote does not match. Curation was AI-assisted (Claude) and has not been checked by a domain expert yet, so the UI labels these 'AI-curated, quote verified'.",
-  "curator": "AI-assisted curation (Claude), pending expert check",
+  "_about": "Disease -> mechanism links curated for the demo. Every quote must appear verbatim in the PubMed abstract of its PMID; enrich.py fetches the abstract and drops any row whose quote does not match. Curation was AI-assisted and has not been checked by a domain expert yet, so the UI labels these 'AI-curated, quote verified'.",
+  "curator": "AI-assisted curation, pending expert check",
   "mechanisms": {
     "MECH:loss_of_function": {"name": "Loss of function", "kind": "effect", "description": "The variant reduces or abolishes what the protein normally does (including haploinsufficiency: one working copy is not enough)."},
     "MECH:gain_of_function": {"name": "Gain of function", "kind": "effect", "description": "The variant makes the protein more active than normal or gives it a new, harmful activity."},

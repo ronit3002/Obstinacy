@@ -17,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('input', type=Path)
     parser.add_argument('--limit', type=int, default=1)
-    parser.add_argument('--provider', choices=['anthropic', 'openai'])
+    parser.add_argument('--provider', choices=['openai'])
     args = parser.parse_args()
     try:
         provider, model, verifier = provider_settings(args.provider)

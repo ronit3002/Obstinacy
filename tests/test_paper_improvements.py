@@ -4,7 +4,7 @@ from paper_graph import add_reviewed_papers
 from paper_review import sign_review
 from unittest.mock import patch
 
-from paper_pipeline import (AnchoredClaim, AnchoredEntity, AnchoredExtraction, AnthropicBackend,
+from paper_pipeline import (AnchoredClaim, AnchoredEntity, AnchoredExtraction, OpenAIBackend,
     BatchVerification, ClaimCheck, SummaryAudit, Vocabulary, materialize_extraction,
     source_passages, run_pipeline, validate_bundle, Extraction, include_metadata_authors)
 try:
@@ -41,7 +41,7 @@ class ImprovementsTests(unittest.TestCase):
         self.assertEqual(include_metadata_authors(extraction, 'Authors: Jane Doe'), extraction)
 
     def test_metadata_author_verification_cannot_accept_extra_claim(self):
-        backend = AnthropicBackend.__new__(AnthropicBackend)
+        backend = OpenAIBackend.__new__(OpenAIBackend)
         text = 'Title: Paper\nAuthors: Jane Doe\nAbstract:\nStudy findings.'
         extracted = include_metadata_authors(Extraction(entities=[], claims=[]), text)
         candidate = extracted.claims[0].model_dump()
@@ -71,7 +71,7 @@ class ImprovementsTests(unittest.TestCase):
         self.assertTrue(all(e['rel'] in {'CONTAINS', 'ABOUT'} for *_, e in graph.edges(data=True)))
 
     def test_batch_verifier_requires_exact_candidate_set(self):
-        backend = AnthropicBackend.__new__(AnthropicBackend)
+        backend = OpenAIBackend.__new__(OpenAIBackend)
         good = dict(supported=True, entities_correct=True, relation_correct=True,
                     polarity_correct=True, context_preserved=True, reason='Test')
         backend.ask = lambda *args, **kwargs: BatchVerification(checks=[ClaimCheck(candidate_id='V9', **good)])

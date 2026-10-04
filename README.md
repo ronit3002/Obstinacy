@@ -76,33 +76,26 @@ Add `--decisions <file>` (and `--sign`) to go back to a hand-picked, signed huma
 
 ## Evidence-first paper pipeline
 
-The default provider is now **Anthropic**. Both CLI entry points read the selected
-provider's API settings from `.env` without executing it. Add:
+The pipeline uses the **OpenAI API** (Responses API with Structured Outputs). Both CLI
+entry points read the API settings from `.env` without executing it. Add:
 
 ```dotenv
-LLM_PROVIDER=anthropic
-ANTHROPIC_API_KEY=your-anthropic-api-key
-ANTHROPIC_MODEL=claude-sonnet-5-5
-ANTHROPIC_VERIFIER_MODEL=claude-sonnet-5-5
+LLM_PROVIDER=openai
+OPENAI_API_KEY=your-openai-api-key
+OPENAI_MODEL=<structured-output capable OpenAI model>
+OPENAI_VERIFIER_MODEL=<model for the separate verification pass>
 ```
 
-The provider adapter uses [Anthropic Structured Outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-with the same typed schemas, prompts, local validation and mandatory signed manual
-review. Refusals, truncated output and missing parsed content fail closed. The SDK
-is installed in `.venv`. An organization-level key may additionally require
-`ANTHROPIC_WORKSPACE_ID` in `.env`; it is sent as the `anthropic-workspace-id` header.
-Alternatively use a workspace-scoped API key. Live requests succeed after configuring a workspace accepted by the API key.
-Current model IDs are listed in [Anthropic's model overview](https://platform.claude.com/docs/en/models/overview).
+Typed schemas, prompts, local validation and the review step are provider-independent.
+Refusals, truncated output and missing parsed content fail closed. Calls use `store=False`.
 
 ```sh
-.venv/bin/python scripts/live_paper_test.py data/raw/live-test-pubmed/papers.json --limit 3
+python scripts/live_paper_test.py data/raw/live-test-pubmed/papers.json --limit 3
 ```
 
-OpenAI remains available with `LLM_PROVIDER=openai` and its `OPENAI_*` settings.
-No automatic provider fallback is performed. Environment variables override `.env`;
-`--provider`, `--model` and `--verifier-model` override settings on `paper_pipeline.py`.
-The live runner also accepts `--provider`. Provider identity is recorded in new
-candidate bundles. The signing key is never loaded by provider configuration.
+Environment variables override `.env`; `--model` and `--verifier-model` override settings on
+`paper_pipeline.py`. The model identity is recorded in every candidate bundle. The signing
+key is never loaded by provider configuration.
 
 `paper_pipeline.py` accepts one or multiple papers/abstracts as a JSON list. Each
 paper needs a unique `source_id` and its original `text`; optional fields are
@@ -112,16 +105,15 @@ preserve attribution. Input is text; PDF/OCR conversion is upstream.
 
 ```sh
 python3 -m pip install -r requirements-papers.txt
-# Configure ANTHROPIC_API_KEY and model IDs in .env as above; never commit keys.
+# Configure OPENAI_API_KEY and model IDs in .env as above; never commit keys.
 python3 paper_pipeline.py examples/papers.json --output data/processed/paper_candidates.json
 python3 -m unittest discover -s tests -v
 ```
 
 The example is explicitly fictional, not a scientific source. API calls send
-paper text to the selected provider. OpenAI calls use `store=False`; that option is
-not sent to Anthropic. Provider retention policies still apply. Model selection is
-explicit; set `ANTHROPIC_VERIFIER_MODEL` (or `OPENAI_VERIFIER_MODEL` for OpenAI) to use
-a different model for the verification pass.
+paper text to OpenAI. Calls use `store=False`; OpenAI's retention policies still apply.
+Model selection is explicit; set `OPENAI_VERIFIER_MODEL` to use a different model for the
+verification pass.
 The OpenAI adapter uses the official [Responses Structured Outputs API](https://developers.openai.com/api/docs/guides/structured-outputs).
 Structured Outputs enforce shape, **not factual correctness**.
 
@@ -226,7 +218,7 @@ Implemented defenses:
 - Fixed instruction messages; paper and model content stays in user payloads. All
   three prompts explicitly treat embedded commands as data. No model tools, shell,
   URL fetching, code execution, or approval capability. API destination is fixed to
-  `https://api.anthropic.com` or `https://api.openai.com/v1` according to provider; source URLs are metadata and never fetched.
+  `https://api.openai.com/v1`; source URLs are metadata and never fetched.
 - Input/output screening quarantines recognizable instruction overrides, role
   spoofing, approval bypasses, secret requests, active HTML and hidden control
   characters. Original evidence is preserved. This is conservative heuristic
@@ -264,7 +256,7 @@ and request construction; live model attack-resistance evaluation is still neede
 
 ### API key and image-based tests
 
-Set `ANTHROPIC_API_KEY` in the project-root `.env` or the environment. Both CLI
+Set `OPENAI_API_KEY` in the project-root `.env` or the environment. Both CLI
 entry points parse `.env` safely with variable interpolation disabled. They load only
 the selected provider's API key/model settings and never the review signing key.
 No shell `source` command is needed. Never send the key through chat.
@@ -309,8 +301,9 @@ clinical accuracy benchmark.
 
 ### Live test outcome (4 October 2026, Europe/Berlin)
 
-Three public PubMed abstracts were processed using `claude-sonnet-5-5` for both
-extraction and verification. The first run exposed confusing temporary vs durable
+Three public PubMed abstracts were processed with the pipeline's earlier model
+configuration (before the switch to OpenAI); the stored bundles record that model. Rerun
+the commands above with an OpenAI key to regenerate them with OpenAI. The first run exposed confusing temporary vs durable
 summary citation IDs. Version `papers-v3-summary-citations` now presents short,
 unambiguous citation aliases to the summarizer and maps only known aliases back to
 durable IDs. A regression test covers unknown aliases. The verifier prompt now
