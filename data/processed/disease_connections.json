@@ -2,11 +2,11 @@
   {
     "disease_a": "MONDO:0014505",
     "disease_b": "MONDO:0014947",
-    "score": 36.9,
+    "score": 38.79,
     "connection_type": "phenotypic_neighbor",
     "components": {
       "mechanism": 0.0,
-      "phenotype": 0.369,
+      "phenotype": 0.391,
       "genetic": 0.0
     },
     "shared_mechanisms": [],
@@ -19,12 +19,13 @@
       "HP:0002521",
       "HP:0008936",
       "HP:0011968",
+      "HP:0100704",
       "HP:0200134"
     ],
     "meaningful_phenotype_link": true,
     "same_gene_different_mechanism": false,
     "why_connected": [
-      "Meaningful phenotype overlap: Epileptic encephalopathy, Hypsarrhythmia, EEG with generalized epileptiform discharges."
+      "Meaningful phenotype overlap: Epileptic encephalopathy, Hypsarrhythmia, Cerebral visual impairment."
     ],
     "shared_phenotype_labels": [
       "Microcephaly",
@@ -34,14 +35,15 @@
       "Hypsarrhythmia",
       "Axial hypotonia",
       "Feeding difficulties",
+      "Cerebral visual impairment",
       "Epileptic encephalopathy"
     ],
     "informative_shared_phenotype_labels": [
       "Epileptic encephalopathy",
       "Hypsarrhythmia",
-      "EEG with generalized epileptiform discharges"
+      "Cerebral visual impairment"
     ],
-    "evidence_quality": 1.0,
+    "evidence_quality": 0.979,
     "confidence": "high"
   },
   {
@@ -153,11 +155,11 @@
   {
     "disease_a": "MONDO:0012812",
     "disease_b": "MONDO:0014505",
-    "score": 26.2,
+    "score": 27.67,
     "connection_type": "phenotypic_neighbor",
     "components": {
       "mechanism": 0.0,
-      "phenotype": 0.262,
+      "phenotype": 0.277,
       "genetic": 0.0
     },
     "shared_mechanisms": [],
@@ -203,6 +205,63 @@
       "Infantile spasms"
     ],
     "evidence_quality": 1.0,
+    "confidence": "high"
+  },
+  {
+    "disease_a": "MONDO:0013655",
+    "disease_b": "MONDO:0014505",
+    "score": 26.07,
+    "connection_type": "phenotypic_neighbor",
+    "components": {
+      "mechanism": 0.0,
+      "phenotype": 0.262,
+      "genetic": 0.0
+    },
+    "shared_mechanisms": [],
+    "shared_genes": [],
+    "shared_phenotypes": [
+      "HP:0000252",
+      "HP:0001249",
+      "HP:0001250",
+      "HP:0001252",
+      "HP:0001257",
+      "HP:0001332",
+      "HP:0001336",
+      "HP:0001344",
+      "HP:0002072",
+      "HP:0011097",
+      "HP:0011968",
+      "HP:0032794",
+      "HP:0100660",
+      "HP:0100704"
+    ],
+    "meaningful_phenotype_link": true,
+    "same_gene_different_mechanism": false,
+    "why_connected": [
+      "Meaningful phenotype overlap: Dyskinesia, Cerebral visual impairment, Epileptic spasm."
+    ],
+    "shared_phenotype_labels": [
+      "Microcephaly",
+      "Intellectual disability",
+      "Seizure",
+      "Hypotonia",
+      "Spasticity",
+      "Dystonia",
+      "Myoclonus",
+      "Absent speech",
+      "Chorea",
+      "Epileptic spasm",
+      "Feeding difficulties",
+      "Myoclonic seizure",
+      "Dyskinesia",
+      "Cerebral visual impairment"
+    ],
+    "informative_shared_phenotype_labels": [
+      "Dyskinesia",
+      "Cerebral visual impairment",
+      "Epileptic spasm"
+    ],
+    "evidence_quality": 0.986,
     "confidence": "high"
   },
   {
@@ -322,58 +381,64 @@
     "confidence": "high"
   },
   {
-    "disease_a": "MONDO:0013655",
+    "disease_a": "MONDO:0010396",
     "disease_b": "MONDO:0014505",
-    "score": 23.86,
+    "score": 20.68,
     "connection_type": "phenotypic_neighbor",
     "components": {
       "mechanism": 0.0,
-      "phenotype": 0.239,
+      "phenotype": 0.208,
       "genetic": 0.0
     },
     "shared_mechanisms": [],
     "shared_genes": [],
     "shared_phenotypes": [
       "HP:0000252",
+      "HP:0000817",
       "HP:0001249",
       "HP:0001250",
       "HP:0001252",
-      "HP:0001257",
+      "HP:0001263",
       "HP:0001332",
       "HP:0001336",
-      "HP:0001344",
+      "HP:0002069",
       "HP:0002072",
-      "HP:0011097",
+      "HP:0002521",
       "HP:0011968",
+      "HP:0012469",
       "HP:0032794",
-      "HP:0100660"
+      "HP:0100704",
+      "HP:0200134"
     ],
     "meaningful_phenotype_link": true,
     "same_gene_different_mechanism": false,
     "why_connected": [
-      "Meaningful phenotype overlap: Dyskinesia, Epileptic spasm, Myoclonic seizure."
+      "Meaningful phenotype overlap: Reduced eye contact, Abnormal eye contact, Epileptic encephalopathy."
     ],
     "shared_phenotype_labels": [
       "Microcephaly",
+      "Reduced eye contact",
       "Intellectual disability",
       "Seizure",
       "Hypotonia",
-      "Spasticity",
+      "Global developmental delay",
       "Dystonia",
       "Myoclonus",
-      "Absent speech",
+      "Bilateral tonic-clonic seizure",
       "Chorea",
-      "Epileptic spasm",
+      "Hypsarrhythmia",
       "Feeding difficulties",
+      "Infantile spasms",
       "Myoclonic seizure",
-      "Dyskinesia"
+      "Cerebral visual impairment",
+      "Epileptic encephalopathy"
     ],
     "informative_shared_phenotype_labels": [
-      "Dyskinesia",
-      "Epileptic spasm",
-      "Myoclonic seizure"
+      "Reduced eye contact",
+      "Abnormal eye contact",
+      "Epileptic encephalopathy"
     ],
-    "evidence_quality": 1.0,
+    "evidence_quality": 0.988,
     "confidence": "high"
   },
   {
