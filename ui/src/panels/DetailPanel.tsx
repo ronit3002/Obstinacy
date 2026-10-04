@@ -1122,7 +1122,7 @@ function MatchCard({ e, m }: { e: GEdge; m: Model }) {
             subtitle={`${a.short ?? '?'} vs ${b.short ?? '?'}`}
             trailing={!sameGene && !((e.shared_mechanisms as string[]) ?? []).length ? <Badge color="#8a94a6">no shared mechanism in atlas yet</Badge> : undefined} />
         </Section>
-        <Section title="Score breakdown">
+        <Section title="Score breakdown" defaultOpen={false}>
           {([['phenotype', 'Symptoms', 30], ['mechanism', 'Mechanism', 50], ['genetic', 'Genes', 20]] as const).map(([k, label, w]) => (
             <div key={k} className="flex items-center gap-3 py-1 text-[13px]">
               <span className="w-24 text-ink-2">{label}</span>
