@@ -1,0 +1,233 @@
+#!/usr/bin/env python3
+"""
+Export the atlas graph for the web UI.
+
+Reads : data/processed/graph.json                 (scientific graph, from graph.py)
+        data/processed/disease_connections.json   (disease matches, from graph.py / schema.all_connections)
+        data/processed/improved-review-candidates/candidates-*.json   (paper bundles, optional)
+Writes: ui/public/graph.json   ({"nodes": [...], "edges": [...], "meta": {...}})
+
+Run   : python export_ui_data.py                  # reviewed papers only (none yet)
+        python export_ui_data.py --include-pending # also show papers still awaiting signed human review
+
+Paper bundles come from paper_pipeline.py. Their claims stay `pending` until a reviewer signs
+them (paper_review.py). By default nothing pending is exported; with --include-pending the
+papers are exported but every paper/claim carries review_status="pending" and the UI labels
+them as unreviewed AI extractions.
+"""
+import argparse
+import glob
+import json
+from collections import defaultdict
+from datetime import date
+from pathlib import Path
+
+import networkx as nx
+from networkx.algorithms.community import louvain_communities
+
+ROOT = Path(__file__).resolve().parent
+PROC = ROOT / "data" / "processed"
+OUT = ROOT / "ui" / "public" / "graph.json"
+PAPER_GLOB = str(PROC / "improved-review-candidates" / "candidates-*.json")
+
+CONNECTION_LABEL = {
+    "mechanistic_and_phenotypic": "Shared mechanism and symptoms",
+    "mechanistic": "Shared mechanism",
+    "genetic_overlap": "Shared gene",
+    "phenotypic_neighbor": "Similar symptoms",
+    "same_gene_different_mechanism": "Same gene, different mechanism",
+    "no_supported_route": "No supported route",
+}
+
+
+def load(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def base_graph():
+    g = load(PROC / "graph.json")
+    nodes = g["nodes"]
+    edges = [{**e, "id": e.pop("key")} for e in g["edges"]]
+    # networkx node_link_data writes the edge's source *node id* into "source", overwriting the
+    # provenance name graph.py stored there. Recover the name from the rules in graph.py.
+    for e in edges:
+        if e["rel"] == "HAS_PHENOTYPE":
+            e["source_name"] = "HPO"
+        elif e["rel"] == "IN_GENE":
+            e["source_name"] = "ClinVar"
+        elif e["rel"] == "ASSOCIATED_WITH":
+            e["source_name"] = "MONDO definition" if e["source_tier"] == 1 else "team seed list (unverified)"
+    return nodes, edges
+
+
+def add_disease_matches(nodes, edges, today):
+    """One DISEASE_MATCH edge per pair from schema.all_connections (score 0-100, min 20)."""
+    by_id = {n["id"]: n for n in nodes}
+    matches = load(PROC / "disease_connections.json")
+    for m in matches:
+        a, b = m["disease_a"], m["disease_b"]
+        edges.append({
+            "id": f"DISEASE_MATCH:{a}:{b}", "rel": "DISEASE_MATCH", "source": a, "target": b,
+            "score": m["score"],
+            "connection_type": m["connection_type"],
+            "connection_label": CONNECTION_LABEL.get(m["connection_type"], m["connection_type"]),
+            "components": m.get("components", {}),
+            "shared_phenotypes": [{"id": p, "name": by_id.get(p, {}).get("name", p)} for p in m.get("shared_phenotypes", [])],
+            "informative_phenotypes": m.get("informative_shared_phenotype_labels", []),
+            "shared_genes": m.get("shared_genes", []),
+            "shared_mechanisms": m.get("shared_mechanisms", []),
+            "why_connected": m.get("why_connected", []),
+            "meaningful_phenotype_link": m.get("meaningful_phenotype_link"),
+            "same_gene_different_mechanism": m.get("same_gene_different_mechanism"),
+            "evidence_quality": m.get("evidence_quality"),
+            "confidence": m.get("confidence"),
+            "source_name": "Atlas disease matching (schema.all_connections)",
+            "source_tier": 1, "retrieved": today, "status": "inference", "method": "computed",
+        })
+    return len(matches)
+
+
+def add_papers(nodes, edges, include_pending):
+    """Paper, Claim, Researcher and Intervention nodes from paper_pipeline.py bundles."""
+    by_id = {n["id"]: n for n in nodes}
+    diseases = [n for n in nodes if n["type"] == "Disease"]
+    gene_to_diseases = defaultdict(set)
+    for e in edges:
+        if e["rel"] == "ASSOCIATED_WITH":
+            gene_to_diseases[e["target"]].add(e["source"])
+
+    def add_node(n):
+        if n["id"] not in by_id:
+            nodes.append(n)
+            by_id[n["id"]] = n
+
+    def add_edge(src, dst, rel, **props):
+        edges.append({"id": f"{rel}:{src}->{dst}", "rel": rel, "source": src, "target": dst, **props})
+
+    count = 0
+    for path in sorted(glob.glob(PAPER_GLOB)):
+        bundle = load(path)
+        for paper in bundle["papers"]:
+            src = paper["source"]
+            quality = paper.get("quality", {})
+            approved = quality.get("publication_status") == "approved"
+            if not approved and not include_pending:
+                continue
+            review = "approved" if approved else "pending"
+            pid = src["source_id"]
+            claims = paper["claims"]
+            authors = [c for c in claims if c.get("category") == "authorship"]
+            science = [c for c in claims if c.get("category") != "authorship"]
+            add_node({
+                "id": pid, "type": "Paper", "name": src.get("title") or pid, "url": src.get("url"),
+                "source_kind": src.get("source_kind"), "source_tier": src.get("source_tier"),
+                "summary_sentences": [s["text"] for s in paper.get("summary", [])],
+                "summary_audit": paper.get("summary_audit", {}),
+                "authors": [next(iter(c["entities"].values()))["mention"] for c in authors if c.get("entities")],
+                "claim_count": len(science),
+                "review_status": review, "model": bundle.get("model"), "verifier_model": bundle.get("verifier_model"),
+                "prompt_version": bundle.get("prompt_version"), "bundle_sha256": bundle.get("bundle_sha256"),
+                "scope_note": quality.get("scope_note"),
+            })
+            prov = dict(source_name=pid, source_tier=src.get("source_tier", 3), retrieved=bundle.get("created_at", "")[:10],
+                        method="llm_extracted", review_status=review)
+
+            linked_diseases = {}  # disease id -> how we know
+            for i, c in enumerate(authors):
+                ent = next(iter(c["entities"].values()), None)
+                if not ent:
+                    continue
+                rid = f"RES:{pid}:{i}"  # source-local: names alone never merge people across papers
+                add_node({"id": rid, "type": "Researcher", "name": ent["mention"], "source_local": True})
+                add_edge(rid, pid, "AUTHORED", status="observation", **prov)
+
+            for c in science:
+                cid = c["id"]
+                ents = c.get("entities", {})
+                add_node({
+                    "id": cid, "type": "Claim", "name": c["statement"], "statement": c["statement"],
+                    "quote": c.get("evidence", {}).get("quote") or c.get("quote"),
+                    "category": c.get("category"), "polarity": c.get("polarity"), "relation": c.get("relation"),
+                    "study_context": c.get("study_context"), "pmid": pid,
+                    "verification": c.get("verification", {}).get("reason"),
+                    "review_status": review,
+                    "mentions": [{"kind": e["kind"], "mention": e["mention"],
+                                  "canonical_id": (e.get("resolution") or {}).get("canonical_id")} for e in ents.values()],
+                })
+                add_edge(pid, cid, "CONTAINS", status="observation", **prov)
+                for e in ents.values():
+                    kind, cano = e["kind"], (e.get("resolution") or {}).get("canonical_id")
+                    target = None
+                    if cano and kind in ("Gene", "Phenotype", "Disease"):
+                        if cano not in by_id and kind == "Phenotype":
+                            add_node({"id": cano, "type": "Phenotype", "name": e["mention"].capitalize(), "name_source": "paper mention"})
+                        target = cano if cano in by_id else None
+                        if kind == "Gene":
+                            for d in gene_to_diseases.get(cano, ()):
+                                linked_diseases.setdefault(d, f"paper discusses {by_id[cano]['name']}, the gene of this disease")
+                    elif kind == "Intervention":
+                        target = "INT:" + e["mention"].lower()
+                        add_node({"id": target, "type": "Intervention", "name": e["mention"], "source_local": True})
+                    if target:
+                        add_edge(cid, target, "ABOUT", status="observation" if c.get("polarity") == "affirmed" else "hypothesis",
+                                 polarity=c.get("polarity"), **prov)
+
+            # Disease named exactly (label or synonym) in the title, e.g. "Dravet Syndrome"
+            title = (src.get("title") or "").lower()
+            for d in diseases:
+                names = [d["name"]] + list(d.get("synonyms", []))
+                hit = next((s for s in names if len(s) > 4 and s.lower() in title), None)
+                if hit:
+                    linked_diseases.setdefault(d["id"], f"title names “{hit}”")
+            for d, why in linked_diseases.items():
+                add_edge(pid, d, "DISCUSSES", status="inference", method="computed", source_name="Atlas paper linking",
+                         source_tier=src.get("source_tier", 3), retrieved=prov["retrieved"], link_reason=why,
+                         review_status=review)
+            count += 1
+    return count
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--include-pending", action="store_true",
+                    help="export paper extractions that are still awaiting signed human review")
+    args = ap.parse_args()
+
+    today = date.today().isoformat()
+    nodes, edges = base_graph()
+    by_id = {n["id"]: n for n in nodes}
+    diseases = [n for n in nodes if n["type"] == "Disease"]
+
+    n_match = add_disease_matches(nodes, edges, today)
+    n_papers = add_papers(nodes, edges, args.include_pending)
+
+    # Disease clusters: Louvain over match scores (fixed seed = reproducible demo)
+    P = nx.Graph()
+    P.add_nodes_from(d["id"] for d in diseases)
+    P.add_weighted_edges_from((e["source"], e["target"], e["score"]) for e in edges if e["rel"] == "DISEASE_MATCH")
+    for i, comm in enumerate(sorted(louvain_communities(P, weight="weight", seed=42), key=len, reverse=True)):
+        for nid in comm:
+            by_id[nid]["cluster"] = i
+
+    # Variants per gene, precomputed so the UI can collapse them without scanning edges
+    per_gene = defaultdict(lambda: defaultdict(int))
+    var_cls = {n["id"]: n.get("classification") or "Unknown" for n in nodes if n["type"] == "Variant"}
+    for e in edges:
+        if e["rel"] == "IN_GENE":
+            per_gene[e["target"]][var_cls[e["source"]]] += 1
+    for gid, counts in per_gene.items():
+        by_id[gid]["variant_counts"] = dict(counts)
+
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUT, "w", encoding="utf-8") as f:
+        json.dump({"nodes": nodes, "edges": edges,
+                   "meta": {"generated": today, "nodes": len(nodes), "edges": len(edges),
+                            "includes_pending_papers": args.include_pending}},
+                  f, separators=(",", ":"), ensure_ascii=False)
+    print(f"wrote {OUT}: {len(nodes)} nodes, {len(edges)} edges "
+          f"({n_match} disease matches, {n_papers} papers{' incl. pending review' if args.include_pending else ''})")
+
+
+if __name__ == "__main__":
+    main()

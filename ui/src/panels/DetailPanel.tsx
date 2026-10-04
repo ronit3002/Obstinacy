@@ -1,0 +1,677 @@
+import {
+  AlertTriangle, ArrowRight, BadgeCheck, CircleSlash, ExternalLink, Info, Lightbulb, Quote, ShieldCheck, Sparkles, X,
+} from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
+import { useState } from 'react'
+import type { ReactNode } from 'react'
+import {
+  STRENGTH_CUTOFFS, TYPE_COLOR, TYPE_LABEL, externalLinks, neighbours, nodeLabel, strengthOf, titleCase,
+} from '../graph/model'
+import type { Model } from '../graph/model'
+import { useStore } from '../store'
+import type { GEdge, GNode } from '../types'
+import { TYPE_ICON, TypeTile } from '../ui/icons'
+import { Badge, Callout, Chip, Clamp, CopyId, More, Row, Section, Stat, Strength, Tabs } from '../ui/kit'
+
+const STATUS: Record<string, { label: string; color: string }> = {
+  observation: { label: 'Observed', color: '#12b886' },
+  inference: { label: 'Inferred', color: '#f59f00' },
+  hypothesis: { label: 'Hypothesis', color: '#8a94a6' },
+}
+
+const PendingBadge = () => <Badge color="#d97706" icon={<AlertTriangle size={11} />}>Awaiting expert review</Badge>
+const reviewBadge = (n: GNode) =>
+  n.review_status === 'approved' ? <Badge color="#12b886" icon={<BadgeCheck size={11} />}>Expert reviewed</Badge> : <PendingBadge />
+
+/* ---------------------------------------------------------------- header -- */
+
+function Header({ n, meta, title }: { n: GNode; meta?: ReactNode; title?: string }) {
+  const Icon = TYPE_ICON[n.type]
+  const c = TYPE_COLOR[n.type]
+  return (
+    <div>
+      <div className="flex items-center gap-2 pr-10">
+        <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: c }}>
+          {Icon && <Icon size={14} strokeWidth={2.4} />}{TYPE_LABEL[n.type] ?? n.type}
+        </span>
+        {!n.source_local && <CopyId id={n.id} />}
+      </div>
+      <h2 className="mt-1.5 text-[21px] font-semibold leading-[1.2] tracking-[-0.02em] text-ink">{title ?? titleCase(n.name)}</h2>
+      {meta && <div className="mt-2 flex flex-wrap items-center gap-1.5">{meta}</div>}
+    </div>
+  )
+}
+
+function SourcesList({ n }: { n: GNode }) {
+  const links = externalLinks(n)
+  if (!links.length) return <p className="text-[13px] text-ink-3">No external records linked.</p>
+  return (
+    <div>
+      {links.map((l) => (
+        <a key={l.url} href={l.url} target="_blank" rel="noreferrer"
+          className="group -mx-2 flex items-center gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-subtle">
+          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-subtle text-[11px] font-semibold text-ink-2">
+            {l.label.slice(0, 2).toUpperCase()}
+          </span>
+          <span className="flex-1 text-[13.5px] font-medium text-ink">{l.label}</span>
+          <ExternalLink size={14} className="text-ink-3 group-hover:text-accent" />
+        </a>
+      ))}
+    </div>
+  )
+}
+
+function PaperRows({ papers }: { papers: { node: GNode; edge: GEdge }[] }) {
+  const { reveal } = useStore()
+  return (
+    <>
+      {papers.map(({ node, edge }) => (
+        <Row key={node.id} leading={<TypeTile type="Paper" />} title={node.name}
+          subtitle={<>{node.id}{edge.link_reason ? ` · ${String(edge.link_reason)}` : ''}</>}
+          trailing={node.review_status === 'approved' ? undefined : <AlertTriangle size={14} className="text-[#d97706]" />}
+          onClick={() => reveal(node.id)} />
+      ))}
+    </>
+  )
+}
+
+/** Neighbours of types we don't have data for yet get an honest empty state. */
+function OtherConnections({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const groups: [string, string][] = [['Mechanism', 'Mechanisms'], ['PatientOrg', 'Patient groups'], ['Study', 'Studies']]
+  const nb = neighbours(m, n.id)
+  const present = groups.map(([t, title]) => ({ t, title, items: nb.filter((x) => x.node.type === t) })).filter((g) => g.items.length)
+  const missing = groups.filter(([t]) => !nb.some((x) => x.node.type === t)).map(([, title]) => title.toLowerCase())
+  return (
+    <>
+      {present.map((g) => (
+        <Section key={g.t} title={g.title} count={g.items.length}>
+          {g.items.map((x) => (
+            <Row key={x.node.id} leading={<TypeTile type={x.node.type} />} title={nodeLabel(x.node)}
+              trailing={<Badge color={STATUS[x.edge.status]?.color}>{STATUS[x.edge.status]?.label}</Badge>}
+              onClick={() => reveal(x.node.id)} />
+          ))}
+        </Section>
+      ))}
+      {missing.length > 0 && (
+        <div className="mt-3">
+          <Callout icon={<Info size={16} />} title="Not in the atlas yet" color="#8a94a6">
+            No {missing.join(', ')} are linked to this {TYPE_LABEL[n.type]?.toLowerCase()} yet. Absence here means
+            “not collected”, not “does not exist”.
+          </Callout>
+        </div>
+      )}
+    </>
+  )
+}
+
+/* --------------------------------------------------------------- disease -- */
+
+function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal, select, addNodes } = useStore()
+  const [tab, setTab] = useState<'overview' | 'connections' | 'sources'>('overview')
+  const nb = neighbours(m, n.id)
+  const genes = nb.filter((x) => x.node.type === 'Gene')
+  const papers = nb.filter((x) => x.node.type === 'Paper')
+  const similar = nb.filter((x) => x.edge.rel === 'DISEASE_MATCH').sort((a, b) => (b.edge.score as number) - (a.edge.score as number))
+  // symptoms that also appear in other diseases are the interesting ones: rank them first
+  const symptoms = nb.filter((x) => x.node.type === 'Phenotype').map((x) => ({
+    node: x.node, shared: neighbours(m, x.node.id, ['Disease']).length - 1,
+  })).sort((a, b) => b.shared - a.shared)
+  const top = similar[0]
+  const about = typeof n.definition === 'string' ? n.definition : ''
+
+  return (
+    <>
+      <Header n={n} meta={genes.map((g) => (
+        <Chip key={g.node.id} color={TYPE_COLOR.Gene} onClick={() => reveal(g.node.id)}>{g.node.name}</Chip>
+      ))} />
+
+      <div className="mt-4 flex gap-2">
+        <Stat label="Closest match" value={top ? nodeLabel(top.node) : '—'}
+          hint={top ? <span className="inline-flex items-center gap-1.5"><Strength level={strengthOf(top.edge.score as number)} />{String(top.edge.connection_label)}</span> : 'none above threshold'} />
+        <Stat label="Papers" value={papers.length} hint={papers.length ? 'AI-extracted' : 'none linked'} />
+      </div>
+
+      <div className="mt-4"><Tabs value={tab} onChange={setTab} tabs={[
+        { id: 'overview', label: 'Overview' }, { id: 'connections', label: 'Connections', count: similar.length },
+        { id: 'sources', label: 'Sources' }]} /></div>
+
+      <div className="mt-2">
+        {tab === 'overview' && (
+          <>
+            {about && <Section title="About"><Clamp>{about}</Clamp><p className="mt-2 text-[11.5px] text-ink-3">Definition from MONDO</p></Section>}
+            {papers.length > 0 && (
+              <Section title="Research" count={papers.length}>
+                <PaperRows papers={papers} />
+              </Section>
+            )}
+            <Section title="Symptoms" count={symptoms.length}
+              action={<button onClick={() => addNodes(symptoms.map((s) => s.node.id))} className="text-[12.5px] font-medium text-accent hover:underline">Show on map</button>}>
+              <More items={symptoms} initial={8} render={(s) => (
+                <Chip key={s.node.id} color={TYPE_COLOR.Phenotype} onClick={() => reveal(s.node.id)}>
+                  {s.node.name}{s.shared > 0 && <span className="text-ink-3">· {s.shared + 1}</span>}
+                </Chip>
+              )} />
+              <p className="mt-2 text-[11.5px] text-ink-3">The number shows how many mapped diseases share the symptom (HPO annotations).</p>
+            </Section>
+            {Array.isArray(n.synonyms) && n.synonyms.length > 0 && (
+              <Section title="Also known as" count={(n.synonyms as string[]).length} defaultOpen={false}>
+                <div className="flex flex-wrap gap-1.5">{(n.synonyms as string[]).map((s) => <Chip key={s}>{s}</Chip>)}</div>
+              </Section>
+            )}
+          </>
+        )}
+
+        {tab === 'connections' && (
+          <>
+            <Section title="Similar diseases" count={similar.length}>
+              {similar.length ? similar.map(({ node, edge }) => (
+                <Row key={edge.id} leading={<TypeTile type="Disease" />} title={nodeLabel(node)}
+                  subtitle={((edge.informative_phenotypes as string[]) ?? []).slice(0, 3).join(' · ') || String(edge.connection_label)}
+                  trailing={<span className="flex items-center gap-2 text-[12px] font-medium tabular-nums text-ink-2">{Math.round(edge.score as number)}<Strength level={strengthOf(edge.score as number)} /></span>}
+                  onClick={() => select({ kind: 'edge', id: edge.id })} />
+              )) : <p className="text-[13px] text-ink-3">No other mapped disease reaches the match threshold (score 20).</p>}
+              <p className="mt-2 text-[11.5px] leading-snug text-ink-3">Match score 0–100. Tap a disease to see why they are connected.</p>
+            </Section>
+            <Section title="Gene" count={genes.length}>
+              {genes.map((g) => (
+                <Row key={g.node.id} leading={<TypeTile type="Gene" />} title={g.node.name} subtitle={String(g.node.full_name ?? '')}
+                  trailing={<Badge color={STATUS[g.edge.status]?.color}>{STATUS[g.edge.status]?.label}</Badge>}
+                  onClick={() => reveal(g.node.id)} />
+              ))}
+            </Section>
+            {papers.length > 0 && <Section title="Papers" count={papers.length}><PaperRows papers={papers} /></Section>}
+            <OtherConnections n={n} m={m} />
+          </>
+        )}
+
+        {tab === 'sources' && (
+          <>
+            <Section title="External records"><SourcesList n={n} /></Section>
+            <Section title="Where this data comes from">
+              <Row leading={<TypeTile type="Disease" />} title="MONDO" subtitle="Disease identity, synonyms, definition" />
+              <Row leading={<TypeTile type="Phenotype" />} title="Human Phenotype Ontology" subtitle={`${symptoms.length} symptom annotations`} />
+              <Row leading={<TypeTile type="Gene" />} title="HGNC" subtitle="Gene identity and aliases" />
+              {papers.length > 0 && <Row leading={<TypeTile type="Paper" />} title="PubMed abstracts" subtitle="Claims extracted by an AI model with verbatim evidence" />}
+            </Section>
+          </>
+        )}
+      </div>
+    </>
+  )
+}
+
+/* ------------------------------------------------------------------ gene -- */
+
+function GeneCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal, showVariants } = useStore()
+  const [tab, setTab] = useState<'overview' | 'connections' | 'sources'>('overview')
+  const nb = neighbours(m, n.id)
+  const diseases = nb.filter((x) => x.node.type === 'Disease')
+  const variants = nb.filter((x) => x.node.type === 'Variant')
+  const claims = nb.filter((x) => x.node.type === 'Claim')
+  const counts = Object.entries((n.variant_counts as Record<string, number>) ?? {}).sort((a, b) => b[1] - a[1])
+  const total = counts.reduce((s, [, v]) => s + v, 0) || 1
+  const pathogenic = counts.filter(([k]) => /^pathogenic/i.test(k)).reduce((s, [, v]) => s + v, 0)
+  const palette = ['#f43f6b', '#f59f00', '#8b5cf6', '#2f6bff', '#94a3b8']
+
+  return (
+    <>
+      <Header n={n} meta={<span className="text-[13px] text-ink-2">{String(n.full_name ?? '')}</span>} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Diseases" value={diseases.length} />
+        <Stat label="Variants" value={variants.length} hint="ClinVar" />
+        <Stat label="Pathogenic" value={pathogenic} color="#f43f6b" />
+      </div>
+      <div className="mt-4"><Tabs value={tab} onChange={setTab} tabs={[
+        { id: 'overview', label: 'Overview' }, { id: 'connections', label: 'Connections', count: diseases.length + claims.length },
+        { id: 'sources', label: 'Sources' }]} /></div>
+
+      <div className="mt-2">
+        {tab === 'overview' && (
+          <>
+            {claims.length > 0 && (
+              <Section title="What papers say" count={claims.length}>
+                {claims.map((c) => <ClaimRow key={c.node.id} c={c.node} />)}
+              </Section>
+            )}
+            <Section title="Variant classifications" count={variants.length}
+              action={variants.length ? <button onClick={() => showVariants(n.id)} className="text-[12.5px] font-medium text-accent hover:underline">Show on map</button> : undefined}>
+              <div className="flex h-2 overflow-hidden rounded-full bg-subtle">
+                {counts.map(([k, v], i) => <span key={k} style={{ width: `${(v / total) * 100}%`, background: palette[i % 5] }} />)}
+              </div>
+              <div className="mt-3 space-y-1.5">
+                {counts.map(([k, v], i) => (
+                  <div key={k} className="flex items-center gap-2 text-[13px]">
+                    <span className="h-2 w-2 rounded-full" style={{ background: palette[i % 5] }} />
+                    <span className="flex-1 text-ink-2">{k}</span><span className="font-medium tabular-nums text-ink">{v}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-3 text-[11.5px] leading-snug text-ink-3">ClinVar classifications describe pathogenicity, not whether a variant causes loss or gain of function.</p>
+            </Section>
+            {Array.isArray(n.aliases) && n.aliases.length > 0 && (
+              <Section title="Also known as" count={(n.aliases as string[]).length} defaultOpen={false}>
+                <div className="flex flex-wrap gap-1.5">{(n.aliases as string[]).map((s) => <Chip key={s}>{s}</Chip>)}</div>
+              </Section>
+            )}
+          </>
+        )}
+        {tab === 'connections' && (
+          <>
+            <Section title="Diseases" count={diseases.length}>
+              {diseases.map((d) => (
+                <Row key={d.node.id} leading={<TypeTile type="Disease" />} title={nodeLabel(d.node)} subtitle={titleCase(d.node.name)}
+                  trailing={<Badge color={STATUS[d.edge.status]?.color}>{STATUS[d.edge.status]?.label}</Badge>}
+                  onClick={() => reveal(d.node.id)} />
+              ))}
+              {diseases.length < 2 && <p className="mt-2 text-[11.5px] text-ink-3">No other mapped disease shares this gene.</p>}
+            </Section>
+            <OtherConnections n={n} m={m} />
+          </>
+        )}
+        {tab === 'sources' && <Section title="External records"><SourcesList n={n} /></Section>}
+      </div>
+    </>
+  )
+}
+
+/* ------------------------------------------------------- papers & claims -- */
+
+const CATEGORY_LABEL: Record<string, string> = {
+  finding: 'Key findings', result: 'Results', study_design: 'Study design', background: 'Background', limitation: 'Limitations',
+}
+
+function ClaimRow({ c }: { c: GNode }) {
+  const { select } = useStore()
+  const negated = c.polarity === 'negated'
+  return (
+    <button onClick={() => select({ kind: 'node', id: c.id })}
+      className="group -mx-2 flex w-[calc(100%+16px)] gap-2.5 rounded-xl px-2 py-2 text-left transition-colors hover:bg-subtle">
+      <span className="mt-0.5 shrink-0" style={{ color: negated ? '#8a94a6' : '#12b886' }}>
+        {negated ? <CircleSlash size={15} /> : <BadgeCheck size={15} />}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-[13px] leading-snug text-ink">{String(c.statement)}</span>
+        <span className="mt-0.5 block text-[11.5px] text-ink-3">{negated ? 'Not shown / negative result · ' : ''}{String(c.pmid ?? '')}</span>
+      </span>
+    </button>
+  )
+}
+
+function PaperCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal, addNodes } = useStore()
+  const [tab, setTab] = useState<'summary' | 'claims' | 'sources'>('summary')
+  const nb = neighbours(m, n.id)
+  const claims = nb.filter((x) => x.node.type === 'Claim').map((x) => x.node)
+  const diseases = nb.filter((x) => x.node.type === 'Disease')
+  const authors = (n.authors as string[]) ?? []
+  const treatments = new Map<string, GNode>()
+  claims.forEach((c) => neighbours(m, c.id, ['Intervention']).forEach((x) => treatments.set(x.node.id, x.node)))
+  const byCat = Object.entries(CATEGORY_LABEL).map(([k, label]) => ({ k, label, items: claims.filter((c) => c.category === k) })).filter((g) => g.items.length)
+  const summary = (n.summary_sentences as string[]) ?? []
+
+  return (
+    <>
+      <Header n={n} title={n.name} meta={<>{reviewBadge(n)}<Badge color="#64748b">{String(n.source_kind ?? 'paper')}</Badge></>} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Claims" value={claims.length} hint="with verbatim evidence" />
+        <Stat label="Authors" value={authors.length} />
+      </div>
+      <div className="mt-4"><Tabs value={tab} onChange={setTab} tabs={[
+        { id: 'summary', label: 'Summary' }, { id: 'claims', label: 'Claims', count: claims.length }, { id: 'sources', label: 'Provenance' }]} /></div>
+
+      <div className="mt-2">
+        {tab === 'summary' && (
+          <>
+            {n.review_status !== 'approved' && (
+              <div className="mt-3">
+                <Callout icon={<AlertTriangle size={16} />} title="AI-extracted, not yet reviewed" color="#d97706">
+                  Every sentence was checked by a second model against the abstract, but a human expert has not approved it yet.
+                  Read the original before acting on it.
+                </Callout>
+              </div>
+            )}
+            <Section title="Plain-language summary">
+              {summary.length ? <Clamp lines={6}>{summary.join(' ')}</Clamp> : <p className="text-[13px] text-ink-3">The summary was withheld because it did not pass the audit.</p>}
+              <p className="mt-2 inline-flex items-center gap-1 text-[11.5px] text-ink-3"><Sparkles size={12} /> Generated from cited claims · {String(n.model ?? '')}</p>
+            </Section>
+            {treatments.size > 0 && (
+              <Section title="Treatments studied" count={treatments.size}>
+                <div className="flex flex-wrap gap-1.5">{[...treatments.values()].map((t) => <Chip key={t.id} color={TYPE_COLOR.Intervention} onClick={() => reveal(t.id)}>{t.name}</Chip>)}</div>
+              </Section>
+            )}
+            <Section title="Linked diseases" count={diseases.length}>
+              {diseases.map((d) => <Row key={d.node.id} leading={<TypeTile type="Disease" />} title={nodeLabel(d.node)} subtitle={String(d.edge.link_reason ?? '')} onClick={() => reveal(d.node.id)} />)}
+            </Section>
+            <Section title="Authors" count={authors.length} defaultOpen={false}>
+              <More items={authors} initial={12} render={(a) => <Chip key={a}>{a}</Chip>} />
+              <p className="mt-2 text-[11.5px] text-ink-3">Names are not matched across papers, so the same name may be different people.</p>
+            </Section>
+          </>
+        )}
+        {tab === 'claims' && (
+          <>
+            {byCat.map((g) => (
+              <Section key={g.k} title={g.label} count={g.items.length}>
+                {g.items.map((c) => <ClaimRow key={c.id} c={c} />)}
+              </Section>
+            ))}
+            <button onClick={() => addNodes([...claims.map((c) => c.id), ...treatments.keys()])}
+              className="mt-2 text-[12.5px] font-medium text-accent hover:underline">Show claims on the map</button>
+          </>
+        )}
+        {tab === 'sources' && (
+          <>
+            <Section title="Original paper">
+              <a href={String(n.url)} target="_blank" rel="noreferrer"
+                className="group -mx-2 flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-subtle">
+                <TypeTile type="Paper" /><span className="flex-1 text-[13.5px] font-medium text-ink">PubMed {n.id.replace('PMID:', '')}</span>
+                <ExternalLink size={14} className="text-ink-3 group-hover:text-accent" />
+              </a>
+            </Section>
+            <Section title="How it was processed">
+              {[
+                ['Extraction model', n.model], ['Verifier model', n.verifier_model], ['Prompt version', n.prompt_version],
+                ['Review status', n.review_status], ['Source quality', `Tier ${n.source_tier}`],
+              ].map(([k, v]) => (
+                <div key={String(k)} className="flex justify-between gap-4 py-1 text-[13px]">
+                  <span className="text-ink-3">{String(k)}</span><span className="text-right font-medium text-ink">{String(v ?? '–')}</span>
+                </div>
+              ))}
+              {typeof n.scope_note === 'string' && <p className="mt-2 text-[11.5px] text-ink-3">{n.scope_note}</p>}
+            </Section>
+          </>
+        )}
+      </div>
+    </>
+  )
+}
+
+function ClaimCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const paper = m.nodes.get(String(n.pmid))
+  const negated = n.polarity === 'negated'
+  const mentions = (n.mentions as { kind: string; mention: string; canonical_id: string | null }[]) ?? []
+  return (
+    <>
+      <Header n={n} title={String(n.statement)} meta={<>
+        {negated ? <Badge color="#8a94a6" icon={<CircleSlash size={11} />}>Negative / not shown</Badge> : <Badge color="#12b886" icon={<BadgeCheck size={11} />}>Affirmed</Badge>}
+        <Badge color="#64748b">{CATEGORY_LABEL[String(n.category)] ?? String(n.category)}</Badge>
+        {reviewBadge(n)}
+      </>} />
+      <div className="mt-3">
+        <Section title="Evidence from the abstract">
+          <div className="relative rounded-xl bg-subtle p-3 pl-9">
+            <Quote size={14} className="absolute left-3 top-3.5 text-ink-3" />
+            <Clamp lines={5}>{String(n.quote ?? '')}</Clamp>
+          </div>
+          <p className="mt-2 text-[11.5px] text-ink-3">Passage copied verbatim from the source by code, not written by the model.</p>
+        </Section>
+        {typeof n.verification === 'string' && (
+          <Section title="Verifier’s check" defaultOpen={false}>
+            <p className="text-[13px] leading-relaxed text-ink-2">{n.verification}</p>
+          </Section>
+        )}
+        {typeof n.study_context === 'string' && n.study_context && (
+          <Section title="Study context"><p className="text-[13px] text-ink-2">{n.study_context}</p></Section>
+        )}
+        <Section title="Mentions" count={mentions.length}>
+          {mentions.map((x, i) => (
+            <Row key={i} leading={<TypeTile type={x.kind === 'Outcome' ? 'Claim' : x.kind} />} title={x.mention}
+              subtitle={x.canonical_id ?? 'not matched to an ontology ID'}
+              onClick={x.canonical_id && m.nodes.has(x.canonical_id) ? () => reveal(x.canonical_id!) : undefined} />
+          ))}
+        </Section>
+        {paper && (
+          <Section title="Paper">
+            <Row leading={<TypeTile type="Paper" />} title={paper.name} subtitle={paper.id} onClick={() => reveal(paper.id)} />
+          </Section>
+        )}
+      </div>
+    </>
+  )
+}
+
+/* --------------------------------------------------------------- generic -- */
+
+function GenericCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const nb = neighbours(m, n.id)
+  const diseases = nb.filter((x) => x.node.type === 'Disease')
+  const claims = nb.filter((x) => x.node.type === 'Claim')
+  const rest = nb.filter((x) => x.node.type !== 'Disease' && x.node.type !== 'Claim')
+  const fields = (['protein_change', 'cdna_change', 'consequence', 'classification', 'variant_type'] as const).filter((k) => n[k])
+  const total = [...m.nodes.values()].filter((x) => x.type === 'Disease').length
+  return (
+    <>
+      <Header n={n} />
+      {n.type === 'Phenotype' && (
+        <div className="mt-4 flex gap-2"><Stat label="Seen in" value={`${diseases.length} of ${total}`} hint="mapped diseases" /></div>
+      )}
+      <div className="mt-3">
+        {fields.length > 0 && (
+          <Section title="Details">
+            {fields.map((k) => (
+              <div key={k} className="flex justify-between gap-4 py-1 text-[13px]">
+                <span className="text-ink-3">{titleCase(k.replace('_', ' '))}</span><span className="text-right font-medium text-ink">{String(n[k])}</span>
+              </div>
+            ))}
+          </Section>
+        )}
+        {claims.length > 0 && <Section title="What papers say" count={claims.length}>{claims.map((c) => <ClaimRow key={c.node.id} c={c.node} />)}</Section>}
+        {diseases.length > 0 && (
+          <Section title="Diseases" count={diseases.length}>
+            {diseases.map((d) => <Row key={d.node.id} leading={<TypeTile type="Disease" />} title={nodeLabel(d.node)} subtitle={titleCase(d.node.name)} onClick={() => reveal(d.node.id)} />)}
+          </Section>
+        )}
+        {rest.length > 0 && (
+          <Section title="Connected" count={rest.length}>
+            <More items={rest} initial={6} wrap="" render={(x) => (
+              <Row key={x.edge.id} leading={<TypeTile type={x.node.type} />} title={nodeLabel(x.node)} onClick={() => reveal(x.node.id)} />
+            )} />
+          </Section>
+        )}
+        {n.name_source === 'paper mention' && <p className="mt-2 text-[11.5px] text-ink-3">Name taken from the paper; ID resolved by exact HPO match.</p>}
+        {externalLinks(n).length > 0 && <Section title="External records"><SourcesList n={n} /></Section>}
+      </div>
+    </>
+  )
+}
+
+/* ------------------------------------------------------ why connected -- */
+
+function MatchCard({ e, m }: { e: GEdge; m: Model }) {
+  const { reveal, addNodes } = useStore()
+  const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
+  const shared = (e.shared_phenotypes as { id: string; name: string }[]) ?? []
+  const informative = new Set((e.informative_phenotypes as string[]) ?? [])
+  const ordered = [...shared].sort((x, y) => Number(informative.has(y.name)) - Number(informative.has(x.name)))
+  const sameGene = ((e.shared_genes as string[]) ?? []).length > 0
+  const score = e.score as number
+  const comps = (e.components as Record<string, number>) ?? {}
+  const why = (e.why_connected as string[]) ?? []
+
+  return (
+    <>
+      <p className="text-[12px] font-semibold text-disease">Why are these connected?</p>
+      <div className="mt-3 flex items-center gap-2">
+        {[a, b].map((x, i) => (
+          <div key={x.id} className="contents">
+            {i === 1 && (
+              <div className="flex flex-col items-center px-1">
+                <span className="text-[17px] font-semibold tabular-nums text-ink">{Math.round(score)}</span>
+                <Strength level={strengthOf(score)} />
+              </div>
+            )}
+            <button onClick={() => reveal(x.id)}
+              className="card-shadow min-w-0 flex-1 rounded-xl bg-white p-3 text-left transition-shadow hover:shadow-md">
+              <span className="block h-2.5 w-2.5 rounded-full bg-disease" />
+              <span className="mt-2 block truncate text-[13.5px] font-semibold text-ink">{nodeLabel(x)}</span>
+              <span className="block truncate text-[11.5px] text-ink-3">{String(x.short ?? '')} gene</span>
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        <Badge color="#f43f6b">{String(e.connection_label)}</Badge>
+        <Badge color={STATUS[e.status].color} icon={<ShieldCheck size={12} />}>Computed link, not proven</Badge>
+      </div>
+
+      {why.length > 0 && (
+        <div className="mt-3 space-y-1.5">
+          {why.map((w, i) => <p key={i} className="text-[13.5px] leading-relaxed text-ink-2">{w}</p>)}
+        </div>
+      )}
+
+      <div className="mt-3">
+        <Section title="What they share" count={shared.length}
+          action={shared.length ? <button onClick={() => addNodes(shared.map((p) => p.id))} className="text-[12.5px] font-medium text-accent hover:underline">Show on map</button> : undefined}>
+          {ordered.length
+            ? <More items={ordered} initial={8} render={(p) => (
+                <Chip key={p.id} color={informative.has(p.name) ? '#f43f6b' : TYPE_COLOR.Phenotype} onClick={() => reveal(p.id)}>{p.name}</Chip>
+              )} />
+            : <p className="text-[13px] text-ink-3">No identical symptom terms; the link comes from related terms.</p>}
+          {informative.size > 0 && <p className="mt-2 text-[11.5px] text-ink-3"><span className="text-disease">●</span> Most informative shared features, as chosen by the matching algorithm.</p>}
+        </Section>
+        <Section title="What differs">
+          <Row leading={<TypeTile type="Gene" />} title={sameGene ? 'Same gene' : 'Different genes'}
+            subtitle={`${a.short ?? '?'} vs ${b.short ?? '?'}`}
+            trailing={!sameGene && !((e.shared_mechanisms as string[]) ?? []).length ? <Badge color="#8a94a6">no shared mechanism in atlas yet</Badge> : undefined} />
+        </Section>
+        <Section title="Score breakdown">
+          {([['phenotype', 'Symptoms', 30], ['mechanism', 'Mechanism', 50], ['genetic', 'Genes', 20]] as const).map(([k, label, w]) => (
+            <div key={k} className="flex items-center gap-3 py-1 text-[13px]">
+              <span className="w-24 text-ink-2">{label}</span>
+              <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-subtle">
+                <span className="block h-full rounded-full bg-disease" style={{ width: `${Math.min(100, (comps[k] ?? 0) * 100)}%` }} />
+              </span>
+              <span className="w-10 text-right font-mono text-[12px] text-ink-3">{(comps[k] ?? 0).toFixed(2)}</span>
+              <span className="w-9 text-right text-[11px] text-ink-3">×{w}%</span>
+            </div>
+          ))}
+          <p className="mt-2 text-[11.5px] leading-snug text-ink-3">
+            Weights apply only to dimensions with shared evidence.
+            {!comps.mechanism && !comps.genetic ? ' No shared mechanism or gene is in the atlas, so this score comes from symptoms alone.' : ''}
+          </p>
+        </Section>
+        <Section title="How this was measured" defaultOpen={false}>
+          <p className="text-[13px] leading-relaxed text-ink-2">
+            Symptom similarity is an information-weighted overlap of both diseases’ HPO symptom profiles, including broader
+            parent terms. Rare symptoms weigh more than common ones. Mechanism and gene overlap are added when both
+            diseases have them. The result is scaled by the quality of the sources behind the shared features and reported
+            as 0–100. Pairs below 20 are not shown, and overlaps made only of broad symptoms are down-weighted.
+          </p>
+          {[
+            ['Match score', score.toFixed(1)],
+            ['Source quality of shared features', `${String(e.confidence)} (${Number(e.evidence_quality ?? 0).toFixed(2)})`],
+            ['Strength buckets (UI only)', `strong ≥ ${STRENGTH_CUTOFFS.strong}, moderate ≥ ${STRENGTH_CUTOFFS.moderate}`],
+          ].map(([k, v]) => (
+            <div key={k} className="mt-1.5 flex items-center justify-between gap-3 rounded-lg bg-subtle px-3 py-2 text-[12.5px]">
+              <span className="text-ink-3">{k}</span><span className="text-right font-mono font-medium text-ink">{v}</span>
+            </div>
+          ))}
+          <p className="mt-2 text-[11.5px] text-ink-3">“Source quality” rates the curated sources (HPO), not whether the diseases share a cause.</p>
+        </Section>
+      </div>
+
+      <div className="mt-2">
+        <Callout icon={<Lightbulb size={16} />} title="What would make this stronger">
+          Symptom overlap shows where to look; it does not show a shared cause. Evidence that {String(a.short)} and {String(b.short)} act
+          through the same mechanism would turn this into a mechanistic link.
+        </Callout>
+      </div>
+    </>
+  )
+}
+
+function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
+  const { reveal } = useStore()
+  if (e.rel === 'DISEASE_MATCH') return <MatchCard e={e} m={m} />
+  const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
+  const st = STATUS[e.status]
+  const ev = e.evidence as { via: string; reference: string; code: string }[] | undefined
+  const facts: [string, ReactNode][] = [
+    ['Source', String(e.source_name ?? '–')],
+    ['Method', e.method.replace('_', ' ')],
+    ['Source quality', `Tier ${e.source_tier}`],
+    ['Retrieved', e.retrieved],
+  ]
+  if (e.link_reason) facts.push(['Why linked', String(e.link_reason)])
+  if (e.classification) facts.push(['ClinVar', `${e.classification} · ${e.review_status}`])
+  return (
+    <>
+      <p className="text-[12px] font-semibold text-ink-3">Connection</p>
+      <h2 className="mt-1 text-[21px] font-semibold tracking-[-0.02em] text-ink">{titleCase(e.rel.replace(/_/g, ' ').toLowerCase())}</h2>
+      <div className="mt-2 flex gap-1.5">
+        <Badge color={st?.color} icon={<ShieldCheck size={12} />}>{st?.label}</Badge>
+        {e.review_status === 'pending' && <PendingBadge />}
+      </div>
+      <div className="mt-3">
+        <Section title="Between">
+          {[a, b].map((x) => <Row key={x.id} leading={<TypeTile type={x.type} />} title={nodeLabel(x)} onClick={() => reveal(x.id)} />)}
+          <div className="flex justify-center text-ink-3"><ArrowRight size={14} className="rotate-90" /></div>
+        </Section>
+        <Section title="Evidence">
+          {facts.map(([k, v]) => (
+            <div key={k} className="flex justify-between gap-4 py-1 text-[13px]">
+              <span className="text-ink-3">{k}</span><span className="text-right font-medium text-ink">{v}</span>
+            </div>
+          ))}
+        </Section>
+        {ev && ev.length > 0 && (
+          <Section title="References" count={ev.length} defaultOpen={false}>
+            {ev.map((x, i) => <Row key={i} leading={<TypeTile type="Paper" />} title={x.reference} subtitle={`via ${x.via} · code ${x.code}`} />)}
+          </Section>
+        )}
+      </div>
+    </>
+  )
+}
+
+/* ----------------------------------------------------------------- sheet -- */
+
+const SPECIAL = ['Disease', 'Gene', 'Paper', 'Claim']
+
+export default function DetailPanel() {
+  const { model, selected, select } = useStore()
+  const node = model && selected?.kind === 'node' ? model.nodes.get(selected.id) : null
+  const edge = model && selected?.kind === 'edge' ? model.edges.get(selected.id) : null
+  const open = !!(node || edge)
+
+  return (
+    <AnimatePresence>
+      {open && model && (
+        <motion.aside
+          initial={{ opacity: 0, x: 24, scale: 0.98 }} animate={{ opacity: 1, x: 0, scale: 1 }}
+          exit={{ opacity: 0, x: 24, scale: 0.98 }} transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+          className="glass absolute inset-x-2 bottom-2 z-20 flex max-h-[64vh] flex-col overflow-hidden rounded-[22px]
+                     md:inset-x-auto md:bottom-4 md:right-4 md:top-[84px] md:max-h-none md:w-[400px]">
+          <div className="flex items-center justify-between px-5 pt-4">
+            <span className="mx-auto h-1 w-9 rounded-full bg-black/10 md:hidden" />
+            <button onClick={() => select(null)} aria-label="Close"
+              className="relative z-10 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black/[0.04] text-ink-2 transition-colors hover:bg-black/[0.08]">
+              <X size={14} strokeWidth={2.4} />
+            </button>
+          </div>
+          <div className="scroll-thin -mt-5 flex-1 overflow-y-auto px-5 pb-6">
+            <AnimatePresence mode="wait">
+              <motion.div key={selected!.kind + selected!.id}
+                initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.16 }}>
+                {node?.type === 'Disease' && <DiseaseCard n={node} m={model} />}
+                {node?.type === 'Gene' && <GeneCard n={node} m={model} />}
+                {node?.type === 'Paper' && <PaperCard n={node} m={model} />}
+                {node?.type === 'Claim' && <ClaimCard n={node} m={model} />}
+                {node && !SPECIAL.includes(node.type) && <GenericCard n={node} m={model} />}
+                {edge && <EdgeCard e={edge} m={model} />}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </motion.aside>
+      )}
+    </AnimatePresence>
+  )
+}

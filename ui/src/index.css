@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-canvas: #f6f8fc;
+  --color-ink: #0b1220;
+  --color-ink-2: #475467;
+  --color-ink-3: #8a94a6;
+  --color-line: #e7ebf2;
+  --color-surface: #ffffff;
+  --color-subtle: #f3f5f9;
+
+  --color-disease: #f43f6b;
+  --color-gene: #2f6bff;
+  --color-symptom: #12b886;
+  --color-variant: #f59f00;
+  --color-mechanism: #8b5cf6;
+  --color-accent: #2f6bff;
+}
+
+html, body, #root { height: 100%; margin: 0; }
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01", "ss03";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.006em;
+}
+
+/* frosted surface for floating chrome */
+.glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.03),
+    0 8px 24px -6px rgba(15, 23, 42, 0.10),
+    0 24px 48px -12px rgba(15, 23, 42, 0.08);
+}
+
+.card-shadow {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+/* graph node overlay */
+.node { position: absolute; left: 0; top: 0; will-change: transform; pointer-events: none; }
+.node-bubble { transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.25s, opacity 0.25s; }
+.node.is-hover .node-bubble { transform: scale(1.08); }
+.node.is-faded { opacity: 0.18; }
+.node { transition: opacity 0.25s ease; }
+.node.is-selected .node-ring { opacity: 1; animation: ring 2.2s ease-out infinite; }
+.node-ring { opacity: 0; }
+@keyframes ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  70% { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+input[type="range"] { accent-color: var(--color-accent); }
+
+/* thin scrollbars inside the sheet */
+.scroll-thin { scrollbar-width: thin; scrollbar-color: rgba(15,23,42,0.15) transparent; }
+
+kbd {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--color-line);
+  background: var(--color-subtle);
+  color: var(--color-ink-3);
+}
