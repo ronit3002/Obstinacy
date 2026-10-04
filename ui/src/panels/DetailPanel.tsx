@@ -809,7 +809,32 @@ function StudyCard({ n, m }: { n: GNode; m: Model }) {
   )
 }
 
+function OrgSetCard({ n, m }: { n: GNode; m: Model }) {
+  const members = ((n.members as string[]) ?? []).map((id) => m.nodes.get(id)).filter(Boolean) as GNode[]
+  const diseases = new Map<string, GNode>()
+  members.forEach((o) => neighbours(m, o.id, ['Disease']).forEach((d) => diseases.set(d.node.id, d.node)))
+  return (
+    <>
+      <Header n={n} meta={<Badge color={TYPE_COLOR.PatientOrg}>Patient groups shared between diseases</Badge>} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Organisations" value={members.length} />
+        <Stat label="Diseases" value={diseases.size} hint="supported" />
+      </div>
+      <div className="mt-3">
+        <Section title="Diseases">{[...diseases.values()].map((d) => <DiseaseRowLite key={d.id} d={d} />)}</Section>
+        <Section title="Organisations" count={members.length}><OrgRows orgs={members} m={m} /></Section>
+      </div>
+    </>
+  )
+}
+
+function DiseaseRowLite({ d }: { d: GNode }) {
+  const { reveal } = useStore()
+  return <Row leading={<TypeTile type="Disease" />} title={nodeLabel(d)} subtitle={titleCase(d.name)} onClick={() => reveal(d.id)} />
+}
+
 function OrgCard({ n, m }: { n: GNode; m: Model }) {
+  if (n.org_set) return <OrgSetCard n={n} m={m} />
   return (
     <>
       <Header n={n} meta={<><Badge color={TYPE_COLOR.PatientOrg}>{String(n.focus ?? n.org_kind ?? 'Patient group')}</Badge>

@@ -6,13 +6,13 @@ import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { TYPE_COLOR, nodeLabel, nodeSubtitle } from './model'
 import { drawBlueprint } from './blueprint'
-import { combined, describe, hubLinks, lensDef, pairLayers } from './lens'
+import { combined, hubLinks, lensDef, pairLayers } from './lens'
 
 cytoscape.use(fcose)
 
 /** Diameter in graph units. Nodes are drawn as HTML on top of Cytoscape; Cytoscape only lays out and hit-tests. */
 const SIZE: Record<string, number> = { Disease: 64, Gene: 38, Mechanism: 44, GeneGroup: 42, Paper: 34, Study: 30, PatientOrg: 32,
-  Grant: 26, Intervention: 28, Phenotype: 16, Variant: 10, Claim: 14, Researcher: 14 }
+  Grant: 26, Intervention: 30, Phenotype: 16, Variant: 10, Claim: 14, Researcher: 28 }
 const sizeOf = (t: string) => SIZE[t] ?? 30
 
 const style: cytoscape.StylesheetJson = [
@@ -42,7 +42,7 @@ const style: cytoscape.StylesheetJson = [
       'text-background-shape': 'roundrectangle', 'font-family': 'Inter, sans-serif' } as never },
   { selector: 'edge[rel="MEMBER_OF"]', style: { 'line-color': '#fdba74', width: 1.5 } },
   // connection lens: disease -- hub edges coloured like the hub type
-  { selector: 'edge[rel="LENS"]', style: { 'line-color': 'data(color)', width: 2, opacity: 0.5 } },
+  { selector: 'edge[rel="LENS"]', style: { 'line-color': 'data(color)', width: 1.6, opacity: 0.55 } },
   { selector: 'edge[rel="LENS"].hi', style: { opacity: 0.95 } },
   { selector: 'edge[rel="DISCUSSES"]', style: { 'line-color': '#94a3b8', 'line-style': 'dashed', 'line-dash-pattern': [3, 4] } as never },
   { selector: 'edge.faded', style: { opacity: 0.05 } },
@@ -107,7 +107,7 @@ export default function GraphView() {
         else e.label.style.top = `${d / 2 + 6}px`
         const t = n.data('type')
         // small or wordy nodes only show their label when zoomed in, hovered or selected
-        const minZoom = t === 'Phenotype' || t === 'Variant' ? 0.7 : ['Paper', 'Claim', 'Researcher', 'Study', 'Grant', 'PatientOrg', 'Intervention'].includes(t) ? 1.15 : 0
+        const minZoom = t === 'Phenotype' || t === 'Variant' ? 0.7 : ['Claim', 'Grant'].includes(t) ? 1.15 : ['Paper', 'Researcher', 'Study', 'PatientOrg', 'Intervention'].includes(t) ? 0.75 : 0
         e.label.style.opacity = z < minZoom && !e.root.classList.contains('is-selected') && !e.root.classList.contains('is-hover') ? '0' : ''
       }
     })
@@ -187,27 +187,18 @@ export default function GraphView() {
           }
         }
       }
-      // typed lines (one per layer and pair) and invisible springs (combined strength)
-      const typed = new Set<string>(), springs = new Set<string>()
+      // invisible springs: combined strength of all active types sets how close two diseases sit
+      const springs = new Set<string>()
       for (const [k, cs] of pairs) {
         const [a, b] = k.split('|')
         if (!shownDisease(a) || !shownDisease(b)) continue
-        for (const c of cs) {
-          if (c.mode === 'symptoms') continue
-          const id = `TYPED:${c.mode}:${k}`, def = lensDef(c.mode)
-          typed.add(id)
-          const data = { strength: c.strength, label: describe(c), color: def.color, dash: def.dash }
-          const el = cy.getElementById(id)
-          if (el.nonempty()) el.data(data)
-          else cy.add({ group: 'edges', data: { id, source: a, target: b, rel: 'TYPED', mode: c.mode, pair: k, ...data } })
-        }
         const sid = `SPRING:${k}`, st = combined(cs)
         springs.add(sid)
         const el = cy.getElementById(sid)
         if (el.nonempty()) el.data('strength', st)
         else cy.add({ group: 'edges', data: { id: sid, source: a, target: b, rel: 'SPRING', strength: st } })
       }
-      cy.edges('[rel="TYPED"]').forEach((e) => { if (!typed.has(e.id())) e.remove() })
+      cy.edges('[rel="TYPED"]').remove()
       cy.edges('[rel="SPRING"]').forEach((e) => { if (!springs.has(e.id())) e.remove() })
       // hub lines: any visible hub of an active layer connects to the visible diseases it serves
       const hubEdges = new Set<string>()
@@ -243,7 +234,7 @@ export default function GraphView() {
       // disease-to-disease lines just ride along
       idealEdgeLength: (e: cytoscape.EdgeSingular) => {
         const r = e.data('rel')
-        if (r === 'SPRING') return 560 - 450 * e.data('strength')
+        if (r === 'SPRING') return 580 - 400 * e.data('strength')  // never closer than ~180: bubbles must not overlap
         if (r === 'DISEASE_MATCH') return 540 - 11 * e.data('score')
         return r === 'MEMBER_OF' ? 110 : r === 'LENS' ? 150 : r === 'TYPED' ? 300 : 80
       },
@@ -298,8 +289,9 @@ export default function GraphView() {
     cy.nodes().forEach((n) => {
       const target = map ? map(n.position()) : { ...n.position() }
       targets[n.id()] = target
-      const start = before.get(n.id()) ?? target
-      n.position(start)
+      // new bubbles appear in place; existing nodes glide (and never wait on a hidden tab's paused frames)
+      if (added.includes(n.id()) || document.hidden) { n.position(target); return }
+      n.position(before.get(n.id()) ?? target)
       n.animate({ position: target }, { duration: 700, easing: 'ease-in-out-cubic' })
     })
     if (added.length > 20) setTimeout(() => cy.animate({ fit: { eles: cy.elements(), padding: Math.min(110, cy.width() * 0.1) } }, { duration: 400 }), 720)
@@ -410,7 +402,7 @@ function NodeView({ id, type, title, subtitle, register }: {
   const c = TYPE_COLOR[type] ?? '#64748b'
   const Icon = TYPE_ICON[type]
   const big = type === 'Disease'
-  const withIcon = ['Gene', 'Mechanism', 'PatientOrg', 'Study', 'Paper', 'Intervention', 'Grant', 'GeneGroup'].includes(type)
+  const withIcon = ['Gene', 'Mechanism', 'PatientOrg', 'Study', 'Paper', 'Intervention', 'Grant', 'GeneGroup', 'Researcher'].includes(type)
 
   return (
     <div ref={root} className="node">

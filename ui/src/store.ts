@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import type { Model } from './graph/model'
 import { neighbours, other } from './graph/model'
 import type { LensId } from './graph/lens'
-import { GROUP_FOCUS, lensDef, sharedHubs } from './graph/lens'
+import { GROUP_FOCUS, addOrgSets, sharedHubs } from './graph/lens'
 
 export type Selection = { kind: 'node' | 'edge'; id: string } | null
 
@@ -78,7 +78,7 @@ export const useStore = create<State>((set, get) => {
       const { model, layers, visible, seeds, selected, groupFocus } = get()
       const on = !layers.includes(l)
       const next = new Set(visible)
-      if (model && lensDef(l).hubs) {  // mechanism / gene family bring their few shared hub bubbles
+      if (model && l !== 'symptoms') {  // each type shows the things diseases share as icon bubbles
         for (const h of sharedHubs(model, l, groupFocus)) {
           if (on) next.add(h)
           else if (!seeds.has(h) && h !== selected?.id) next.delete(h)
@@ -87,19 +87,26 @@ export const useStore = create<State>((set, get) => {
       set({ layers: on ? [...layers, l] : layers.filter((x) => x !== l), visible: next, layoutTick: bump() })
     },
     toggleGroupFocus: (f) => {
-      const g = get().groupFocus
-      set({ groupFocus: g.includes(f) ? g.filter((x) => x !== f) : [...g, f], layoutTick: bump() })
+      const { model, groupFocus: g, visible, layers } = get()
+      const groupFocus = g.includes(f) ? g.filter((x) => x !== f) : [...g, f]
+      const next = new Set(visible)
+      if (model && layers.includes('groups')) {
+        next.delete(`ORGSET:${f}`)
+        sharedHubs(model, 'groups', groupFocus).forEach((h) => next.add(h))
+      }
+      set({ groupFocus, visible: next, layoutTick: bump() })
     },
     clearLayers: () => {
       const { model, layers, visible, seeds, selected, groupFocus } = get()
       const next = new Set(visible)
-      if (model) for (const l of layers) if (lensDef(l).hubs) sharedHubs(model, l, groupFocus).forEach((h) => { if (!seeds.has(h) && h !== selected?.id) next.delete(h) })
+      if (model) for (const l of layers) if (l !== 'symptoms') sharedHubs(model, l, groupFocus).forEach((h) => { if (!seeds.has(h) && h !== selected?.id) next.delete(h) })
       set({ layers: [], visible: next, layoutTick: bump() })
     },
     focusTick: 0,
     layoutTick: 0,
 
     setModel: (m) => {
+      addOrgSets(m)
       const seeds = seedSet(m)
       set({ model: m, seeds, visible: new Set(seeds) })
     },

@@ -5,16 +5,6 @@ import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { cx } from '../ui/kit'
 
-/** A short sample of the line style each connection type draws on the map. */
-function LineSwatch({ color, dash }: { color: string; dash: string }) {
-  return (
-    <svg width="22" height="8" className="shrink-0" aria-hidden>
-      <line x1="1" y1="4" x2="21" y2="4" stroke={color} strokeWidth="2.5" strokeLinecap="round"
-        strokeDasharray={dash === 'dashed' ? '6 3' : dash === 'dotted' ? '1.5 3.5' : undefined} />
-    </svg>
-  )
-}
-
 /**
  * "Connections": switch connection types on and off. Each active type draws its own coloured line
  * between diseases on the current map; together they decide how close the diseases sit.
@@ -47,7 +37,6 @@ export default function LensPanel() {
                 {Icon && <Icon size={12} strokeWidth={2.4} />}
               </span>
               <span className="flex-1">{l.label}</span>
-              <LineSwatch color={l.color} dash={l.dash} />
             </button>
             {on && l.id === 'groups' && (
               <div className="flex flex-wrap gap-1 px-2.5 pb-2.5 pl-[38px]">
@@ -69,7 +58,7 @@ export default function LensPanel() {
         )
       })}
       <p className="mt-1.5 border-t border-line px-2.5 pb-1 pt-2 text-[11px] leading-snug text-ink-3">
-        Hover a line to see what it is based on; click it for the full list.
+        Each type adds the things diseases share as bubbles. Click a bubble to see the details.
       </p>
     </div>
   )

@@ -68,10 +68,13 @@ export function hubLinks(m: Model, lens: LensId, groupFocus: readonly string[] =
       genes.forEach((g) => neighbours(m, g.id, ['Grant']).forEach((gr) =>
         neighbours(m, gr.node.id, ['Researcher']).forEach((r) => add(r.node.id, d.id, `NIH project on ${g.name}`))))
     } else if (lens === 'groups') {
+      // patient groups are bundled per focus ("Epilepsy groups") so dozens of organisations become one bubble;
+      // a disease joins a bundle only through organisations it shares with another disease
       neighbours(m, d.id, ['PatientOrg']).forEach((x) => {
-        if (x.node.scope === 'umbrella') return
-        if (!groupFocus.includes(String(x.node.focus ?? 'Disease-specific'))) return
-        add(x.node.id, d.id, String(x.node.directory ?? 'directory'))
+        if (x.node.scope === 'umbrella' || x.node.scope === 'specific') return
+        const focus = String(x.node.focus ?? 'Disease-specific')
+        if (!groupFocus.includes(focus)) return
+        add(`ORGSET:${focus}`, d.id, x.node.name)
       })
     } else if (lens === 'papers') {
       neighbours(m, d.id, ['Paper']).forEach((x) => add(x.node.id, d.id, String(x.edge.link_reason ?? 'linked paper')))
@@ -138,4 +141,20 @@ export const describe = (c: Contribution) => {
   if (c.mode === 'symptoms') return `similar symptoms (${Math.round(c.strength * 40)})`
   const n = c.items.length
   return n === 1 ? `${d.noun[0]}: ${c.items[0].name}` : `${n} ${d.noun[1]}`
+}
+
+/** Synthetic bubbles for the patient-group bundles (one per focus), added to the model once. */
+export function addOrgSets(m: Model) {
+  const byFocus = new Map<string, string[]>()
+  for (const n of m.nodes.values()) {
+    if (n.type !== 'PatientOrg' || n.scope === 'umbrella' || n.scope === 'specific') continue
+    const f = String(n.focus ?? 'Disease-specific')
+    if (!byFocus.has(f)) byFocus.set(f, [])
+    byFocus.get(f)!.push(n.id)
+  }
+  for (const [f, members] of byFocus) {
+    const id = `ORGSET:${f}`
+    const label = f === 'Disease-specific' ? 'Gene-specific groups' : f === 'Children & disability' ? 'Disability groups' : `${f} groups`
+    m.nodes.set(id, { id, type: 'PatientOrg', name: `${label} · ${members.length}`, members, org_set: true, focus: f, source_local: true })
+  }
 }
