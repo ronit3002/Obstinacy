@@ -161,6 +161,467 @@ def cluster(G):
     comms = louvain_communities(P, weight="weight", seed=42)  # fixed seed = reproducible demo
     return P, comms
 
+from math import sqrt
+
+
+# ---------------------------------------------------------- match scoring ---
+
+STATUS_WEIGHT = {
+    "observation": 1.00,
+    "inference": 0.80,
+    "hypothesis": 0.50,
+}
+
+TIER_WEIGHT = {
+    1: 1.00,   # curated database
+    2: 0.90,   # peer-reviewed paper
+    3: 0.65,   # preprint / organization website
+}
+
+METHOD_WEIGHT = {
+    "curated_import": 1.00,
+    "computed": 0.95,
+    "llm_extracted": 0.90,
+}
+
+
+def edge_evidence_score(G, u, v, edge_data):
+    """
+    Convert provenance metadata into a 0..1 evidence-quality score.
+    This measures support quality, not biological truth.
+    """
+    status = STATUS_WEIGHT.get(edge_data.get("status"), 0.0)
+    tier = TIER_WEIGHT.get(int(edge_data.get("source_tier", 3)), 0.0)
+    method = METHOD_WEIGHT.get(edge_data.get("method"), 0.0)
+
+    score = status * tier * method
+
+    # For LLM-extracted edges, use the verified Claim confidence when present.
+    claim_ids = edge_data.get("supported_by", [])
+    claim_scores = []
+
+    for cid in claim_ids:
+        claim = G.nodes.get(cid, {})
+        if claim.get("type") == "Claim":
+            try:
+                claim_scores.append(float(claim.get("confidence", 0.0)))
+            except (TypeError, ValueError):
+                pass
+
+    if claim_scores:
+        score *= sum(claim_scores) / len(claim_scores)
+
+    return max(0.0, min(1.0, score))
+
+
+def best_edge_support(G, u, v, rel):
+    """Best provenance score among parallel edges of a relation."""
+    values = []
+
+    for _, _, data in G.edges(u, v, data=True):
+        if data.get("rel") == rel:
+            values.append(edge_evidence_score(G, u, v, data))
+
+    return max(values, default=0.0)
+
+
+def node_link_map(G, node_type, rel):
+    """
+    Return:
+        node -> {neighbor: best evidence score}
+    """
+    out = {}
+
+    for node, data in G.nodes(data=True):
+        if data.get("type") != node_type:
+            continue
+
+        links = {}
+
+        for _, target, edge in G.out_edges(node, data=True):
+            if edge.get("rel") != rel:
+                continue
+
+            target_type = G.nodes[target].get("type")
+            if target_type not in {"Gene", "Mechanism", "Phenotype"}:
+                continue
+
+            score = edge_evidence_score(G, node, target, edge)
+            links[target] = max(links.get(target, 0.0), score)
+
+        out[node] = links
+
+    return out
+
+
+def disease_feature_maps(G):
+    """
+    Extract evidence-weighted disease -> mechanism/gene/phenotype maps.
+    """
+    mechanisms = {}
+    genes = {}
+    phenotypes = {}
+
+    for disease, d in G.nodes(data=True):
+        if d.get("type") != "Disease":
+            continue
+
+        mechanisms[disease] = {}
+        genes[disease] = {}
+        phenotypes[disease] = {}
+
+        for _, target, edge in G.out_edges(disease, data=True):
+            rel = edge.get("rel")
+            target_type = G.nodes[target].get("type")
+            support = edge_evidence_score(G, disease, target, edge)
+
+            if rel == "INVOLVES" and target_type == "Mechanism":
+                mechanisms[disease][target] = max(
+                    mechanisms[disease].get(target, 0.0),
+                    support,
+                )
+
+            elif rel == "HAS_PHENOTYPE" and target_type == "Phenotype":
+                phenotypes[disease][target] = max(
+                    phenotypes[disease].get(target, 0.0),
+                    support,
+                )
+
+            elif rel == "ASSOCIATED_WITH" and target_type == "Gene":
+                genes[disease][target] = max(
+                    genes[disease].get(target, 0.0),
+                    support,
+                )
+
+    return mechanisms, genes, phenotypes
+
+
+def phenotype_link_weight(phenotypes, a, b):
+    """
+    Existing projection idea:
+    shared broad phenotypes get low weight because they occur in many diseases.
+    """
+    pa = set(phenotypes[a])
+    pb = set(phenotypes[b])
+    shared = pa & pb
+
+    frequency = {}
+    for disease_terms in phenotypes.values():
+        for p in disease_terms:
+            frequency[p] = frequency.get(p, 0) + 1
+
+    weight = sum(
+        1.0 / max(frequency.get(p, 1), 1)
+        for p in shared
+    )
+
+    return weight, sorted(
+        shared,
+        key=lambda p: 1.0 / max(frequency.get(p, 1), 1),
+        reverse=True,
+    )
+
+
+def weighted_jaccard(map_a, map_b):
+    """
+    Evidence-weighted Jaccard for maps {feature: support}.
+    """
+    a = set(map_a)
+    b = set(map_b)
+
+    if not a and not b:
+        return 0.0
+
+    union = a | b
+    inter = a & b
+
+    numerator = sum(
+        min(map_a[x], map_b[x])
+        for x in inter
+    )
+
+    denominator = sum(
+        max(
+            map_a.get(x, 0.0),
+            map_b.get(x, 0.0),
+        )
+        for x in union
+    )
+
+    return numerator / denominator if denominator else 0.0
+
+
+def shared_feature_support(map_a, map_b):
+    shared = set(map_a) & set(map_b)
+
+    if not shared:
+        return 0.0
+
+    # Conservative: both diseases must have good evidence.
+    return sum(
+        sqrt(map_a[x] * map_b[x])
+        for x in shared
+    ) / len(shared)
+
+
+def genetic_similarity(genes_a, genes_b):
+    a = set(genes_a)
+    b = set(genes_b)
+
+    if not a and not b:
+        return 0.0
+
+    return len(a & b) / len(a | b)
+
+
+def pair_connection(
+    G,
+    a,
+    b,
+    mechanisms,
+    genes,
+    phenotypes,
+    phenotype_similarity_score=None,
+    informative_phenotypes=None,
+):
+    """
+    Produce one frontend-ready disease-disease connection record.
+    """
+
+    shared_m = set(mechanisms[a]) & set(mechanisms[b])
+    shared_g = set(genes[a]) & set(genes[b])
+    shared_p = set(phenotypes[a]) & set(phenotypes[b])
+
+    # Mechanism similarity
+    mechanism_score = weighted_jaccard(
+        mechanisms[a],
+        mechanisms[b],
+    )
+
+    mechanism_support = shared_feature_support(
+        mechanisms[a],
+        mechanisms[b],
+    )
+
+    # Gene similarity
+    gene_score = genetic_similarity(
+        genes[a],
+        genes[b],
+    )
+
+    gene_support = shared_feature_support(
+        genes[a],
+        genes[b],
+    )
+
+    # Phenotype similarity:
+    # Prefer the stronger IC-weighted score already calculated in graph.py.
+    if phenotype_similarity_score is not None:
+        phenotype_score = max(
+            0.0,
+            min(1.0, float(phenotype_similarity_score)),
+        )
+    else:
+        phenotype_score = 0.0
+
+    # Guardrail from disease_projection():
+    # one ordinary shared phenotype must not manufacture a strong connection.
+    pheno_weight, weighted_shared_p = phenotype_link_weight(
+        phenotypes,
+        a,
+        b,
+    )
+
+    meaningful_phenotype_link = pheno_weight >= MIN_LINK_WEIGHT
+
+    if not meaningful_phenotype_link:
+        phenotype_score *= 0.35
+
+    # Overall evidence quality for the actual overlapping features.
+    evidence_values = []
+
+    if shared_m:
+        evidence_values.append(mechanism_support)
+
+    if shared_g:
+        evidence_values.append(gene_support)
+
+    if shared_p:
+        for p in shared_p:
+            evidence_values.append(
+                min(
+                    phenotypes[a][p],
+                    phenotypes[b][p],
+                )
+            )
+
+    evidence_score = (
+        sum(evidence_values) / len(evidence_values)
+        if evidence_values else 0.0
+    )
+
+    # Only score dimensions for which we actually have evidence.
+    # Missing mechanism/gene evidence should not unfairly suppress
+    # a legitimate phenotype-based connection.
+    components = []
+    weights = []
+    
+    if shared_m:
+        components.append(mechanism_score)
+        weights.append(0.50)
+    
+    if shared_g:
+        components.append(gene_score)
+        weights.append(0.20)
+    
+    if phenotype_score > 0:
+        components.append(phenotype_score)
+        weights.append(0.30)
+    
+    if components:
+        raw = sum(
+            score * weight
+            for score, weight in zip(components, weights)
+        ) / sum(weights)
+    else:
+        raw = 0.0
+
+    final_score = 100.0 * raw * (
+        0.60 + 0.40 * evidence_score
+    )
+
+    # Important counterexample from your existing test.py:
+    # same gene does NOT imply same disease mechanism.
+    same_gene_different_mechanism = (
+        bool(shared_g)
+        and bool(mechanisms[a])
+        and bool(mechanisms[b])
+        and not shared_m
+    )
+
+    if same_gene_different_mechanism:
+        final_score *= 0.35
+
+    # Relationship label used by the UI.
+    if shared_m and meaningful_phenotype_link:
+        connection_type = "mechanistic_and_phenotypic"
+    elif shared_m:
+        connection_type = "mechanistic"
+    elif shared_g and not same_gene_different_mechanism:
+        connection_type = "genetic_overlap"
+    elif meaningful_phenotype_link:
+        connection_type = "phenotypic_neighbor"
+    elif same_gene_different_mechanism:
+        connection_type = "same_gene_different_mechanism"
+    else:
+        connection_type = "no_supported_route"
+
+    # Explain the connection deterministically.
+    why = []
+
+    if shared_m:
+        why.append(
+            f"Both diseases involve: "
+            f"{', '.join(sorted(shared_m))}."
+        )
+
+    if shared_g:
+        why.append(
+            f"Shared gene(s): "
+            f"{', '.join(sorted(shared_g))}."
+        )
+
+    if meaningful_phenotype_link:
+        terms = informative_phenotypes or weighted_shared_p
+        if terms:
+            why.append(
+                f"Meaningful phenotype overlap: "
+                f"{', '.join(terms[:3])}."
+            )
+
+    if same_gene_different_mechanism:
+        why.append(
+            "The diseases share a gene but have different supported "
+            "mechanisms, so this is not treated as a direct mechanistic match."
+        )
+
+    if not why:
+        why.append(
+            "No supported route was found in the current graph coverage."
+        )
+
+    return {
+        "disease_a": a,
+        "disease_b": b,
+        "score": round(final_score, 2),
+        "confidence": round(evidence_score, 3),
+        "connection_type": connection_type,
+
+        "components": {
+            "mechanism": round(mechanism_score, 3),
+            "phenotype": round(phenotype_score, 3),
+            "genetic": round(gene_score, 3),
+        },
+
+        "shared_mechanisms": sorted(shared_m),
+        "shared_genes": sorted(shared_g),
+        "shared_phenotypes": sorted(shared_p),
+
+        "meaningful_phenotype_link": meaningful_phenotype_link,
+        "same_gene_different_mechanism": same_gene_different_mechanism,
+
+        "why_connected": why,
+    }
+
+
+def all_connections(
+    G,
+    phenotype_scores=None,
+    informative_terms=None,
+    min_score=20.0,
+):
+    """
+    Build all disease-pair connections for the frontend.
+    phenotype_scores:
+        {(disease_a, disease_b): IC_weighted_similarity}
+    informative_terms:
+        {(disease_a, disease_b): [HPO terms]}
+    """
+    mechanisms, genes, phenotypes = disease_feature_maps(G)
+
+    diseases = sorted(mechanisms)
+
+    results = []
+
+    for i, a in enumerate(diseases):
+        for b in diseases[i + 1:]:
+            score_key = (a, b)
+
+            rec = pair_connection(
+                G,
+                a,
+                b,
+                mechanisms,
+                genes,
+                phenotypes,
+                phenotype_similarity_score=(
+                    phenotype_scores.get(score_key, 0.0)
+                    if phenotype_scores else None
+                ),
+                informative_phenotypes=(
+                    informative_terms.get(score_key, [])
+                    if informative_terms else None
+                ),
+            )
+
+            if rec["score"] >= min_score:
+                results.append(rec)
+
+    return sorted(
+        results,
+        key=lambda x: x["score"],
+        reverse=True,
+    )
 
 # ------------------------------------------------------------ example data ---
 def build_example():

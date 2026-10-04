@@ -154,6 +154,77 @@ def phenotype_similarity(G, anc, alt):
     return M, top, ic
 
 
+def phenotype_scores_by_id(G, anc, alt):
+    """
+    Same IC-weighted HPO similarity as phenotype_similarity(),
+    but keyed by stable disease node IDs.
+    """
+    df = pd.read_csv(
+        RAW / "phenotype.hpoa",
+        sep="\t",
+        comment="#",
+        dtype=str,
+    ).fillna("")
+
+    df = df[
+        (df["aspect"] == "P") &
+        (df["qualifier"] != "NOT")
+    ]
+
+    per_disease = (
+        df.groupby("database_id")["hpo_id"]
+        .apply(lambda s: {alt.get(x, x) for x in s})
+    )
+
+    N = len(per_disease)
+    count = defaultdict(int)
+
+    for terms in per_disease:
+        closed = set().union(*(anc(t) for t in terms))
+        for term in closed:
+            count[term] += 1
+
+    def ic(term):
+        return -math.log2(
+            count.get(term, 1) / max(N, 1)
+        )
+
+    diseases = [
+        n for n, d in G.nodes(data=True)
+        if d["type"] == "Disease"
+    ]
+
+    closed = {
+        disease: set().union(*(
+            anc(v)
+            for _, v, e in G.out_edges(disease, data=True)
+            if e["rel"] == "HAS_PHENOTYPE"
+        ))
+        for disease in diseases
+    }
+
+    scores = {}
+    top_terms = {}
+
+    for i, a in enumerate(diseases):
+        for b in diseases[i + 1:]:
+            inter = closed[a] & closed[b]
+            union = closed[a] | closed[b]
+
+            denominator = sum(ic(x) for x in union)
+
+            scores[(a, b)] = (
+                sum(ic(x) for x in inter) / denominator
+                if denominator else 0.0
+            )
+
+            top_terms[(a, b)] = sorted(
+                inter,
+                key=ic,
+                reverse=True,
+            )[:3]
+
+    return scores, top_terms
 # ------------------------------------------------------------------ main -----
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -162,40 +233,326 @@ def main():
     args = parser.parse_args()
     if bool(args.paper_bundle) != bool(args.paper_review):
         parser.error("--paper-bundle and --paper-review must be supplied together")
+    # ---------------------------------------------------------
+    # 1. Load HPO and build the graph
+    # ---------------------------------------------------------
     names, parents, alt = load_hpo()
     anc = make_closure(parents)
+
     G = build_graph(names, alt)
 
+    # ---------------------------------------------------------
+    # 2. Basic graph summary
+    # ---------------------------------------------------------
     print("== Graph ==")
+
     kinds = defaultdict(int)
     for _, d in G.nodes(data=True):
         kinds[d["type"]] += 1
+
     rels = defaultdict(int)
     for *_, d in G.edges(keys=True, data=True):
         rels[d["rel"]] += 1
-    print(" nodes:", dict(kinds)); print(" edges:", dict(rels))
-    unk = [n for n, d in G.nodes(data=True) if d["type"] == "Phenotype" and d["name"] == n]
-    print(f" phenotype IDs without a name in hp.json: {len(unk)}")
-    noid = [d["name"] for _, d in G.nodes(data=True) if d["type"] == "Gene" and not d.get("hgnc_id")]
-    print(f" genes without HGNC ID: {noid or 'none'}")
 
-    print("== Validation (atlas_schema) ==")
-    print(" schema violations:", S.schema_violations(G) or "none")
-    print(" unsupported inferences:", S.unsupported_inferences(G) or "none")
+    print(" nodes:", dict(kinds))
+    print(" edges:", dict(rels))
 
-    print("\n== Your projection (exact-match phenotypes, 1/freq weights) ==")
+    unk = [
+        n
+        for n, d in G.nodes(data=True)
+        if d["type"] == "Phenotype" and d["name"] == n
+    ]
+    print(
+        f" phenotype IDs without a name in hp.json: {len(unk)}"
+    )
+
+    noid = [
+        d["name"]
+        for _, d in G.nodes(data=True)
+        if d["type"] == "Gene" and not d.get("hgnc_id")
+    ]
+    print(
+        f" genes without HGNC ID: {noid or 'none'}"
+    )
+
+    # ---------------------------------------------------------
+    # 3. Validation
+    # ---------------------------------------------------------
+    print("\n== Graph validation ==")
+
+    violations = S.schema_violations(G)
+    unsupported = S.unsupported_inferences(G)
+    weak = S.single_weak_source(G)
+
+    print(f"Schema violations: {len(violations)}")
+    print(f"Unsupported inferences: {len(unsupported)}")
+    print(f"Weak-source edges: {len(weak)}")
+
+    if violations:
+        for item in violations:
+            print(" ", item)
+
+    if unsupported:
+        for item in unsupported:
+            print(" ", item)
+
+    if weak:
+        for item in weak:
+            print(" ", item)
+
+    # ---------------------------------------------------------
+    # 4. Existing disease clustering
+    # ---------------------------------------------------------
+    print("\n== Disease clusters ==")
+
     P, comms = S.cluster(G)
-    for i, c in enumerate(comms):
-        print(f" cluster {i}:", sorted(G.nodes[n]["short"] for n in c))
-    print(f" links kept at MIN_LINK_WEIGHT={S.MIN_LINK_WEIGHT}: {P.number_of_edges()} of 21 possible pairs")
 
-    print("\n== IC-weighted phenotype similarity (ancestor-aware, background = all HPO diseases) ==")
-    M, top, ic = phenotype_similarity(G, anc, alt)
+    for i, community in enumerate(comms):
+        print(
+            f"cluster {i}:",
+            sorted(
+                G.nodes[n].get("name", n)
+                for n in community
+            ),
+        )
+
+    print(
+        f"links kept at MIN_LINK_WEIGHT={S.MIN_LINK_WEIGHT}: "
+        f"{P.number_of_edges()} of "
+        f"{len([n for n, d in G.nodes(data=True) if d['type'] == 'Disease'])}"
+        f"{(len([n for n, d in G.nodes(data=True) if d['type'] == 'Disease']) - 1) // 2} "
+        f"possible pairs"
+    )
+
+    # ---------------------------------------------------------
+    # 5. IC-weighted phenotype similarity
+    # ---------------------------------------------------------
+    print("\n== Phenotype similarity ==")
+
+    M, top, ic = phenotype_similarity(
+        G,
+        anc,
+        alt,
+    )
+
     print(M.round(2).to_string())
-    M.to_csv(PROC / "phenotype_similarity.csv")
-    print("\n most informative shared terms per pair (top 3):")
-    for (a, b), terms in sorted(top.items()):
-        print(f"  {a:>6} ~ {b:<6} {M.loc[a, b]:.2f}  " + "; ".join(f"{names.get(t, t)} ({ic(t):.1f})" for t in terms))
+
+    M.to_csv(
+        PROC / "phenotype_similarity.csv"
+    )
+
+    print("\nMost informative shared terms per pair:")
+
+    for (label_a, label_b), terms in sorted(top.items()):
+        print(
+            f"  {label_a} ~ {label_b} "
+            f"{M.loc[label_a, label_b]:.2f}  "
+            + "; ".join(
+                f"{names.get(t, t)} ({ic(t):.1f})"
+                for t in terms
+            )
+        )
+
+    # ---------------------------------------------------------
+    # 6. Convert phenotype scores to stable disease IDs
+    # ---------------------------------------------------------
+    disease_labels = {
+        n: G.nodes[n].get("short", n)
+        for n, d in G.nodes(data=True)
+        if d.get("type") == "Disease"
+    }
+
+    label_to_id = {
+        label: disease_id
+        for disease_id, label in disease_labels.items()
+    }
+
+    phenotype_scores = {}
+    informative_terms = {}
+
+    for (label_a, label_b), terms in top.items():
+        disease_a = label_to_id.get(label_a)
+        disease_b = label_to_id.get(label_b)
+
+        if disease_a is None or disease_b is None:
+            continue
+
+        key = tuple(sorted((disease_a, disease_b)))
+
+        phenotype_scores[key] = float(
+            M.loc[label_a, label_b]
+        )
+
+        informative_terms[key] = terms
+
+    # ---------------------------------------------------------
+    # 7. Evidence-aware disease matching
+    # ---------------------------------------------------------
+    print("\n== Evidence-aware disease connections ==")
+
+    matches = S.all_connections(
+        G,
+        phenotype_scores=phenotype_scores,
+        informative_terms=informative_terms,
+        min_score=20.0,
+    )
+
+    if not matches:
+        print("No disease connections passed the score threshold.")
+
+    for match in matches:
+        disease_a = match["disease_a"]
+        disease_b = match["disease_b"]
+
+        name_a = G.nodes[disease_a].get(
+            "name",
+            disease_a,
+        )
+
+        name_b = G.nodes[disease_b].get(
+            "name",
+            disease_b,
+        )
+
+        # Add human-readable phenotype names
+        match["shared_phenotype_labels"] = [
+            names.get(hp, hp)
+            for hp in match.get(
+                "shared_phenotypes",
+                [],
+            )
+        ]
+
+        match["informative_shared_phenotype_labels"] = [
+            names.get(hp, hp)
+            for hp in informative_terms.get(
+                tuple(sorted((disease_a, disease_b))),
+                [],
+            )
+        ]
+
+        # Rename confidence concept:
+        # evidence quality != biological certainty
+        evidence_quality = match.pop(
+            "confidence",
+            0.0,
+        )
+
+        match["evidence_quality"] = evidence_quality
+
+        if evidence_quality >= 0.85:
+            match["confidence"] = "high"
+        elif evidence_quality >= 0.60:
+            match["confidence"] = "moderate"
+        else:
+            match["confidence"] = "low"
+
+        # Make explanation human-readable
+        informative_labels = (
+            match["informative_shared_phenotype_labels"]
+        )
+
+        why_connected = []
+
+        if match.get("shared_mechanisms"):
+            why_connected.append(
+                "Both diseases involve: "
+                + ", ".join(
+                    match["shared_mechanisms"]
+                )
+                + "."
+            )
+
+        if match.get("shared_genes"):
+            why_connected.append(
+                "Shared gene(s): "
+                + ", ".join(
+                    match["shared_genes"]
+                )
+                + "."
+            )
+
+        if informative_labels:
+            why_connected.append(
+                "Meaningful phenotype overlap: "
+                + ", ".join(
+                    informative_labels[:3]
+                )
+                + "."
+            )
+
+        if match.get("same_gene_different_mechanism"):
+            why_connected.append(
+                "The diseases share a gene but have "
+                "different supported mechanisms, so this "
+                "is not treated as a direct mechanistic match."
+            )
+
+        if not why_connected:
+            why_connected.append(
+                "No supported route was found in the "
+                "current graph coverage."
+            )
+
+        match["why_connected"] = why_connected
+
+        print(
+            f"\n{name_a} <-> {name_b}"
+        )
+        print(
+            f"  score: {match['score']}"
+        )
+        print(
+            f"  type: {match['connection_type']}"
+        )
+        print(
+            f"  confidence: {match['confidence']}"
+        )
+        print(
+            f"  evidence quality: "
+            f"{match['evidence_quality']}"
+        )
+        print(
+            f"  mechanisms: "
+            f"{match['shared_mechanisms']}"
+        )
+        print(
+            f"  genes: "
+            f"{match['shared_genes']}"
+        )
+        print(
+            f"  phenotypes: "
+            f"{match['shared_phenotype_labels']}"
+        )
+
+        for reason in match["why_connected"]:
+            print(
+                f"  why: {reason}"
+            )
+
+    # ---------------------------------------------------------
+    # 8. Save disease connections for frontend
+    # ---------------------------------------------------------
+    connections_path = (
+        PROC / "disease_connections.json"
+    )
+
+    with open(
+        connections_path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+        json.dump(
+            matches,
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
+
+    # ---------------------------------------------------------
+    # 9. Save rich graph JSON
+    # ---------------------------------------------------------
+    graph_path = PROC / "graph.json"
 
     if args.paper_bundle:
         from paper_graph import add_reviewed_papers
@@ -204,71 +561,298 @@ def main():
                                load_json(args.paper_review))
 
     try:
-        data = nx.node_link_data(G, edges="edges")
+        data = nx.node_link_data(
+            G,
+            edges="edges",
+        )
     except TypeError:
         data = nx.node_link_data(G)
-    json.dump(data, open(PROC / "graph.json", "w"), indent=1)
-    print(f"\nwrote {PROC/'graph.json'} and {PROC/'phenotype_similarity.csv'}")
+
+    with open(
+        graph_path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+        json.dump(
+            data,
+            f,
+            indent=1,
+        )
+
+    # ---------------------------------------------------------
+    # 10. Save GEXF for Gephi
+    # ---------------------------------------------------------
     G_gephi = G.copy()
 
     for node, data in G_gephi.nodes(data=True):
         for key, value in data.items():
-            if isinstance(value, (list, dict, tuple)):
+            if isinstance(
+                value,
+                (list, dict, tuple, set),
+            ):
                 data[key] = str(value)
 
-    for u, v, key, data in G_gephi.edges(keys=True, data=True):
+    for u, v, key, data in G_gephi.edges(
+        keys=True,
+        data=True,
+    ):
         for attr, value in data.items():
-            if isinstance(value, (list, dict, tuple)):
+            if isinstance(
+                value,
+                (list, dict, tuple, set),
+            ):
                 data[attr] = str(value)
 
-    nx.write_gexf(G_gephi, "graph.gexf")
+    nx.write_gexf(
+        G_gephi,
+        PROC / "graph.gexf",
+    )
 
-    # One-disease visualization
-    target_disease = "MONDO:0014505"
 
-    G_viz = G.copy()
+    # ---------------------------------------------------------
+    # Gephi test: exactly 2 diseases
+    # ---------------------------------------------------------
 
-    # Keep the target disease and everything directly connected to it
-    neighbors = set(G_viz.neighbors(target_disease))
-    neighbors.add(target_disease)
+    disease_a = "MONDO:0014505"
+    disease_b = "MONDO:0014947"
 
-    G_viz = G_viz.subgraph(neighbors).copy()
-    # Set human-readable labels for Gephi
-    for node, data in G_viz.nodes(data=True):
-        node_type = data.get("type")
+    if disease_a in G and disease_b in G:
 
-        if node_type == "Disease":
-            # e.g. "developmental and epileptic encephalopathy 27"
-            data["label"] = data.get("name") or data.get("label") or node
+        print("\n== Gephi two-disease test ==")
 
-        elif node_type == "Gene":
-            # e.g. "GRIN2B"
-            data["label"] = data.get("symbol") or data.get("name") or data.get("label") or node
+        # -----------------------------------------------------
+        # 1. Collect the one-hop neighborhoods of both diseases
+        # -----------------------------------------------------
+        keep_nodes = {
+            disease_a,
+            disease_b,
+        }
 
-        elif node_type == "Phenotype":
-            # e.g. "Epileptic seizure"
-            data["label"] = data.get("name") or data.get("label") or node
+        for disease in (disease_a, disease_b):
+
+            # Incoming neighbors
+            for source, target in G.in_edges(disease):
+                keep_nodes.add(source)
+                keep_nodes.add(target)
+
+            # Outgoing neighbors
+            for source, target in G.out_edges(disease):
+                keep_nodes.add(source)
+                keep_nodes.add(target)
+
+        # -----------------------------------------------------
+        # 2. Create an UNDIRECTED graph for Gephi
+        #
+        # Important:
+        # Keep the real G as a MultiDiGraph.
+        # This graph is only for visualization.
+        # -----------------------------------------------------
+        G_viz = nx.MultiGraph()
+
+        # Add nodes
+        for node in keep_nodes:
+            G_viz.add_node(
+                node,
+                **G.nodes[node],
+            )
+
+        # Add biological relationships as undirected edges
+        for source, target, key, data in G.edges(
+            keys=True,
+            data=True,
+        ):
+            if source in keep_nodes and target in keep_nodes:
+
+                edge_data = dict(data)
+
+                # GEXF-safe edge attributes
+                for attr, value in list(edge_data.items()):
+                    if isinstance(
+                        value,
+                        (list, dict, tuple, set),
+                    ):
+                        edge_data[attr] = str(value)
+
+                G_viz.add_edge(
+                    source,
+                    target,
+                    key=key,
+                    **edge_data,
+                )
+
+        # -----------------------------------------------------
+        # 3. Find the disease-pair match
+        # -----------------------------------------------------
+        selected_match = None
+
+        for match in matches:
+
+            pair = {
+                match["disease_a"],
+                match["disease_b"],
+            }
+
+            if pair == {
+                disease_a,
+                disease_b,
+            }:
+                selected_match = match
+                break
+
+        # -----------------------------------------------------
+        # 4. Add explicit symmetric disease connection
+        # -----------------------------------------------------
+        if selected_match:
+
+            G_viz.add_edge(
+                disease_a,
+                disease_b,
+                key="DISEASE_MATCH",
+                rel="DISEASE_MATCH",
+                weight=float(
+                    selected_match["score"]
+                ),
+                score=float(
+                    selected_match["score"]
+                ),
+                connection_type=selected_match[
+                    "connection_type"
+                ],
+                evidence_quality=float(
+                    selected_match[
+                        "evidence_quality"
+                    ]
+                ),
+                status="computed",
+                source="Atlas disease matching",
+                source_tier=1,
+                retrieved=TODAY,
+                method="computed",
+                why_connected=" | ".join(
+                    selected_match[
+                        "why_connected"
+                    ]
+                ),
+            )
+
+            print(
+                f"  disease connection: "
+                f"{selected_match['score']}"
+            )
+
+            print(
+                f"  type: "
+                f"{selected_match['connection_type']}"
+            )
 
         else:
-            data["label"] = data.get("name") or data.get("label") or node
+            print(
+                "  WARNING: no disease-pair match found"
+            )
 
-    # Convert complex attributes to strings for Gephi
-    for node, data in G_viz.nodes(data=True):
-        for key, value in data.items():
-            if isinstance(value, (list, dict, tuple)):
-                data[key] = str(value)
+        # -----------------------------------------------------
+        # 5. Human-readable node labels
+        # -----------------------------------------------------
+        for node, data in G_viz.nodes(data=True):
 
-    for u, v, key, data in G_viz.edges(keys=True, data=True):
-        for attr, value in data.items():
-            if isinstance(value, (list, dict, tuple)):
-                data[attr] = str(value)
+            node_type = data.get("type")
 
-    nx.write_gexf(G_viz, "graph_GRIN2B.gexf")
+            data["label"] = (
+                data.get("name")
+                or data.get("label")
+                or node
+            )
 
+            data["node_type"] = (
+                node_type
+                or "Unknown"
+            )
+
+            # Mark the two focal diseases
+            data["selected"] = (
+                node in {
+                    disease_a,
+                    disease_b,
+                }
+            )
+
+        # -----------------------------------------------------
+        # 6. Convert complex attributes for GEXF
+        # -----------------------------------------------------
+        for node, data in G_viz.nodes(data=True):
+
+            for key, value in list(data.items()):
+
+                if isinstance(
+                    value,
+                    (list, dict, tuple, set),
+                ):
+                    data[key] = str(value)
+
+        for source, target, key, data in G_viz.edges(
+            keys=True,
+            data=True,
+        ):
+
+            for attr, value in list(data.items()):
+
+                if isinstance(
+                    value,
+                    (list, dict, tuple, set),
+                ):
+                    data[attr] = str(value)
+
+        # -----------------------------------------------------
+        # 7. Write dedicated Gephi file
+        # -----------------------------------------------------
+        gephi_test_path = (
+            PROC / "graph_two_diseases.gexf"
+        )
+
+        nx.write_gexf(
+            G_viz,
+            gephi_test_path,
+        )
+
+        print(
+            f"  nodes: "
+            f"{G_viz.number_of_nodes()}"
+        )
+
+        print(
+            f"  edges: "
+            f"{G_viz.number_of_edges()}"
+        )
+
+        print(
+            f"  wrote: "
+            f"{gephi_test_path}"
+        )
+
+    else:
+
+        print(
+            "\nCould not create two-disease "
+            "Gephi test:"
+            f" {disease_a} or "
+            f"{disease_b} not found."
+        )
+
+    # ---------------------------------------------------------
+    # 12. Final output summary
+    # ---------------------------------------------------------
+    print("\nWrote:")
     print(
-        f"GRIN2B visualization: "
-        f"{G_viz.number_of_nodes()} nodes, "
-        f"{G_viz.number_of_edges()} edges"
+        f"  {PROC / 'phenotype_similarity.csv'}"
+    )
+    print(
+        f"  {PROC / 'disease_connections.json'}"
+    )
+    print(
+        f"  {PROC / 'graph.json'}"
+    )
+    print(
+        f"  {PROC / 'graph.gexf'}"
     )
 
 if __name__ == "__main__":
