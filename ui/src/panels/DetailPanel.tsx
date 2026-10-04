@@ -19,9 +19,11 @@ const STATUS: Record<string, { label: string; color: string }> = {
   hypothesis: { label: 'Hypothesis', color: '#8a94a6' },
 }
 
-const PendingBadge = () => <Badge color="#d97706" icon={<AlertTriangle size={11} />}>Awaiting expert review</Badge>
+const PendingBadge = () => <Badge color="#d97706" icon={<AlertTriangle size={11} />}>AI-verified · no human review</Badge>
 const reviewBadge = (n: GNode) =>
-  n.review_status === 'approved' ? <Badge color="#12b886" icon={<BadgeCheck size={11} />}>Expert reviewed</Badge> : <PendingBadge />
+  n.review_status === 'approved' || n.review_status === 'curated'
+    ? <Badge color="#12b886" icon={<BadgeCheck size={11} />}>Expert reviewed</Badge>
+    : <Badge color="#d97706" icon={<AlertTriangle size={11} />}>AI-verified · no human review</Badge>
 
 /* ---------------------------------------------------------------- header -- */
 
@@ -68,7 +70,7 @@ function PaperRows({ papers }: { papers: { node: GNode; edge: GEdge }[] }) {
       {papers.map(({ node, edge }) => (
         <Row key={node.id} leading={<TypeTile type="Paper" />} title={node.name}
           subtitle={<>{node.id}{edge.link_reason ? ` · ${String(edge.link_reason)}` : ''}</>}
-          trailing={node.review_status === 'approved' ? undefined : <AlertTriangle size={14} className="text-[#d97706]" />}
+          trailing={node.review_status === 'approved' || node.review_status === 'curated' ? undefined : <AlertTriangle size={14} className="text-[#d97706]" />}
           onClick={() => reveal(node.id)} />
       ))}
     </>
@@ -281,6 +283,7 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
 
 const CATEGORY_LABEL: Record<string, string> = {
   finding: 'Key findings', result: 'Results', study_design: 'Study design', background: 'Background', limitation: 'Limitations',
+  mechanism: 'Mechanism',
 }
 
 function ClaimRow({ c }: { c: GNode }) {
@@ -325,11 +328,11 @@ function PaperCard({ n, m }: { n: GNode; m: Model }) {
       <div className="mt-2">
         {tab === 'summary' && (
           <>
-            {n.review_status !== 'approved' && (
+            {n.review_status !== 'approved' && n.review_status !== 'curated' && (
               <div className="mt-3">
-                <Callout icon={<AlertTriangle size={16} />} title="AI-extracted, not yet reviewed" color="#d97706">
-                  Every sentence was checked by a second model against the abstract, but a human expert has not approved it yet.
-                  Read the original before acting on it.
+                <Callout icon={<AlertTriangle size={16} />} title="AI-extracted, no human review" color="#d97706">
+                  Each claim was checked by a second AI model, and its evidence passage was copied verbatim from the abstract,
+                  but no human expert has reviewed it. Read the original before acting on it.
                 </Callout>
               </div>
             )}
@@ -607,7 +610,7 @@ function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
       <h2 className="mt-1 text-[21px] font-semibold tracking-[-0.02em] text-ink">{titleCase(e.rel.replace(/_/g, ' ').toLowerCase())}</h2>
       <div className="mt-2 flex gap-1.5">
         <Badge color={st?.color} icon={<ShieldCheck size={12} />}>{st?.label}</Badge>
-        {e.review_status === 'pending' && <PendingBadge />}
+        {(e.review_status === 'pending' || e.review_status === 'auto_verified') && <PendingBadge />}
       </div>
       <div className="mt-3">
         <Section title="Between">

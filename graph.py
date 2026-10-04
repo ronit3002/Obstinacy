@@ -1266,28 +1266,23 @@ def main():
     parser.add_argument(
         "--paper-bundle",
         type=Path,
-        help="Reviewed paper candidate bundle",
+        nargs="+",
+        help="Paper candidate bundle(s) from paper_pipeline.py",
     )
 
     parser.add_argument(
         "--paper-review",
         type=Path,
-        help="Manual review decisions for paper claims",
+        help="Optional review decisions. Omit to accept every claim that passed "
+             "the pipeline's verification (marked auto_verified).",
     )
 
     parser.add_argument("--aliases", type=Path)
     parser.add_argument("--mechanisms", type=Path)
     args = parser.parse_args()
 
-    if bool(
-        args.paper_bundle
-    ) != bool(
-        args.paper_review
-    ):
-        parser.error(
-            "--paper-bundle and --paper-review "
-            "must be supplied together"
-        )
+    if args.paper_review and (not args.paper_bundle or len(args.paper_bundle) != 1):
+        parser.error("--paper-review applies to exactly one --paper-bundle")
 
     # ---------------------------------------------------------
     # 1. Load HPO
@@ -1335,17 +1330,25 @@ def main():
         before_nodes = G.number_of_nodes()
         before_edges = G.number_of_edges()
 
-        paper_bundle = load_json(args.paper_bundle, MAX_BUNDLE_BYTES)
-        paper_review = load_json(args.paper_review)
-
+        paper_review = load_json(args.paper_review) if args.paper_review else None
         aliases = load_aliases(args.aliases) if args.aliases else None
-        G = add_reviewed_papers(G, paper_bundle, paper_review, aliases=aliases)
+        texts = {}
 
-        if args.mechanisms:
-            G = add_curated_mechanisms(G, load_json(args.mechanisms), paper_bundle)
+        for bundle_path in args.paper_bundle:
+            paper_bundle = load_json(bundle_path, MAX_BUNDLE_BYTES)
+            G = add_reviewed_papers(G, paper_bundle, paper_review, aliases=aliases)
 
-        texts = {p["source"]["source_id"]: p["source"]["text"]
-                 for p in paper_bundle["papers"]}
+            if args.mechanisms:
+                # a curated row can only be checked against the bundle that contains its paper
+                in_bundle = {p["source"]["source_id"] for p in paper_bundle["papers"]}
+                rows = [r for r in load_json(args.mechanisms) if r.get("source_id") in in_bundle]
+                if rows:
+                    G = add_curated_mechanisms(G, rows, paper_bundle)
+
+            texts.update({p["source"]["source_id"]: p["source"]["text"]
+                          for p in paper_bundle["papers"]})
+            print(f"  imported {bundle_path}")
+
         print("  unverified claim quotes:", len(S.unverified_claims(G, texts)))
 
         print("  nodes added:", G.number_of_nodes() - before_nodes)

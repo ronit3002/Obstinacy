@@ -1,6 +1,22 @@
 # Bison
 Source code for Global AI Hackathon: Challenge Track 5
 
+## Quick path: papers into the graph (no manual approval)
+
+The typed `APPROVE` prompt and the HMAC signing key are no longer required. Every claim that passed
+the pipeline's own checks (second-model verification, verbatim evidence, source hashes, injection
+screening) is accepted automatically and marked `review_status="auto_verified"`, and the UI labels it
+"AI-verified, no human review". Nothing is deleted: the human path below still works.
+
+```sh
+python paper_pipeline.py papers.json --output data/processed/paper_candidates_new.json
+python graph.py --paper-bundle data/processed/paper_candidates_new.json     # one or several bundles
+python export_ui_data.py --include-pending                                  # refresh the web app data
+```
+
+`python paper_review.py <bundle> <out.json>` writes the review file explicitly if you want to inspect it.
+Add `--decisions <file>` (and `--sign`) to go back to a hand-picked, signed human review.
+
 ## Evidence-first paper pipeline
 
 The default provider is now **Anthropic**. Both CLI entry points read the selected

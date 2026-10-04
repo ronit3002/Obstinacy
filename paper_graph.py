@@ -2,8 +2,9 @@
 
 Rules
 -----
-* Only claims in the signed review are imported; the review is a trusted
-  human record, model output is not.
+* Only claims in the review are imported. With no review (or an auto review) that is every
+  claim that passed the pipeline's verification, marked review_status="auto_verified" (no
+  human looked at it); a human-authored review marks them "approved".
 * Every imported claim stays visible as a Claim node (CONTAINS / ABOUT).
 * A direct scientific edge is created only for an AFFIRMED OBSERVATION whose
   endpoints are resolved (vocabulary ID or reviewed alias). Unresolved
@@ -22,7 +23,7 @@ from datetime import date
 
 import schema as S
 from paper_pipeline import digest, norm
-from paper_review import validate_review
+from paper_review import auto_review, validate_review
 from paper_security import load_json
 
 PROMOTABLE = {"ASSOCIATED_WITH", "HAS_PHENOTYPE", "IN_GENE"}
@@ -95,6 +96,7 @@ def _endpoint_ok(entity, rel):
 # ------------------------------------------------------- claim import -------
 
 def _import_claim(G, bundle, review, source, pid, claim, aliases, today):
+    status = "auto_verified" if review.get("auto") else "approved"
     cid = claim["id"]
     if cid in G:                      # re-importing the same bundle is a no-op
         return
@@ -107,12 +109,12 @@ def _import_claim(G, bundle, review, source, pid, claim, aliases, today):
                study_context=claim["study_context"], limitations=claim["limitations"],
                evidence=claim["evidence"], verification=claim["verification"],
                reviewer=review["reviewer"], bundle_sha256=bundle["bundle_sha256"],
-               review_status="approved")
+               review_status=status)
 
     props = dict(source=source["source_id"], source_tier=source["source_tier"],
                  retrieved=today, status=claim["status"], method="llm_extracted",
                  supported_by=[cid], source_sha256=source["sha256"],
-                 evidence=[item], polarity=claim["polarity"], review_status="approved")
+                 evidence=[item], polarity=claim["polarity"], review_status=status)
 
     _add(G, pid, cid, "CONTAINS", props)
 
@@ -177,8 +179,10 @@ def _import_claim(G, bundle, review, source, pid, claim, aliases, today):
         _add(G, s, o, rel, props)
 
 
-def add_reviewed_papers(graph, bundle, review, aliases=None):
-    """Return a copy of graph with the approved claims imported."""
+def add_reviewed_papers(graph, bundle, review=None, aliases=None):
+    """Return a copy of graph with the approved claims imported (all verified claims if no review)."""
+    if review is None:
+        review = auto_review(bundle)
     validate_review(bundle, review)
     approved = set(review["approved_claim_ids"])
     result = copy.deepcopy(graph)

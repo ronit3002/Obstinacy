@@ -105,17 +105,23 @@ def add_papers(nodes, edges, include_pending):
     def add_edge(src, dst, rel, **props):
         edges.append({"id": f"{rel}:{src}->{dst}", "rel": rel, "source": src, "target": dst, **props})
 
+    # graph.py may already have imported these papers (Paper nodes carry their PMID in source_id)
+    already = {n.get("source_id") for n in nodes if n["type"] == "Paper"}
+
     count = 0
     for path in sorted(glob.glob(PAPER_GLOB)):
         bundle = load(path)
         for paper in bundle["papers"]:
             src = paper["source"]
             quality = paper.get("quality", {})
+            pid = src["source_id"]
+            if pid in already:
+                continue
             approved = quality.get("publication_status") == "approved"
             if not approved and not include_pending:
                 continue
-            review = "approved" if approved else "pending"
-            pid = src["source_id"]
+            # papers that passed the pipeline's automatic checks but no human review
+            review = "approved" if approved else "auto_verified"
             claims = paper["claims"]
             authors = [c for c in claims if c.get("category") == "authorship"]
             science = [c for c in claims if c.get("category") != "authorship"]
@@ -188,6 +194,84 @@ def add_papers(nodes, edges, include_pending):
     return count
 
 
+def drop_partial_base_papers(nodes, edges):
+    """graph.json may hold a paper with only the few claims someone approved by hand. When the full
+    bundle is available, drop that partial copy (and anything only it touched) so the bundle replaces it."""
+    covered = {p["source"]["source_id"] for path in glob.glob(PAPER_GLOB) for p in load(path)["papers"]}
+    by_id = {n["id"]: n for n in nodes}
+    papers = {n["id"] for n in nodes if n["type"] == "Paper" and n.get("source_id") in covered}
+    if not papers:
+        return
+    claims = {e["target"] for e in edges if e["rel"] == "CONTAINS" and e["source"] in papers}
+    drop = papers | claims
+    edges[:] = [e for e in edges if e["source"] not in drop and e["target"] not in drop]
+    linked = {x for e in edges for x in (e["source"], e["target"])}
+    # paper-only entities (researchers, outcomes, unresolved mentions) that no longer connect to anything
+    for n in nodes:
+        if n["id"] not in linked and (n.get("paper_scoped") or n["type"] in ("Researcher", "Outcome", "Study", "Intervention")):
+            drop.add(n["id"])
+    nodes[:] = [n for n in nodes if n["id"] not in drop]
+    print(f"  replaced {len(papers)} partially imported papers with their full bundles")
+
+
+def normalize_papers(nodes, edges):
+    """Papers imported by graph.py (PAPER:... nodes) get the same shape as bundle-imported ones:
+    authors list, summary sentences from the bundle, a disease link, and no authorship Claim clutter."""
+    by_id = {n["id"]: n for n in nodes}
+    summaries = {}
+    for path in sorted(glob.glob(PAPER_GLOB)):
+        for paper in load(path)["papers"]:
+            summaries[paper["source"]["source_id"]] = paper
+
+    # authorship claims are metadata, not findings: drop them (AUTHORED edges already carry them)
+    drop = {n["id"] for n in nodes if n["type"] == "Claim" and n.get("category") == "authorship"}
+    nodes[:] = [n for n in nodes if n["id"] not in drop]
+    edges[:] = [e for e in edges if e["source"] not in drop and e["target"] not in drop]
+
+    gene_to_diseases = defaultdict(set)
+    for e in edges:
+        if e["rel"] == "ASSOCIATED_WITH":
+            gene_to_diseases[e["target"]].add(e["source"])
+    diseases = [n for n in nodes if n["type"] == "Disease"]
+    have_link = {(e["source"], e["target"]) for e in edges if e["rel"] == "DISCUSSES"}
+
+    for p in [n for n in nodes if n["type"] == "Paper" and "authors" not in n]:
+        pid = p["id"]
+        claims = [by_id[e["target"]] for e in edges if e["rel"] == "CONTAINS" and e["source"] == pid and e["target"] in by_id]
+        p["authors"] = [by_id[e["source"]]["name"] for e in edges
+                        if e["rel"] == "AUTHORED" and e["target"] == pid and e["source"] in by_id]
+        p["claim_count"] = len(claims)
+        statuses = {c.get("review_status") for c in claims}
+        p["review_status"] = "approved" if statuses <= {"approved", "curated"} and statuses else "auto_verified"
+        if claims:
+            p["model"] = claims[0].get("model")
+            p["prompt_version"] = claims[0].get("prompt_version")
+        src = summaries.get(p.get("source_id"))
+        if src:
+            p["summary_sentences"] = [x["text"] for x in src.get("summary", [])]
+            p["summary_audit"] = src.get("summary_audit", {})
+            p["verifier_model"] = None
+            p["scope_note"] = src.get("quality", {}).get("scope_note")
+        # which diseases does this paper discuss?
+        reasons = {}
+        for c in claims:
+            for e in edges:
+                if e["rel"] == "ABOUT" and e["source"] == c["id"] and by_id.get(e["target"], {}).get("type") == "Gene":
+                    for d in gene_to_diseases.get(e["target"], ()):
+                        reasons.setdefault(d, f"paper discusses {by_id[e['target']]['name']}, the gene of this disease")
+        title = (p["name"] or "").lower()
+        for d in diseases:
+            hit = next((x for x in [d["name"], *d.get("synonyms", [])] if len(x) > 4 and x.lower() in title), None)
+            if hit:
+                reasons.setdefault(d["id"], f"title names “{hit}”")
+        for d, why in reasons.items():
+            if (pid, d) not in have_link:
+                edges.append({"id": f"DISCUSSES:{pid}->{d}", "rel": "DISCUSSES", "source": pid, "target": d,
+                              "status": "inference", "method": "computed", "source_name": "Atlas paper linking",
+                              "source_tier": p.get("source_tier", 2), "retrieved": date.today().isoformat(),
+                              "link_reason": why, "review_status": p["review_status"]})
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--include-pending", action="store_true",
@@ -200,7 +284,11 @@ def main():
     diseases = [n for n in nodes if n["type"] == "Disease"]
 
     n_match = add_disease_matches(nodes, edges, today)
+    if args.include_pending:
+        drop_partial_base_papers(nodes, edges)
     n_papers = add_papers(nodes, edges, args.include_pending)
+    normalize_papers(nodes, edges)
+    n_papers += sum(1 for n in nodes if n["type"] == "Paper" and n.get("source_id"))
 
     # Disease clusters: Louvain over match scores (fixed seed = reproducible demo)
     P = nx.Graph()
