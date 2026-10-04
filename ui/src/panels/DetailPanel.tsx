@@ -1,5 +1,5 @@
 import {
-  AlertTriangle, ArrowRight, BadgeCheck, CircleSlash, ExternalLink, Info, Lightbulb, Quote, ShieldCheck, Sparkles, X,
+  AlertTriangle, ArrowLeft, ArrowRight, BadgeCheck, CircleSlash, ExternalLink, Info, Lightbulb, Quote, ShieldCheck, Sparkles, X,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
@@ -21,7 +21,9 @@ const STATUS: Record<string, { label: string; color: string }> = {
 
 const PendingBadge = () => <Badge color="#d97706" icon={<AlertTriangle size={11} />}>AI-verified · no human review</Badge>
 const reviewBadge = (n: GNode) =>
-  n.review_status === 'approved' || n.review_status === 'curated'
+  n.review_status === 'ai_curated'
+    ? <Badge color="#2f6bff" icon={<Quote size={11} />}>AI-curated · quote verified</Badge>
+    : n.review_status === 'approved' || n.review_status === 'curated'
     ? <Badge color="#12b886" icon={<BadgeCheck size={11} />}>Expert reviewed</Badge>
     : <Badge color="#d97706" icon={<AlertTriangle size={11} />}>AI-verified · no human review</Badge>
 
@@ -32,7 +34,7 @@ function Header({ n, meta, title }: { n: GNode; meta?: ReactNode; title?: string
   const c = TYPE_COLOR[n.type]
   return (
     <div>
-      <div className="flex items-center gap-2 pr-10">
+      <div className="flex items-center gap-2">
         <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: c }}>
           {Icon && <Icon size={14} strokeWidth={2.4} />}{TYPE_LABEL[n.type] ?? n.type}
         </span>
@@ -103,6 +105,49 @@ function OtherConnections({ n, m }: { n: GNode; m: Model }) {
           </Callout>
         </div>
       )}
+    </>
+  )
+}
+
+/** "Show on map" that turns into "Hide from map" once the nodes are visible. */
+function MapToggle({ ids, label = 'Show on map' }: { ids: string[]; label?: string }) {
+  const { visible, toggleNodes } = useStore()
+  if (!ids.length) return null
+  const shown = ids.every((i) => visible.has(i))
+  return (
+    <button onClick={() => toggleNodes(ids)} className="text-[12.5px] font-medium text-accent hover:underline">
+      {shown ? 'Hide from map' : label}
+    </button>
+  )
+}
+
+const MECH_KIND: Record<string, string> = { effect: 'Effect on the protein', process: 'Biological process' }
+
+/** Disease -> mechanism rows with the quoted evidence, used on disease and mechanism cards. */
+function MechanismRows({ links, show }: { links: { node: GNode; edge: GEdge }[]; show: 'mechanism' | 'disease' }) {
+  const { reveal, select } = useStore()
+  return (
+    <>
+      {links.map(({ node, edge }) => {
+        const ev = (edge.evidence as { pmid: string; quote: string }[]) ?? []
+        return (
+          <div key={edge.id} className="border-b border-line py-2.5 last:border-b-0">
+            <Row leading={<TypeTile type={show === 'mechanism' ? 'Mechanism' : 'Disease'} />}
+              title={show === 'mechanism' ? node.name : nodeLabel(node)}
+              subtitle={show === 'mechanism' ? MECH_KIND[String(node.kind)] ?? 'Mechanism' : titleCase(node.name)}
+              trailing={edge.variant_dependent ? <Badge color="#f59f00">depends on variant</Badge> : undefined}
+              onClick={() => reveal(node.id)} />
+            {ev[0] && (
+              <button onClick={() => select({ kind: 'edge', id: edge.id })}
+                className="mt-1 block w-full rounded-lg bg-subtle px-3 py-2 text-left text-[12px] italic leading-snug text-ink-2 hover:bg-[#eef1f6]">
+                “{ev[0].quote.length > 180 ? ev[0].quote.slice(0, 178) + '…' : ev[0].quote}”
+                <span className="mt-1 block not-italic text-ink-3">{ev[0].pmid}{ev.length > 1 ? ` + ${ev.length - 1} more` : ''}</span>
+              </button>
+            )}
+            {!ev[0] && edge.supported_by ? <p className="mt-1 text-[11.5px] text-ink-3">Curated by a team member from a paper quote.</p> : null}
+          </div>
+        )
+      })}
     </>
   )
 }
@@ -207,7 +252,7 @@ const grantsForDisease = (n: GNode, m: Model) =>
 /* --------------------------------------------------------------- disease -- */
 
 function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
-  const { reveal, select, addNodes } = useStore()
+  const { reveal, select } = useStore()
   const [tab, setTab] = useState<'overview' | 'action' | 'connections' | 'sources'>('overview')
   const nb = neighbours(m, n.id)
   const genes = nb.filter((x) => x.node.type === 'Gene')
@@ -217,6 +262,10 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
   const grants = grantsForDisease(n, m)
   const bridges = nb.filter((x) => x.edge.rel === 'DISEASE_BRIDGE')
   const reading = (n.reading as { pmid: string; title: string; year: string; journal: string }[]) ?? []
+  // one row per mechanism (a team-curated and an AI-curated edge for the same pair are shown once)
+  const mechanisms = nb.filter((x) => x.node.type === 'Mechanism')
+    .sort((a, b) => Number(Boolean(b.edge.evidence)) - Number(Boolean(a.edge.evidence)))
+    .filter((x, i, all) => all.findIndex((y) => y.node.id === x.node.id) === i)
   const similar = nb.filter((x) => x.edge.rel === 'DISEASE_MATCH').sort((a, b) => (b.edge.score as number) - (a.edge.score as number))
   // symptoms that also appear in other diseases are the interesting ones: rank them first
   const symptoms = nb.filter((x) => x.node.type === 'Phenotype').map((x) => ({
@@ -271,13 +320,20 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
         {tab === 'overview' && (
           <>
             {about && <Section title="About"><Clamp>{about}</Clamp><p className="mt-2 text-[11.5px] text-ink-3">Definition from MONDO</p></Section>}
+            <Section title="Mechanism" count={mechanisms.length}>
+              {mechanisms.length ? <MechanismRows links={mechanisms} show="mechanism" />
+                : <p className="text-[13px] text-ink-3">No mechanism with a quoted source yet.</p>}
+              {mechanisms.some((x) => x.edge.variant_dependent) && (
+                <p className="mt-2 text-[11.5px] leading-snug text-ink-3">Different variants in this gene act differently (some gain, some lose function), so the right research path depends on the child’s specific variant.</p>
+              )}
+            </Section>
             {papers.length > 0 && (
               <Section title="Research" count={papers.length}>
                 <PaperRows papers={papers} />
               </Section>
             )}
             <Section title="Symptoms" count={symptoms.length}
-              action={<button onClick={() => addNodes(symptoms.map((s) => s.node.id))} className="text-[12.5px] font-medium text-accent hover:underline">Show on map</button>}>
+              action={<MapToggle ids={symptoms.map((s) => s.node.id)} />}>
               <More items={symptoms} initial={8} render={(s) => (
                 <Chip key={s.node.id} color={TYPE_COLOR.Phenotype} onClick={() => reveal(s.node.id)}>
                   {s.node.name}{s.shared > 0 && <span className="text-ink-3">· {s.shared + 1}</span>}
@@ -355,13 +411,14 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
 /* ------------------------------------------------------------------ gene -- */
 
 function GeneCard({ n, m }: { n: GNode; m: Model }) {
-  const { reveal, showVariants } = useStore()
+  const { reveal } = useStore()
   const [tab, setTab] = useState<'overview' | 'connections' | 'sources'>('overview')
   const nb = neighbours(m, n.id)
   const diseases = nb.filter((x) => x.node.type === 'Disease')
   const variants = nb.filter((x) => x.node.type === 'Variant')
   const claims = nb.filter((x) => x.node.type === 'Claim')
   const families = nb.filter((x) => x.node.type === 'GeneGroup').map((x) => x.node)
+  const topVariants = (n.top_variants as { id: string; name: string; score: number; classification: string; consequence: string; reasons: string[] }[]) ?? []
   const grants = nb.filter((x) => x.node.type === 'Grant').map((x) => x.node)
   const counts = Object.entries((n.variant_counts as Record<string, number>) ?? {}).sort((a, b) => b[1] - a[1])
   const total = counts.reduce((s, [, v]) => s + v, 0) || 1
@@ -401,8 +458,33 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
                 {claims.map((c) => <ClaimRow key={c.node.id} c={c.node} />)}
               </Section>
             )}
+            {topVariants.length > 0 && (
+              <Section title="Top variants" count={topVariants.length}>
+                {topVariants.map((v, i) => {
+                  const protein = /\((p\.[^)]+)\)/.exec(v.name)?.[1]
+                  const cdna = /:(c\.[^ ]+)/.exec(v.name)?.[1]
+                  return (
+                    <button key={v.id} onClick={() => reveal(v.id)}
+                      className="group -mx-2 flex w-[calc(100%+16px)] items-center gap-3 rounded-xl px-2 py-2 text-left hover:bg-subtle">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#f59f00]/12 text-[12px] font-semibold text-[#c77700]">{i + 1}</span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-[13.5px] font-medium text-ink">{protein ?? cdna ?? v.name}</span>
+                        <span className="block truncate text-[11.5px] text-ink-3">{[cdna && protein ? cdna : null, v.classification, v.consequence].filter(Boolean).join(' · ')}</span>
+                      </span>
+                      <span className="flex w-16 shrink-0 flex-col items-end">
+                        <span className="text-[12px] font-semibold tabular-nums text-ink">{v.score}</span>
+                        <span className="mt-1 h-1 w-14 overflow-hidden rounded-full bg-subtle">
+                          <span className="block h-full rounded-full bg-[#f59f00]" style={{ width: `${v.score}%` }} />
+                        </span>
+                      </span>
+                    </button>
+                  )
+                })}
+                <p className="mt-2 text-[11.5px] leading-snug text-ink-3">Display priority (0–100) from ClinVar classification, review strength, trait match and consequence. Not a clinical score.</p>
+              </Section>
+            )}
             <Section title="Variant classifications" count={variants.length}
-              action={variants.length ? <button onClick={() => showVariants(n.id)} className="text-[12.5px] font-medium text-accent hover:underline">Show on map</button> : undefined}>
+              action={<MapToggle ids={variants.map((v) => v.node.id)} />}>
               <div className="flex h-2 overflow-hidden rounded-full bg-subtle">
                 {counts.map(([k, v], i) => <span key={k} style={{ width: `${(v / total) * 100}%`, background: palette[i % 5] }} />)}
               </div>
@@ -470,7 +552,7 @@ function ClaimRow({ c }: { c: GNode }) {
 }
 
 function PaperCard({ n, m }: { n: GNode; m: Model }) {
-  const { reveal, addNodes } = useStore()
+  const { reveal } = useStore()
   const [tab, setTab] = useState<'summary' | 'claims' | 'sources'>('summary')
   const nb = neighbours(m, n.id)
   const claims = nb.filter((x) => x.node.type === 'Claim').map((x) => x.node)
@@ -527,8 +609,7 @@ function PaperCard({ n, m }: { n: GNode; m: Model }) {
                 {g.items.map((c) => <ClaimRow key={c.id} c={c} />)}
               </Section>
             ))}
-            <button onClick={() => addNodes([...claims.map((c) => c.id), ...treatments.keys()])}
-              className="mt-2 text-[12.5px] font-medium text-accent hover:underline">Show claims on the map</button>
+            <div className="mt-2"><MapToggle ids={[...claims.map((c) => c.id), ...treatments.keys()]} label="Show claims on the map" /></div>
           </>
         )}
         {tab === 'sources' && (
@@ -779,6 +860,69 @@ function InterventionCard({ n, m }: { n: GNode; m: Model }) {
   )
 }
 
+function MechanismCard({ n, m }: { n: GNode; m: Model }) {
+  const links = neighbours(m, n.id, ['Disease'])
+    .sort((a, b) => Number(Boolean(b.edge.evidence)) - Number(Boolean(a.edge.evidence)))
+    .filter((x, i, all) => all.findIndex((y) => y.node.id === x.node.id) === i)
+  const mixed = links.filter((x) => x.edge.variant_dependent)
+  return (
+    <>
+      <Header n={n} meta={<Badge color={TYPE_COLOR.Mechanism}>{MECH_KIND[String(n.kind)] ?? 'Mechanism'}</Badge>} />
+      {typeof n.description === 'string' && <p className="mt-3 text-[14px] leading-relaxed text-ink-2">{n.description}</p>}
+      <div className="mt-4 flex gap-2">
+        <Stat label="Diseases" value={links.length} hint="with quoted evidence" />
+        <Stat label="Variant-dependent" value={mixed.length} hint="gain and loss reported" />
+      </div>
+      <div className="mt-3">
+        {links.length > 1 && (
+          <Callout icon={<Lightbulb size={16} />} title="A shared mechanism" color={TYPE_COLOR.Mechanism}>
+            These diseases have different gene names but act through this same mechanism, so treatments aimed at the
+            mechanism (not the gene) could matter to all of them. It is a lead to check with experts.
+          </Callout>
+        )}
+        <Section title="Diseases" count={links.length}><MechanismRows links={links} show="disease" /></Section>
+        <p className="mt-2 text-[11.5px] leading-snug text-ink-3">Each link quotes a sentence copied verbatim from a PubMed abstract and was checked automatically against that abstract. Curation was AI-assisted and still needs expert review.</p>
+      </div>
+    </>
+  )
+}
+
+function MechanismEdgeCard({ e, m }: { e: GEdge; m: Model }) {
+  const { reveal } = useStore()
+  const d = m.nodes.get(e.source)!, mech = m.nodes.get(e.target)!
+  const ev = (e.evidence as { pmid: string; quote: string; title: string; year: string }[]) ?? []
+  return (
+    <>
+      <p className="text-[12px] font-semibold" style={{ color: TYPE_COLOR.Mechanism }}>Why this mechanism?</p>
+      <h2 className="mt-1 text-[21px] font-semibold leading-tight tracking-[-0.02em] text-ink">{nodeLabel(d)} → {mech.name}</h2>
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        {reviewBadge({ ...d, review_status: e.review_status } as GNode)}
+        {e.variant_dependent ? <Badge color="#f59f00">depends on the variant</Badge> : null}
+      </div>
+      <div className="mt-3">
+        <Section title="Evidence" count={ev.length}>
+          {ev.map((x) => (
+            <div key={x.pmid + x.quote.slice(0, 20)} className="mb-3 last:mb-0">
+              <div className="relative rounded-xl bg-subtle p-3 pl-9">
+                <Quote size={14} className="absolute left-3 top-3.5 text-ink-3" />
+                <p className="text-[13.5px] italic leading-relaxed text-ink-2">{x.quote}</p>
+              </div>
+              <a href={`https://pubmed.ncbi.nlm.nih.gov/${x.pmid.replace('PMID:', '')}/`} target="_blank" rel="noreferrer"
+                className="mt-1.5 flex items-start gap-1.5 text-[12px] text-accent hover:underline">
+                <ExternalLink size={12} className="mt-0.5 shrink-0" />{x.title} ({x.year}) · {x.pmid}
+              </a>
+            </div>
+          ))}
+          {!ev.length && <p className="text-[13px] text-ink-3">Curated by a team member from a quoted paper sentence.</p>}
+        </Section>
+        <Section title="Between">
+          {[d, mech].map((x) => <Row key={x.id} leading={<TypeTile type={x.type} />} title={nodeLabel(x)} onClick={() => reveal(x.id)} />)}
+        </Section>
+      </div>
+    </>
+  )
+}
+
 /* --------------------------------------------------------------- generic -- */
 
 function GenericCard({ n, m }: { n: GNode; m: Model }) {
@@ -828,7 +972,7 @@ function GenericCard({ n, m }: { n: GNode; m: Model }) {
 /* ------------------------------------------------------ why connected -- */
 
 function MatchCard({ e, m }: { e: GEdge; m: Model }) {
-  const { reveal, addNodes } = useStore()
+  const { reveal } = useStore()
   const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
   const shared = (e.shared_phenotypes as { id: string; name: string }[]) ?? []
   const informative = new Set((e.informative_phenotypes as string[]) ?? [])
@@ -873,7 +1017,7 @@ function MatchCard({ e, m }: { e: GEdge; m: Model }) {
 
       <div className="mt-3">
         <Section title="What they share" count={shared.length}
-          action={shared.length ? <button onClick={() => addNodes(shared.map((p) => p.id))} className="text-[12.5px] font-medium text-accent hover:underline">Show on map</button> : undefined}>
+          action={<MapToggle ids={shared.map((p) => p.id)} />}>
           {ordered.length
             ? <More items={ordered} initial={8} render={(p) => (
                 <Chip key={p.id} color={informative.has(p.name) ? '#f43f6b' : TYPE_COLOR.Phenotype} onClick={() => reveal(p.id)}>{p.name}</Chip>
@@ -986,6 +1130,7 @@ function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
   const { reveal } = useStore()
   if (e.rel === 'DISEASE_MATCH') return <MatchCard e={e} m={m} />
   if (e.rel === 'DISEASE_BRIDGE') return <BridgeCard e={e} m={m} />
+  if (e.rel === 'INVOLVES') return <MechanismEdgeCard e={e} m={m} />
   const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
   const st = STATUS[e.status]
   const ev = e.evidence as { via: string; reference: string; code: string }[] | undefined
@@ -1029,10 +1174,15 @@ function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
 
 /* ----------------------------------------------------------------- sheet -- */
 
-const SPECIAL = ['Disease', 'Gene', 'Paper', 'Claim', 'Study', 'PatientOrg', 'Grant', 'GeneGroup', 'Intervention']
+const SPECIAL = ['Disease', 'Gene', 'Paper', 'Claim', 'Study', 'PatientOrg', 'Grant', 'GeneGroup', 'Intervention', 'Mechanism']
 
 export default function DetailPanel() {
-  const { model, selected, select } = useStore()
+  const { model, selected, history, back, close } = useStore()
+  const prev = history.length ? history[history.length - 1].selected : null
+  const prevNode = prev && model ? (prev.kind === 'node' ? model.nodes.get(prev.id) : model.edges.get(prev.id)) : null
+  const sameCard = prev && selected && prev.kind === selected.kind && prev.id === selected.id
+  const prevLabel = sameCard ? 'Undo map change' : !prevNode ? '' : prev?.kind === 'node'
+    ? nodeLabel(prevNode as GNode) : 'Connection'
   const node = model && selected?.kind === 'node' ? model.nodes.get(selected.id) : null
   const edge = model && selected?.kind === 'edge' ? model.edges.get(selected.id) : null
   const open = !!(node || edge)
@@ -1045,14 +1195,20 @@ export default function DetailPanel() {
           exit={{ opacity: 0, x: 24, scale: 0.98 }} transition={{ type: 'spring', stiffness: 380, damping: 34 }}
           className="glass absolute inset-x-2 bottom-2 z-20 flex max-h-[64vh] flex-col overflow-hidden rounded-[22px]
                      md:inset-x-auto md:bottom-4 md:right-4 md:top-[84px] md:max-h-none md:w-[400px]">
-          <div className="flex items-center justify-between px-5 pt-4">
-            <span className="mx-auto h-1 w-9 rounded-full bg-black/10 md:hidden" />
-            <button onClick={() => select(null)} aria-label="Close"
-              className="relative z-10 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black/[0.04] text-ink-2 transition-colors hover:bg-black/[0.08]">
+          <div className="flex items-center gap-2 px-4 pb-1 pt-3">
+            {prev ? (
+              <button onClick={back} title="Back to the previous card"
+                className="flex min-w-0 max-w-[75%] items-center gap-1.5 rounded-full bg-black/[0.04] py-1.5 pl-2 pr-3 text-[12.5px] font-medium text-ink-2 transition-colors hover:bg-black/[0.08]">
+                <ArrowLeft size={14} strokeWidth={2.4} className="shrink-0" />
+                <span className="truncate">{prevLabel}</span>
+              </button>
+            ) : <span className="mx-auto h-1 w-9 rounded-full bg-black/10 md:hidden" />}
+            <button onClick={close} aria-label="Close" title="Close and tidy the map"
+              className="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black/[0.04] text-ink-2 transition-colors hover:bg-black/[0.08]">
               <X size={14} strokeWidth={2.4} />
             </button>
           </div>
-          <div className="scroll-thin -mt-5 flex-1 overflow-y-auto px-5 pb-6">
+          <div className="scroll-thin flex-1 overflow-y-auto px-5 pb-6 pt-1">
             <AnimatePresence mode="wait">
               <motion.div key={selected!.kind + selected!.id}
                 initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}
@@ -1066,6 +1222,7 @@ export default function DetailPanel() {
                 {node?.type === 'Grant' && <GrantCard n={node} m={model} />}
                 {node?.type === 'GeneGroup' && <GeneGroupCard n={node} m={model} />}
                 {node?.type === 'Intervention' && <InterventionCard n={node} m={model} />}
+                {node?.type === 'Mechanism' && <MechanismCard n={node} m={model} />}
                 {node && !SPECIAL.includes(node.type) && <GenericCard n={node} m={model} />}
                 {edge && <EdgeCard e={edge} m={model} />}
               </motion.div>

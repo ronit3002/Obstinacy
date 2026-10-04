@@ -4126,6 +4126,452 @@
    "type": "GeneGroup",
    "name": "Sodium voltage-gated channel alpha subunits",
    "url": "https://www.genenames.org/data/genegroup/#!/group/1203"
+  },
+  {
+   "id": "MECH:gain_of_function",
+   "type": "Mechanism",
+   "name": "Gain of function",
+   "kind": "effect",
+   "description": "The variant makes the protein more active than normal or gives it a new, harmful activity."
+  },
+  {
+   "id": "PMID:40200555",
+   "type": "Paper",
+   "name": "Synaptic dysregulation in a mouse model of GRIN2D developmental and epileptic encephalopathy.",
+   "source_id": "PMID:40200555",
+   "year": "2025",
+   "journal": "Brain : a journal of neurology",
+   "authors": [
+    "JiaJie Teoh",
+    "Jane Simko",
+    "Chad R Camp",
+    "Christine J Liu",
+    "Wanqi Wang",
+    "Damian J Williams",
+    "Liang Ma",
+    "Divyalakshmi Soundararajan",
+    "Caryn Martin",
+    "Noah K Taylor",
+    "Ekniel François",
+    "Sabrina Petri",
+    "Ayla Kanber",
+    "Aishwarya Ravichandra",
+    "Maria Elena Pero",
+    "Francesca Bartolini",
+    "Theresa C Swayne",
+    "Cathleen M Lutz",
+    "Aamir Zuberi",
+    "Moran Rubinstein",
+    "Moran Hausman-Kedem",
+    "Hongjie Yuan",
+    "Jennifer N Gelinas",
+    "Tristan T Sands",
+    "Scott Q Harper",
+    "Stephen F Traynelis",
+    "Christopher D Makinson",
+    "Wayne N Frankel"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40200555/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "MECH:nmda_receptor_dysfunction",
+   "type": "Mechanism",
+   "name": "NMDA receptor dysfunction",
+   "kind": "process",
+   "description": "Altered activity of the NMDA-type glutamate receptor, a channel that lets calcium and sodium into neurons when glutamate binds."
+  },
+  {
+   "id": "PMID:30544257",
+   "type": "Paper",
+   "name": "GRIN2A-related disorders: genotype and functional consequence predict phenotype.",
+   "source_id": "PMID:30544257",
+   "year": "2019",
+   "journal": "Brain : a journal of neurology",
+   "authors": [
+    "Vincent Strehlow",
+    "Henrike O Heyne",
+    "Danique R M Vlaskamp",
+    "Katie F M Marwick",
+    "Gabrielle Rudolf",
+    "Julitta de Bellescize",
+    "Saskia Biskup",
+    "Eva H Brilstra",
+    "Oebele F Brouwer",
+    "Petra M C Callenbach",
+    "Julia Hentschel",
+    "Edouard Hirsch",
+    "Peter C Kind",
+    "Cyril Mignot",
+    "Konrad Platzer",
+    "Patrick Rump",
+    "Paul A Skehel",
+    "David J A Wyllie",
+    "Giles E Hardingham",
+    "Conny M A van Ravenswaaij-Arts",
+    "Gaetan Lesca",
+    "Johannes R Lemke",
+    "GRIN2A study group"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/30544257/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "MECH:loss_of_function",
+   "type": "Mechanism",
+   "name": "Loss of function",
+   "kind": "effect",
+   "description": "The variant reduces or abolishes what the protein normally does (including haploinsufficiency: one working copy is not enough)."
+  },
+  {
+   "id": "PMID:38727899",
+   "type": "Paper",
+   "name": "Spectrum of NMDA Receptor Variants in Neurodevelopmental Disorders and Epilepsy.",
+   "source_id": "PMID:38727899",
+   "year": "2024",
+   "journal": "Methods in molecular biology (Clifton, N.J.)",
+   "authors": [
+    "Cathrine E Gjerulfsen",
+    "Ilona Krey",
+    "Chiara Klöckner",
+    "Guido Rubboli",
+    "Johannes R Lemke",
+    "Rikke S Møller"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38727899/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "PMID:29937144",
+   "type": "Paper",
+   "name": "Disruption of GRIN2B Impairs Differentiation in Human Neurons.",
+   "source_id": "PMID:29937144",
+   "year": "2018",
+   "journal": "Stem cell reports",
+   "authors": [
+    "Scott Bell",
+    "Gilles Maussion",
+    "Malvin Jefri",
+    "Huashan Peng",
+    "Jean-Francois Theroux",
+    "Heika Silveira",
+    "Vincent Soubannier",
+    "Hanrong Wu",
+    "Peng Hu",
+    "Ekaterina Galat",
+    "S Gabriela Torres-Platas",
+    "Camille Boudreau-Pinsonneault",
+    "Liam A O'Leary",
+    "Vasiliy Galat",
+    "Gustavo Turecki",
+    "Thomas M Durcan",
+    "Edward A Fon",
+    "Naguib Mechawar",
+    "Carl Ernst"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29937144/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "PAPER:ae88bf716feacd1687c0381cd28868261d75f96d86592cad23162ed5fc77781d",
+   "type": "Paper",
+   "name": "GRIN2B encephalopathy: novel findings on phenotype, variant clustering, functional consequences and treatment aspects.",
+   "source_id": "PMID:28377535",
+   "year": "2017",
+   "journal": "Journal of medical genetics",
+   "authors": [
+    "Konrad Platzer",
+    "Hongjie Yuan",
+    "Hannah Schütz",
+    "Alexander Winschel",
+    "Wenjuan Chen",
+    "Chun Hu",
+    "Hirofumi Kusumoto",
+    "Henrike O Heyne",
+    "Katherine L Helbig",
+    "Sha Tang",
+    "Marcia C Willing",
+    "Brad T Tinkle",
+    "Darius J Adams",
+    "Christel Depienne",
+    "Boris Keren",
+    "Cyril Mignot",
+    "Eirik Frengen",
+    "Petter Strømme",
+    "Saskia Biskup",
+    "Dennis Döcker",
+    "Tim M Strom",
+    "Heather C Mefford",
+    "Candace T Myers",
+    "Alison M Muir",
+    "Amy LaCroix",
+    "Lynette Sadleir",
+    "Ingrid E Scheffer",
+    "Eva Brilstra",
+    "Mieke M van Haelst",
+    "Jasper J van der Smagt",
+    "Levinus A Bok",
+    "Rikke S Møller",
+    "Uffe B Jensen",
+    "John J Millichap",
+    "Anne T Berg",
+    "Ethan M Goldberg",
+    "Isabelle De Bie",
+    "Stephanie Fox",
+    "Philippe Major",
+    "Julie R Jones",
+    "Elaine H Zackai",
+    "Rami Abou Jamra",
+    "Arndt Rolfs",
+    "Richard J Leventer",
+    "John A Lawson",
+    "Tony Roscioli",
+    "Floor E Jansen",
+    "Emmanuelle Ranza",
+    "Christian M Korff",
+    "Anna-Elina Lehesjoki",
+    "Carolina Courage",
+    "Tarja Linnankivi",
+    "Douglas R Smith",
+    "Christine Stanley",
+    "Mark Mintz",
+    "Dianalee McKnight",
+    "Amy Decker",
+    "Wen-Hann Tan",
+    "Mark A Tarnopolsky",
+    "Lauren I Brady",
+    "Markus Wolff",
+    "Lutz Dondit",
+    "Helio F Pedro",
+    "Sarah E Parisotto",
+    "Kelly L Jones",
+    "Anup D Patel",
+    "David N Franz",
+    "Rena Vanzo",
+    "Elysa Marco",
+    "Judith D Ranells",
+    "Nataliya Di Donato",
+    "William B Dobyns",
+    "Bodo Laube",
+    "Stephen F Traynelis",
+    "Johannes R Lemke"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/28377535/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "PMID:29365063",
+   "type": "Paper",
+   "name": "De novo mutations in GRIN1 cause extensive bilateral polymicrogyria.",
+   "source_id": "PMID:29365063",
+   "year": "2018",
+   "journal": "Brain : a journal of neurology",
+   "authors": [
+    "Andrew E Fry",
+    "Katherine A Fawcett",
+    "Nathanel Zelnik",
+    "Hongjie Yuan",
+    "Belinda A N Thompson",
+    "Lilach Shemer-Meiri",
+    "Thomas D Cushion",
+    "Hood Mugalaasi",
+    "David Sims",
+    "Neil Stoodley",
+    "Seo-Kyung Chung",
+    "Mark I Rees",
+    "Chirag V Patel",
+    "Louise A Brueton",
+    "Valérie Layet",
+    "Fabienne Giuliano",
+    "Michael P Kerr",
+    "Ehud Banne",
+    "Vardiella Meiner",
+    "Tally Lerman-Sagie",
+    "Katherine L Helbig",
+    "Laura H Kofman",
+    "Kristin M Knight",
+    "Wenjuan Chen",
+    "Varun Kannan",
+    "Chun Hu",
+    "Hirofumi Kusumoto",
+    "Jin Zhang",
+    "Sharon A Swanger",
+    "Gil H Shaulsky",
+    "Ghayda M Mirzaa",
+    "Alison M Muir",
+    "Heather C Mefford",
+    "William B Dobyns",
+    "Amanda B Mackenzie",
+    "Jonathan G L Mullins",
+    "Johannes R Lemke",
+    "Nadia Bahi-Buisson",
+    "Stephen F Traynelis",
+    "Heledd F Iago",
+    "Daniela T Pilz"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29365063/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "PMID:26384463",
+   "type": "Paper",
+   "name": "Loss-of-function mutations of STXBP1 in patients with epileptic encephalopathy.",
+   "source_id": "PMID:26384463",
+   "year": "2016",
+   "journal": "Brain & development",
+   "authors": [
+    "Toshiyuki Yamamoto",
+    "Keiko Shimojima",
+    "Tamami Yano",
+    "Yuki Ueda",
+    "Rumiko Takayama",
+    "Hiroko Ikeda",
+    "Katsumi Imai"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/26384463/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "MECH:impaired_neurotransmitter_release",
+   "type": "Mechanism",
+   "name": "Impaired neurotransmitter release",
+   "kind": "process",
+   "description": "Synaptic vesicles release less neurotransmitter, so communication between neurons is weakened."
+  },
+  {
+   "id": "PMID:38898886",
+   "type": "Paper",
+   "name": "STXBP1: fast-forward to a brighter future - a patient organization perspective.",
+   "source_id": "PMID:38898886",
+   "year": "2024",
+   "journal": "Therapeutic advances in rare disease",
+   "authors": [
+    "James R Goss",
+    "Benjamin Prosser",
+    "Ingo Helbig",
+    "Charlene Son Rigby"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38898886/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "PMID:38081835",
+   "type": "Paper",
+   "name": "Epilepsy-linked kinase CDKL5 phosphorylates voltage-gated calcium channel Cav2.3, altering inactivation kinetics and neuronal excitability.",
+   "source_id": "PMID:38081835",
+   "year": "2023",
+   "journal": "Nature communications",
+   "authors": [
+    "Marisol Sampedro-Castañeda",
+    "Lucas L Baltussen",
+    "André T Lopes",
+    "Yichen Qiu",
+    "Liina Sirvio",
+    "Simeon R Mihaylov",
+    "Suzanne Claxton",
+    "Jill C Richardson",
+    "Gabriele Lignani",
+    "Sila K Ultanir"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38081835/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "MECH:kinase_signalling_loss",
+   "type": "Mechanism",
+   "name": "Loss of kinase signalling",
+   "kind": "process",
+   "description": "Loss of an enzyme that adds phosphate groups to other proteins, disrupting the signalling pathways it controls."
+  },
+  {
+   "id": "PMID:32587608",
+   "type": "Paper",
+   "name": "Cyclin-Dependent Kinase-Like 5 (CDKL5): Possible Cellular Signalling Targets and Involvement in CDKL5 Deficiency Disorder.",
+   "source_id": "PMID:32587608",
+   "year": "2020",
+   "journal": "Neural plasticity",
+   "authors": [
+    "Syouichi Katayama",
+    "Noriyuki Sueyoshi",
+    "Tetsuya Inazu",
+    "Isamu Kameshita"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32587608/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "PMID:40836583",
+   "type": "Paper",
+   "name": "State-of-the-art management of Dravet syndrome.",
+   "source_id": "PMID:40836583",
+   "year": "2025",
+   "journal": "Developmental medicine and child neurology",
+   "authors": [
+    "Alejandra Vasquez",
+    "Elaine C Wirrell"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40836583/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
+  },
+  {
+   "id": "MECH:sodium_channel_dysfunction",
+   "type": "Mechanism",
+   "name": "Sodium channel dysfunction (Nav1.1)",
+   "kind": "process",
+   "description": "Reduced function of the Nav1.1 sodium channel that inhibitory (GABAergic) neurons need to fire."
+  },
+  {
+   "id": "PMID:35435735",
+   "type": "Paper",
+   "name": "Cell-Selective Adeno-Associated Virus-Mediated SCN1A Gene Regulation Therapy Rescues Mortality and Seizure Phenotypes in a Dravet Syndrome Mouse Model and Is Well Tolerated in Nonhuman Primates.",
+   "source_id": "PMID:35435735",
+   "year": "2022",
+   "journal": "Human gene therapy",
+   "authors": [
+    "Annie Tanenhaus",
+    "Timothy Stowe",
+    "Andrew Young",
+    "John McLaughlin",
+    "Rangoli Aeran",
+    "I Winnie Lin",
+    "Jianmin Li",
+    "Raghavendra Hosur",
+    "Ming Chen",
+    "Jennifer Leedy",
+    "Tiffany Chou",
+    "Sirika Pillay",
+    "Maria Candida Vila",
+    "Jennifer A Kearney",
+    "Martin Moorhead",
+    "Archana Belle",
+    "Stephanie Tagliatela"
+   ],
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35435735/",
+   "source_kind": "abstract",
+   "review_status": "ai_curated",
+   "role": "mechanism evidence"
   }
  ],
  "edges": [
@@ -7718,6 +8164,630 @@
    "status": "observation",
    "method": "curated_import",
    "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "DISCUSSES:PMID:40200555->MONDO:0014947",
+   "rel": "DISCUSSES",
+   "source": "PMID:40200555",
+   "target": "MONDO:0014947",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:40200555->MONDO:0014947",
+   "rel": "DISCUSSES",
+   "source": "PMID:40200555",
+   "target": "MONDO:0014947",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:30544257->MONDO:0017325",
+   "rel": "DISCUSSES",
+   "source": "PMID:30544257",
+   "target": "MONDO:0017325",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:30544257->MONDO:0017325",
+   "rel": "DISCUSSES",
+   "source": "PMID:30544257",
+   "target": "MONDO:0017325",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:38727899->MONDO:0017325",
+   "rel": "DISCUSSES",
+   "source": "PMID:38727899",
+   "target": "MONDO:0017325",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:29937144->MONDO:0014505",
+   "rel": "DISCUSSES",
+   "source": "PMID:29937144",
+   "target": "MONDO:0014505",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PAPER:ae88bf716feacd1687c0381cd28868261d75f96d86592cad23162ed5fc77781d->MONDO:0014505",
+   "rel": "DISCUSSES",
+   "source": "PAPER:ae88bf716feacd1687c0381cd28868261d75f96d86592cad23162ed5fc77781d",
+   "target": "MONDO:0014505",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:38727899->MONDO:0014505",
+   "rel": "DISCUSSES",
+   "source": "PMID:38727899",
+   "target": "MONDO:0014505",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:29365063->MONDO:0013655",
+   "rel": "DISCUSSES",
+   "source": "PMID:29365063",
+   "target": "MONDO:0013655",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:38727899->MONDO:0013655",
+   "rel": "DISCUSSES",
+   "source": "PMID:38727899",
+   "target": "MONDO:0013655",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:26384463->MONDO:0012812",
+   "rel": "DISCUSSES",
+   "source": "PMID:26384463",
+   "target": "MONDO:0012812",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:38898886->MONDO:0012812",
+   "rel": "DISCUSSES",
+   "source": "PMID:38898886",
+   "target": "MONDO:0012812",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:38081835->MONDO:0010396",
+   "rel": "DISCUSSES",
+   "source": "PMID:38081835",
+   "target": "MONDO:0010396",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:32587608->MONDO:0010396",
+   "rel": "DISCUSSES",
+   "source": "PMID:32587608",
+   "target": "MONDO:0010396",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:40836583->MONDO:0100135",
+   "rel": "DISCUSSES",
+   "source": "PMID:40836583",
+   "target": "MONDO:0100135",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "DISCUSSES:PMID:35435735->MONDO:0100135",
+   "rel": "DISCUSSES",
+   "source": "PMID:35435735",
+   "target": "MONDO:0100135",
+   "source_name": "PubMed",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "link_reason": "cited as mechanism evidence",
+   "review_status": "ai_curated"
+  },
+  {
+   "id": "INVOLVES:MONDO:0014947->MECH:gain_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0014947",
+   "target": "MECH:gain_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:40200555",
+     "quote": "Gain-of-function (GoF) variants in the GRIN2D gene, encoding the GluN2D subunit of the N-methyl-D-aspartate receptor (NMDAR), cause a severe developmental and epileptic encephalopathy (DEE) characterized by intractable seizures, hypotonia and neurodevelopmental delay.",
+     "title": "Synaptic dysregulation in a mouse model of GRIN2D developmental and epileptic encephalopathy.",
+     "year": "2025"
+    }
+   ],
+   "supported_by": [
+    "PMID:40200555"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0014947->MECH:nmda_receptor_dysfunction",
+   "rel": "INVOLVES",
+   "source": "MONDO:0014947",
+   "target": "MECH:nmda_receptor_dysfunction",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:40200555",
+     "quote": "Gain-of-function (GoF) variants in the GRIN2D gene, encoding the GluN2D subunit of the N-methyl-D-aspartate receptor (NMDAR), cause a severe developmental and epileptic encephalopathy (DEE) characterized by intractable seizures, hypotonia and neurodevelopmental delay.",
+     "title": "Synaptic dysregulation in a mouse model of GRIN2D developmental and epileptic encephalopathy.",
+     "year": "2025"
+    }
+   ],
+   "supported_by": [
+    "PMID:40200555"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0017325->MECH:gain_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0017325",
+   "target": "MECH:gain_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:30544257",
+     "quote": "Notably, this was paralleled by electrophysiology data, where misTMD+Linker predominantly led to NMDAR gain-of-function, while misATD+LBD exclusively caused NMDAR loss-of-function.",
+     "title": "GRIN2A-related disorders: genotype and functional consequence predict phenotype.",
+     "year": "2019"
+    }
+   ],
+   "supported_by": [
+    "PMID:30544257"
+   ],
+   "variant_dependent": true,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0017325->MECH:loss_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0017325",
+   "target": "MECH:loss_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:30544257",
+     "quote": "Notably, this was paralleled by electrophysiology data, where misTMD+Linker predominantly led to NMDAR gain-of-function, while misATD+LBD exclusively caused NMDAR loss-of-function.",
+     "title": "GRIN2A-related disorders: genotype and functional consequence predict phenotype.",
+     "year": "2019"
+    }
+   ],
+   "supported_by": [
+    "PMID:30544257"
+   ],
+   "variant_dependent": true,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0017325->MECH:nmda_receptor_dysfunction",
+   "rel": "INVOLVES",
+   "source": "MONDO:0017325",
+   "target": "MECH:nmda_receptor_dysfunction",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:38727899",
+     "quote": "Genetic variants in NMDA receptor genes can cause a range of complex alterations to receptor properties resulting in various degrees of loss-of-function, gain-of-function, or mixtures thereof.",
+     "title": "Spectrum of NMDA Receptor Variants in Neurodevelopmental Disorders and Epilepsy.",
+     "year": "2024"
+    }
+   ],
+   "supported_by": [
+    "PMID:38727899"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0014505->MECH:loss_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0014505",
+   "target": "MECH:loss_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:29937144",
+     "quote": "Heterozygous loss-of-function mutations in GRIN2B, a subunit of the NMDA receptor, cause intellectual disability and language impairment.",
+     "title": "Disruption of GRIN2B Impairs Differentiation in Human Neurons.",
+     "year": "2018"
+    }
+   ],
+   "supported_by": [
+    "PMID:29937144"
+   ],
+   "variant_dependent": true,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0014505->MECH:gain_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0014505",
+   "target": "MECH:gain_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:28377535",
+     "quote": "Functional consequences of variants were diverse, revealing various potential gain-of-function and loss-of-function mechanisms and a retained sensitivity to the use-dependent blocker memantine.",
+     "title": "GRIN2B encephalopathy: novel findings on phenotype, variant clustering, functional consequences and treatment aspects.",
+     "year": "2017"
+    }
+   ],
+   "supported_by": [
+    "PAPER:ae88bf716feacd1687c0381cd28868261d75f96d86592cad23162ed5fc77781d"
+   ],
+   "variant_dependent": true,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0014505->MECH:nmda_receptor_dysfunction",
+   "rel": "INVOLVES",
+   "source": "MONDO:0014505",
+   "target": "MECH:nmda_receptor_dysfunction",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:38727899",
+     "quote": "Genetic variants in NMDA receptor genes can cause a range of complex alterations to receptor properties resulting in various degrees of loss-of-function, gain-of-function, or mixtures thereof.",
+     "title": "Spectrum of NMDA Receptor Variants in Neurodevelopmental Disorders and Epilepsy.",
+     "year": "2024"
+    }
+   ],
+   "supported_by": [
+    "PMID:38727899"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0013655->MECH:loss_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0013655",
+   "target": "MECH:loss_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:29365063",
+     "quote": "These results are striking because previous GRIN1 mutations have generally caused loss of function, and because N-methyl-d-aspartate receptor agonists have been used for many years to generate animal models of polymicrogyria.",
+     "title": "De novo mutations in GRIN1 cause extensive bilateral polymicrogyria.",
+     "year": "2018"
+    }
+   ],
+   "supported_by": [
+    "PMID:29365063"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0013655->MECH:nmda_receptor_dysfunction",
+   "rel": "INVOLVES",
+   "source": "MONDO:0013655",
+   "target": "MECH:nmda_receptor_dysfunction",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:38727899",
+     "quote": "Genetic variants in NMDA receptor genes can cause a range of complex alterations to receptor properties resulting in various degrees of loss-of-function, gain-of-function, or mixtures thereof.",
+     "title": "Spectrum of NMDA Receptor Variants in Neurodevelopmental Disorders and Epilepsy.",
+     "year": "2024"
+    }
+   ],
+   "supported_by": [
+    "PMID:38727899"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0012812->MECH:loss_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0012812",
+   "target": "MECH:loss_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:26384463",
+     "quote": "This result suggests loss-of-function is a common mechanism underlying STXBP1-related epileptic encephalopathy.",
+     "title": "Loss-of-function mutations of STXBP1 in patients with epileptic encephalopathy.",
+     "year": "2016"
+    }
+   ],
+   "supported_by": [
+    "PMID:26384463"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0012812->MECH:impaired_neurotransmitter_release",
+   "rel": "INVOLVES",
+   "source": "MONDO:0012812",
+   "target": "MECH:impaired_neurotransmitter_release",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:38898886",
+     "quote": "Pathogenic variants in the STXBP1 gene generally result in haploinsufficiency, an impairment in neurotransmitter release, and subsequent dysfunction in neuronal communication.",
+     "title": "STXBP1: fast-forward to a brighter future - a patient organization perspective.",
+     "year": "2024"
+    }
+   ],
+   "supported_by": [
+    "PMID:38898886"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0010396->MECH:loss_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0010396",
+   "target": "MECH:loss_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:38081835",
+     "quote": "CDKL5 deficiency disorder (CDD, DEE2), one of the most common genetic epilepsies, is caused by loss-of-function mutations in the brain-enriched kinase CDKL5.",
+     "title": "Epilepsy-linked kinase CDKL5 phosphorylates voltage-gated calcium channel Cav2.3, altering inactivation kinetics and neuronal excitability.",
+     "year": "2023"
+    }
+   ],
+   "supported_by": [
+    "PMID:38081835"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0010396->MECH:kinase_signalling_loss",
+   "rel": "INVOLVES",
+   "source": "MONDO:0010396",
+   "target": "MECH:kinase_signalling_loss",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:32587608",
+     "quote": "Because CDKL5 mutations identified in patients with CDD cause enzymatic loss of function, CDKL5 catalytic activity is likely strongly associated with the disease.",
+     "title": "Cyclin-Dependent Kinase-Like 5 (CDKL5): Possible Cellular Signalling Targets and Involvement in CDKL5 Deficiency Disorder.",
+     "year": "2020"
+    }
+   ],
+   "supported_by": [
+    "PMID:32587608"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0100135->MECH:loss_of_function",
+   "rel": "INVOLVES",
+   "source": "MONDO:0100135",
+   "target": "MECH:loss_of_function",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:40836583",
+     "quote": "Dravet syndrome is a severe developmental and epileptic encephalopathy caused by heterozygous, loss-of-function, pathogenic variants in the SCN1A gene.",
+     "title": "State-of-the-art management of Dravet syndrome.",
+     "year": "2025"
+    }
+   ],
+   "supported_by": [
+    "PMID:40836583"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
+  },
+  {
+   "id": "INVOLVES:MONDO:0100135->MECH:sodium_channel_dysfunction",
+   "rel": "INVOLVES",
+   "source": "MONDO:0100135",
+   "target": "MECH:sodium_channel_dysfunction",
+   "source_name": "PubMed (curated quotes)",
+   "source_tier": 2,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "evidence": [
+    {
+     "pmid": "PMID:35435735",
+     "quote": "SCN1A encodes for the alpha subunit of the voltage-gated type I sodium channel (NaV1.1), the primary voltage-gated sodium channel responsible for generation of action potentials in GABAergic inhibitory interneurons.",
+     "title": "Cell-Selective Adeno-Associated Virus-Mediated SCN1A Gene Regulation Therapy Rescues Mortality and Seizure Phenotypes in a Dravet Syndrome Mouse Model and Is Well Tolerated in Nonhuman Primates.",
+     "year": "2022"
+    }
+   ],
+   "supported_by": [
+    "PMID:35435735"
+   ],
+   "variant_dependent": false,
+   "review_status": "ai_curated",
+   "curator": "AI-assisted curation (Claude), pending expert check",
+   "match_reason": "quoted abstract sentence"
   }
  ],
  "disease_props": {
@@ -7849,7 +8919,8 @@
    "RareConnect (scraper)",
    "RARe-SOURCE / GARD (scraper)",
    "NIH RePORTER API v2",
-   "HGNC REST"
+   "HGNC REST",
+   "PubMed E-utilities (curated mechanism quotes)"
   ]
  }
 }

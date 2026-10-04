@@ -254,6 +254,68 @@ def gene_groups(symbol):
     return list(zip(doc.get("gene_group_id", []), doc.get("gene_group", [])))
 
 
+# ------------------------------------------------------ curated mechanisms ----
+CURATED = ROOT / "data" / "curated" / "mechanisms.json"
+
+
+def fetch_pubmed(pmid):
+    import xml.etree.ElementTree as ET
+    r = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+                     params={"db": "pubmed", "id": pmid, "retmode": "xml"}, headers=UA, timeout=60)
+    r.raise_for_status()
+    art = ET.fromstring(r.text).find("PubmedArticle")
+    if art is None:
+        return {}
+    a = art.find("MedlineCitation/Article")
+    authors = []
+    for au in a.findall("AuthorList/Author"):
+        name = au.findtext("CollectiveName") or " ".join(filter(None, [au.findtext("ForeName"), au.findtext("LastName")]))
+        if name:
+            authors.append(name)
+    return {
+        "title": "".join(a.find("ArticleTitle").itertext()),
+        "journal": a.findtext("Journal/Title") or "",
+        "year": a.findtext("Journal/JournalIssue/PubDate/Year") or a.findtext("Journal/JournalIssue/PubDate/MedlineDate") or "",
+        "abstract": " ".join("".join(t.itertext()) for t in a.findall("Abstract/AbstractText")),
+        "authors": authors,
+    }
+
+
+def curated_mechanisms(node, edge, existing_papers):
+    """Disease INVOLVES Mechanism from data/curated/mechanisms.json; each quote is checked verbatim
+    against the PubMed abstract and dropped if it does not match."""
+    if not CURATED.exists():
+        return 0, []
+    cur = json.loads(CURATED.read_text(encoding="utf-8"))
+    vocab = cur["mechanisms"]
+    kept, dropped = 0, []
+    grouped = {}
+    for row in cur["rows"]:
+        paper = cached("pubmed", row["pmid"], lambda: fetch_pubmed(row["pmid"]))
+        if not paper or row["quote"] not in paper.get("abstract", ""):
+            dropped.append(f"PMID:{row['pmid']} quote not found verbatim")
+            continue
+        m = vocab[row["mechanism"]]
+        node(row["mechanism"], "Mechanism", name=m["name"], kind=m["kind"], description=m["description"])
+        pid = existing_papers.get(f"PMID:{row['pmid']}") or f"PMID:{row['pmid']}"
+        node(pid, "Paper", name=paper["title"], source_id=f"PMID:{row['pmid']}", year=paper["year"],
+             journal=paper["journal"], authors=paper["authors"],
+             url=f"https://pubmed.ncbi.nlm.nih.gov/{row['pmid']}/", source_kind="abstract",
+             review_status="ai_curated", role="mechanism evidence")
+        g = grouped.setdefault((row["disease"], row["mechanism"]), {"evidence": [], "papers": [], "variant_dependent": False})
+        g["evidence"].append({"pmid": f"PMID:{row['pmid']}", "quote": row["quote"], "title": paper["title"], "year": paper["year"]})
+        g["papers"].append(pid)
+        g["variant_dependent"] |= bool(row.get("variant_dependent"))
+        edge(pid, row["disease"], "DISCUSSES", "PubMed", 2, link_reason="cited as mechanism evidence",
+             review_status="ai_curated")
+        kept += 1
+    for (disease, mech), g in grouped.items():
+        edge(disease, mech, "INVOLVES", "PubMed (curated quotes)", 2, evidence=g["evidence"], supported_by=g["papers"],
+             variant_dependent=g["variant_dependent"], review_status="ai_curated", curator=cur.get("curator"),
+             match_reason="quoted abstract sentence")
+    return kept, dropped
+
+
 # -------------------------------------------------------------------- main ----
 def main():
     global REFRESH
@@ -382,10 +444,17 @@ def main():
             edge(gene["id"], ggid, "MEMBER_OF", "HGNC", 1, match_reason="HGNC gene group membership")
         print(f"  gene groups: {[n for _, n in groups]}")
 
+    # Curated mechanisms with verbatim PubMed quotes (papers already in graph.json keep their node id)
+    existing_papers = {n.get("source_id"): n["id"] for n in g["nodes"] if n["type"] == "Paper" and n.get("source_id")}
+    kept, dropped = curated_mechanisms(node, edge, existing_papers)
+    print(f"\n== curated mechanisms: {kept} quotes verified, {len(dropped)} dropped")
+    log += dropped
+
     out = {"nodes": list(nodes.values()), "edges": edges, "disease_props": disease_props,
            "meta": {"retrieved": TODAY, "notes": log,
                     "sources": ["ClinicalTrials.gov API v2", "NORD (scraper)", "RareConnect (scraper)",
-                                "RARe-SOURCE / GARD (scraper)", "NIH RePORTER API v2", "HGNC REST"]}}
+                                "RARe-SOURCE / GARD (scraper)", "NIH RePORTER API v2", "HGNC REST",
+                                "PubMed E-utilities (curated mechanism quotes)"]}}
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     counts = {}
     for n in out["nodes"]:

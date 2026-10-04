@@ -295,6 +295,9 @@ def add_enrichment(nodes, edges):
         if n["id"] not in by_id:
             nodes.append(n)
             by_id[n["id"]] = n
+        else:  # e.g. the two base Mechanism nodes gain a description and kind
+            for k, v in n.items():
+                by_id[n["id"]].setdefault(k, v)
     have = {e["id"] for e in edges}
     for e in enr["edges"]:
         if e["id"] not in have and e["source"] in by_id and e["target"] in by_id:
@@ -360,6 +363,34 @@ def add_disease_bridges(nodes, edges, diseases, today):
     return n
 
 
+def add_top_variants(nodes, top_k=5):
+    """Top variants per gene, ranked by graph.rank_variants_for_disease (a display priority, not a clinical score)."""
+    try:
+        from graph import rank_variants_for_disease
+    except Exception as exc:  # graph.py needs pandas; the export still works without the ranking
+        print(f"  variant ranking skipped ({type(exc).__name__}: {exc})")
+        return 0
+    g = load(PROC / "graph.json")
+    try:
+        G = nx.node_link_graph(g, edges="edges")
+    except TypeError:
+        G = nx.node_link_graph(g)
+    by_id = {n["id"]: n for n in nodes}
+    n = 0
+    for did, d in G.nodes(data=True):
+        if d.get("type") != "Disease" or d.get("paper_scoped"):
+            continue
+        genes = [v for _, v, e in G.out_edges(did, data=True) if e.get("rel") == "ASSOCIATED_WITH"]
+        ranked = rank_variants_for_disease(G, did, top_k=top_k)
+        for gid in genes:
+            if gid in by_id:
+                by_id[gid]["top_variants"] = [{"id": v["variant_id"], "name": v["name"], "score": v["score"],
+                                               "classification": v["classification"], "consequence": v["consequence"],
+                                               "reasons": v["reasons"]} for v in ranked]
+                n += 1
+    return n
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--include-pending", action="store_true",
@@ -378,6 +409,7 @@ def main():
     normalize_papers(nodes, edges)
     n_papers += sum(1 for n in nodes if n["type"] == "Paper" and n.get("source_id"))
     enrichment = add_enrichment(nodes, edges)
+    add_top_variants(nodes)
     n_bridges = add_disease_bridges(nodes, edges, diseases, today)
 
     # Disease clusters: Louvain over match scores (fixed seed = reproducible demo)

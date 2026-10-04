@@ -86,8 +86,7 @@ export default function GraphView() {
     if (import.meta.env.DEV) (window as unknown as { cy: cytoscape.Core }).cy = cy // console debugging
     cy.on('tap', 'node', (ev) => {
       const id = ev.target.id()
-      useStore.getState().select({ kind: 'node', id })
-      useStore.getState().expand(id)
+      useStore.getState().openNode(id)
     })
     cy.on('tap', 'edge', (ev) => {
       // a lens edge is derived; tapping it opens the hub it leads to (the drug, trial, family, ...)

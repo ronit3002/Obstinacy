@@ -1,0 +1,52 @@
+{
+  "_about": "Disease -> mechanism links curated for the demo. Every quote must appear verbatim in the PubMed abstract of its PMID; enrich.py fetches the abstract and drops any row whose quote does not match. Curation was AI-assisted (Claude) and has not been checked by a domain expert yet, so the UI labels these 'AI-curated, quote verified'.",
+  "curator": "AI-assisted curation (Claude), pending expert check",
+  "mechanisms": {
+    "MECH:loss_of_function": {"name": "Loss of function", "kind": "effect", "description": "The variant reduces or abolishes what the protein normally does (including haploinsufficiency: one working copy is not enough)."},
+    "MECH:gain_of_function": {"name": "Gain of function", "kind": "effect", "description": "The variant makes the protein more active than normal or gives it a new, harmful activity."},
+    "MECH:nmda_receptor_dysfunction": {"name": "NMDA receptor dysfunction", "kind": "process", "description": "Altered activity of the NMDA-type glutamate receptor, a channel that lets calcium and sodium into neurons when glutamate binds."},
+    "MECH:sodium_channel_dysfunction": {"name": "Sodium channel dysfunction (Nav1.1)", "kind": "process", "description": "Reduced function of the Nav1.1 sodium channel that inhibitory (GABAergic) neurons need to fire."},
+    "MECH:impaired_neurotransmitter_release": {"name": "Impaired neurotransmitter release", "kind": "process", "description": "Synaptic vesicles release less neurotransmitter, so communication between neurons is weakened."},
+    "MECH:kinase_signalling_loss": {"name": "Loss of kinase signalling", "kind": "process", "description": "Loss of an enzyme that adds phosphate groups to other proteins, disrupting the signalling pathways it controls."}
+  },
+  "rows": [
+    {"disease": "MONDO:0014947", "mechanism": "MECH:gain_of_function", "pmid": "40200555",
+     "quote": "Gain-of-function (GoF) variants in the GRIN2D gene, encoding the GluN2D subunit of the N-methyl-D-aspartate receptor (NMDAR), cause a severe developmental and epileptic encephalopathy (DEE) characterized by intractable seizures, hypotonia and neurodevelopmental delay."},
+    {"disease": "MONDO:0014947", "mechanism": "MECH:nmda_receptor_dysfunction", "pmid": "40200555",
+     "quote": "Gain-of-function (GoF) variants in the GRIN2D gene, encoding the GluN2D subunit of the N-methyl-D-aspartate receptor (NMDAR), cause a severe developmental and epileptic encephalopathy (DEE) characterized by intractable seizures, hypotonia and neurodevelopmental delay."},
+
+    {"disease": "MONDO:0017325", "mechanism": "MECH:gain_of_function", "pmid": "30544257", "variant_dependent": true,
+     "quote": "Notably, this was paralleled by electrophysiology data, where misTMD+Linker predominantly led to NMDAR gain-of-function, while misATD+LBD exclusively caused NMDAR loss-of-function."},
+    {"disease": "MONDO:0017325", "mechanism": "MECH:loss_of_function", "pmid": "30544257", "variant_dependent": true,
+     "quote": "Notably, this was paralleled by electrophysiology data, where misTMD+Linker predominantly led to NMDAR gain-of-function, while misATD+LBD exclusively caused NMDAR loss-of-function."},
+    {"disease": "MONDO:0017325", "mechanism": "MECH:nmda_receptor_dysfunction", "pmid": "38727899",
+     "quote": "Genetic variants in NMDA receptor genes can cause a range of complex alterations to receptor properties resulting in various degrees of loss-of-function, gain-of-function, or mixtures thereof."},
+
+    {"disease": "MONDO:0014505", "mechanism": "MECH:loss_of_function", "pmid": "29937144", "variant_dependent": true,
+     "quote": "Heterozygous loss-of-function mutations in GRIN2B, a subunit of the NMDA receptor, cause intellectual disability and language impairment."},
+    {"disease": "MONDO:0014505", "mechanism": "MECH:gain_of_function", "pmid": "28377535", "variant_dependent": true,
+     "quote": "Functional consequences of variants were diverse, revealing various potential gain-of-function and loss-of-function mechanisms and a retained sensitivity to the use-dependent blocker memantine."},
+    {"disease": "MONDO:0014505", "mechanism": "MECH:nmda_receptor_dysfunction", "pmid": "38727899",
+     "quote": "Genetic variants in NMDA receptor genes can cause a range of complex alterations to receptor properties resulting in various degrees of loss-of-function, gain-of-function, or mixtures thereof."},
+
+    {"disease": "MONDO:0013655", "mechanism": "MECH:loss_of_function", "pmid": "29365063",
+     "quote": "These results are striking because previous GRIN1 mutations have generally caused loss of function, and because N-methyl-d-aspartate receptor agonists have been used for many years to generate animal models of polymicrogyria."},
+    {"disease": "MONDO:0013655", "mechanism": "MECH:nmda_receptor_dysfunction", "pmid": "38727899",
+     "quote": "Genetic variants in NMDA receptor genes can cause a range of complex alterations to receptor properties resulting in various degrees of loss-of-function, gain-of-function, or mixtures thereof."},
+
+    {"disease": "MONDO:0012812", "mechanism": "MECH:loss_of_function", "pmid": "26384463",
+     "quote": "This result suggests loss-of-function is a common mechanism underlying STXBP1-related epileptic encephalopathy."},
+    {"disease": "MONDO:0012812", "mechanism": "MECH:impaired_neurotransmitter_release", "pmid": "38898886",
+     "quote": "Pathogenic variants in the STXBP1 gene generally result in haploinsufficiency, an impairment in neurotransmitter release, and subsequent dysfunction in neuronal communication."},
+
+    {"disease": "MONDO:0010396", "mechanism": "MECH:loss_of_function", "pmid": "38081835",
+     "quote": "CDKL5 deficiency disorder (CDD, DEE2), one of the most common genetic epilepsies, is caused by loss-of-function mutations in the brain-enriched kinase CDKL5."},
+    {"disease": "MONDO:0010396", "mechanism": "MECH:kinase_signalling_loss", "pmid": "32587608",
+     "quote": "Because CDKL5 mutations identified in patients with CDD cause enzymatic loss of function, CDKL5 catalytic activity is likely strongly associated with the disease."},
+
+    {"disease": "MONDO:0100135", "mechanism": "MECH:loss_of_function", "pmid": "40836583",
+     "quote": "Dravet syndrome is a severe developmental and epileptic encephalopathy caused by heterozygous, loss-of-function, pathogenic variants in the SCN1A gene."},
+    {"disease": "MONDO:0100135", "mechanism": "MECH:sodium_channel_dysfunction", "pmid": "35435735",
+     "quote": "SCN1A encodes for the alpha subunit of the voltage-gated type I sodium channel (NaV1.1), the primary voltage-gated sodium channel responsible for generation of action potentials in GABAergic inhibitory interneurons."}
+  ]
+}

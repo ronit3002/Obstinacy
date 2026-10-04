@@ -16,6 +16,14 @@ and the repo's NORD, RareConnect and RARe-SOURCE scrapers. Every edge records it
 `DISEASE_BRIDGE` links between diseases that share a gene family, trial, tested drug, NIH-funded investigator
 (matched on RePORTER profile ID, never on name) or patient organisation.
 
+Mechanisms: `data/curated/mechanisms.json` lists disease -> mechanism links (loss/gain of function plus the
+biological process: NMDA receptor dysfunction, Nav1.1 sodium channel dysfunction, impaired neurotransmitter
+release, loss of kinase signalling). Each row carries a PMID and a sentence quoted from its abstract; `enrich.py`
+fetches the abstract from PubMed and drops any row whose quote is not found verbatim. Curation was AI-assisted
+and is labelled "AI-curated, quote verified" in the UI until an expert has checked it. These links are added for
+the app only; to let `schema.all_connections` score shared mechanisms, the new mechanism IDs would also need to be
+added to `schema.MECHANISMS` and imported in `graph.py`.
+
 Known gaps: NORD blocks automated requests from some networks, so only diseases already in the scraper's cache
 (currently Dravet) get NORD organisations; run `enrich.py --refresh` from a network NORD accepts to fill the rest.
 
