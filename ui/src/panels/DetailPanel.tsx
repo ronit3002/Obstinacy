@@ -646,7 +646,7 @@ function PaperCard({ n, m }: { n: GNode; m: Model }) {
             )}
             <Section title="Plain-language summary">
               {summary.length ? <Clamp lines={6}>{summary.join(' ')}</Clamp> : <p className="text-[13px] text-ink-3">The summary was withheld because it did not pass the audit.</p>}
-              <p className="mt-2 inline-flex items-center gap-1 text-[11.5px] text-ink-3"><Sparkles size={12} /> Generated from cited claims · {String(n.model ?? '')}</p>
+              <p className="mt-2 inline-flex items-center gap-1 text-[11.5px] text-ink-3"><Sparkles size={12} /> AI-generated from cited claims, checked by a second model</p>
             </Section>
             {treatments.size > 0 && (
               <Section title="Treatments studied" count={treatments.size}>
@@ -683,7 +683,7 @@ function PaperCard({ n, m }: { n: GNode; m: Model }) {
             </Section>
             <Section title="How it was processed">
               {[
-                ['Extraction model', n.model], ['Verifier model', n.verifier_model], ['Prompt version', n.prompt_version],
+                ['Extraction', 'AI model, structured output'], ['Verification', 'separate model pass'], ['Prompt version', n.prompt_version],
                 ['Review status', n.review_status], ['Source quality', `Tier ${n.source_tier}`],
               ].map(([k, v]) => (
                 <div key={String(k)} className="flex justify-between gap-4 py-1 text-[13px]">
