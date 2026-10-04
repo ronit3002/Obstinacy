@@ -9,7 +9,7 @@ import {
 } from '../graph/model'
 import type { Model } from '../graph/model'
 import { useStore } from '../store'
-import { LENSES, findNetEdge } from '../graph/lens'
+import { combined, lensDef, pairLayers } from '../graph/lens'
 import type { GEdge, GNode } from '../types'
 import { TYPE_ICON, TypeTile } from '../ui/icons'
 import { Badge, Callout, Chip, Clamp, CopyId, More, Row, Section, Stat, Strength, Tabs } from '../ui/kit'
@@ -1193,21 +1193,25 @@ function BridgeCard({ e, m }: { e: GEdge; m: Model }) {
   )
 }
 
-function NetCard({ id, m }: { id: string; m: Model }) {
-  const { reveal, modes, minSim } = useStore()
-  const e = findNetEdge(m, modes, minSim, id)
-  if (!e) return <p className="text-[13px] text-ink-3">This connection is not part of the current selection anymore.</p>
-  const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
+function PairCard({ id, m }: { id: string; m: Model }) {
+  const { reveal, select, layers, minSim, groupFocus } = useStore()
+  const key = id.slice('PAIR:'.length)
+  const cs = pairLayers(m, layers, minSim, groupFocus).get(key) ?? []
+  const [sa, sb] = key.split('|')
+  const a = m.nodes.get(sa), b = m.nodes.get(sb)
+  if (!a || !b) return null
+  const strength = combined(cs)
+  const match = [...m.edges.values()].find((e) => e.rel === 'DISEASE_MATCH' && [e.source, e.target].sort().join('|') === key)
   return (
     <>
-      <p className="text-[12px] font-semibold text-[#4f46e5]">How these diseases connect</p>
+      <p className="text-[12px] font-semibold text-ink-3">How these diseases connect</p>
       <div className="mt-3 flex items-center gap-2">
         {[a, b].map((x, i) => (
           <div key={x.id} className="contents">
             {i === 1 && (
               <div className="flex flex-col items-center px-1">
-                <span className="text-[17px] font-semibold tabular-nums text-ink">{Math.round(e.strength * 100)}</span>
-                <span className="text-[10px] text-ink-3">strength</span>
+                <span className="text-[17px] font-semibold tabular-nums text-ink">{Math.round(strength * 100)}</span>
+                <span className="text-[10px] text-ink-3">overall</span>
               </div>
             )}
             <button onClick={() => reveal(x.id)} className="card-shadow min-w-0 flex-1 rounded-xl bg-white p-3 text-left hover:shadow-md">
@@ -1218,24 +1222,32 @@ function NetCard({ id, m }: { id: string; m: Model }) {
           </div>
         ))}
       </div>
-      <p className="mt-3 text-[12px] leading-snug text-ink-3">Combined from the connection kinds you selected, weighted by your sliders (0–100).</p>
+      <p className="mt-3 text-[12px] leading-snug text-ink-3">
+        Overall strength combines every connection type you have switched on; each extra shared type pulls the two diseases closer on the map.
+      </p>
       <div className="mt-2">
-        {e.contributions.map((c) => {
-          const def = LENSES.find((l) => l.id === c.mode)!
-          const col = TYPE_COLOR[def.hubType]
+        {!cs.length && <p className="text-[13px] text-ink-3">No shared items for the connection types that are switched on.</p>}
+        {cs.map((c) => {
+          const def = lensDef(c.mode)
           return (
-            <Section key={c.mode} title={def.label} count={c.items.length}>
+            <Section key={c.mode} title={def.label} count={c.mode === 'symptoms' ? undefined : c.items.length}
+              action={c.mode !== 'symptoms' ? <MapToggle ids={c.items.map((x) => x.id)} /> : undefined}>
               <div className="mb-2 flex items-center gap-2 text-[12px]">
                 <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-subtle">
-                  <span className="block h-full rounded-full" style={{ width: `${c.strength * 100}%`, background: col }} />
+                  <span className="block h-full rounded-full" style={{ width: `${c.strength * 100}%`, background: def.color }} />
                 </span>
-                <span className="w-24 text-right text-ink-3">{Math.round(c.strength * 100)} · weight {Math.round((modes[c.mode] ?? 0) * 100)}</span>
+                <span className="w-10 text-right tabular-nums text-ink-3">{Math.round(c.strength * 100)}</span>
               </div>
-              {c.mode === 'symptoms'
-                ? <div className="flex flex-wrap gap-1.5">{c.items.map((x) => <Chip key={x.name} color={TYPE_COLOR.Phenotype}>{x.name}</Chip>)}</div>
-                : <More items={c.items} initial={5} wrap="" render={(x) => (
-                    <Row key={x.id} leading={<TypeTile type={def.hubType} />} title={x.name} onClick={() => reveal(x.id)} />
-                  )} />}
+              {c.mode === 'symptoms' ? (
+                <>
+                  <div className="flex flex-wrap gap-1.5">{c.items.map((x) => <Chip key={x.name} color={TYPE_COLOR.Phenotype}>{x.name}</Chip>)}</div>
+                  {match && <button onClick={() => select({ kind: 'edge', id: match.id })} className="mt-2 text-[12.5px] font-medium text-accent hover:underline">Why are the symptoms similar? →</button>}
+                </>
+              ) : (
+                <More items={c.items} initial={5} wrap="" render={(x) => (
+                  <Row key={x.id} leading={<TypeTile type={def.hubType} />} title={x.name} onClick={() => reveal(x.id)} />
+                )} />
+              )}
             </Section>
           )
         })}
@@ -1303,7 +1315,7 @@ export default function DetailPanel() {
     ? nodeLabel(prevNode as GNode) : 'Connection'
   const node = model && selected?.kind === 'node' ? model.nodes.get(selected.id) : null
   const edge = model && selected?.kind === 'edge' ? model.edges.get(selected.id) : null
-  const netId = selected?.kind === 'edge' && selected.id.startsWith('NET:') ? selected.id : null
+  const netId = selected?.kind === 'edge' && selected.id.startsWith('PAIR:') ? selected.id : null
   const open = !!(node || edge || netId)
 
   return (
@@ -1344,7 +1356,7 @@ export default function DetailPanel() {
                 {node?.type === 'Mechanism' && <MechanismCard n={node} m={model} />}
                 {node && !SPECIAL.includes(node.type) && <GenericCard n={node} m={model} />}
                 {edge && <EdgeCard e={edge} m={model} />}
-                {netId && <NetCard id={netId} m={model} />}
+                {netId && <PairCard id={netId} m={model} />}
               </motion.div>
             </AnimatePresence>
           </div>

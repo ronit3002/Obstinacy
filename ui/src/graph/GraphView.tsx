@@ -6,7 +6,7 @@ import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { TYPE_COLOR, nodeLabel, nodeSubtitle } from './model'
 import { drawBlueprint } from './blueprint'
-import { LENSES, networkView } from './lens'
+import { combined, describe, hubLinks, lensDef, pairLayers } from './lens'
 
 cytoscape.use(fcose)
 
@@ -23,30 +23,60 @@ const style: cytoscape.StylesheetJson = [
       width: 1.25, 'line-color': '#c3cbdb', 'curve-style': 'straight', opacity: 0.9, 'overlay-opacity': 0 } as never },
   { selector: 'edge[status="inference"]', style: { 'line-style': 'dashed', 'line-dash-pattern': [5, 5] } as never },
   { selector: 'edge[status="hypothesis"]', style: { 'line-style': 'dotted' } },
+  // disease-to-disease lines share one bezier bundle, so several connection types fan out side by side
   { selector: 'edge[rel="DISEASE_MATCH"]', style: {
-      'curve-style': 'unbundled-bezier', 'control-point-distances': [28], 'control-point-weights': [0.5],
-      'line-color': '#f43f6b', opacity: 0.28, width: 'mapData(score, 20, 40, 1.25, 5)' as never, 'line-style': 'solid' } as never },
+      'curve-style': 'bezier', 'control-point-step-size': 16,
+      'line-color': '#f43f6b', opacity: 0.4, width: 'mapData(score, 20, 40, 1.5, 5)' as never, 'line-style': 'solid' } as never },
   { selector: 'edge.hi', style: { opacity: 0.85 } },
   { selector: 'edge[rel="DISEASE_MATCH"].hi', style: { opacity: 0.7 } },
-  { selector: 'edge[rel="DISEASE_BRIDGE"]', style: {
-      'curve-style': 'unbundled-bezier', 'control-point-distances': [-34], 'control-point-weights': [0.5],
-      'line-color': '#7c3aed', 'line-style': 'dashed', 'line-dash-pattern': [7, 5], width: 2, opacity: 0.35 } as never },
-  { selector: 'edge[rel="DISEASE_BRIDGE"].hi', style: { opacity: 0.8 } },
+  // one typed line per connection layer and disease pair (colour + dash = what the link is based on)
+  { selector: 'edge[rel="TYPED"]', style: {
+      'curve-style': 'bezier', 'control-point-step-size': 16, 'line-color': 'data(color)',
+      width: 'mapData(strength, 0, 1, 1.5, 5)', opacity: 0.6 } as never },
+  { selector: 'edge[rel="TYPED"][dash="dashed"]', style: { 'line-style': 'dashed', 'line-dash-pattern': [7, 4] } as never },
+  { selector: 'edge[rel="TYPED"][dash="dotted"]', style: { 'line-style': 'dashed', 'line-dash-pattern': [2, 4] } as never },
+  { selector: 'edge[rel="TYPED"].hi, edge[rel="DISEASE_MATCH"].hover, edge[rel="TYPED"].hover', style: { opacity: 0.95 } },
+  { selector: 'edge[rel="TYPED"].hi, edge[rel="TYPED"].hover', style: {
+      label: 'data(label)', 'font-size': 10, 'font-weight': 600, color: 'data(color)', 'text-rotation': 'autorotate',
+      'text-background-color': '#ffffff', 'text-background-opacity': 0.92, 'text-background-padding': '3px',
+      'text-background-shape': 'roundrectangle', 'font-family': 'Inter, sans-serif' } as never },
   { selector: 'edge[rel="MEMBER_OF"]', style: { 'line-color': '#fdba74', width: 1.5 } },
   // connection lens: disease -- hub edges coloured like the hub type
   { selector: 'edge[rel="LENS"]', style: { 'line-color': 'data(color)', width: 2, opacity: 0.5 } },
   { selector: 'edge[rel="LENS"].hi', style: { opacity: 0.95 } },
-  // combined connection between two diseases: thicker and more opaque = stronger
-  { selector: 'edge[rel="NET"]', style: {
-      'curve-style': 'unbundled-bezier', 'control-point-distances': [22], 'control-point-weights': [0.5],
-      'line-color': '#6366f1', width: 'mapData(strength, 0, 1, 1.5, 11)', opacity: 'mapData(strength, 0, 1, 0.25, 0.8)' } as never },
-  { selector: 'edge[rel="NET"].hi', style: { opacity: 0.95, 'line-color': '#4f46e5' } },
   { selector: 'edge[rel="DISCUSSES"]', style: { 'line-color': '#94a3b8', 'line-style': 'dashed', 'line-dash-pattern': [3, 4] } as never },
   { selector: 'edge.faded', style: { opacity: 0.05 } },
   // weak links stay in the layout (so similar diseases still sit closer) but are invisible
   { selector: 'edge.below', style: { opacity: 0, events: 'no' } as never },
   { selector: 'edge.below.hi', style: { opacity: 0.7 } }, // an explicitly selected weak link still shows
+  // invisible springs: the combined strength of all active layers sets how close two diseases sit
+  { selector: 'edge[rel="SPRING"]', style: { opacity: 0, events: 'no', width: 1 } as never },
 ]
+
+/** Best rotation (+ optional mirror) and translation that maps the new layout onto the previous one,
+ * so recomputing the arrangement does not spin or flip the map. Returns a position transform. */
+function alignTo(before: Map<string, { x: number; y: number }>, ids: string[], cy: cytoscape.Core) {
+  const pts = ids.filter((id) => before.has(id)).map((id) => ({ a: cy.getElementById(id).position(), b: before.get(id)! }))
+  if (pts.length < 2) return (p: { x: number; y: number }) => ({ ...p })
+  const ca = { x: 0, y: 0 }, cb = { x: 0, y: 0 }
+  pts.forEach(({ a, b }) => { ca.x += a.x / pts.length; ca.y += a.y / pts.length; cb.x += b.x / pts.length; cb.y += b.y / pts.length })
+  const fit = (mirror: number) => {
+    let sxx = 0, sxy = 0
+    pts.forEach(({ a, b }) => {
+      const ax = mirror * (a.x - ca.x), ay = a.y - ca.y, bx = b.x - cb.x, by = b.y - cb.y
+      sxx += ax * bx + ay * by; sxy += ax * by - ay * bx
+    })
+    const t = Math.atan2(sxy, sxx), c = Math.cos(t), s = Math.sin(t)
+    const tf = (p: { x: number; y: number }) => {
+      const x = mirror * (p.x - ca.x), y = p.y - ca.y
+      return { x: cb.x + c * x - s * y, y: cb.y + s * x + c * y }
+    }
+    const err = pts.reduce((e, { a, b }) => { const q = tf(a); return e + (q.x - b.x) ** 2 + (q.y - b.y) ** 2 }, 0)
+    return { tf, err }
+  }
+  const plain = fit(1), mirrored = fit(-1)
+  return (plain.err <= mirrored.err ? plain : mirrored).tf
+}
 
 type NodeEls = { root: HTMLDivElement; bubble: HTMLDivElement; label: HTMLDivElement | null }
 
@@ -56,8 +86,8 @@ export default function GraphView() {
   const cyRef = useRef<cytoscape.Core | null>(null)
   const els = useRef(new Map<string, NodeEls>())
   const [ids, setIds] = useState<string[]>([])
-  const { model, visible, minSim, showBridges, layoutTick, focusTick, selected, modes, showHubs } = useStore()
-  const mode = useRef('map')
+  const { model, visible, minSim, layoutTick, focusTick, selected, layers, groupFocus } = useStore()
+  const layerKey = useRef('')
 
   /** Move every HTML node to its Cytoscape position; redraw the warped grid underneath. */
   const place = () => {
@@ -94,15 +124,17 @@ export default function GraphView() {
       useStore.getState().openNode(id)
     })
     cy.on('tap', 'edge', (ev) => {
-      // a lens edge is derived; tapping it opens the hub it leads to (the drug, trial, family, ...)
-      if (ev.target.data('rel') === 'LENS') useStore.getState().select({ kind: 'node', id: ev.target.data('target') })
+      const rel = ev.target.data('rel')
+      // derived edges: a hub line opens its hub, a typed line opens the disease pair's connection card
+      if (rel === 'LENS') useStore.getState().select({ kind: 'node', id: ev.target.data('target') })
+      else if (rel === 'TYPED') useStore.getState().select({ kind: 'edge', id: `PAIR:${ev.target.data('pair')}` })
       else useStore.getState().select({ kind: 'edge', id: ev.target.id() })
     })
     cy.on('tap', (ev) => { if (ev.target === cy) useStore.getState().select(null) })
     cy.on('mouseover', 'node', (ev) => { els.current.get(ev.target.id())?.root.classList.add('is-hover'); box.current!.style.cursor = 'pointer'; place() })
     cy.on('mouseout', 'node', (ev) => { els.current.get(ev.target.id())?.root.classList.remove('is-hover'); box.current!.style.cursor = ''; place() })
-    cy.on('mouseover', 'edge', () => { box.current!.style.cursor = 'pointer' })
-    cy.on('mouseout', 'edge', () => { box.current!.style.cursor = '' })
+    cy.on('mouseover', 'edge', (ev) => { ev.target.addClass('hover'); box.current!.style.cursor = 'pointer' })
+    cy.on('mouseout', 'edge', (ev) => { ev.target.removeClass('hover'); box.current!.style.cursor = '' })
     cy.on('render', place)
 
     // keep the map framed when the window changes size (until the user starts exploring)
@@ -118,18 +150,19 @@ export default function GraphView() {
     return () => { ro.disconnect(); cy.destroy() }
   }, [])
 
-  // sync visible set -> cytoscape elements, then lay out
+  // sync visible set + connection layers -> cytoscape elements, then lay out
   useEffect(() => {
     const cy = cyRef.current
     if (!cy || !model) return
     const added: string[] = []
-    const activeModes = Object.keys(modes).filter((k) => (modes as Record<string, number>)[k] > 0).sort()
-    const view = activeModes.length ? networkView(model, modes, showHubs, minSim) : null
-    // switching between map and network (or changing which modes are on) starts a fresh layout;
-    // moving a weight slider only re-weights the edges and relaxes the existing layout
-    const key = view ? `net:${activeModes.join(',')}:${showHubs}:${minSim}` : 'map'
-    if (key !== mode.current) { cy.elements().remove(); mode.current = key }
-    const want = view ? view.nodes : visible
+    const want = visible
+    const key = `${[...layers].sort().join(',')}|${groupFocus.join(',')}|${minSim}`
+    const layersChanged = key !== layerKey.current
+    layerKey.current = key
+    const symptomsOn = layers.includes('symptoms')
+    const pairs = pairLayers(model, layers, minSim, groupFocus)
+    const shownDisease = (id: string) => want.has(id) && model.nodes.get(id)?.type === 'Disease'
+
     cy.batch(() => {
       cy.nodes().forEach((n) => { if (!want.has(n.id())) n.remove() })
       for (const id of want) {
@@ -143,49 +176,86 @@ export default function GraphView() {
           position: { x: base.x + (Math.random() - 0.5) * 80, y: base.y + (Math.random() - 0.5) * 80 } })
         added.push(id)
       }
-      if (view) {
-        const keep = new Set(view.netEdges.map((e) => e.id))
-        cy.edges('[rel="NET"]').forEach((e) => { if (!keep.has(e.id())) e.remove() })
-        for (const e of view.netEdges) {
-          const el = cy.getElementById(e.id)
-          if (el.nonempty()) el.data('strength', e.strength)
-          else cy.add({ group: 'edges', data: { id: e.id, source: e.source, target: e.target, rel: 'NET', strength: e.strength } })
-        }
-        for (const e of view.hubEdges) {
-          if (cy.getElementById(e.id).nonempty()) continue
-          const color = TYPE_COLOR[LENSES.find((l) => l.id === e.mode)!.hubType] ?? '#94a3b8'
-          cy.add({ group: 'edges', data: { id: e.id, source: e.source, target: e.target, rel: 'LENS', color, via: e.via } })
-        }
-      }
-      for (const id of view ? [] : visible) {
+      // structural edges from the graph (symptom matches only while that layer is on)
+      if (!symptomsOn) cy.edges('[rel="DISEASE_MATCH"]').remove()
+      for (const id of want) {
         for (const e of model.adj.get(id) ?? []) {
-          if (visible.has(e.source) && visible.has(e.target) && cy.getElementById(e.id).empty()) {
-            if (e.rel === 'DISEASE_BRIDGE' && ((e.shared_gene_groups as unknown[]) ?? []).length) continue
+          if (e.rel === 'DISEASE_BRIDGE' || (e.rel === 'DISEASE_MATCH' && !symptomsOn)) continue
+          if (want.has(e.source) && want.has(e.target) && cy.getElementById(e.id).empty()) {
             cy.add({ group: 'edges', data: { id: e.id, source: e.source, target: e.target, rel: e.rel,
               status: e.status, score: (e.score as number) ?? 0 } })
           }
         }
       }
+      // typed lines (one per layer and pair) and invisible springs (combined strength)
+      const typed = new Set<string>(), springs = new Set<string>()
+      for (const [k, cs] of pairs) {
+        const [a, b] = k.split('|')
+        if (!shownDisease(a) || !shownDisease(b)) continue
+        for (const c of cs) {
+          if (c.mode === 'symptoms') continue
+          const id = `TYPED:${c.mode}:${k}`, def = lensDef(c.mode)
+          typed.add(id)
+          const data = { strength: c.strength, label: describe(c), color: def.color, dash: def.dash }
+          const el = cy.getElementById(id)
+          if (el.nonempty()) el.data(data)
+          else cy.add({ group: 'edges', data: { id, source: a, target: b, rel: 'TYPED', mode: c.mode, pair: k, ...data } })
+        }
+        const sid = `SPRING:${k}`, st = combined(cs)
+        springs.add(sid)
+        const el = cy.getElementById(sid)
+        if (el.nonempty()) el.data('strength', st)
+        else cy.add({ group: 'edges', data: { id: sid, source: a, target: b, rel: 'SPRING', strength: st } })
+      }
+      cy.edges('[rel="TYPED"]').forEach((e) => { if (!typed.has(e.id())) e.remove() })
+      cy.edges('[rel="SPRING"]').forEach((e) => { if (!springs.has(e.id())) e.remove() })
+      // hub lines: any visible hub of an active layer connects to the visible diseases it serves
+      const hubEdges = new Set<string>()
+      for (const mode of layers) {
+        if (mode === 'symptoms') continue
+        const color = lensDef(mode).color
+        for (const [hub, ds] of hubLinks(model, mode, groupFocus)) {
+          if (!want.has(hub)) continue
+          for (const [d, via] of ds) {
+            if (!want.has(d)) continue
+            const id = `LENS:${hub}:${d}`
+            hubEdges.add(id)
+            if (cy.getElementById(id).empty()) cy.add({ group: 'edges', data: { id, source: d, target: hub, rel: 'LENS', color, via } })
+          }
+        }
+      }
+      cy.edges('[rel="LENS"]').forEach((e) => { if (!hubEdges.has(e.id())) e.remove() })
     })
     setIds(cy.nodes().map((n) => n.id()))
-    if (!added.length && !view) return
+    if (!added.length && !layersChanged) return
 
     const first = added.length === want.size
-    const layout = cy.layout({ name: 'fcose', animate: false, randomize: false, fit: false,
-      nodeRepulsion: () => 32000, nodeSeparation: 150, quality: 'proof', gravity: 0.15,
-      // similar diseases pull together (short ideal length), dissimilar ones drift apart
-      idealEdgeLength: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 540 - 11 * e.data('score') : e.data('rel') === 'DISEASE_BRIDGE' ? 420
-        : e.data('rel') === 'MEMBER_OF' ? 110 : e.data('rel') === 'LENS' ? 150
-        : e.data('rel') === 'NET' ? 460 - 340 * e.data('strength') : 80),
-      edgeElasticity: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 0.2 + e.data('score') / 100 : e.data('rel') === 'DISEASE_BRIDGE' ? 0.12
-        : e.data('rel') === 'NET' ? 0.1 + 0.6 * e.data('strength') : 0.6),
+    const springsOn = cy.edges('[rel="SPRING"]').length > 0
+    cy.nodes().stop(true, true)  // a running glide jumps to its end, so the next one starts from a settled map
+    const before = new Map(cy.nodes().map((n) => [n.id(), { ...n.position() }]))
+    // Changing the connection layers changes every disease distance, so the arrangement is recomputed from
+    // scratch (an incremental run gets stuck near the old arrangement) and then aligned to the old map.
+    const fresh = first || layersChanged
+    const layout = cy.layout({ name: 'fcose', animate: false, randomize: fresh, fit: false, quality: 'proof',
+      numIter: 4000, nodeSeparation: 120, gravity: springsOn ? 0.35 : 0.15,
+      nodeRepulsion: (n: cytoscape.NodeSingular) => (n.data('type') === 'Disease' ? 9000 : 4500),
+      // springs (combined strength of all active layers) decide disease distances; the visible
+      // disease-to-disease lines just ride along
+      idealEdgeLength: (e: cytoscape.EdgeSingular) => {
+        const r = e.data('rel')
+        if (r === 'SPRING') return 560 - 450 * e.data('strength')
+        if (r === 'DISEASE_MATCH') return 540 - 11 * e.data('score')
+        return r === 'MEMBER_OF' ? 110 : r === 'LENS' ? 150 : r === 'TYPED' ? 300 : 80
+      },
+      edgeElasticity: (e: cytoscape.EdgeSingular) => {
+        const r = e.data('rel')
+        if (r === 'SPRING') return 0.25 + 0.75 * e.data('strength')
+        if (r === 'TYPED') return 0.0001
+        if (r === 'DISEASE_MATCH') return springsOn ? 0.0001 : 0.2 + e.data('score') / 100
+        return 0.6
+      },
     } as never)
     layout.one('layoutstop', () => {
-      if (view) {  // connection views keep fcose's positions
-        if (added.length) cy.fit(cy.elements(), Math.min(130, cy.width() * 0.12))
-        place()
-        return
-      }
       // genes sit like a satellite at the disease's upper right (the label lives below the bubble)
       cy.nodes('[type="Gene"]').forEach((g) => {
         const parents = g.neighborhood('node[type="Disease"]')
@@ -213,11 +283,28 @@ export default function GraphView() {
         const d = parents[0].position()
         p.position({ x: d.x - 62, y: d.y - 54 })
       })
-      if (first || added.length > 20) cy.fit(cy.elements(), Math.min(110, cy.width() * 0.1))
-      place()
     })
-    layout.run()
-  }, [model, visible, layoutTick, modes, showHubs, minSim])
+    layout.run()  // synchronous (animate: false); the satellite snapping above has run too
+
+    if (first) {
+      cy.fit(cy.elements(), Math.min(110, cy.width() * 0.1))
+      place()
+      return
+    }
+    // glide every node from where it was to where it belongs now
+    const map = fresh ? alignTo(before, cy.nodes('[type="Disease"]').map((n) => n.id()), cy) : null
+    const targets: Record<string, { x: number; y: number }> = {}
+    if (import.meta.env.DEV) (window as unknown as { glideTargets: typeof targets }).glideTargets = targets // console debugging
+    cy.nodes().forEach((n) => {
+      const target = map ? map(n.position()) : { ...n.position() }
+      targets[n.id()] = target
+      const start = before.get(n.id()) ?? target
+      n.position(start)
+      n.animate({ position: target }, { duration: 700, easing: 'ease-in-out-cubic' })
+    })
+    if (added.length > 20) setTimeout(() => cy.animate({ fit: { eles: cy.elements(), padding: Math.min(110, cy.width() * 0.1) } }, { duration: 400 }), 720)
+    place()
+  }, [model, visible, layoutTick, layers, groupFocus, minSim])
 
   useLayoutEffect(place, [ids])
 
@@ -226,8 +313,7 @@ export default function GraphView() {
     const cy = cyRef.current
     if (!cy) return
     cy.edges('[rel="DISEASE_MATCH"]').forEach((e) => { e.toggleClass('below', e.data('score') < minSim) })
-    cy.edges('[rel="DISEASE_BRIDGE"]').toggleClass('below', !showBridges)
-  }, [minSim, showBridges, ids])
+  }, [minSim, ids, layers])
 
   // selection -> highlight its visible neighbourhood, fade the rest
   useEffect(() => {
@@ -238,7 +324,7 @@ export default function GraphView() {
     if (selected) {
       const el = cy.getElementById(selected.id)
       if (el.nonempty()) {
-        const shown = selected.kind === 'node' ? el.connectedEdges().filter((x) => !x.hasClass('below')) : el
+        const shown = selected.kind === 'node' ? el.connectedEdges().filter((x) => !x.hasClass('below') && x.data('rel') !== 'SPRING') : el
         const keepNodes = selected.kind === 'node' ? shown.connectedNodes().union(el) : el.connectedNodes()
         shown.addClass('hi')
         cy.edges().not(shown).addClass('faded')
@@ -256,7 +342,7 @@ export default function GraphView() {
       }
     }
     place()
-  }, [selected, ids, minSim, showBridges])
+  }, [selected, ids, minSim, layers, groupFocus])
 
   // search / card navigation: centre on the selected node, leaving room for the sheet
   useEffect(() => {

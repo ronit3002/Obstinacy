@@ -1,14 +1,15 @@
 import { create } from 'zustand'
 import type { Model } from './graph/model'
 import { neighbours, other } from './graph/model'
-import type { LensId, ModeWeights } from './graph/lens'
+import type { LensId } from './graph/lens'
+import { GROUP_FOCUS, lensDef, sharedHubs } from './graph/lens'
 
 export type Selection = { kind: 'node' | 'edge'; id: string } | null
 
 export const DEFAULT_MIN_SIM = 24 // DISEASE_MATCH score (0-100)
 
 /** One step of card navigation: what was selected and which nodes were on the map. */
-type Snapshot = { selected: Selection; visible: Set<string>; modes: ModeWeights; showHubs: boolean }
+type Snapshot = { selected: Selection; visible: Set<string>; layers: LensId[]; groupFocus: string[] }
 const MAX_HISTORY = 60
 
 interface State {
@@ -18,14 +19,11 @@ interface State {
   selected: Selection
   history: Snapshot[]          // back stack; the bottom entry is the map before any card was opened
   minSim: number
-  showBridges: boolean
-  setShowBridges: (v: boolean) => void
-  modes: ModeWeights           // active connection modes and their weights (empty = full map)
-  showHubs: boolean            // in the connection view, also draw the connecting drugs, trials, ...
-  toggleMode: (l: LensId) => void
-  setModeWeight: (l: LensId, w: number) => void
-  clearModes: () => void
-  setShowHubs: (v: boolean) => void
+  layers: LensId[]             // active connection types, drawn onto the current map
+  groupFocus: string[]         // which kinds of patient groups the 'groups' layer counts
+  toggleLayer: (l: LensId) => void
+  toggleGroupFocus: (f: string) => void
+  clearLayers: () => void
   focusTick: number
   layoutTick: number
   setModel: (m: Model) => void
@@ -61,8 +59,8 @@ const seedSet = (m: Model) => {
 export const useStore = create<State>((set, get) => {
   /** Remember the current step so `back` can return to it (and drop whatever the next step adds). */
   const push = () => {
-    const { selected, visible, history, modes, showHubs } = get()
-    set({ history: [...history, { selected, visible, modes, showHubs }].slice(-MAX_HISTORY) })
+    const { selected, visible, history, layers, groupFocus } = get()
+    set({ history: [...history, { selected, visible, layers, groupFocus }].slice(-MAX_HISTORY) })
   }
   const bump = () => get().layoutTick + 1
 
@@ -73,19 +71,31 @@ export const useStore = create<State>((set, get) => {
     selected: null,
     history: [],
     minSim: DEFAULT_MIN_SIM,
-    showBridges: false,  // the shared-asset lines are one click away (toggle or lens)
-    setShowBridges: (showBridges) => set({ showBridges }),
-    modes: {},
-    showHubs: false,
-    toggleMode: (l) => {
-      const modes = { ...get().modes }
-      if (modes[l]) delete modes[l]
-      else modes[l] = 0.5
-      set({ modes, selected: null, history: [], layoutTick: bump() })
+    layers: ['symptoms'],
+    groupFocus: [...GROUP_FOCUS],
+    /** Add or remove a connection type on the current map (selection and other nodes stay). */
+    toggleLayer: (l) => {
+      const { model, layers, visible, seeds, selected, groupFocus } = get()
+      const on = !layers.includes(l)
+      const next = new Set(visible)
+      if (model && lensDef(l).hubs) {  // mechanism / gene family bring their few shared hub bubbles
+        for (const h of sharedHubs(model, l, groupFocus)) {
+          if (on) next.add(h)
+          else if (!seeds.has(h) && h !== selected?.id) next.delete(h)
+        }
+      }
+      set({ layers: on ? [...layers, l] : layers.filter((x) => x !== l), visible: next, layoutTick: bump() })
     },
-    setModeWeight: (l, w) => set({ modes: { ...get().modes, [l]: w }, layoutTick: bump() }),
-    clearModes: () => set({ modes: {}, selected: null, history: [], layoutTick: bump() }),
-    setShowHubs: (showHubs) => set({ showHubs, layoutTick: bump() }),
+    toggleGroupFocus: (f) => {
+      const g = get().groupFocus
+      set({ groupFocus: g.includes(f) ? g.filter((x) => x !== f) : [...g, f], layoutTick: bump() })
+    },
+    clearLayers: () => {
+      const { model, layers, visible, seeds, selected, groupFocus } = get()
+      const next = new Set(visible)
+      if (model) for (const l of layers) if (lensDef(l).hubs) sharedHubs(model, l, groupFocus).forEach((h) => { if (!seeds.has(h) && h !== selected?.id) next.delete(h) })
+      set({ layers: [], visible: next, layoutTick: bump() })
+    },
     focusTick: 0,
     layoutTick: 0,
 
@@ -122,12 +132,12 @@ export const useStore = create<State>((set, get) => {
       let visible = prev.visible
       // the card we return to must be on the map, whatever view it was opened from
       const sel = prev.selected
-      if (model && sel?.kind === 'node' && !Object.keys(prev.modes).length && !visible.has(sel.id)) {
+      if (model && sel?.kind === 'node' && !visible.has(sel.id)) {
         visible = new Set(visible)
         visible.add(sel.id)
         neighbours(model, sel.id).slice(0, 12).forEach((x) => visible.add(x.node.id))
       }
-      set({ selected: sel, visible, modes: prev.modes, showHubs: prev.showHubs, history: history.slice(0, -1),
+      set({ selected: sel, visible, layers: prev.layers, groupFocus: prev.groupFocus, history: history.slice(0, -1),
             focusTick: get().focusTick + 1, layoutTick: bump() })
       if (!sel) set({ history: [] })
     },
@@ -189,12 +199,11 @@ export const useStore = create<State>((set, get) => {
 
     /** Make any node visible (e.g. from search) together with enough context to connect it. */
     reveal: (id) => {
-      const { model, visible, modes } = get()
+      const { model, visible } = get()
       if (!model) return
       const n = model.nodes.get(id)!
-      const fromOverview = Object.keys(modes).length > 0
-      push()  // the snapshot keeps the overview, so Back returns to it
-      const next = new Set(fromOverview ? get().seeds : visible)
+      push()
+      const next = new Set(visible)
       next.add(id)
       if (n.type === 'Variant') {
         for (const x of neighbours(model, id, ['Gene'])) next.add(x.node.id)
@@ -206,14 +215,14 @@ export const useStore = create<State>((set, get) => {
       if (!neighbours(model, id).some((x) => next.has(x.node.id))) {
         neighbours(model, id).slice(0, 12).forEach((x) => next.add(x.node.id))
       }
-      set({ modes: {}, visible: next, selected: { kind: 'node', id }, focusTick: get().focusTick + 1, layoutTick: bump() })
+      set({ visible: next, selected: { kind: 'node', id }, focusTick: get().focusTick + 1, layoutTick: bump() })
     },
 
     reset: () => {
       const { model } = get()
       if (!model) return
       const seeds = seedSet(model)
-      set({ visible: new Set(seeds), seeds, selected: null, history: [], minSim: DEFAULT_MIN_SIM, modes: {}, layoutTick: bump() })
+      set({ visible: new Set(seeds), seeds, selected: null, history: [], minSim: DEFAULT_MIN_SIM, layers: ['symptoms'], groupFocus: [...GROUP_FOCUS], layoutTick: bump() })
     },
   }
 })
