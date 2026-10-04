@@ -36,7 +36,7 @@ function Header({ n, meta, title }: { n: GNode; meta?: ReactNode; title?: string
         <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: c }}>
           {Icon && <Icon size={14} strokeWidth={2.4} />}{TYPE_LABEL[n.type] ?? n.type}
         </span>
-        {!n.source_local && <CopyId id={n.id} />}
+        {!n.source_local && <CopyId id={String(n.source_id ?? n.id)} />}
       </div>
       <h2 className="mt-1.5 text-[21px] font-semibold leading-[1.2] tracking-[-0.02em] text-ink">{title ?? titleCase(n.name)}</h2>
       {meta && <div className="mt-2 flex flex-wrap items-center gap-1.5">{meta}</div>}
@@ -69,7 +69,7 @@ function PaperRows({ papers }: { papers: { node: GNode; edge: GEdge }[] }) {
     <>
       {papers.map(({ node, edge }) => (
         <Row key={node.id} leading={<TypeTile type="Paper" />} title={node.name}
-          subtitle={<>{node.id}{edge.link_reason ? ` · ${String(edge.link_reason)}` : ''}</>}
+          subtitle={<>{String(node.source_id ?? node.id)}{edge.link_reason ? ` · ${String(edge.link_reason)}` : ''}</>}
           trailing={node.review_status === 'approved' || node.review_status === 'curated' ? undefined : <AlertTriangle size={14} className="text-[#d97706]" />}
           onClick={() => reveal(node.id)} />
       ))}
@@ -370,7 +370,7 @@ function PaperCard({ n, m }: { n: GNode; m: Model }) {
             <Section title="Original paper">
               <a href={String(n.url)} target="_blank" rel="noreferrer"
                 className="group -mx-2 flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-subtle">
-                <TypeTile type="Paper" /><span className="flex-1 text-[13.5px] font-medium text-ink">PubMed {n.id.replace('PMID:', '')}</span>
+                <TypeTile type="Paper" /><span className="flex-1 text-[13.5px] font-medium text-ink">PubMed {String(n.source_id ?? n.id).replace('PMID:', '')}</span>
                 <ExternalLink size={14} className="text-ink-3 group-hover:text-accent" />
               </a>
             </Section>
@@ -429,7 +429,7 @@ function ClaimCard({ n, m }: { n: GNode; m: Model }) {
         </Section>
         {paper && (
           <Section title="Paper">
-            <Row leading={<TypeTile type="Paper" />} title={paper.name} subtitle={paper.id} onClick={() => reveal(paper.id)} />
+            <Row leading={<TypeTile type="Paper" />} title={paper.name} subtitle={String(paper.source_id ?? paper.id)} onClick={() => reveal(paper.id)} />
           </Section>
         )}
       </div>

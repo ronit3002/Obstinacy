@@ -91,7 +91,7 @@ def add_disease_matches(nodes, edges, today):
 def add_papers(nodes, edges, include_pending):
     """Paper, Claim, Researcher and Intervention nodes from paper_pipeline.py bundles."""
     by_id = {n["id"]: n for n in nodes}
-    diseases = [n for n in nodes if n["type"] == "Disease"]
+    diseases = [n for n in nodes if n["type"] == "Disease" and not n.get("paper_scoped")]
     gene_to_diseases = defaultdict(set)
     for e in edges:
         if e["rel"] == "ASSOCIATED_WITH":
@@ -196,10 +196,17 @@ def add_papers(nodes, edges, include_pending):
 
 def drop_partial_base_papers(nodes, edges):
     """graph.json may hold a paper with only the few claims someone approved by hand. When the full
-    bundle is available, drop that partial copy (and anything only it touched) so the bundle replaces it."""
-    covered = {p["source"]["source_id"] for path in glob.glob(PAPER_GLOB) for p in load(path)["papers"]}
+    bundle has more claims, drop that partial copy (and anything only it touched) so the bundle replaces it.
+    A complete import by graph.py (the normal case now) is kept as is."""
+    full = {p["source"]["source_id"]: sum(c.get("category") != "authorship" for c in p["claims"])
+            for path in glob.glob(PAPER_GLOB) for p in load(path)["papers"]}
     by_id = {n["id"]: n for n in nodes}
-    papers = {n["id"] for n in nodes if n["type"] == "Paper" and n.get("source_id") in covered}
+    have = defaultdict(int)  # scientific claims graph.json already holds per paper
+    for e in edges:
+        if e["rel"] == "CONTAINS" and e["target"] in by_id and by_id[e["target"]].get("category") not in ("authorship", "mechanism"):
+            have[e["source"]] += 1
+    papers = {n["id"] for n in nodes if n["type"] == "Paper" and n.get("source_id") in full
+              and have[n["id"]] < full[n["source_id"]]}
     if not papers:
         return
     claims = {e["target"] for e in edges if e["rel"] == "CONTAINS" and e["source"] in papers}
@@ -232,7 +239,7 @@ def normalize_papers(nodes, edges):
     for e in edges:
         if e["rel"] == "ASSOCIATED_WITH":
             gene_to_diseases[e["target"]].add(e["source"])
-    diseases = [n for n in nodes if n["type"] == "Disease"]
+    diseases = [n for n in nodes if n["type"] == "Disease" and not n.get("paper_scoped")]
     have_link = {(e["source"], e["target"]) for e in edges if e["rel"] == "DISCUSSES"}
 
     for p in [n for n in nodes if n["type"] == "Paper" and "authors" not in n]:
@@ -256,9 +263,14 @@ def normalize_papers(nodes, edges):
         reasons = {}
         for c in claims:
             for e in edges:
-                if e["rel"] == "ABOUT" and e["source"] == c["id"] and by_id.get(e["target"], {}).get("type") == "Gene":
+                if e["rel"] != "ABOUT" or e["source"] != c["id"]:
+                    continue
+                tgt = by_id.get(e["target"], {})
+                if tgt.get("type") == "Gene":
                     for d in gene_to_diseases.get(e["target"], ()):
-                        reasons.setdefault(d, f"paper discusses {by_id[e['target']]['name']}, the gene of this disease")
+                        reasons.setdefault(d, f"paper discusses {tgt['name']}, the gene of this disease")
+                elif tgt.get("type") == "Disease" and not tgt.get("paper_scoped"):
+                    reasons.setdefault(tgt["id"], "paper claims name this disease")
         title = (p["name"] or "").lower()
         for d in diseases:
             hit = next((x for x in [d["name"], *d.get("synonyms", [])] if len(x) > 4 and x.lower() in title), None)
@@ -281,7 +293,7 @@ def main():
     today = date.today().isoformat()
     nodes, edges = base_graph()
     by_id = {n["id"]: n for n in nodes}
-    diseases = [n for n in nodes if n["type"] == "Disease"]
+    diseases = [n for n in nodes if n["type"] == "Disease" and not n.get("paper_scoped")]
 
     n_match = add_disease_matches(nodes, edges, today)
     if args.include_pending:

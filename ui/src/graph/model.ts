@@ -103,7 +103,7 @@ export function nodeSubtitle(n: GNode, m?: Model): string {
     return v ? `${v} variants` : String(n.full_name ?? '')
   }
   if (n.type === 'Variant') return String(n.classification ?? '')
-  if (n.type === 'Paper') return n.id
+  if (n.type === 'Paper') return String(n.source_id ?? n.id)
   return ''
 }
 

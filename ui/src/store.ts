@@ -31,13 +31,13 @@ const DETAIL = new Set(['Phenotype', 'Variant', 'Claim', 'Researcher', 'Interven
 const expandable = (m: Model, id: string) =>
   neighbours(m, id).filter((x) => !DETAIL.has(x.node.type)).map((x) => x.node.id)
 
-/** Start view: every disease with its gene(s) and linked papers. */
+/** Start view: every disease with its gene(s), linked papers and mechanism. */
 const seedSet = (m: Model) => {
   const s = new Set<string>()
   for (const n of m.nodes.values()) {
-    if (n.type !== 'Disease') continue
+    if (n.type !== 'Disease' || n.paper_scoped) continue // paper-only names are not real diseases
     s.add(n.id)
-    neighbours(m, n.id, ['Gene', 'Paper']).forEach((g) => s.add(g.node.id))
+    neighbours(m, n.id, ['Gene', 'Paper', 'Mechanism']).forEach((g) => s.add(g.node.id))
   }
   return s
 }
