@@ -1,0 +1,26 @@
+[
+  {
+    "source_id": "PMID:28377535",
+    "scientific_claims": 10,
+    "authorship_claims": 75,
+    "summary_sentences": 8,
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28377535/",
+    "published": false
+  },
+  {
+    "source_id": "PMID:27616483",
+    "scientific_claims": 5,
+    "authorship_claims": 24,
+    "summary_sentences": 7,
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27616483/",
+    "published": false
+  },
+  {
+    "source_id": "PMID:28538134",
+    "scientific_claims": 10,
+    "authorship_claims": 10,
+    "summary_sentences": 8,
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28538134/",
+    "published": false
+  }
+]

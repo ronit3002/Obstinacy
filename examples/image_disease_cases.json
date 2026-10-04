@@ -1,0 +1,12 @@
+{
+  "provenance": "Transcribed selected fields from the user-provided disease table. Unverified input, not a paper or validated medical evidence. Variant notation lacks transcript context; do not normalize to a canonical variant ID.",
+  "cases": [
+    {"disease": "DEE27", "mondo": "MONDO:0014505", "gene": "GRIN2B", "variant": "c.2065G>A (p.Gly689Ser)", "phenotype": "Global developmental delay", "hpo": "HP:0001263"},
+    {"disease": "NDHMSD", "mondo": "MONDO:0013655", "gene": "GRIN1", "variant": "c.1921A>G (p.Met641Val)", "phenotype": "Global developmental delay", "hpo": "HP:0001263"},
+    {"disease": "early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation", "mondo": "MONDO:0017325", "gene": "GRIN2A", "variant": "c.4375A>G (p.Ser1459Gly)", "phenotype": "Bilateral tonic-clonic seizure", "hpo": "HP:0002069"},
+    {"disease": "DEE46", "mondo": "MONDO:0014947", "gene": "GRIN2D", "variant": "c.2080A>C (p.Ser694Arg)", "phenotype": "Global developmental delay", "hpo": "HP:0001263"},
+    {"disease": "DEE4", "mondo": "MONDO:0012812", "gene": "STXBP1", "variant": "c.875G>A (p.Arg292His)", "phenotype": "Global developmental delay", "hpo": "HP:0001263"},
+    {"disease": "DEE2", "mondo": "MONDO:0010396", "gene": "CDKL5", "variant": "c.826-1G>C", "phenotype": "Generalized tonic seizure", "hpo": "HP:0010818"},
+    {"disease": "Dravet syndrome", "mondo": "MONDO:0100135", "gene": "SCN1A", "variant": "c.5674C>T (p.Arg1892Ter)", "phenotype": "Developmental regression", "hpo": "HP:0002376"}
+  ]
+}

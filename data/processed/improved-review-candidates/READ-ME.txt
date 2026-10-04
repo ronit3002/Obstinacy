@@ -1,0 +1,30 @@
+REVIEW CANDIDATES — NOT APPROVED OR PUBLISHED
+
+Automated checks do not establish medical accuracy. Original source evidence and signed human review remain required.
+
+
+GRIN2B encephalopathy: novel findings on phenotype, variant clustering, functional consequences and treatment aspects.
+
+https://pubmed.ncbi.nlm.nih.gov/28377535/
+
+Researchers studied GRIN2B encephalopathy, a brain condition linked to new gene changes, looking at its genetic, laboratory and patient features and at possible personalised treatment. They collected information on 48 people with new GRIN2B gene changes, plus 43 patients from earlier reports. They also tested the effects of the gene changes and of the drug memantine in laboratory experiments, and then used these findings in patient care. Patients had a range of problems, including low muscle tone, loss of brain volume and epilepsy. The researchers found that the condition is also frequently linked to movement problems and to vision problems caused by the brain. Six patients had a consistent difference in how the outer brain layer had formed. Intellectual disability, epilepsy and autism were already known features of the condition. A clear benefit of memantine in patients has still not been shown.
+
+10 scientific claims; 75 authorship claims.
+
+
+GRIN2D Recurrent De Novo Dominant Mutation Causes a Severe Epileptic Encephalopathy Treatable with NMDA Receptor Channel Blockers.
+
+https://pubmed.ncbi.nlm.nih.gov/27616483/
+
+Researchers studied two unrelated children who had severe epilepsy that began in childhood. Both children had the same new gene change in a gene called GRIN2D, which helps build a receptor, a channel on brain cells that responds to chemical signals. In laboratory tests, the gene change made the receptor work too much. In cultured nerve cells, the changed gene caused swollen branches and cell death, which suggests the receptor was overactive. Both children were given a medicine called memantine, chosen because of the laboratory results, and their seizures and development showed mild to moderate improvement. The older child later had a severe, hard-to-treat seizure emergency and improved dramatically after treatment with ketamine and magnesium. Only two children were described, and the authors suggest that medicines blocking this receptor may be useful as add-on epilepsy treatment for people with this kind of gene change.
+
+5 scientific claims; 24 authorship claims.
+
+
+Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome.
+
+https://pubmed.ncbi.nlm.nih.gov/28538134/
+
+Researchers tested whether a medicine called cannabidiol could reduce seizures in children and young adults with Dravet syndrome, a condition with seizures that are hard to treat. In this trial, 120 patients were randomly given either cannabidiol liquid or a placebo, which has no medicine, along with their usual seizure treatment. Over 14 weeks, the median (middle value) number of convulsive seizures per month fell from 12.4 to 5.9 with cannabidiol, compared with a small drop from 14.9 to 14.1 with placebo. Caregivers reported that overall condition improved in 62% of the cannabidiol group and 34% of the placebo group. Total seizures of all types also dropped more with cannabidiol, but nonconvulsive seizures did not drop significantly. Some results were not statistically significant: 43% versus 27% of patients had at least half as many convulsive seizures, and 5% versus 0% became seizure-free. Diarrhea, vomiting, fatigue, fever, sleepiness, and abnormal liver tests happened more often with cannabidiol, and more patients left the trial in that group. The authors concluded that cannabidiol reduced convulsive seizures more than placebo but came with more side effects; the company GW Pharmaceuticals funded the study.
+
+10 scientific claims; 10 authorship claims.

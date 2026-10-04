@@ -1,0 +1,1844 @@
+{
+  "schema_version": 2,
+  "prompt_version": "papers-v4-anchored-evidence",
+  "model": "claude-sonnet-5-5",
+  "verifier_model": "claude-sonnet-5-5",
+  "provider": "anthropic",
+  "created_at": "2026-10-03T22:57:09.129520+00:00",
+  "papers": [
+    {
+      "source": {
+        "source_id": "PMID:28538134",
+        "text": "Title: Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome.\nAuthors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group\nAbstract:\nBACKGROUND: The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate. We studied cannabidiol for the treatment of drug-resistant seizures in the Dravet syndrome.\nMETHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.\nRESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.\nCONCLUSIONS: Among patients with the Dravet syndrome, cannabidiol resulted in a greater reduction in convulsive-seizure frequency than placebo and was associated with higher rates of adverse events. (Funded by GW Pharmaceuticals; ClinicalTrials.gov number, NCT02091375 .).",
+        "title": "Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28538134/",
+        "source_kind": "abstract",
+        "source_tier": 2,
+        "sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681"
+      },
+      "claims": [
+        {
+          "local_id": "C2",
+          "statement": "Double-blind, placebo-controlled trial randomized 120 children and young adults with Dravet syndrome and drug-resistant seizures to cannabidiol oral solution 20 mg/kg/day or placebo, added to standard antiepileptic treatment; primary end point was change in convulsive-seizure frequency over 14 weeks versus a 4-week baseline.",
+          "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+          "subject": "E4",
+          "object": "E2",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "120 children and young adults with Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "study_design",
+          "evidence": {
+            "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+            "start": 518,
+            "end": 983
+          },
+          "entities": {
+            "E4": {
+              "local_id": "E4",
+              "kind": "Study",
+              "mention": "double-blind, placebo-controlled trial",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "double-blind, placebo-controlled trial",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Statement accurately restates the design, population, dose, comparator, background treatment and primary end point from the Methods. ABOUT is structural, so it fits."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:6b66248a79acbce65b374e3bb18682c1d9d47c2c43835131ebc4befcb5fe8860"
+        },
+        {
+          "local_id": "C3",
+          "statement": "Median monthly convulsive seizures decreased from 12.4 to 5.9 with cannabidiol versus 14.9 to 14.1 with placebo; adjusted median difference in change was -22.8 percentage points (95% CI -41.1 to -5.4; P=0.01).",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E5",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E5": {
+              "local_id": "E5",
+              "kind": "Outcome",
+              "mention": "convulsive-seizure frequency",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "convulsive-seizure frequency",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The numbers (12.4 to 5.9 vs 14.9 to 14.1; -22.8 percentage points; CI -41.1 to -5.4; P=0.01) match the source. The context is the randomized Dravet trial, and the candidate asserts no causation beyond the source."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:50a5301161eddfdd5c585efb5b9fe686a269bb07074cb95f5238fd645a4eaeb1"
+        },
+        {
+          "local_id": "C4",
+          "statement": "At least 50% reduction in convulsive-seizure frequency occurred in 43% with cannabidiol versus 27% with placebo (OR 2.00; 95% CI 0.93 to 4.30; P=0.08), not statistically significant.",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E6",
+          "relation": "ABOUT",
+          "polarity": "negated",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E6": {
+              "local_id": "E6",
+              "kind": "Outcome",
+              "mention": "at least a 50% reduction in convulsive-seizure frequency",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "at least a 50% reduction in convulsive-seizure frequency",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The 43% vs 27% figures, OR 2.00, CI 0.93-4.30 and P=0.08 match the source. The CI spanning 1 and P=0.08 support the not-significant label, and negated polarity is consistent with that."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:61796b7daf6bd2e75755c590169baef179d01ad2eabe424019474cf1b927e247"
+        },
+        {
+          "local_id": "C5",
+          "statement": "Overall condition improved by at least one category on the Caregiver Global Impression of Change in 62% with cannabidiol versus 34% with placebo (P=0.02).",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E7",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E7": {
+              "local_id": "E7",
+              "kind": "Outcome",
+              "mention": "Caregiver Global Impression of Change",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "Caregiver Global Impression of Change",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The 62% vs 34% figures and P=0.02 match the source for improvement of at least one category on the Caregiver Global Impression of Change."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:0b47b518d95a97b3a75b4c4554b712b42035ba85c383a6760faad11112acaeb2"
+        },
+        {
+          "local_id": "C6",
+          "statement": "Total seizures of all types were significantly reduced with cannabidiol (P=0.03).",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E8",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E8": {
+              "local_id": "E8",
+              "kind": "Outcome",
+              "mention": "total seizures of all types",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "total seizures of all types",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source states that total seizures of all types were significantly reduced with cannabidiol (P=0.03)."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:a1346bc73198e1aefee2c9384bb1477c24216fa9ac6beced5ba2a3f353515833"
+        },
+        {
+          "local_id": "C7",
+          "statement": "There was no significant reduction in nonconvulsive seizures with cannabidiol.",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E9",
+          "relation": "ABOUT",
+          "polarity": "negated",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E9": {
+              "local_id": "E9",
+              "kind": "Outcome",
+              "mention": "nonconvulsive seizures",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "nonconvulsive seizures",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source explicitly states there was no significant reduction in nonconvulsive seizures, which matches the negated polarity."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:8e50e2d4bcfa2f3230c3de0d95795a592ba885cc3eafc41cd0ce3a3a74965170"
+        },
+        {
+          "local_id": "C8",
+          "statement": "Seizure freedom occurred in 5% with cannabidiol and 0% with placebo (P=0.08), not significant.",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E10",
+          "relation": "ABOUT",
+          "polarity": "negated",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E10": {
+              "local_id": "E10",
+              "kind": "Outcome",
+              "mention": "seizure-free",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "seizure-free",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source reports seizure-freedom in 5% with cannabidiol and 0% with placebo (P=0.08). The candidate's 'not significant' wording is an interpretation of P=0.08 that the source does not state explicitly, but it is a standard reading. Entities and the ABOUT relation are fine, and the negated polarity matches the lack of a significant difference."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:1a90c44b2338eedcad6ba2c33238e2ecf1fd3ad73f9db5c75fb6d4d1b35047f3"
+        },
+        {
+          "local_id": "C9",
+          "statement": "Diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal liver-function tests occurred more frequently with cannabidiol than placebo.",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E11",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E11": {
+              "local_id": "E11",
+              "kind": "Outcome",
+              "mention": "Adverse events",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "Adverse events",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source lists these adverse events as occurring more frequently with cannabidiol than with placebo. The candidate matches the source, and the ABOUT relation with the Adverse events outcome is acceptable."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:58c7a5059f31c1f62de552fe2eb08df5c5cdeb37b457c02923d442025f19a0a8"
+        },
+        {
+          "local_id": "C10",
+          "statement": "There were more withdrawals from the trial in the cannabidiol group.",
+          "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+          "subject": "E2",
+          "object": "E13",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Randomized trial, Dravet syndrome",
+          "limitations": "Not stated in supplied text",
+          "category": "result",
+          "evidence": {
+            "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+            "start": 984,
+            "end": 2284
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E13": {
+              "local_id": "E13",
+              "kind": "Outcome",
+              "mention": "withdrawals from the trial",
+              "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+              "evidence": {
+                "quote": "RESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.",
+                "start": 984,
+                "end": 2284
+              },
+              "resolution": {
+                "mention": "withdrawals from the trial",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source explicitly states there were more withdrawals from the trial in the cannabidiol group. The candidate matches the source and its context."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:9cae9382a84b7408dab002630912d016fe4d5c3eeba3f08c0f2962eea0c84501"
+        },
+        {
+          "local_id": "C11",
+          "statement": "Cannabidiol resulted in greater reduction in convulsive-seizure frequency than placebo and was associated with higher rates of adverse events.",
+          "quote": "CONCLUSIONS: Among patients with the Dravet syndrome, cannabidiol resulted in a greater reduction in convulsive-seizure frequency than placebo and was associated with higher rates of adverse events. (Funded by GW Pharmaceuticals; ClinicalTrials.gov number, NCT02091375 .).",
+          "subject": "E2",
+          "object": "E5",
+          "relation": "ABOUT",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Patients with Dravet syndrome; funded by GW Pharmaceuticals",
+          "limitations": "Not stated in supplied text",
+          "category": "finding",
+          "evidence": {
+            "quote": "CONCLUSIONS: Among patients with the Dravet syndrome, cannabidiol resulted in a greater reduction in convulsive-seizure frequency than placebo and was associated with higher rates of adverse events. (Funded by GW Pharmaceuticals; ClinicalTrials.gov number, NCT02091375 .).",
+            "start": 2285,
+            "end": 2557
+          },
+          "entities": {
+            "E2": {
+              "local_id": "E2",
+              "kind": "Intervention",
+              "mention": "cannabidiol oral solution",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "cannabidiol oral solution",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E5": {
+              "local_id": "E5",
+              "kind": "Outcome",
+              "mention": "convulsive-seizure frequency",
+              "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+              "evidence": {
+                "quote": "METHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.",
+                "start": 518,
+                "end": 983
+              },
+              "resolution": {
+                "mention": "convulsive-seizure frequency",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The conclusion states that cannabidiol resulted in a greater reduction in convulsive-seizure frequency than placebo and was associated with higher rates of adverse events. The candidate matches this. The outcome E5 mention comes from the Methods text, but it identifies the same convulsive-seizure frequency endpoint."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:f4741cdc308915d5fc8b81be0c4ee88d5a574373a99c8df0938a339d0e11d313"
+        },
+        {
+          "local_id": "metadata_author_0_claim",
+          "statement": "Orrin Devinsky is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_0",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_0": {
+              "local_id": "metadata_author_0",
+              "kind": "Researcher",
+              "mention": "Orrin Devinsky",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Orrin Devinsky",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:00d918bc43506e470dff9aef6aeb9aff72445d41ffbda3064ed6f2dd70a9fe5f"
+        },
+        {
+          "local_id": "metadata_author_1_claim",
+          "statement": "J Helen Cross is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_1",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_1": {
+              "local_id": "metadata_author_1",
+              "kind": "Researcher",
+              "mention": "J Helen Cross",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "J Helen Cross",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:a97dbdf7048209a726d3b40acf8ce6cdd836d4daf25af327fdd74ff78ba446b5"
+        },
+        {
+          "local_id": "metadata_author_2_claim",
+          "statement": "Linda Laux is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_2",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_2": {
+              "local_id": "metadata_author_2",
+              "kind": "Researcher",
+              "mention": "Linda Laux",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Linda Laux",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:80b567bc0ec68f9814aa4d0d0215a1a7cbdc7dfd6079b16b5c8960973e9c0672"
+        },
+        {
+          "local_id": "metadata_author_3_claim",
+          "statement": "Eric Marsh is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_3",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_3": {
+              "local_id": "metadata_author_3",
+              "kind": "Researcher",
+              "mention": "Eric Marsh",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Eric Marsh",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:346f23b65e62552bbe316e952d5fd261e23a250651ea4ef618cf441965a29160"
+        },
+        {
+          "local_id": "metadata_author_4_claim",
+          "statement": "Ian Miller is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_4",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_4": {
+              "local_id": "metadata_author_4",
+              "kind": "Researcher",
+              "mention": "Ian Miller",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Ian Miller",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:6259dc2ee0ffd3c02c90f764427bf5f1aa114c193eb044e238714b1ac6a65d63"
+        },
+        {
+          "local_id": "metadata_author_5_claim",
+          "statement": "Rima Nabbout is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_5",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_5": {
+              "local_id": "metadata_author_5",
+              "kind": "Researcher",
+              "mention": "Rima Nabbout",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Rima Nabbout",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:96e6c8b88812d6d0a0e45f359eba7f2e2f8e71c4c971b5dd94bce7dee7b377d7"
+        },
+        {
+          "local_id": "metadata_author_6_claim",
+          "statement": "Ingrid E Scheffer is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_6",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_6": {
+              "local_id": "metadata_author_6",
+              "kind": "Researcher",
+              "mention": "Ingrid E Scheffer",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Ingrid E Scheffer",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:ad2a2dce5c2b5f0f1e4c1f1d75efcf5ee8206f298bb86e06f0d916bef9d0ca14"
+        },
+        {
+          "local_id": "metadata_author_7_claim",
+          "statement": "Elizabeth A Thiele is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_7",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_7": {
+              "local_id": "metadata_author_7",
+              "kind": "Researcher",
+              "mention": "Elizabeth A Thiele",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Elizabeth A Thiele",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:4acc8b3e09b0fcb4880a6fafe0242f604975011c7b83dc9a75d5424e5032d69c"
+        },
+        {
+          "local_id": "metadata_author_8_claim",
+          "statement": "Stephen Wright is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_8",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_8": {
+              "local_id": "metadata_author_8",
+              "kind": "Researcher",
+              "mention": "Stephen Wright",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Stephen Wright",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:7573bed39aabc2739ac7903b05252b6b68cdaa5382166f65a6a5bbdf825a5a1c"
+        },
+        {
+          "local_id": "metadata_author_9_claim",
+          "statement": "Cannabidiol in Dravet Syndrome Study Group is listed as an author of this paper.",
+          "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+          "subject": "metadata_author_9",
+          "object": "PAPER",
+          "relation": "AUTHORED",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Explicit supplied author metadata",
+          "limitations": "Name does not establish identity across papers",
+          "category": "authorship",
+          "evidence": {
+            "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+            "start": 80,
+            "end": 267
+          },
+          "entities": {
+            "metadata_author_9": {
+              "local_id": "metadata_author_9",
+              "kind": "Researcher",
+              "mention": "Cannabidiol in Dravet Syndrome Study Group",
+              "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+              "evidence": {
+                "quote": "Authors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group",
+                "start": 80,
+                "end": 267
+              },
+              "resolution": {
+                "mention": "Cannabidiol in Dravet Syndrome Study Group",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Deterministic match to explicitly supplied author metadata; no cross-paper identity asserted"
+          },
+          "review_status": "pending",
+          "id": "CLAIM:ce78b747a004bf4e05ab48e20d96424fc4063285c15499f3083cc836e78d8428"
+        }
+      ],
+      "summary": [
+        {
+          "text": "Researchers tested whether a medicine called cannabidiol could reduce seizures in children and young adults with Dravet syndrome, a condition with seizures that are hard to treat.",
+          "claim_ids": [
+            "CLAIM:6b66248a79acbce65b374e3bb18682c1d9d47c2c43835131ebc4befcb5fe8860"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "In this trial, 120 patients were randomly given either cannabidiol liquid or a placebo, which has no medicine, along with their usual seizure treatment.",
+          "claim_ids": [
+            "CLAIM:6b66248a79acbce65b374e3bb18682c1d9d47c2c43835131ebc4befcb5fe8860"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Over 14 weeks, the median (middle value) number of convulsive seizures per month fell from 12.4 to 5.9 with cannabidiol, compared with a small drop from 14.9 to 14.1 with placebo.",
+          "claim_ids": [
+            "CLAIM:50a5301161eddfdd5c585efb5b9fe686a269bb07074cb95f5238fd645a4eaeb1"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Caregivers reported that overall condition improved in 62% of the cannabidiol group and 34% of the placebo group.",
+          "claim_ids": [
+            "CLAIM:0b47b518d95a97b3a75b4c4554b712b42035ba85c383a6760faad11112acaeb2"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Total seizures of all types also dropped more with cannabidiol, but nonconvulsive seizures did not drop significantly.",
+          "claim_ids": [
+            "CLAIM:a1346bc73198e1aefee2c9384bb1477c24216fa9ac6beced5ba2a3f353515833",
+            "CLAIM:8e50e2d4bcfa2f3230c3de0d95795a592ba885cc3eafc41cd0ce3a3a74965170"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Some results were not statistically significant: 43% versus 27% of patients had at least half as many convulsive seizures, and 5% versus 0% became seizure-free.",
+          "claim_ids": [
+            "CLAIM:61796b7daf6bd2e75755c590169baef179d01ad2eabe424019474cf1b927e247",
+            "CLAIM:1a90c44b2338eedcad6ba2c33238e2ecf1fd3ad73f9db5c75fb6d4d1b35047f3"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Diarrhea, vomiting, fatigue, fever, sleepiness, and abnormal liver tests happened more often with cannabidiol, and more patients left the trial in that group.",
+          "claim_ids": [
+            "CLAIM:58c7a5059f31c1f62de552fe2eb08df5c5cdeb37b457c02923d442025f19a0a8",
+            "CLAIM:9cae9382a84b7408dab002630912d016fe4d5c3eeba3f08c0f2962eea0c84501"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "The authors concluded that cannabidiol reduced convulsive seizures more than placebo but came with more side effects; the company GW Pharmaceuticals funded the study.",
+          "claim_ids": [
+            "CLAIM:f4741cdc308915d5fc8b81be0c4ee88d5a574373a99c8df0938a339d0e11d313"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+          },
+          "review_status": "pending"
+        }
+      ],
+      "rejected": [
+        {
+          "candidate": {
+            "local_id": "C1",
+            "statement": "Dravet syndrome is a complex childhood epilepsy disorder associated with drug-resistant seizures and a high mortality rate.",
+            "quote": "BACKGROUND: The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate. We studied cannabidiol for the treatment of drug-resistant seizures in the Dravet syndrome.",
+            "subject": "E1",
+            "object": "E12",
+            "relation": "HAS_PHENOTYPE",
+            "polarity": "affirmed",
+            "status": "observation",
+            "study_context": "Background statement",
+            "limitations": "Not stated in supplied text",
+            "category": "background"
+          },
+          "reason": "entity mention missing from evidence"
+        }
+      ],
+      "security_flags": [],
+      "summary_audit": {
+        "supported": true,
+        "coherent": true,
+        "main_findings_covered": true,
+        "limitations_preserved": true,
+        "plain_language": true,
+        "reason": "Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+      },
+      "coverage": {
+        "retained_categories": [
+          "authorship",
+          "finding",
+          "result",
+          "study_design"
+        ],
+        "retained_entity_types": [
+          "Intervention",
+          "Outcome",
+          "Researcher",
+          "Study"
+        ],
+        "unresolved_mentions": [
+          "Adverse events",
+          "Cannabidiol in Dravet Syndrome Study Group",
+          "Caregiver Global Impression of Change",
+          "Elizabeth A Thiele",
+          "Eric Marsh",
+          "Ian Miller",
+          "Ingrid E Scheffer",
+          "J Helen Cross",
+          "Linda Laux",
+          "Orrin Devinsky",
+          "Rima Nabbout",
+          "Stephen Wright",
+          "at least a 50% reduction in convulsive-seizure frequency",
+          "cannabidiol oral solution",
+          "convulsive-seizure frequency",
+          "double-blind, placebo-controlled trial",
+          "nonconvulsive seizures",
+          "seizure-free",
+          "total seizures of all types",
+          "withdrawals from the trial"
+        ]
+      },
+      "quality": {
+        "publication_status": "pending_manual_review",
+        "summary_status": "ready_for_review",
+        "scientific_claims": 10,
+        "authorship_claims": 10,
+        "resolution_note": "Only unique exact ontology matches are canonical; suggestions need review.",
+        "scope_note": "Source-grounded extraction, not independent scientific validation."
+      },
+      "previous_summary": [
+        {
+          "text": "Researchers tested whether a medicine called cannabidiol could reduce seizures in children and young adults with Dravet syndrome, a condition with seizures that are hard to treat.",
+          "claim_ids": [
+            "CLAIM:6b66248a79acbce65b374e3bb18682c1d9d47c2c43835131ebc4befcb5fe8860"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "In this trial, 120 patients were randomly given either cannabidiol liquid or a placebo, which has no medicine, along with their usual seizure treatment.",
+          "claim_ids": [
+            "CLAIM:6b66248a79acbce65b374e3bb18682c1d9d47c2c43835131ebc4befcb5fe8860"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Over 14 weeks, convulsive seizures per month fell from 12.4 to 5.9 with cannabidiol, compared with a small drop from 14.9 to 14.1 with placebo.",
+          "claim_ids": [
+            "CLAIM:50a5301161eddfdd5c585efb5b9fe686a269bb07074cb95f5238fd645a4eaeb1"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Caregivers reported that overall condition improved in 62% of the cannabidiol group and 34% of the placebo group.",
+          "claim_ids": [
+            "CLAIM:0b47b518d95a97b3a75b4c4554b712b42035ba85c383a6760faad11112acaeb2"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Total seizures of all types also dropped more with cannabidiol, but nonconvulsive seizures did not drop significantly.",
+          "claim_ids": [
+            "CLAIM:a1346bc73198e1aefee2c9384bb1477c24216fa9ac6beced5ba2a3f353515833",
+            "CLAIM:8e50e2d4bcfa2f3230c3de0d95795a592ba885cc3eafc41cd0ce3a3a74965170"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Some results were not statistically significant: 43% versus 27% of patients had at least half as many convulsive seizures, and 5% versus 0% became seizure-free.",
+          "claim_ids": [
+            "CLAIM:61796b7daf6bd2e75755c590169baef179d01ad2eabe424019474cf1b927e247",
+            "CLAIM:1a90c44b2338eedcad6ba2c33238e2ecf1fd3ad73f9db5c75fb6d4d1b35047f3"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "Diarrhea, vomiting, fatigue, fever, sleepiness, and abnormal liver tests happened more often with cannabidiol, and more patients left the trial in that group.",
+          "claim_ids": [
+            "CLAIM:58c7a5059f31c1f62de552fe2eb08df5c5cdeb37b457c02923d442025f19a0a8",
+            "CLAIM:9cae9382a84b7408dab002630912d016fe4d5c3eeba3f08c0f2962eea0c84501"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "The authors concluded that cannabidiol reduced convulsive seizures more than placebo but came with more side effects; the company GW Pharmaceuticals funded the study.",
+          "claim_ids": [
+            "CLAIM:f4741cdc308915d5fc8b81be0c4ee88d5a574373a99c8df0938a339d0e11d313"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "Whole-summary audit: Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Pyrexia is rendered as fever and somnolence as sleepiness, which adds no new assertion. The summary reports the design and the main benefit. It also includes the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout in the cannabidiol group, and the company funding. The conclusion keeps the source's wording that cannabidiol was associated with more adverse events and does not claim more than the trial showed. The sentences are complete and ordered logically, and placebo is explained. The phrase 'statistically significant' is common enough not to need a definition."
+          },
+          "review_status": "pending"
+        }
+      ]
+    }
+  ],
+  "api_calls": [
+    {
+      "response_id": "msg_011Cfg8P9ae8xEv7sHfvZ3oG",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8QKAczvaoWePbMA5Ut",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8QsAiXi4XruNVnH5Qi",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8RLFte6vU5jmn8qmNL",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8RjwApSea2JEpoQee8",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8S5WtfDcncHzNe1qjp",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8Sn4hJ3RjnWpq4uY8a",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8Thg3mK43katnrbxB4",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8UGS2vpY9WnksGhLpG",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8Uzz7rdBTm1GP7XDdC",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8VanNVu1ND9s12v9wv",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8VuE8ivy3bbVkaLJqY",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8WKn1Sto8J2Pbg4E4u",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8Ww7m4rvaTd7yfRtTB",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8XsNopmdRVPGHgwmKy",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8YHeZiAdpenXu6swi1",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8Ydr19hiA62QZ3EXNL",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg8Z3urWvymqAyzm4kxD",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    }
+  ],
+  "bundle_sha256": "721f83311bd660d8f21f49eb55ea686755bf473b154d93eaa1be8df30a4cb8e7",
+  "summary_revision": {
+    "parent_bundle_sha256": "b9ab36ce7df0a826e8d2874f369fc7d3f0c0f892235bc3d247227d2d69d73fb2",
+    "purpose": "Stricter plain-language audit",
+    "api_calls": [
+      {
+        "response_id": "msg_011Cfg8jrvrgzw5qwRCfSmtv",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8kD1rPg8NGsEvfhwic",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8m6yz1yPAmHybezPnt",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8mSbwYUbNpTQDaBJbU",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8mwmsaEDxCzYnoUa57",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8nKqvJg3TzVM6Jrg24",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8ngTQ81SoZsLNnWRtP",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      },
+      {
+        "response_id": "msg_011Cfg8o3HY4zmskQvwX5wTE",
+        "model": "claude-sonnet-5-5",
+        "status": "end_turn",
+        "provider": "anthropic"
+      }
+    ]
+  },
+  "review_packet": {
+    "parent_bundle_sha256": "dcf7c33ff6fd2d3a73a89f69ffee9ef7c5424d5b0f0a0ff7c96055d84aec04f5",
+    "status": "pending_human_review",
+    "correction": "Statistical label preserved in Dravet draft"
+  }
+}

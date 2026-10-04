@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "PMID:28377535",
+    "bundle_and_source_spans_valid": true,
+    "all_candidates_pending": true,
+    "unsigned_import_blocked": true,
+    "summary_audit": {
+      "supported": true,
+      "coherent": true,
+      "main_findings_covered": true,
+      "limitations_preserved": true,
+      "plain_language": true,
+      "reason": "Every factual clause matches the source abstract and the cited claims. The cohort sizes (48 new patients plus 43 from earlier reports) are accurate. The listed features are accurate: low muscle tone, loss of brain volume, epilepsy, movement problems and brain-caused vision problems. The six patients with a consistent brain-formation difference are accurate. Intellectual disability, epilepsy and autism are correctly described as already known. The caveat that a clear benefit of memantine in patients has not been shown is kept. Plain-language paraphrases such as 'vision problems caused by the brain' and 'difference in how the outer brain layer had formed' add no new scientific claims, and the wording is accessible. Omitted secondary details are the variant clustering, the 86-patient pathogenicity classification, and the lab result that variant effects were diverse while memantine sensitivity was retained. These do not undermine the central design, the phenotype findings or the treatment caveat."
+    }
+  },
+  {
+    "source_id": "PMID:27616483",
+    "bundle_and_source_spans_valid": true,
+    "all_candidates_pending": true,
+    "unsigned_import_blocked": true,
+    "summary_audit": {
+      "supported": true,
+      "coherent": true,
+      "main_findings_covered": true,
+      "limitations_preserved": true,
+      "plain_language": true,
+      "reason": "Every clause is entailed by the cited claims and the source abstract. The shared new GRIN2D change in two unrelated children, the overactive receptor in laboratory tests, and the swollen branches and cell death in cultured neurons are all supported. So are the mild to moderate improvement on memantine and the dramatic improvement with ketamine and magnesium after refractory status epilepticus. The summary says the authors 'suggest' add-on use, which keeps the source's hedging, and 'only two children were described' conveys the small scope without implying causation. The language is plain, the sentences are complete, and the order is logical."
+    }
+  },
+  {
+    "source_id": "PMID:28538134",
+    "bundle_and_source_spans_valid": true,
+    "all_candidates_pending": true,
+    "unsigned_import_blocked": true,
+    "summary_audit": {
+      "supported": true,
+      "coherent": true,
+      "main_findings_covered": true,
+      "limitations_preserved": true,
+      "plain_language": true,
+      "reason": "Every clause matches the cited claims and the source abstract. The numbers (120 patients, 12.4 to 5.9 vs 14.9 to 14.1, 62% vs 34%, 43% vs 27%, 5% vs 0%) are unchanged. Plain-language swaps (pyrexia as fever, somnolence as sleepiness, placebo explained as having no medicine) add no new scientific assertion. The summary covers the design, the main benefit, the non-significant results (50% responder rate, seizure freedom, nonconvulsive seizures), the higher rate of side effects, the higher dropout with cannabidiol, and the company funding. The conclusion keeps the source's wording and does not overstate it. The sentences are complete, ordered logically, and readable by a non-medical reader. 'Statistically significant' is common enough not to need a definition. The 'hard to treat' description matches the source's 'drug-resistant seizures'."
+    }
+  }
+]

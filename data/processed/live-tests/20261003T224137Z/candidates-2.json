@@ -1,0 +1,308 @@
+{
+  "schema_version": 2,
+  "prompt_version": "papers-v3-summary-citations",
+  "model": "claude-sonnet-5-5",
+  "verifier_model": "claude-sonnet-5-5",
+  "provider": "anthropic",
+  "created_at": "2026-10-03T22:42:55.278404+00:00",
+  "papers": [
+    {
+      "source": {
+        "source_id": "PMID:28538134",
+        "text": "Title: Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome.\nAuthors: Orrin Devinsky; J Helen Cross; Linda Laux; Eric Marsh; Ian Miller; Rima Nabbout; Ingrid E Scheffer; Elizabeth A Thiele; Stephen Wright; Cannabidiol in Dravet Syndrome Study Group\nAbstract:\nBACKGROUND: The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate. We studied cannabidiol for the treatment of drug-resistant seizures in the Dravet syndrome.\nMETHODS: In this double-blind, placebo-controlled trial, we randomly assigned 120 children and young adults with the Dravet syndrome and drug-resistant seizures to receive either cannabidiol oral solution at a dose of 20 mg per kilogram of body weight per day or placebo, in addition to standard antiepileptic treatment. The primary end point was the change in convulsive-seizure frequency over a 14-week treatment period, as compared with a 4-week baseline period.\nRESULTS: The median frequency of convulsive seizures per month decreased from 12.4 to 5.9 with cannabidiol, as compared with a decrease from 14.9 to 14.1 with placebo (adjusted median difference between the cannabidiol group and the placebo group in change in seizure frequency, -22.8 percentage points; 95% confidence interval [CI], -41.1 to -5.4; P=0.01). The percentage of patients who had at least a 50% reduction in convulsive-seizure frequency was 43% with cannabidiol and 27% with placebo (odds ratio, 2.00; 95% CI, 0.93 to 4.30; P=0.08). The patient's overall condition improved by at least one category on the seven-category Caregiver Global Impression of Change scale in 62% of the cannabidiol group as compared with 34% of the placebo group (P=0.02). The frequency of total seizures of all types was significantly reduced with cannabidiol (P=0.03), but there was no significant reduction in nonconvulsive seizures. The percentage of patients who became seizure-free was 5% with cannabidiol and 0% with placebo (P=0.08). Adverse events that occurred more frequently in the cannabidiol group than in the placebo group included diarrhea, vomiting, fatigue, pyrexia, somnolence, and abnormal results on liver-function tests. There were more withdrawals from the trial in the cannabidiol group.\nCONCLUSIONS: Among patients with the Dravet syndrome, cannabidiol resulted in a greater reduction in convulsive-seizure frequency than placebo and was associated with higher rates of adverse events. (Funded by GW Pharmaceuticals; ClinicalTrials.gov number, NCT02091375 .).",
+        "title": "Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28538134/",
+        "source_kind": "abstract",
+        "source_tier": 2,
+        "sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681"
+      },
+      "claims": [
+        {
+          "local_id": "C1",
+          "statement": "Dravet syndrome is associated with drug-resistant seizures.",
+          "quote": "The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate.",
+          "subject": "E1",
+          "object": "E2",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Background statement in the abstract of a trial in children and young adults with Dravet syndrome",
+          "limitations": "General background statement; not a result of the trial itself.",
+          "evidence": {
+            "quote": "The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate.",
+            "start": 290,
+            "end": 425
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "Dravet syndrome",
+              "quote": "The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate.",
+              "evidence": {
+                "quote": "The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate.",
+                "start": 290,
+                "end": 425
+              },
+              "resolution": {
+                "mention": "Dravet syndrome",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E2": {
+              "local_id": "E2",
+              "kind": "Phenotype",
+              "mention": "drug-resistant seizures",
+              "quote": "The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate.",
+              "evidence": {
+                "quote": "The Dravet syndrome is a complex childhood epilepsy disorder that is associated with drug-resistant seizures and a high mortality rate.",
+                "start": 290,
+                "end": 425
+              },
+              "resolution": {
+                "mention": "drug-resistant seizures",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28538134",
+          "source_sha256": "0202c2ed162c97237bd3fffb7ee967c70feed4542acd78d650737563ad6fa681",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The quote states that Dravet syndrome is associated with drug-resistant seizures. Disease and phenotype entities match the quoted text and are unambiguous. The HAS_PHENOTYPE relation fits an association stated as background, and the candidate correctly labels it a general background statement rather than a trial result. Polarity is affirmed, with no overstatement of causation. Null canonical IDs do not invalidate source-local mentions."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:929377a1d5b6dff0f8879b4779c10ffecbfd788fb744a19605cc623879299865"
+        }
+      ],
+      "summary": [
+        {
+          "text": "The evidence describes Dravet syndrome as a complex childhood epilepsy disorder.",
+          "claim_ids": [
+            "CLAIM:929377a1d5b6dff0f8879b4779c10ffecbfd788fb744a19605cc623879299865"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The candidate says the evidence describes Dravet syndrome as a complex childhood epilepsy disorder. The quote states this directly: 'The Dravet syndrome is a complex childhood epilepsy disorder.' The phrasing 'the evidence describes' keeps it as a background description, not a trial result, so the limitation that this is a general background statement is preserved. The candidate adds no causal claims, numbers, or advice. The disease entity is unambiguous in the quote, and the null canonical ID does not invalidate it."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "This is a background statement from a trial abstract, not a result of the trial itself.",
+          "claim_ids": [
+            "CLAIM:929377a1d5b6dff0f8879b4779c10ffecbfd788fb744a19605cc623879299865"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The candidate says the cited claim is a background statement from a trial abstract, not a trial result. The claim's study_context and limitations say the same: it is a general background statement in the abstract of a trial in children and young adults with Dravet syndrome, and not a result of the trial itself. The quote reads as general background about Dravet syndrome and drug-resistant seizures, with no trial findings. The candidate adds no new facts, advice, or implications, and it does not overstate the association."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "The evidence given does not include what the trial found or what its limits were.",
+          "claim_ids": [
+            "CLAIM:929377a1d5b6dff0f8879b4779c10ffecbfd788fb744a19605cc623879299865"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The candidate is a meta-statement that the cited evidence lacks the trial's findings and limitations. The sole cited claim (C1) is a background sentence about Dravet syndrome and drug-resistant seizures, and its limitations field says it is not a trial result. So the evidence contains no trial findings, and the candidate is accurate. It adds no new facts, advice, or causal claims. The 'limits' wording is slightly loose, since C1 notes it is general background, but this does not misrepresent the evidence."
+          },
+          "review_status": "pending"
+        }
+      ],
+      "rejected": [
+        {
+          "summary": {
+            "text": "It is linked to seizures that do not respond to drugs.",
+            "claim_ids": [
+              "CLAIM:929377a1d5b6dff0f8879b4779c10ffecbfd788fb744a19605cc623879299865"
+            ]
+          },
+          "reason": "The claim supports the association between Dravet syndrome and drug-resistant seizures, but the candidate sentence starts with the pronoun \"It\", which has no antecedent in the sentence. The subject cannot be unambiguously identified as Dravet syndrome from the candidate alone, so entity identity is not confirmed. The candidate also drops the background-statement context, so it could be read as a trial finding, and the claim notes this is a general statement and not a result of the trial. Rewording \"drug-resistant\" as \"do not respond to drugs\" is roughly accurate, but the pronoun ambiguity and lost scope mean it should fail."
+        }
+      ],
+      "security_flags": []
+    }
+  ],
+  "api_calls": [
+    {
+      "response_id": "msg_011Cfg7LGBKTG7n2VupZS1Qf",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7M2iiKcFAvAFZvrHdC",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MHyzSBJtytyAhgyxu",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MXsu3Bkma7KV7YfEi",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MmKnag2uXEBQWdEK7",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7N1jTjDpFkTrfUuHwj",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NDhHorDuXKrZDwHRM",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NYojjMeBXWjE9f8Dx",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NtPTnbNNDTCiK9Z9M",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PAdn7yx9Zj8inziPd",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PUgDmKg5zKuSsS7dh",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PiiLMwxQUbPesgQUy",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PxJt88Y4FqPL6Y8Du",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QCb8B6ZwvwTknrXL7",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QS31JjLfkND4ByLbR",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7Qe82mGYjnGMpu7LhB",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QzqUEsK2DakCrFh8E",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7RGejLUyDHbLD4wX1G",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7RzQSuoyBnL5GCmVYi",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7SJEzzaPFmunwdqWUX",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7SVcrao4J7iv79rBxF",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7ShtoV5HUfo84m5q5g",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7SwJCXLjoCEaae7daw",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7TBVjBQAcB5BgBBxWu",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7TPkAZ2kZY7pfgVVJg",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    }
+  ],
+  "bundle_sha256": "fb05dd4f0da684bec7f483a3f8c174376dc3d57b12071fd24af207cd1f01b1dc"
+}

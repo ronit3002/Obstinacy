@@ -1,0 +1,9 @@
+[
+  {
+    "source_id": "synthetic-demo-1",
+    "title": "Synthetic extraction fixture — not medical evidence",
+    "source_kind": "abstract",
+    "source_tier": 3,
+    "text": "This is a fictional test fixture. Authors: Alex Example. In a small fictional study, Example syndrome was associated with GENE-X. Seizures were not observed in patients with Example syndrome. The study does not establish causation."
+  }
+]

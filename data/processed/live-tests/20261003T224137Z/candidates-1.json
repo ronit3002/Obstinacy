@@ -1,0 +1,212 @@
+{
+  "schema_version": 2,
+  "prompt_version": "papers-v3-summary-citations",
+  "model": "claude-sonnet-5-5",
+  "verifier_model": "claude-sonnet-5-5",
+  "provider": "anthropic",
+  "created_at": "2026-10-03T22:42:45.462815+00:00",
+  "papers": [
+    {
+      "source": {
+        "source_id": "PMID:27616483",
+        "text": "Title: GRIN2D Recurrent De Novo Dominant Mutation Causes a Severe Epileptic Encephalopathy Treatable with NMDA Receptor Channel Blockers.\nAuthors: Dong Li; Hongjie Yuan; Xilma R Ortiz-Gonzalez; Eric D Marsh; Lifeng Tian; Elizabeth M McCormick; Gabrielle J Kosobucki; Wenjuan Chen; Anthony J Schulien; Rosetta Chiavacci; Anel Tankovic; Claudia Naase; Frieder Brueckner; Celina von Stülpnagel-Steinbeis; Chun Hu; Hirofumi Kusumoto; Ulrike B S Hedrich; Gina Elsen; Konstanze Hörtnagel; Elias Aizenman; Johannes R Lemke; Hakon Hakonarson; Stephen F Traynelis; Marni J Falk\nAbstract:\nN-methyl-D-aspartate receptors (NMDARs) are ligand-gated cation channels that mediate excitatory synaptic transmission. Genetic mutations in multiple NMDAR subunits cause various childhood epilepsy syndromes. Here, we report a de novo recurrent heterozygous missense mutation-c.1999G>A (p.Val667Ile)-in a NMDAR gene previously unrecognized to harbor disease-causing mutations, GRIN2D, identified by exome and candidate panel sequencing in two unrelated children with epileptic encephalopathy. The resulting GluN2D p.Val667Ile exchange occurs in the M3 transmembrane domain involved in channel gating. This gain-of-function mutation increases glutamate and glycine potency by 2-fold, increases channel open probability by 6-fold, and reduces receptor sensitivity to endogenous negative modulators such as extracellular protons. Moreover, this mutation prolongs the deactivation time course after glutamate removal, which controls the synaptic time course. Transfection of cultured neurons with human GRIN2D cDNA harboring c.1999G>A leads to dendritic swelling and neuronal cell death, suggestive of excitotoxicity mediated by NMDAR over-activation. Because both individuals' seizures had proven refractory to conventional antiepileptic medications, the sensitivity of mutant NMDARs to FDA-approved NMDAR antagonists was evaluated. Based on these results, oral memantine was administered to both children, with resulting mild to moderate improvement in seizure burden and development. The older proband subsequently developed refractory status epilepticus, with dramatic electroclinical improvement upon treatment with ketamine and magnesium. Overall, these results suggest that NMDAR antagonists can be useful as adjuvant epilepsy therapy in individuals with GRIN2D gain-of-function mutations. This work further demonstrates the value of functionally evaluating a mutation, enabling mechanistic understanding and therapeutic modeling to realize precision medicine for epilepsy.",
+        "title": "GRIN2D Recurrent De Novo Dominant Mutation Causes a Severe Epileptic Encephalopathy Treatable with NMDA Receptor Channel Blockers.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27616483/",
+        "source_kind": "abstract",
+        "source_tier": 2,
+        "sha256": "de32c8ecb307de2dc7bc2b8e565148a5476c6300ee6037c1a1f7ff783840a4fa"
+      },
+      "claims": [],
+      "summary": [],
+      "rejected": [
+        {
+          "candidate": {
+            "local_id": "C1",
+            "statement": "The heterozygous missense variant c.1999G>A (p.Val667Ile) is located in the GRIN2D gene.",
+            "quote": "we report a de novo recurrent heterozygous missense mutation-c.1999G>A (p.Val667Ile)-in a NMDAR gene previously unrecognized to harbor disease-causing mutations, GRIN2D",
+            "subject": "E2",
+            "object": "E1",
+            "relation": "IN_GENE",
+            "polarity": "affirmed",
+            "status": "observation",
+            "study_context": "Two unrelated children with epileptic encephalopathy; exome and candidate panel sequencing",
+            "limitations": "Only two probands reported."
+          },
+          "reason": "quote not found verbatim"
+        },
+        {
+          "candidate": {
+            "local_id": "C2",
+            "statement": "GRIN2D is associated with epileptic encephalopathy, with a de novo recurrent missense mutation identified in two unrelated affected children.",
+            "quote": "identified by exome and candidate panel sequencing in two unrelated children with epileptic encephalopathy",
+            "subject": "E3",
+            "object": "E1",
+            "relation": "ASSOCIATED_WITH",
+            "polarity": "affirmed",
+            "status": "observation",
+            "study_context": "Two unrelated children with epileptic encephalopathy; exome and candidate panel sequencing; functional assays in vitro",
+            "limitations": "Only two unrelated individuals; causality supported by functional data but small sample."
+          },
+          "reason": "quote not found verbatim"
+        },
+        {
+          "candidate": {
+            "local_id": "C3",
+            "statement": "The c.1999G>A (p.Val667Ile) variant is associated with epileptic encephalopathy in two unrelated children, as a de novo recurrent mutation.",
+            "quote": "we report a de novo recurrent heterozygous missense mutation-c.1999G>A (p.Val667Ile)-in a NMDAR gene previously unrecognized to harbor disease-causing mutations, GRIN2D, identified by exome and candidate panel sequencing in two unrelated children with epileptic encephalopathy",
+            "subject": "E3",
+            "object": "E2",
+            "relation": "ASSOCIATED_WITH",
+            "polarity": "affirmed",
+            "status": "observation",
+            "study_context": "Two unrelated children; exome and candidate panel sequencing",
+            "limitations": "Only two probands."
+          },
+          "reason": "quote not found verbatim"
+        },
+        {
+          "candidate": {
+            "local_id": "C4",
+            "statement": "The GluN2D p.Val667Ile mutation is a gain-of-function change that increases glutamate and glycine potency 2-fold, channel open probability 6-fold, and reduces sensitivity to extracellular protons.",
+            "quote": "This gain-of-function mutation increases glutamate and glycine potency by 2-fold, increases channel open probability by 6-fold, and reduces receptor sensitivity to endogenous negative modulators such as extracellular protons.",
+            "subject": "E2",
+            "object": "E1",
+            "relation": "ABOUT",
+            "polarity": "affirmed",
+            "status": "observation",
+            "study_context": "In vitro functional electrophysiology of mutant NMDARs",
+            "limitations": "Recombinant expression system; not in patients."
+          },
+          "reason": "quote not found verbatim"
+        },
+        {
+          "candidate": {
+            "local_id": "C5",
+            "statement": "Transfection of cultured neurons with human GRIN2D cDNA harboring c.1999G>A leads to dendritic swelling and neuronal cell death, suggestive of excitotoxicity.",
+            "quote": "Transfection of cultured neurons with human GRIN2D cDNA harboring c.1999G>A leads to dendritic swelling and neuronal cell death, suggestive of excitotoxicity mediated by NMDAR over-activation.",
+            "subject": "E2",
+            "object": "E1",
+            "relation": "ABOUT",
+            "polarity": "affirmed",
+            "status": "inference",
+            "study_context": "Cultured neurons transfected with human mutant GRIN2D cDNA",
+            "limitations": "Excitotoxicity is suggested, not directly proven; cultured neuron model."
+          },
+          "reason": "quote not found verbatim"
+        }
+      ],
+      "security_flags": []
+    }
+  ],
+  "api_calls": [
+    {
+      "response_id": "msg_011Cfg7LGBKTG7n2VupZS1Qf",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7M2iiKcFAvAFZvrHdC",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MHyzSBJtytyAhgyxu",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MXsu3Bkma7KV7YfEi",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MmKnag2uXEBQWdEK7",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7N1jTjDpFkTrfUuHwj",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NDhHorDuXKrZDwHRM",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NYojjMeBXWjE9f8Dx",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NtPTnbNNDTCiK9Z9M",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PAdn7yx9Zj8inziPd",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PUgDmKg5zKuSsS7dh",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PiiLMwxQUbPesgQUy",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PxJt88Y4FqPL6Y8Du",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QCb8B6ZwvwTknrXL7",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QS31JjLfkND4ByLbR",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7Qe82mGYjnGMpu7LhB",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QzqUEsK2DakCrFh8E",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7RGejLUyDHbLD4wX1G",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    }
+  ],
+  "bundle_sha256": "b5084108ae3cd227cff6388f2ae62939969597907d61f61fdabe55bfb004a6d7"
+}

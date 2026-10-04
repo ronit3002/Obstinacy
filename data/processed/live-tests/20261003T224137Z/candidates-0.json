@@ -1,0 +1,675 @@
+{
+  "schema_version": 2,
+  "prompt_version": "papers-v3-summary-citations",
+  "model": "claude-sonnet-5-5",
+  "verifier_model": "claude-sonnet-5-5",
+  "provider": "anthropic",
+  "created_at": "2026-10-03T22:41:37.479296+00:00",
+  "papers": [
+    {
+      "source": {
+        "source_id": "PMID:28377535",
+        "text": "Title: GRIN2B encephalopathy: novel findings on phenotype, variant clustering, functional consequences and treatment aspects.\nAuthors: Konrad Platzer; Hongjie Yuan; Hannah Schütz; Alexander Winschel; Wenjuan Chen; Chun Hu; Hirofumi Kusumoto; Henrike O Heyne; Katherine L Helbig; Sha Tang; Marcia C Willing; Brad T Tinkle; Darius J Adams; Christel Depienne; Boris Keren; Cyril Mignot; Eirik Frengen; Petter Strømme; Saskia Biskup; Dennis Döcker; Tim M Strom; Heather C Mefford; Candace T Myers; Alison M Muir; Amy LaCroix; Lynette Sadleir; Ingrid E Scheffer; Eva Brilstra; Mieke M van Haelst; Jasper J van der Smagt; Levinus A Bok; Rikke S Møller; Uffe B Jensen; John J Millichap; Anne T Berg; Ethan M Goldberg; Isabelle De Bie; Stephanie Fox; Philippe Major; Julie R Jones; Elaine H Zackai; Rami Abou Jamra; Arndt Rolfs; Richard J Leventer; John A Lawson; Tony Roscioli; Floor E Jansen; Emmanuelle Ranza; Christian M Korff; Anna-Elina Lehesjoki; Carolina Courage; Tarja Linnankivi; Douglas R Smith; Christine Stanley; Mark Mintz; Dianalee McKnight; Amy Decker; Wen-Hann Tan; Mark A Tarnopolsky; Lauren I Brady; Markus Wolff; Lutz Dondit; Helio F Pedro; Sarah E Parisotto; Kelly L Jones; Anup D Patel; David N Franz; Rena Vanzo; Elysa Marco; Judith D Ranells; Nataliya Di Donato; William B Dobyns; Bodo Laube; Stephen F Traynelis; Johannes R Lemke\nAbstract:\nBACKGROUND: We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy and explored potential prospects of personalised medicine.\nMETHODS: Data of 48 individuals with de novo GRIN2B variants were collected from several diagnostic and research cohorts, as well as from 43 patients from the literature. Functional consequences and response to memantine treatment were investigated in vitro and eventually translated into patient care.\nRESULTS: Overall, de novo variants in 86 patients were classified as pathogenic/likely pathogenic. Patients presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy. Six patients presented with a consistent malformation of cortical development (MCD) intermediate between tubulinopathies and polymicrogyria. Missense variants cluster in transmembrane segments and ligand-binding sites. Functional consequences of variants were diverse, revealing various potential gain-of-function and loss-of-function mechanisms and a retained sensitivity to the use-dependent blocker memantine. However, an objectifiable beneficial treatment response in the respective patients still remains to be demonstrated.\nCONCLUSIONS: In addition to previously known features of intellectual disability, epilepsy and autism, we found evidence that GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD revealing novel phenotypic consequences of channelopathies.",
+        "title": "GRIN2B encephalopathy: novel findings on phenotype, variant clustering, functional consequences and treatment aspects.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28377535/",
+        "source_kind": "abstract",
+        "source_tier": 2,
+        "sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2"
+      },
+      "claims": [
+        {
+          "local_id": "C1",
+          "statement": "GRIN2B encephalopathy is frequently associated with movement disorder.",
+          "quote": "we found evidence that GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+          "subject": "E1",
+          "object": "E3",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Cohort of 48 individuals with de novo GRIN2B variants plus 43 patients from the literature (86 classified pathogenic/likely pathogenic)",
+          "limitations": "Frequency not quantified in the abstract; cohort collected from diagnostic and research cohorts and literature, possible ascertainment bias",
+          "evidence": {
+            "quote": "we found evidence that GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+            "start": 2739,
+            "end": 2872
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "GRIN2B encephalopathy",
+              "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+              "evidence": {
+                "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                "start": 1369,
+                "end": 1480
+              },
+              "resolution": {
+                "mention": "GRIN2B encephalopathy",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E3": {
+              "local_id": "E3",
+              "kind": "Phenotype",
+              "mention": "movement disorder",
+              "quote": "GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+              "evidence": {
+                "quote": "GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+                "start": 2762,
+                "end": 2872
+              },
+              "resolution": {
+                "mention": "movement disorder",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28377535",
+          "source_sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The conclusion states that GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD. This matches the candidate's statement, and the quote is verbatim. The authors are the paper's own, and the finding is described as an observation with 'found evidence', so it is not overclaimed as causal. The Disease and Phenotype entities are source-local and identified unambiguously by the quoted text. Null canonical IDs do not invalidate them. The study context (48 de novo variant individuals plus 43 literature patients, 86 classified pathogenic/likely pathogenic) matches the abstract. The limitation that frequency is not quantified is accurate. The ascertainment bias note is a reasonable caveat and adds no unsupported factual claim."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:e14513e250d0303ae3e415d5d5b9af258658ce2f95b410bba2bc7fe19291910e"
+        },
+        {
+          "local_id": "C2",
+          "statement": "GRIN2B encephalopathy is frequently associated with cortical visual impairment.",
+          "quote": "we found evidence that GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+          "subject": "E1",
+          "object": "E4",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Cohort of 48 individuals with de novo GRIN2B variants plus 43 patients from the literature",
+          "limitations": "Frequency not quantified in the abstract; association only",
+          "evidence": {
+            "quote": "we found evidence that GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+            "start": 2739,
+            "end": 2872
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "GRIN2B encephalopathy",
+              "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+              "evidence": {
+                "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                "start": 1369,
+                "end": 1480
+              },
+              "resolution": {
+                "mention": "GRIN2B encephalopathy",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E4": {
+              "local_id": "E4",
+              "kind": "Phenotype",
+              "mention": "cortical visual impairment",
+              "quote": "GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+              "evidence": {
+                "quote": "GRIN2B encephalopathy is also frequently associated with movement disorder, cortical visual impairment and MCD",
+                "start": 2762,
+                "end": 2872
+              },
+              "resolution": {
+                "mention": "cortical visual impairment",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28377535",
+          "source_sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The conclusion states that GRIN2B encephalopathy is 'also frequently associated with movement disorder, cortical visual impairment and MCD', which matches the candidate's wording on the disease-phenotype link. E1 (disease) and E4 (phenotype) are identified unambiguously by their quoted text, and the null canonical IDs do not create identity ambiguity. The relation is affirmed, and the claim stays at the level of association without causation. The study context (48 de novo individuals plus 43 literature patients) matches the Methods, and the limitation that frequency is not quantified is accurate."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:ccb0afca231540af448ca19c8dd1d11549ce328aab662151a6455aac85177a36"
+        },
+        {
+          "local_id": "C3",
+          "statement": "GRIN2B encephalopathy is associated with malformation of cortical development; six patients presented with a consistent MCD.",
+          "quote": "Six patients presented with a consistent malformation of cortical development (MCD) intermediate between tubulinopathies and polymicrogyria.",
+          "subject": "E1",
+          "object": "E5",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Six patients within the GRIN2B cohort",
+          "limitations": "Small number of patients (six) out of the total cohort",
+          "evidence": {
+            "quote": "Six patients presented with a consistent malformation of cortical development (MCD) intermediate between tubulinopathies and polymicrogyria.",
+            "start": 2106,
+            "end": 2246
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "GRIN2B encephalopathy",
+              "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+              "evidence": {
+                "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                "start": 1369,
+                "end": 1480
+              },
+              "resolution": {
+                "mention": "GRIN2B encephalopathy",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E5": {
+              "local_id": "E5",
+              "kind": "Phenotype",
+              "mention": "malformation of cortical development",
+              "quote": "Six patients presented with a consistent malformation of cortical development (MCD) intermediate between tubulinopathies and polymicrogyria.",
+              "evidence": {
+                "quote": "Six patients presented with a consistent malformation of cortical development (MCD) intermediate between tubulinopathies and polymicrogyria.",
+                "start": 2106,
+                "end": 2246
+              },
+              "resolution": {
+                "mention": "malformation of cortical development",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28377535",
+          "source_sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The abstract states that six patients presented with a consistent MCD, and the conclusion says GRIN2B encephalopathy is frequently associated with MCD. The 'six patients' figure is accurate. The candidate's phrase 'within the GRIN2B cohort' fits the 86 patients with de novo GRIN2B variants. The disease entity is clearly identified by name in the title and abstract, so the null canonical_id does not create real ambiguity. The relation, affirmed polarity, observational status and the small-number limitation are all consistent with the source. No causal claim or new advice is added."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:f4e1bcd5d9114d343243311cec5d4cc0358c02d7daedd578928715202323493d"
+        },
+        {
+          "local_id": "C4",
+          "statement": "Patients with GRIN2B encephalopathy presented with a spectrum including hypotonia.",
+          "quote": "Patients presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy.",
+          "subject": "E1",
+          "object": "E7",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Patients with de novo GRIN2B variants",
+          "limitations": "Individual phenotype frequencies not given in abstract",
+          "evidence": {
+            "quote": "Patients presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy.",
+            "start": 1942,
+            "end": 2105
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "GRIN2B encephalopathy",
+              "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+              "evidence": {
+                "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                "start": 1369,
+                "end": 1480
+              },
+              "resolution": {
+                "mention": "GRIN2B encephalopathy",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E7": {
+              "local_id": "E7",
+              "kind": "Phenotype",
+              "mention": "hypotonia",
+              "quote": "a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy",
+              "evidence": {
+                "quote": "a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy",
+                "start": 1999,
+                "end": 2104
+              },
+              "resolution": {
+                "mention": "hypotonia",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28377535",
+          "source_sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The abstract states that patients (86 with de novo GRIN2B pathogenic/likely pathogenic variants) presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy. The candidate says GRIN2B encephalopathy patients presented with a spectrum including hypotonia, which matches this. Entities are correctly typed (Disease: GRIN2B encephalopathy; Phenotype: hypotonia). The unresolved canonical IDs do not create ambiguity because the mentions are unambiguous in the quoted text. The HAS_PHENOTYPE relation is appropriate, polarity is affirmed, and the limitation that individual frequencies are not given is accurate. No overclaiming of frequency or causation."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:9acb8ae72366e17d7b3e96be0947d406c3078d806e2a9109c65c946032678948"
+        },
+        {
+          "local_id": "C5",
+          "statement": "Patients with GRIN2B encephalopathy presented with epilepsy.",
+          "quote": "Patients presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy.",
+          "subject": "E1",
+          "object": "E6",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Patients with de novo GRIN2B variants",
+          "limitations": "Frequency not given in abstract",
+          "evidence": {
+            "quote": "Patients presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy.",
+            "start": 1942,
+            "end": 2105
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "GRIN2B encephalopathy",
+              "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+              "evidence": {
+                "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                "start": 1369,
+                "end": 1480
+              },
+              "resolution": {
+                "mention": "GRIN2B encephalopathy",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E6": {
+              "local_id": "E6",
+              "kind": "Phenotype",
+              "mention": "epilepsy",
+              "quote": "a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy",
+              "evidence": {
+                "quote": "a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy",
+                "start": 1999,
+                "end": 2104
+              },
+              "resolution": {
+                "mention": "epilepsy",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "PMID:28377535",
+          "source_sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The quote states that patients presented with a spectrum including epilepsy, and the abstract confirms these are patients with de novo GRIN2B variants (GRIN2B encephalopathy). E1 (GRIN2B encephalopathy, Disease) and E6 (epilepsy, Phenotype) are identified unambiguously by their quotes. The HAS_PHENOTYPE relation is affirmed and an observation. The statement does not claim a frequency, which matches the stated limitation. The null canonical_id does not invalidate the source-local mentions."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:04fbea3828e4f694463a91235cb414d21bce73f79d58a0a0555d861fed7248e0"
+        }
+      ],
+      "summary": [
+        {
+          "text": "Patients had developmental problems with the brain and nervous system. They also showed a range of features, including low muscle tone and epilepsy.",
+          "claim_ids": [
+            "CLAIM:9acb8ae72366e17d7b3e96be0947d406c3078d806e2a9109c65c946032678948",
+            "CLAIM:04fbea3828e4f694463a91235cb414d21bce73f79d58a0a0555d861fed7248e0"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source quote states patients presented with neurodevelopmental disorders and a spectrum of hypotonia, movement disorder, cortical visual impairment, cerebral volume loss and epilepsy. The candidate's 'developmental problems with the brain and nervous system' is a faithful plain-language rendering of 'neurodevelopmental disorders', and 'low muscle tone' is hypotonia. Epilepsy is stated directly. The candidate does not claim frequencies, causation, or advice. The phrase 'a range of features, including' matches 'a spectrum of'. Minor caveat: the neurodevelopmental disorders clause is not a separate claim but appears in the same quoted evidence, so it is supported."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "The study found that movement disorder was frequently linked to GRIN2B encephalopathy.",
+          "claim_ids": [
+            "CLAIM:e14513e250d0303ae3e415d5d5b9af258658ce2f95b410bba2bc7fe19291910e"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The candidate says the study found movement disorder was frequently linked to GRIN2B encephalopathy. The source quote says 'we found evidence that GRIN2B encephalopathy is also frequently associated with movement disorder...', which matches. The finding is attributed to the paper's own authors, the polarity is affirmed, and the association is not overclaimed as causal. The Disease and Phenotype mentions are identified unambiguously by the quoted text, and null canonical IDs do not invalidate them. The candidate adds no new numbers, advice, or implications. The candidate omits the limitation that frequency is not quantified, but 'frequently' is used exactly as the source uses it, so context is preserved."
+          },
+          "review_status": "pending"
+        },
+        {
+          "text": "This is a small number of patients within the whole group.",
+          "claim_ids": [
+            "CLAIM:f4e1bcd5d9114d343243311cec5d4cc0358c02d7daedd578928715202323493d"
+          ],
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The candidate says this is a small number of patients within the whole group. Claim C3 states that six patients presented with a consistent MCD, and its limitations field says this is a small number (six) out of the total cohort. The candidate is a vague, non-specific restatement of that limitation. It adds no new facts, advice or causal claims. It does not name the group, but 'whole group' maps to the cohort in the claim's study_context, so the scope is preserved."
+          },
+          "review_status": "pending"
+        }
+      ],
+      "rejected": [
+        {
+          "candidate": {
+            "local_id": "C6",
+            "statement": "De novo GRIN2B variants in 86 patients were classified as pathogenic/likely pathogenic, associated with GRIN2B encephalopathy.",
+            "quote": "Overall, de novo variants in 86 patients were classified as pathogenic/likely pathogenic.",
+            "subject": "E1",
+            "object": "E2",
+            "relation": "ASSOCIATED_WITH",
+            "polarity": "affirmed",
+            "status": "observation",
+            "study_context": "48 new individuals plus 43 literature patients with de novo GRIN2B variants",
+            "limitations": "Classification of variant pathogenicity; individual variants not specified",
+            "evidence": {
+              "quote": "Overall, de novo variants in 86 patients were classified as pathogenic/likely pathogenic.",
+              "start": 1852,
+              "end": 1941
+            },
+            "entities": {
+              "E1": {
+                "local_id": "E1",
+                "kind": "Disease",
+                "mention": "GRIN2B encephalopathy",
+                "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                "evidence": {
+                  "quote": "We aimed for a comprehensive delineation of genetic, functional and phenotypic aspects of GRIN2B encephalopathy",
+                  "start": 1369,
+                  "end": 1480
+                },
+                "resolution": {
+                  "mention": "GRIN2B encephalopathy",
+                  "canonical_id": null,
+                  "status": "unresolved",
+                  "candidates": [],
+                  "method": "exact_label_or_synonym",
+                  "vocabulary_snapshots": {
+                    "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                  }
+                }
+              },
+              "E2": {
+                "local_id": "E2",
+                "kind": "Gene",
+                "mention": "GRIN2B",
+                "quote": "Data of 48 individuals with de novo GRIN2B variants were collected",
+                "evidence": {
+                  "quote": "Data of 48 individuals with de novo GRIN2B variants were collected",
+                  "start": 1549,
+                  "end": 1615
+                },
+                "resolution": {
+                  "mention": "GRIN2B",
+                  "canonical_id": "HGNC:4586",
+                  "status": "resolved",
+                  "candidates": [
+                    {
+                      "id": "HGNC:4586",
+                      "label": "GRIN2B",
+                      "kind": "Gene"
+                    }
+                  ],
+                  "method": "exact_label_or_synonym",
+                  "vocabulary_snapshots": {
+                    "/Users/samuelschreiner/Desktop/hacknation031026/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                  }
+                }
+              }
+            },
+            "source_id": "PMID:28377535",
+            "source_sha256": "185fa86683d1f1ff94a38d0ec3bb682ac01145bc901d6f72102ded6f9f4e85b2"
+          },
+          "reason": "semantic verifier rejected: The quote supports that de novo variants in 86 patients were classified as pathogenic/likely pathogenic, but the candidate does not hold up as a graph relation. The paper never states that the 86 patients all had GRIN2B variants in that sentence; this is inferred from context. The sentence also does not report an association between a Disease entity (GRIN2B encephalopathy) and a Gene (GRIN2B) as ASSOCIATED_WITH. It reports variant pathogenicity classification, so the relation is a stretch. The disease entity E1 is unresolved (null canonical_id). The quoted evidence for E1 is an aim statement, not an affirmed finding, and the phrase 'associated with GRIN2B encephalopathy' is not stated in the quoted sentence. The 86 figure also mixes the 48 new and 43 literature patients (91 total), which means the number is not fully traceable to the stated context. Ambiguity means the claim fails."
+        },
+        {
+          "summary": {
+            "text": "This study looked at people with GRIN2B encephalopathy, a brain condition linked to changes in the GRIN2B gene.",
+            "claim_ids": [
+              "CLAIM:e14513e250d0303ae3e415d5d5b9af258658ce2f95b410bba2bc7fe19291910e",
+              "CLAIM:9acb8ae72366e17d7b3e96be0947d406c3078d806e2a9109c65c946032678948"
+            ]
+          },
+          "reason": "The candidate says the study looked at people with GRIN2B encephalopathy, described as a brain condition linked to changes in the GRIN2B gene. The cited claims (C1, C4) only support Disease->Phenotype relations: GRIN2B encephalopathy is associated with movement disorder, and patients presented with hypotonia and other features. Neither claim, nor its quoted evidence, states that the condition is linked to GRIN2B gene changes or describes it as a brain condition. The quotes mention \"de novo GRIN2B variants\" only in the study_context metadata, not in a cited relation. The gene-link clause is therefore an unsupported plain-language explanation added by the candidate. The population framing (people with GRIN2B encephalopathy) is partly supported by the cohort context, but the study design (48 individuals with de novo variants plus 43 literature patients) is omitted. The summary's key clauses are not backed by the cited claims, so it fails."
+        },
+        {
+          "summary": {
+            "text": "The study included 48 people with new (de novo) GRIN2B variants, plus 43 patients taken from earlier published reports.",
+            "claim_ids": [
+              "CLAIM:e14513e250d0303ae3e415d5d5b9af258658ce2f95b410bba2bc7fe19291910e",
+              "CLAIM:ccb0afca231540af448ca19c8dd1d11549ce328aab662151a6455aac85177a36"
+            ]
+          },
+          "reason": "The candidate sentence is a description of cohort composition (48 de novo GRIN2B individuals plus 43 literature patients). The cited claims, C1 and C2, assert something different: that GRIN2B encephalopathy is frequently associated with movement disorder and cortical visual impairment. The quoted evidence for both claims contains only that association statement, with no counts. The cohort numbers appear only in the study_context metadata, which is not source evidence for the quote. Neither claim's quote verifies the 48 and 43 figures, the 'de novo' status of the 48, or the origin of the 43 patients in earlier published reports. Neither claim states a cohort-composition relation, so the cited claims do not support the sentence. In addition, C1's context notes that 86 were classified pathogenic/likely pathogenic. The candidate omits this, so it may imply that all 91 individuals carry confirmed pathogenic variants. The sentence therefore cannot be verified against the cited claims and their evidence."
+        },
+        {
+          "summary": {
+            "text": "Cortical visual impairment, a vision problem tied to the brain, was also frequently linked to it.",
+            "claim_ids": [
+              "CLAIM:ccb0afca231540af448ca19c8dd1d11549ce328aab662151a6455aac85177a36"
+            ]
+          },
+          "reason": "The candidate says cortical visual impairment was 'frequently linked to it', but 'it' has no antecedent. The sentence never names GRIN2B encephalopathy, so the disease entity is ambiguous within the candidate. The source claim does support the association (affirmed, observational, 'frequently associated with') and the polarity is correct. However, the candidate also adds a plain-language gloss, 'a vision problem tied to the brain', which is not in the cited claim or its evidence. Because of the missing subject and the added explanation, I cannot confirm that entities and context are preserved."
+        },
+        {
+          "summary": {
+            "text": "Six patients had a consistent malformation of cortical development, which is a difference in how the brain's outer layer formed.",
+            "claim_ids": [
+              "CLAIM:f4e1bcd5d9114d343243311cec5d4cc0358c02d7daedd578928715202323493d"
+            ]
+          },
+          "reason": "The core claim that six patients presented with a consistent MCD is supported by the quoted source. However, the candidate omits the GRIN2B encephalopathy cohort context, so the reader cannot tell which population the six patients come from. It also adds a plain-language gloss, 'a difference in how the brain's outer layer formed', that is not in the cited claim or its evidence. The source describes the MCD only as 'intermediate between tubulinopathies and polymicrogyria'. Because the omitted context and the unsupported explanation cannot be verified from the supplied evidence, the candidate fails."
+        },
+        {
+          "summary": {
+            "text": "The abstract did not give exact frequencies for these features, and these results show associations only.",
+            "claim_ids": [
+              "CLAIM:e14513e250d0303ae3e415d5d5b9af258658ce2f95b410bba2bc7fe19291910e",
+              "CLAIM:ccb0afca231540af448ca19c8dd1d11549ce328aab662151a6455aac85177a36",
+              "CLAIM:9acb8ae72366e17d7b3e96be0947d406c3078d806e2a9109c65c946032678948",
+              "CLAIM:04fbea3828e4f694463a91235cb414d21bce73f79d58a0a0555d861fed7248e0"
+            ]
+          },
+          "reason": "The candidate is a meta-statement that the abstract gave no exact frequencies and that results are associations only. The first part is partly supported by the claims' limitations: C1, C2, C4 and C5 each note that frequency is not quantified in the abstract. The second part is not supported for all cited claims. C4 and C5 are descriptive observations of presenting phenotypes (\"patients presented with...\"), not stated associations. Calling them \"associations only\" adds an interpretation that the source does not make. The candidate also says \"these features\" without naming them. It does not distinguish between claims that say \"frequently associated\" (C1, C2) and claims that only say patients presented with a spectrum (C4, C5). \"Frequently associated\" in C1 and C2 implies a qualitative frequency, so \"did not give exact frequencies\" is acceptable there, but the blanket \"associations only\" framing is not directly stated in the source. The sentence also adds a causation-versus-association caveat that is not in the cited evidence. The unresolved canonical IDs are not a problem on their own. Because of the ambiguous scope and the unsupported \"associations only\" generalization, the candidate fails."
+        },
+        {
+          "summary": {
+            "text": "The patients came from diagnostic and research cohorts and the literature, so the group may not represent all people with this condition.",
+            "claim_ids": [
+              "CLAIM:e14513e250d0303ae3e415d5d5b9af258658ce2f95b410bba2bc7fe19291910e"
+            ]
+          },
+          "reason": "The candidate says the patients came from diagnostic and research cohorts and the literature, and that the group may not represent all people with this condition. The claim's limitations field does say the cohort was collected from diagnostic and research cohorts and literature with possible ascertainment bias, and the study context mentions 48 individuals plus 43 literature patients. However, the only cited evidence quote is about the association with movement disorder, cortical visual impairment and MCD. It does not mention cohort sources or representativeness. The ascertainment bias statement appears only in the limitations metadata, and the prior verification calls it a reasonable caveat rather than something the source states. So the candidate's sourcing and non-representativeness claim is not backed by the quoted source evidence, and it is ambiguous whether the authors made it. The candidate also does not reflect the claim's actual finding."
+        }
+      ],
+      "security_flags": []
+    }
+  ],
+  "api_calls": [
+    {
+      "response_id": "msg_011Cfg7LGBKTG7n2VupZS1Qf",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7M2iiKcFAvAFZvrHdC",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MHyzSBJtytyAhgyxu",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MXsu3Bkma7KV7YfEi",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7MmKnag2uXEBQWdEK7",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7N1jTjDpFkTrfUuHwj",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NDhHorDuXKrZDwHRM",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NYojjMeBXWjE9f8Dx",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7NtPTnbNNDTCiK9Z9M",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PAdn7yx9Zj8inziPd",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PUgDmKg5zKuSsS7dh",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PiiLMwxQUbPesgQUy",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7PxJt88Y4FqPL6Y8Du",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QCb8B6ZwvwTknrXL7",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QS31JjLfkND4ByLbR",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7Qe82mGYjnGMpu7LhB",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011Cfg7QzqUEsK2DakCrFh8E",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    }
+  ],
+  "bundle_sha256": "729dedcd8ae88ed4e445112f8837b438a281439059d148b1eb288450eacecc25"
+}

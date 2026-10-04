@@ -8,6 +8,7 @@ Reads : data/processed/seeds_resolved.json, data/processed/seed_phenotypes.csv,
 Writes: data/processed/graph.json, data/processed/phenotype_similarity.csv
 Run   : python build_graph.py        (place next to atlas_schema.py)
 """
+import argparse
 import json, math
 from collections import defaultdict
 from datetime import date
@@ -16,7 +17,10 @@ from pathlib import Path
 import networkx as nx
 import pandas as pd
 
-import test as S
+try:
+    import schema as S
+except ImportError:
+    import test as S
 
 ROOT = Path(__file__).resolve().parent
 RAW, PROC = ROOT / "data" / "raw", ROOT / "data" / "processed"
@@ -152,6 +156,12 @@ def phenotype_similarity(G, anc, alt):
 
 # ------------------------------------------------------------------ main -----
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--paper-bundle", type=Path)
+    parser.add_argument("--paper-review", type=Path)
+    args = parser.parse_args()
+    if bool(args.paper_bundle) != bool(args.paper_review):
+        parser.error("--paper-bundle and --paper-review must be supplied together")
     names, parents, alt = load_hpo()
     anc = make_closure(parents)
     G = build_graph(names, alt)
@@ -186,6 +196,12 @@ def main():
     print("\n most informative shared terms per pair (top 3):")
     for (a, b), terms in sorted(top.items()):
         print(f"  {a:>6} ~ {b:<6} {M.loc[a, b]:.2f}  " + "; ".join(f"{names.get(t, t)} ({ic(t):.1f})" for t in terms))
+
+    if args.paper_bundle:
+        from paper_graph import add_reviewed_papers
+        from paper_security import load_json, MAX_BUNDLE_BYTES
+        G = add_reviewed_papers(G, load_json(args.paper_bundle, MAX_BUNDLE_BYTES),
+                               load_json(args.paper_review))
 
     try:
         data = nx.node_link_data(G, edges="edges")

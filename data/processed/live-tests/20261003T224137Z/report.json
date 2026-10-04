@@ -1,0 +1,26 @@
+[
+  {
+    "source_id": "PMID:28377535",
+    "status": "completed",
+    "claims": 5,
+    "summary_sentences": 3,
+    "rejected": 7,
+    "published": false
+  },
+  {
+    "source_id": "PMID:27616483",
+    "status": "completed",
+    "claims": 0,
+    "summary_sentences": 0,
+    "rejected": 5,
+    "published": false
+  },
+  {
+    "source_id": "PMID:28538134",
+    "status": "completed",
+    "claims": 1,
+    "summary_sentences": 3,
+    "rejected": 1,
+    "published": false
+  }
+]

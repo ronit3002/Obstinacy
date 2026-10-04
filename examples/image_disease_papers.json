@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "user-image:GRIN2B",
+    "source_tier": 3,
+    "title": "Unverified user table row: DEE27",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263)."
+  },
+  {
+    "source_id": "user-image:GRIN1",
+    "source_tier": 3,
+    "title": "Unverified user table row: NDHMSD",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for NDHMSD lists gene GRIN1, example variant c.1921A>G (p.Met641Val), and feature Global developmental delay (HP:0001263)."
+  },
+  {
+    "source_id": "user-image:GRIN2A",
+    "source_tier": 3,
+    "title": "Unverified user table row: early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation lists gene GRIN2A, example variant c.4375A>G (p.Ser1459Gly), and feature Bilateral tonic-clonic seizure (HP:0002069)."
+  },
+  {
+    "source_id": "user-image:GRIN2D",
+    "source_tier": 3,
+    "title": "Unverified user table row: DEE46",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for DEE46 lists gene GRIN2D, example variant c.2080A>C (p.Ser694Arg), and feature Global developmental delay (HP:0001263)."
+  },
+  {
+    "source_id": "user-image:STXBP1",
+    "source_tier": 3,
+    "title": "Unverified user table row: DEE4",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for DEE4 lists gene STXBP1, example variant c.875G>A (p.Arg292His), and feature Global developmental delay (HP:0001263)."
+  },
+  {
+    "source_id": "user-image:CDKL5",
+    "source_tier": 3,
+    "title": "Unverified user table row: DEE2",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for DEE2 lists gene CDKL5, example variant c.826-1G>C, and feature Generalized tonic seizure (HP:0010818)."
+  },
+  {
+    "source_id": "user-image:SCN1A",
+    "source_tier": 3,
+    "title": "Unverified user table row: Dravet syndrome",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for Dravet syndrome lists gene SCN1A, example variant c.5674C>T (p.Arg1892Ter), and feature Developmental regression (HP:0002376)."
+  }
+]

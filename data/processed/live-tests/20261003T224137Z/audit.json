@@ -1,0 +1,39 @@
+[
+  {
+    "source_id": "PMID:28377535",
+    "bundle_valid": true,
+    "all_claims_pending": true,
+    "unsigned_publication_blocked": true,
+    "rejection_reasons": [
+      "semantic verifier rejected: The quote supports that de novo variants in 86 patients were classified as pathogenic/likely pathogenic, but the candidate does not hold up as a graph relation. The paper never states that the 86 patients all had GRIN2B variants in that sentence; this is inferred from context. The sentence also does not report an association between a Disease entity (GRIN2B encephalopathy) and a Gene (GRIN2B) as ASSOCIATED_WITH. It reports variant pathogenicity classification, so the relation is a stretch. The disease entity E1 is unresolved (null canonical_id). The quoted evidence for E1 is an aim statement, not an affirmed finding, and the phrase 'associated with GRIN2B encephalopathy' is not stated in the quoted sentence. The 86 figure also mixes the 48 new and 43 literature patients (91 total), which means the number is not fully traceable to the stated context. Ambiguity means the claim fails.",
+      "The candidate says the study looked at people with GRIN2B encephalopathy, described as a brain condition linked to changes in the GRIN2B gene. The cited claims (C1, C4) only support Disease->Phenotype relations: GRIN2B encephalopathy is associated with movement disorder, and patients presented with hypotonia and other features. Neither claim, nor its quoted evidence, states that the condition is linked to GRIN2B gene changes or describes it as a brain condition. The quotes mention \"de novo GRIN2B variants\" only in the study_context metadata, not in a cited relation. The gene-link clause is therefore an unsupported plain-language explanation added by the candidate. The population framing (people with GRIN2B encephalopathy) is partly supported by the cohort context, but the study design (48 individuals with de novo variants plus 43 literature patients) is omitted. The summary's key clauses are not backed by the cited claims, so it fails.",
+      "The candidate sentence is a description of cohort composition (48 de novo GRIN2B individuals plus 43 literature patients). The cited claims, C1 and C2, assert something different: that GRIN2B encephalopathy is frequently associated with movement disorder and cortical visual impairment. The quoted evidence for both claims contains only that association statement, with no counts. The cohort numbers appear only in the study_context metadata, which is not source evidence for the quote. Neither claim's quote verifies the 48 and 43 figures, the 'de novo' status of the 48, or the origin of the 43 patients in earlier published reports. Neither claim states a cohort-composition relation, so the cited claims do not support the sentence. In addition, C1's context notes that 86 were classified pathogenic/likely pathogenic. The candidate omits this, so it may imply that all 91 individuals carry confirmed pathogenic variants. The sentence therefore cannot be verified against the cited claims and their evidence.",
+      "The candidate says cortical visual impairment was 'frequently linked to it', but 'it' has no antecedent. The sentence never names GRIN2B encephalopathy, so the disease entity is ambiguous within the candidate. The source claim does support the association (affirmed, observational, 'frequently associated with') and the polarity is correct. However, the candidate also adds a plain-language gloss, 'a vision problem tied to the brain', which is not in the cited claim or its evidence. Because of the missing subject and the added explanation, I cannot confirm that entities and context are preserved.",
+      "The core claim that six patients presented with a consistent MCD is supported by the quoted source. However, the candidate omits the GRIN2B encephalopathy cohort context, so the reader cannot tell which population the six patients come from. It also adds a plain-language gloss, 'a difference in how the brain's outer layer formed', that is not in the cited claim or its evidence. The source describes the MCD only as 'intermediate between tubulinopathies and polymicrogyria'. Because the omitted context and the unsupported explanation cannot be verified from the supplied evidence, the candidate fails.",
+      "The candidate is a meta-statement that the abstract gave no exact frequencies and that results are associations only. The first part is partly supported by the claims' limitations: C1, C2, C4 and C5 each note that frequency is not quantified in the abstract. The second part is not supported for all cited claims. C4 and C5 are descriptive observations of presenting phenotypes (\"patients presented with...\"), not stated associations. Calling them \"associations only\" adds an interpretation that the source does not make. The candidate also says \"these features\" without naming them. It does not distinguish between claims that say \"frequently associated\" (C1, C2) and claims that only say patients presented with a spectrum (C4, C5). \"Frequently associated\" in C1 and C2 implies a qualitative frequency, so \"did not give exact frequencies\" is acceptable there, but the blanket \"associations only\" framing is not directly stated in the source. The sentence also adds a causation-versus-association caveat that is not in the cited evidence. The unresolved canonical IDs are not a problem on their own. Because of the ambiguous scope and the unsupported \"associations only\" generalization, the candidate fails.",
+      "The candidate says the patients came from diagnostic and research cohorts and the literature, and that the group may not represent all people with this condition. The claim's limitations field does say the cohort was collected from diagnostic and research cohorts and literature with possible ascertainment bias, and the study context mentions 48 individuals plus 43 literature patients. However, the only cited evidence quote is about the association with movement disorder, cortical visual impairment and MCD. It does not mention cohort sources or representativeness. The ascertainment bias statement appears only in the limitations metadata, and the prior verification calls it a reasonable caveat rather than something the source states. So the candidate's sourcing and non-representativeness claim is not backed by the quoted source evidence, and it is ambiguous whether the authors made it. The candidate also does not reflect the claim's actual finding."
+    ]
+  },
+  {
+    "source_id": "PMID:27616483",
+    "bundle_valid": true,
+    "all_claims_pending": true,
+    "unsigned_publication_blocked": true,
+    "rejection_reasons": [
+      "quote not found verbatim",
+      "quote not found verbatim",
+      "quote not found verbatim",
+      "quote not found verbatim",
+      "quote not found verbatim"
+    ]
+  },
+  {
+    "source_id": "PMID:28538134",
+    "bundle_valid": true,
+    "all_claims_pending": true,
+    "unsigned_publication_blocked": true,
+    "rejection_reasons": [
+      "The claim supports the association between Dravet syndrome and drug-resistant seizures, but the candidate sentence starts with the pronoun \"It\", which has no antecedent in the sentence. The subject cannot be unambiguously identified as Dravet syndrome from the candidate alone, so entity identity is not confirmed. The candidate also drops the background-statement context, so it could be read as a trial finding, and the claim notes this is a general statement and not a result of the trial. Rewording \"drug-resistant\" as \"do not respond to drugs\" is roughly accurate, but the pronoun ambiguity and lost scope mean it should fail."
+    ]
+  }
+]

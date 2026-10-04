@@ -10,7 +10,7 @@ from networkx.algorithms.community import louvain_communities
 # ---------------------------------------------------------------- schema ----
 NODE_TYPES = {
     "Disease", "Gene", "Variant", "Mechanism", "Phenotype",
-    "Paper", "Claim", "Study", "PatientOrg", "Registry", "Researcher",
+    "Paper", "Claim", "Study", "PatientOrg", "Registry", "Researcher", "Intervention", "Outcome",
 }
 
 # Small hand-made list. Do NOT let the LLM invent mechanisms.
@@ -27,7 +27,7 @@ EDGE_TYPES = {
     "HAS_PHENOTYPE":   ({"Disease"}, {"Phenotype"}),
     "INVOLVES":        ({"Disease"}, {"Mechanism"}),   # derived or stated: see status
     "CONTAINS":        ({"Paper"}, {"Claim"}),
-    "ABOUT":           ({"Claim"}, {"Disease", "Gene", "Variant", "Mechanism"}),
+    "ABOUT":           ({"Claim"}, {"Disease", "Gene", "Variant", "Mechanism", "Phenotype", "Researcher", "Study", "Intervention", "Outcome"}),
     "AUTHORED":        ({"Researcher"}, {"Paper"}),
     "STUDIES":         ({"Study"}, {"Disease"}),
     "REPRESENTED_BY":  ({"Disease"}, {"PatientOrg"}),
