@@ -6,6 +6,7 @@ import { buildModel } from './graph/model'
 import Controls from './panels/Controls'
 import DetailPanel from './panels/DetailPanel'
 import LensPanel from './panels/LensPanel'
+import AskBar from './panels/AskBar'
 import SearchBar from './panels/SearchBar'
 import { useStore } from './store'
 import type { GraphData } from './types'
@@ -46,13 +47,14 @@ export default function App() {
 
       <LensPanel />
       <Controls />
+      <AskBar />
       <DetailPanel />
 
       <AnimatePresence>
         {model && !touched && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
             transition={{ delay: 0.6 }}
-            className="glass pointer-events-none absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-[12.5px] text-ink-2 2xl:flex">
+            className="glass pointer-events-none absolute bottom-[84px] left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-[12.5px] text-ink-2 2xl:flex">
             <MousePointerClick size={14} className="text-accent" />
             {diseases} diseases mapped · tap one to explore its connections
           </motion.div>
