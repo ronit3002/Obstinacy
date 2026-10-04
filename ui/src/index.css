@@ -3,6 +3,7 @@
 @theme {
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-brand: "Quicksand", "Inter", system-ui, sans-serif;
 
   --color-canvas: #f6f8fc;
   --color-ink: #0b1220;

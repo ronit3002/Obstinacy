@@ -13,7 +13,7 @@ const WEIGHT: Record<string, number> = {
   Disease: 1, GeneGroup: 0.45, Mechanism: 0.4, Gene: 0.32, Intervention: 0.3, Study: 0.28, Paper: 0.26,
   PatientOrg: 0.26, Grant: 0.22, Researcher: 0.16, Phenotype: 0.1, Claim: 0.08, Variant: 0.05,
 }
-const PULL = 0.22       // share of the distance a grid point is pulled towards a disease
+const PULL = 0.42       // share of the distance a grid point is pulled towards a disease
 const MAX_MASSES = 140  // performance cap: only the heaviest visible nodes press
 
 type Mass = { x: number; y: number; s: number; r2: number; r: number; w: number }
@@ -37,7 +37,7 @@ export function drawBlueprint(canvas: HTMLCanvasElement, cy: cytoscape.Core, sel
   cy.nodes().forEach((n) => {
     const wt = (WEIGHT[n.data('type')] ?? 0.1) * (n.id() === selectedId ? 1.35 : 1)
     const p = n.renderedPosition()
-    const r = (55 + 135 * wt) * z
+    const r = (60 + 165 * wt) * z
     if (p.x < -r * 2 || p.y < -r * 2 || p.x > w + r * 2 || p.y > h + r * 2) return
     masses.push({ x: p.x, y: p.y, s: PULL * wt, r, r2: 2 * r * r, w: wt })
   })
@@ -47,7 +47,7 @@ export function drawBlueprint(canvas: HTMLCanvasElement, cy: cytoscape.Core, sel
   for (const m of masses) {
     if (m.w < 0.25) continue
     const g = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r * 1.15)
-    g.addColorStop(0, `rgba(47, 107, 255, ${0.06 * m.w})`)
+    g.addColorStop(0, `rgba(47, 107, 255, ${0.08 * m.w})`)
     g.addColorStop(1, 'rgba(47, 107, 255, 0)')
     ctx.fillStyle = g
     ctx.beginPath(); ctx.arc(m.x, m.y, m.r * 1.15, 0, Math.PI * 2); ctx.fill()
@@ -66,7 +66,7 @@ export function drawBlueprint(canvas: HTMLCanvasElement, cy: cytoscape.Core, sel
     // and never fold the mat or leave a corner where the cap would kick in
     const len = Math.hypot(dx, dy)
     if (len > 1e-6) {
-      const cap = 34 * Math.max(z, 0.4)
+      const cap = 70 * Math.max(z, 0.4)
       const k = (cap * Math.tanh(len / cap)) / len
       dx *= k; dy *= k
     }

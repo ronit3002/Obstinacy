@@ -32,15 +32,11 @@ export default function App() {
       <GraphView />
 
       {/* brand */}
-      <div className="pointer-events-none absolute left-5 top-5 z-20 hidden items-center gap-2.5 lg:flex">
-        <div className="relative h-8 w-8 rounded-[10px] bg-gradient-to-br from-[#2f6bff] to-[#f43f6b] shadow-[0_6px_16px_-6px_rgba(47,107,255,0.6)]">
-          <span className="absolute left-[7px] top-[7px] h-2 w-2 rounded-full bg-white" />
-          <span className="absolute bottom-[7px] right-[7px] h-2.5 w-2.5 rounded-full bg-white/90" />
-          <span className="absolute left-[11px] top-[11px] h-[1.5px] w-[11px] origin-left rotate-45 bg-white/80" />
-        </div>
+      <div className="pointer-events-none absolute left-4 top-3 z-20 hidden items-center gap-2 lg:flex">
+        <img src={`${import.meta.env.BASE_URL}logo-mark.png`} alt="" className="h-12 w-12 object-contain" />
         <div>
-          <p className="text-[15px] font-semibold leading-none tracking-tight text-ink">Atlas</p>
-          <p className="mt-1 text-[11.5px] leading-none text-ink-3">Rare disease connections</p>
+          <p className="font-brand text-[22px] font-medium leading-none tracking-[-0.01em] text-ink">obstinacy</p>
+          <p className="mt-1 text-[11px] leading-none text-ink-3">Rare disease connections</p>
         </div>
       </div>
 
