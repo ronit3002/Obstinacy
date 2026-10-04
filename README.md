@@ -1,6 +1,24 @@
 # Bison
 Source code for Global AI Hackathon: Challenge Track 5
 
+## Demo data pipeline (what feeds the web app)
+
+```sh
+python graph.py --paper-bundle data/processed/paper_candidates_real.json                 --aliases data/raw/disease_aliases.json --mechanisms data/raw/mechanism.json
+python enrich.py            # trials, patient groups, NIH grants/PIs, HGNC gene families (cached in data/raw/enrichment_cache)
+python export_ui_data.py    # -> ui/public/graph.json
+cd ui && npm install && npm run dev
+```
+
+`enrich.py` uses structured sources only (no LLM): ClinicalTrials.gov API v2, NIH RePORTER API v2, HGNC REST,
+and the repo's NORD, RareConnect and RARe-SOURCE scrapers. Every edge records its source, retrieval date and a
+`match_reason` (e.g. "lists Dravet syndrome", "mentions the gene CDKL5"). `export_ui_data.py` then adds
+`DISEASE_BRIDGE` links between diseases that share a gene family, trial, tested drug, NIH-funded investigator
+(matched on RePORTER profile ID, never on name) or patient organisation.
+
+Known gaps: NORD blocks automated requests from some networks, so only diseases already in the scraper's cache
+(currently Dravet) get NORD organisations; run `enrich.py --refresh` from a network NORD accepts to fill the rest.
+
 ## Quick path: papers into the graph (no manual approval)
 
 The typed `APPROVE` prompt and the HMAC signing key are no longer required. Every claim that passed

@@ -284,6 +284,82 @@ def normalize_papers(nodes, edges):
                               "link_reason": why, "review_status": p["review_status"]})
 
 
+def add_enrichment(nodes, edges):
+    """Trials, patient groups, NIH grants/investigators and HGNC gene families from enrich.py."""
+    path = PROC / "enrichment.json"
+    if not path.exists():
+        return {}
+    enr = load(path)
+    by_id = {n["id"]: n for n in nodes}
+    for n in enr["nodes"]:
+        if n["id"] not in by_id:
+            nodes.append(n)
+            by_id[n["id"]] = n
+    have = {e["id"] for e in edges}
+    for e in enr["edges"]:
+        if e["id"] not in have and e["source"] in by_id and e["target"] in by_id:
+            edges.append(e)
+            have.add(e["id"])
+    for did, props in enr.get("disease_props", {}).items():
+        if did in by_id:
+            by_id[did].update(props)
+    counts = defaultdict(int)
+    for n in enr["nodes"]:
+        counts[n["type"]] += 1
+    return dict(counts)
+
+
+BRIDGE_LABEL = [  # strongest reason first
+    ("shared_gene_groups", "Same gene family"),
+    ("shared_studies", "Studied in the same trial"),
+    ("shared_interventions", "Same drug tested"),
+    ("shared_researchers", "Shared NIH-funded researcher"),
+    ("shared_orgs", "Same patient organisation"),
+]
+
+
+def add_disease_bridges(nodes, edges, diseases, today):
+    """DISEASE_BRIDGE edges: two diseases that share a curated asset (gene family, trial, tested drug,
+    funded investigator or patient organisation). Facts only, no similarity score."""
+    by_id = {n["id"]: n for n in nodes}
+    out = defaultdict(lambda: defaultdict(set))   # node -> rel -> targets
+    inc = defaultdict(lambda: defaultdict(set))   # node -> rel -> sources
+    for e in edges:
+        out[e["source"]][e["rel"]].add(e["target"])
+        inc[e["target"]][e["rel"]].add(e["source"])
+
+    feats = {}
+    for d in diseases:
+        did = d["id"]
+        genes = out[did]["ASSOCIATED_WITH"]
+        studies = inc[did]["STUDIES"]
+        grants = {g for gene in genes for g in inc[gene]["RESEARCHES"]}
+        feats[did] = {
+            "shared_gene_groups": {gg for gene in genes for gg in out[gene]["MEMBER_OF"]},
+            "shared_studies": studies,
+            "shared_interventions": {i for s in studies for i in out[s]["TESTS"]},
+            "shared_researchers": {r for g in grants for r in inc[g]["LEADS"]},
+            "shared_orgs": out[did]["REPRESENTED_BY"],
+        }
+
+    n = 0
+    for i, a in enumerate(diseases):
+        for b in diseases[i + 1:]:
+            shared = {k: sorted(feats[a["id"]][k] & feats[b["id"]][k]) for k, _ in BRIDGE_LABEL}
+            if not any(shared.values()):
+                continue
+            label = next(lbl for k, lbl in BRIDGE_LABEL if shared[k])
+            edges.append({
+                "id": f"DISEASE_BRIDGE:{a['id']}:{b['id']}", "rel": "DISEASE_BRIDGE",
+                "source": a["id"], "target": b["id"], "connection_label": label,
+                **{k: [{"id": x, "name": by_id[x]["name"]} for x in v] for k, v in shared.items()},
+                "source_name": "Atlas asset linking (HGNC, ClinicalTrials.gov, NIH RePORTER, NORD, RareConnect)",
+                "source_tier": 1, "retrieved": today, "status": "observation", "method": "computed",
+            })
+            n += 1
+    return n
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--include-pending", action="store_true",
@@ -301,6 +377,8 @@ def main():
     n_papers = add_papers(nodes, edges, args.include_pending)
     normalize_papers(nodes, edges)
     n_papers += sum(1 for n in nodes if n["type"] == "Paper" and n.get("source_id"))
+    enrichment = add_enrichment(nodes, edges)
+    n_bridges = add_disease_bridges(nodes, edges, diseases, today)
 
     # Disease clusters: Louvain over match scores (fixed seed = reproducible demo)
     P = nx.Graph()
@@ -326,7 +404,8 @@ def main():
                             "includes_pending_papers": args.include_pending}},
                   f, separators=(",", ":"), ensure_ascii=False)
     print(f"wrote {OUT}: {len(nodes)} nodes, {len(edges)} edges "
-          f"({n_match} disease matches, {n_papers} papers{' incl. pending review' if args.include_pending else ''})")
+          f"({n_match} disease matches, {n_bridges} asset bridges, {n_papers} papers"
+          f"{' incl. pending review' if args.include_pending else ''}; enrichment {enrichment})")
 
 
 if __name__ == "__main__":

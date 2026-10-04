@@ -1,5 +1,5 @@
 import {
-  Activity, BookOpen, CircleDot, Dna, FileText, FlaskConical, GraduationCap, Database, Pill, Stethoscope, Users, Workflow,
+  Activity, BookOpen, CircleDot, Dna, FileText, FlaskConical, GraduationCap, Database, Pill, Stethoscope, Users, Workflow, Landmark, Boxes,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { TYPE_COLOR } from '../graph/model'
@@ -17,6 +17,8 @@ export const TYPE_ICON: Record<string, LucideIcon> = {
   Study: FlaskConical,
   Researcher: GraduationCap,
   Intervention: Pill,
+  Grant: Landmark,
+  GeneGroup: Boxes,
 }
 
 /** Small rounded tile with the type's icon, used in lists and search results. */

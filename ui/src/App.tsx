@@ -54,7 +54,7 @@ export default function App() {
         {model && !touched && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
             transition={{ delay: 0.6 }}
-            className="glass pointer-events-none absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-[12.5px] text-ink-2 md:flex">
+            className="glass pointer-events-none absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-[12.5px] text-ink-2 2xl:flex">
             <MousePointerClick size={14} className="text-accent" />
             {diseases} diseases mapped · tap one to explore its connections
           </motion.div>

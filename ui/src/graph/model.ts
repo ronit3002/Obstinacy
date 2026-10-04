@@ -60,12 +60,15 @@ export const TYPE_COLOR: Record<string, string> = {
   Study: '#6366f1',
   Researcher: '#a16207',
   Intervention: '#0d9488',
+  Grant: '#b45309',
+  GeneGroup: '#7c3aed',
 }
 
 export const TYPE_LABEL: Record<string, string> = {
   Disease: 'Disease', Gene: 'Gene', Variant: 'Variant', Phenotype: 'Symptom', Mechanism: 'Mechanism',
   Paper: 'Paper', Claim: 'Claim', PatientOrg: 'Patient group', Registry: 'Registry', Study: 'Study',
   Researcher: 'Researcher', Intervention: 'Treatment studied',
+  Grant: 'NIH-funded project', GeneGroup: 'Gene family',
 }
 
 // soft background "clouds" per disease cluster
@@ -88,7 +91,8 @@ export function nodeLabel(n: GNode): string {
     if (n.short) return abbr ? `${n.short} · ${abbr}` : `${n.short}-related`
     return n.name.slice(0, 22) + '…'
   }
-  if (n.type === 'Paper') return clip(n.name, 34)
+  if (n.type === 'Paper' || n.type === 'Study' || n.type === 'Grant') return clip(n.name, 34)
+  if (n.type === 'GeneGroup') return clip(n.name.replace(/^Glutamate ionotropic receptor /, ''), 30)
   if (n.type === 'Claim') return clip(n.name, 40)
   return n.name
 }
@@ -130,8 +134,15 @@ export function externalLinks(n: GNode): { label: string; url: string }[] {
     add('HPO', `https://hpo.jax.org/browse/term/${n.id}`)
   } else if (n.type === 'Paper' && n.id.startsWith('PMID:')) {
     add('PubMed', `https://pubmed.ncbi.nlm.nih.gov/${n.id.slice(5)}/`)
-  } else if ((n.type === 'PatientOrg' || n.type === 'Registry') && n.url) {
-    add('Website', n.url as string)
+  } else if (n.type === 'PatientOrg' || n.type === 'Registry') {
+    if (n.url) add('Website', n.url as string)
+    if (n.nord_url && n.nord_url !== n.url) add('NORD profile', n.nord_url as string)
+  } else if (n.type === 'Study' && n.url) {
+    add('ClinicalTrials.gov', n.url as string)
+  } else if (n.type === 'Grant' && n.url) {
+    add('NIH RePORTER', n.url as string)
+  } else if (n.type === 'GeneGroup' && n.url) {
+    add('HGNC gene group', n.url as string)
   }
   return out
 }

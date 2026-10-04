@@ -1,0 +1,3632 @@
+{
+ "nodes": [
+  {
+   "id": "NCT:NCT07377032",
+   "type": "Study",
+   "name": "TAP-GRIN: Interventional Study on Patients With GRIN-related Neurodevelopmental Disorders",
+   "nct": "NCT07377032",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-08-29",
+   "sponsor": "Meyer Children's Hospital IRCCS",
+   "enrollment": 40,
+   "conditions": [
+    "GRIN-related Disorders",
+    "GRIN1",
+    "GRIN2A",
+    "GRIN2B",
+    "GRIN2D",
+    "Epilepsy",
+    "Neurodevelopmental Disorder (Diagnosis)"
+   ],
+   "countries": [
+    "France",
+    "Italy",
+    "Poland"
+   ],
+   "summary": "The goal of this clinical study is to find out whether L-serine dietary supplementation helps improve overall clinical functioning in children and young adults (2-30 years) with GRIN-related neurodevelopmental disorders (GRIN-NDD) caused by loss-of-function (LoF) variants in GRIN1, GRIN2A, GRIN2B, or GRIN2D. It will also assess the safety and tolerability of L-serine.\n\nThe main questions it aims to answer are:\n\nDoes L-serine improve overall clinical status, measured mainly by the Clinical Global Impression-Severity (CGI-S) score?\n\nDoes L-serine improve behaviour, cognition, adaptive functionin",
+   "url": "https://clinicaltrials.gov/study/NCT07377032"
+  },
+  {
+   "id": "INT:l-serine",
+   "type": "Intervention",
+   "name": "L-serine",
+   "intervention_type": "dietary_supplement"
+  },
+  {
+   "id": "NCT:NCT01238250",
+   "type": "Study",
+   "name": "Online Study of People Who Have Genetic Changes and Features of Autism: Simons Searchlight",
+   "nct": "NCT01238250",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2010-10",
+   "sponsor": "Simons Searchlight",
+   "enrollment": 100000,
+   "conditions": [
+    "16P11.2 Deletion Syndrome",
+    "16p11.2 Duplications",
+    "1Q21.1 Deletion",
+    "1Q21.1 Microduplication Syndrome (Disorder)",
+    "ACTL6B",
+    "ADNP",
+    "AHDC1",
+    "ANK2",
+    "ANKRD11",
+    "ARID1B",
+    "ASH1L",
+    "BCL11A",
+    "CHAMP1",
+    "CHD2",
+    "CHD8",
+    "CSNK2A1",
+    "CTBP1",
+    "CTNNB1 Gene Mutation",
+    "CUL3",
+    "DDX3X",
+    "DNMT3A",
+    "DSCAM",
+    "DYRK1A",
+    "FOXP1",
+    "GRIN2A",
+    "GRIN2B",
+    "HIVEP2-Related Intellectual Disability",
+    "HNRNPH2",
+    "KATNAL2",
+    "KDM5B",
+    "KDM6B",
+    "KMT2C Gene Mutation",
+    "KMT2E",
+    "KMT5B",
+    "MBD5",
+    "MED13L",
+    "PACS1",
+    "PPP2R5D-Related Intellectual Disability",
+    "PTCHD1",
+    "REST",
+    "SCN2A Encephalopathy",
+    "SETBP1 Gene Mutation",
+    "SETD5",
+    "SMARCA4 Gene Mutation",
+    "SMARCC2",
+    "STXBP1 Encephalopathy With Epilepsy",
+    "SYNGAP1-Related Intellectual Disability",
+    "TBR1",
+    "ARHGEF9",
+    "HNRNPU",
+    "PPP3CA",
+    "PPP2R1A",
+    "SLC6A1",
+    "2p16.3 Deletions",
+    "5q35 Deletions",
+    "5q35 Duplications",
+    "7q11.23 Duplications",
+    "15Q13.3 Deletion Syndrome",
+    "16p11.2 Triplications",
+    "16P12.2 Microdeletion",
+    "16P13.11 Microdeletion Syndrome (Disorder)",
+    "17Q12 Microdeletion Syndrome (Disorder)",
+    "17Q12 Duplication Syndrome",
+    "17Q21.31 Deletion Syndrome",
+    "17q21.3 Duplications",
+    "ACTB",
+    "ADSL",
+    "AFF2",
+    "ALDH5A1",
+    "ANK3",
+    "ARX",
+    "ATRX Gene Mutation",
+    "AUTS2 Syndrome",
+    "BCKDK",
+    "BRSK2",
+    "CACNA1C",
+    "CAPRIN1",
+    "CASK",
+    "CASZ1",
+    "CHD3",
+    "CIC",
+    "CNOT3",
+    "CREBBP Gene Mutation",
+    "CSDE1",
+    "CTCF",
+    "DEAF1",
+    "DHCR7",
+    "DLG4",
+    "EBF3",
+    "EHMT1",
+    "EP300 Gene Mutation",
+    "GIGYF1",
+    "GRIN1",
+    "GRIN2D",
+    "IQSEC2-Related Syndromic Intellectual Disability",
+    "IRF2BPL",
+    "KANSL1",
+    "KCNB1",
+    "KDM3B",
+    "NEXMIF",
+    "KMT2A",
+    "MBOAT7",
+    "MEIS2",
+    "MYT1L",
+    "NAA15",
+    "NBEA",
+    "NCKAP1",
+    "NIPBL",
+    "NLGN2",
+    "NLGN3",
+    "NLGN4X",
+    "NR4A2",
+    "NRXN1",
+    "NRXN2",
+    "NSD1 Gene Mutation",
+    "PHF21A",
+    "PHF3",
+    "PHIP",
+    "PSMD12",
+    "RELN",
+    "RERE",
+    "RFX3",
+    "RIMS1",
+    "RORB",
+    "SCN1A",
+    "SETD2 Gene Mutation",
+    "SHANK2",
+    "SIN3A",
+    "SLC9A6",
+    "SON",
+    "SOX5",
+    "SPAST",
+    "SRCAP",
+    "TAOK1",
+    "TANC2",
+    "TCF20",
+    "TLK2",
+    "TRIO",
+    "TRIP12",
+    "UPF3B",
+    "USP9X",
+    "VPS13B",
+    "WAC",
+    "WDFY3",
+    "ZBTB20",
+    "ZNF292",
+    "ZNF462",
+    "2Q37 Deletion Syndrome",
+    "9q34 Duplications",
+    "15q15 Deletions",
+    "15Q24 Deletion",
+    "NR3C2",
+    "SYNCRIP",
+    "2q37.3 Deletion",
+    "6q16 Deletion",
+    "15q11.2 BP1-BP2 Deletion",
+    "16p13.3 Deletion",
+    "17Q11.2 Microduplication Syndrome (Disorder)",
+    "17p13.3",
+    "Xq28 Duplication",
+    "CLCN4",
+    "CSNK2B",
+    "DYNC1H1",
+    "EIF3F",
+    "GNB1",
+    "MED13",
+    "MEF2C",
+    "RALGAPB",
+    "SCN1B",
+    "YY1",
+    "Xp11.22 Duplication",
+    "PACS2",
+    "MAOA",
+    "MAOB",
+    "HNRNPC",
+    "HNRNPD",
+    "HNRNPK",
+    "HNRNPR",
+    "HNRNPUL2",
+    "5P Deletion Syndrome",
+    "TCF7L2 Gene Mutation",
+    "HECW2",
+    "PPM1D",
+    "RNU4-2",
+    "SNAP25",
+    "FOXP2",
+    "ITSN1"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "Simons Searchlight is an observational, online, international research program for families with rare genetic variants that cause neurodevelopmental disorders and may be associated with autism. Simons Searchlight collects medical, behavioral, learning, and developmental information from people who have these rare genetic changes. The goal of this study is to improve the clinical care and treatment for these people. Simons Searchlight partners with families to collect data and distribute it to qualified researchers.",
+   "url": "https://clinicaltrials.gov/study/NCT01238250"
+  },
+  {
+   "id": "NIH:R21MH135589",
+   "type": "Grant",
+   "name": "Impact of Grin2b/GluN2B disruption on dopaminergic function and related behavior",
+   "project_num": "5R21MH135589-02",
+   "fiscal_year": 2025,
+   "award_amount": 248250,
+   "institute": "NIMH",
+   "organization": "NEW YORK STATE PSYCHIATRIC INSTITUTE DBA RESEARCH FOUNDATION FOR MENTAL HYGIENE, INC",
+   "city": "NEW YORK",
+   "country": "UNITED STATES",
+   "start": "2024-08-15",
+   "end": "2027-07-31",
+   "url": "https://reporter.nih.gov/project-details/11169890"
+  },
+  {
+   "id": "RES:nih:16091247",
+   "type": "Researcher",
+   "name": "Muhammad O Chohan",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 16091247,
+   "organization": "NEW YORK STATE PSYCHIATRIC INSTITUTE DBA RESEARCH FOUNDATION FOR MENTAL HYGIENE, INC"
+  },
+  {
+   "id": "RES:nih:8746379",
+   "type": "Researcher",
+   "name": "Jeremy  Veenstra-Vanderweele",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8746379,
+   "organization": "NEW YORK STATE PSYCHIATRIC INSTITUTE DBA RESEARCH FOUNDATION FOR MENTAL HYGIENE, INC"
+  },
+  {
+   "id": "NIH:R35NS111619",
+   "type": "Grant",
+   "name": "Glutamate receptors and human neurological disease",
+   "project_num": "5R35NS111619-08",
+   "fiscal_year": 2026,
+   "award_amount": 992303,
+   "institute": "NINDS",
+   "organization": "EMORY UNIVERSITY",
+   "city": "ATLANTA",
+   "country": "UNITED STATES",
+   "start": "2019-05-01",
+   "end": "2027-04-30",
+   "url": "https://reporter.nih.gov/project-details/11332642"
+  },
+  {
+   "id": "RES:nih:1887223",
+   "type": "Researcher",
+   "name": "Stephen F Traynelis",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1887223,
+   "organization": "EMORY UNIVERSITY"
+  },
+  {
+   "id": "NIH:R01AG078660",
+   "type": "Grant",
+   "name": "Network Medicine for Alzheimers Disease: Functional Dissection and Pharmacologic Perturbation of a Human Brain Synaptic Regulatory Expression Signature",
+   "project_num": "5R01AG078660-03",
+   "fiscal_year": 2026,
+   "award_amount": 509493,
+   "institute": "NIA",
+   "organization": "BAYLOR COLLEGE OF MEDICINE",
+   "city": "HOUSTON",
+   "country": "UNITED STATES",
+   "start": "2022-08-15",
+   "end": "2027-07-31",
+   "url": "https://reporter.nih.gov/project-details/11411414"
+  },
+  {
+   "id": "RES:nih:9555676",
+   "type": "Researcher",
+   "name": "Joshua M Shulman",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9555676,
+   "organization": "BAYLOR COLLEGE OF MEDICINE"
+  },
+  {
+   "id": "NIH:R21HD113986",
+   "type": "Grant",
+   "name": "Resolving the relationship between mitochondrial dysfunction and the impact of non-syndromic autism spectrum disorder-related risk genes on neuronal structure and function",
+   "project_num": "5R21HD113986-02",
+   "fiscal_year": 2026,
+   "award_amount": 211250,
+   "institute": "NICHD",
+   "organization": "ICAHN SCHOOL OF MEDICINE AT MOUNT SINAI",
+   "city": "NEW YORK",
+   "country": "UNITED STATES",
+   "start": "2025-04-10",
+   "end": "2027-03-31",
+   "url": "https://reporter.nih.gov/project-details/11319789"
+  },
+  {
+   "id": "RES:nih:11731789",
+   "type": "Researcher",
+   "name": "Laszlo Tamas Kozicz",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 11731789,
+   "organization": "ICAHN SCHOOL OF MEDICINE AT MOUNT SINAI"
+  },
+  {
+   "id": "NIH:ZIANS002994",
+   "type": "Grant",
+   "name": "Subunit-Specific Regulation Of Glutamate Receptors",
+   "project_num": "1ZIANS002994-24",
+   "fiscal_year": 2025,
+   "award_amount": 1739574,
+   "institute": "NINDS",
+   "organization": "NATIONAL INSTITUTE OF NEUROLOGICAL DISORDERS AND STROKE",
+   "city": null,
+   "country": "UNITED STATES",
+   "start": "",
+   "end": "",
+   "url": "https://reporter.nih.gov/project-details/11418626"
+  },
+  {
+   "id": "RES:nih:9416896",
+   "type": "Researcher",
+   "name": "Katherine  Roche",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9416896,
+   "organization": "NATIONAL INSTITUTE OF NEUROLOGICAL DISORDERS AND STROKE"
+  },
+  {
+   "id": "NIH:ZIAHD001205",
+   "type": "Grant",
+   "name": "Cellular And Synaptic Physiology Of Hippocampal Interneurons",
+   "project_num": "1ZIAHD001205-31",
+   "fiscal_year": 2023,
+   "award_amount": 3178257,
+   "institute": "NICHD",
+   "organization": "EUNICE KENNEDY SHRIVER NATIONAL INSTITUTE OF CHILD HEALTH & HUMAN DEVELOPMENT",
+   "city": null,
+   "country": "UNITED STATES",
+   "start": "",
+   "end": "",
+   "url": "https://reporter.nih.gov/project-details/10927033"
+  },
+  {
+   "id": "RES:nih:2415438",
+   "type": "Researcher",
+   "name": "Chris J. Mcbain",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 2415438,
+   "organization": "EUNICE KENNEDY SHRIVER NATIONAL INSTITUTE OF CHILD HEALTH & HUMAN DEVELOPMENT"
+  },
+  {
+   "id": "HGNC_GROUP:1201",
+   "type": "GeneGroup",
+   "name": "Glutamate ionotropic receptor NMDA type subunits",
+   "url": "https://www.genenames.org/data/genegroup/#!/group/1201"
+  },
+  {
+   "id": "NIH:F31NS139688",
+   "type": "Grant",
+   "name": "Mechanism of Altered Synaptic Signaling by Disease Related GRIN1 Variants",
+   "project_num": "5F31NS139688-02",
+   "fiscal_year": 2026,
+   "award_amount": 35799,
+   "institute": "NINDS",
+   "organization": "STATE UNIVERSITY OF NEW YORK AT BUFFALO",
+   "city": "AMHERST",
+   "country": "UNITED STATES",
+   "start": "2025-03-26",
+   "end": "2027-03-25",
+   "url": "https://reporter.nih.gov/project-details/11375822"
+  },
+  {
+   "id": "RES:nih:79132985",
+   "type": "Researcher",
+   "name": "Samantha Rose Schwarz",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 79132985,
+   "organization": "STATE UNIVERSITY OF NEW YORK AT BUFFALO"
+  },
+  {
+   "id": "NIH:R01MH138995",
+   "type": "Grant",
+   "name": "Pathophysiologic roles of protein-protein interactions at excitatory synapses and their modifications in schizophrenia",
+   "project_num": "5R01MH138995-02",
+   "fiscal_year": 2026,
+   "award_amount": 671768,
+   "institute": "NIMH",
+   "organization": "THOMAS JEFFERSON UNIVERSITY",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2024-12-01",
+   "end": "2029-11-30",
+   "url": "https://reporter.nih.gov/project-details/11238968"
+  },
+  {
+   "id": "RES:nih:1875140",
+   "type": "Researcher",
+   "name": "Matthew B Dalva",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1875140,
+   "organization": "THOMAS JEFFERSON UNIVERSITY"
+  },
+  {
+   "id": "RES:nih:1910405",
+   "type": "Researcher",
+   "name": "Chang-Gyu  Hahn",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1910405,
+   "organization": "THOMAS JEFFERSON UNIVERSITY"
+  },
+  {
+   "id": "NIH:F31NS145927",
+   "type": "Grant",
+   "name": "NMDA receptors in neurodevelopment and seizure pathogenesis",
+   "project_num": "5F31NS145927-02",
+   "fiscal_year": 2026,
+   "award_amount": 42647,
+   "institute": "NINDS",
+   "organization": "STATE UNIVERSITY NEW YORK STONY BROOK",
+   "city": "STONY BROOK",
+   "country": "UNITED STATES",
+   "start": "2025-07-30",
+   "end": "2028-07-29",
+   "url": "https://reporter.nih.gov/project-details/11400962"
+  },
+  {
+   "id": "RES:nih:78256992",
+   "type": "Researcher",
+   "name": "Erica Robin Nebet",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 78256992,
+   "organization": "STATE UNIVERSITY NEW YORK STONY BROOK"
+  },
+  {
+   "id": "NIH:ZIAAG000928",
+   "type": "Grant",
+   "name": "Function and Regulation of ALDH1A1-positive Nigrostriatal Dopaminergic Neurons in Motor Performance and Parkinson's disease",
+   "project_num": "1ZIAAG000928-15",
+   "fiscal_year": 2025,
+   "award_amount": 2963281,
+   "institute": "NIA",
+   "organization": "NATIONAL INSTITUTE ON AGING",
+   "city": null,
+   "country": "UNITED STATES",
+   "start": "",
+   "end": "",
+   "url": "https://reporter.nih.gov/project-details/11398468"
+  },
+  {
+   "id": "RES:nih:9691131",
+   "type": "Researcher",
+   "name": "Huaibin  Cai",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9691131,
+   "organization": "NATIONAL INSTITUTE ON AGING"
+  },
+  {
+   "id": "NIH:R21MH134420",
+   "type": "Grant",
+   "name": "Role of opioid-glutamate interactions in intrinsically rewarded social behaviors",
+   "project_num": "5R21MH134420-02",
+   "fiscal_year": 2025,
+   "award_amount": 194375,
+   "institute": "NIMH",
+   "organization": "UNIVERSITY OF WISCONSIN-MADISON",
+   "city": "MADISON",
+   "country": "UNITED STATES",
+   "start": "2024-05-03",
+   "end": "2027-04-30",
+   "url": "https://reporter.nih.gov/project-details/11083661"
+  },
+  {
+   "id": "RES:nih:1890382",
+   "type": "Researcher",
+   "name": "Lauren V Riters",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1890382,
+   "organization": "UNIVERSITY OF WISCONSIN-MADISON"
+  },
+  {
+   "id": "NIH:R21MH132035",
+   "type": "Grant",
+   "name": "Modeling schizophrenia with patient-specific mutations in GRIN2A and SP4",
+   "project_num": "1R21MH132035-01A1",
+   "fiscal_year": 2023,
+   "award_amount": 496100,
+   "institute": "NIMH",
+   "organization": "LIEBER INSTITUTE, INC.",
+   "city": "BALTIMORE",
+   "country": "UNITED STATES",
+   "start": "2023-08-01",
+   "end": "2025-07-31",
+   "url": "https://reporter.nih.gov/project-details/10741466"
+  },
+  {
+   "id": "RES:nih:7836737",
+   "type": "Researcher",
+   "name": "Brady J Maher",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 7836737,
+   "organization": "LIEBER INSTITUTE, INC."
+  },
+  {
+   "id": "NIH:F31NS113530",
+   "type": "Grant",
+   "name": "Loss of Grin2a Promotes Hippocampal Hyperexcitability and Epileptiform Activity",
+   "project_num": "5F31NS113530-03",
+   "fiscal_year": 2022,
+   "award_amount": 43238,
+   "institute": "NINDS",
+   "organization": "EMORY UNIVERSITY",
+   "city": "ATLANTA",
+   "country": "UNITED STATES",
+   "start": "2020-04-01",
+   "end": "2023-02-11",
+   "url": "https://reporter.nih.gov/project-details/10357918"
+  },
+  {
+   "id": "RES:nih:14834094",
+   "type": "Researcher",
+   "name": "Chad R. Camp",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14834094,
+   "organization": "EMORY UNIVERSITY"
+  },
+  {
+   "id": "NIH:R01MH134466",
+   "type": "Grant",
+   "name": "Genetic and Functional dissection of frontal thalamocortical circuitry",
+   "project_num": "7R01MH134466-09",
+   "fiscal_year": 2026,
+   "award_amount": 815245,
+   "institute": "NIMH",
+   "organization": "VIRGINIA POLYTECHNIC INST AND ST UNIV",
+   "city": "BLACKSBURG",
+   "country": "UNITED STATES",
+   "start": "2016-09-01",
+   "end": "2028-03-31",
+   "url": "https://reporter.nih.gov/project-details/11580841"
+  },
+  {
+   "id": "RES:nih:1982839",
+   "type": "Researcher",
+   "name": "Guoping  Feng",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1982839,
+   "organization": "VIRGINIA POLYTECHNIC INST AND ST UNIV"
+  },
+  {
+   "id": "RES:nih:8711227",
+   "type": "Researcher",
+   "name": "Michael M Halassa",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8711227,
+   "organization": "VIRGINIA POLYTECHNIC INST AND ST UNIV"
+  },
+  {
+   "id": "NIH:R01HL188006",
+   "type": "Grant",
+   "name": "NMDAR-Mediated Mechanisms Linking E-Cigarette Exposure to Vascular Injury",
+   "project_num": "1R01HL188006-01",
+   "fiscal_year": 2026,
+   "award_amount": 718824,
+   "institute": "NHLBI",
+   "organization": "STANFORD UNIVERSITY",
+   "city": "STANFORD",
+   "country": "UNITED STATES",
+   "start": "2026-08-01",
+   "end": "2031-05-31",
+   "url": "https://reporter.nih.gov/project-details/11433591"
+  },
+  {
+   "id": "RES:nih:10513865",
+   "type": "Researcher",
+   "name": "Juyong Brian Kim",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 10513865,
+   "organization": "STANFORD UNIVERSITY"
+  },
+  {
+   "id": "NIH:F31AA029946",
+   "type": "Grant",
+   "name": "The early and lasting mechanisms underlying predator odor stressor-induced adaptations to alcohol interoceptive sensitivity",
+   "project_num": "5F31AA029946-02",
+   "fiscal_year": 2023,
+   "award_amount": 18242,
+   "institute": "NIAAA",
+   "organization": "UNIV OF NORTH CAROLINA CHAPEL HILL",
+   "city": "CHAPEL HILL",
+   "country": "UNITED STATES",
+   "start": "2022-02-01",
+   "end": "2023-05-31",
+   "url": "https://reporter.nih.gov/project-details/10560497"
+  },
+  {
+   "id": "RES:nih:16147885",
+   "type": "Researcher",
+   "name": "Ryan Edward Tyler",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 16147885,
+   "organization": "UNIV OF NORTH CAROLINA CHAPEL HILL"
+  },
+  {
+   "id": "NCT:NCT06625112",
+   "type": "Study",
+   "name": "A Multicentric European Study to Promote Clinical Trial Readiness for STXBP1-related Disorders",
+   "nct": "NCT06625112",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2025-11-04",
+   "sponsor": "European STXBP1 Consortium",
+   "enrollment": 120,
+   "conditions": [
+    "STXBP1 Encephalopathy With Epilepsy"
+   ],
+   "countries": [
+    "Belgium"
+   ],
+   "summary": "STXBP1-related disorders (STXBP1-RD) are rare genetic neurodevelopmental disorders, caused by pathogenic variants in the gene STXBP1. The core clinical features of the disorder are developmental delay often leading to (severe) intellectual disability and seizures in most patients, although the phenotypic spectrum is variable. Behavioral problems and movement disorders are frequent comorbidities. STXBP1-RD are severe disorders with significant impact on the quality of life of the patients and their caregivers. At the moment, there is no cure for STXBP1-RD and treatment is largely limited to sym",
+   "url": "https://clinicaltrials.gov/study/NCT06625112"
+  },
+  {
+   "id": "NCT:NCT06555965",
+   "type": "Study",
+   "name": "STXBP1 and SYNGAP1 Related Disorders Natural History Study",
+   "nct": "NCT06555965",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2023-08-30",
+   "sponsor": "Children's Hospital of Philadelphia",
+   "enrollment": 600,
+   "conditions": [
+    "Genetic Disease",
+    "STXBP1 Encephalopathy With Epilepsy",
+    "SYNGAP1-Related Intellectual Disability"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "The purpose of this study is to find out more about STXBP1 and SYNGAP1 related disorders. The information gathered by this study will be used to prepare for clinical treatment trials. The primary objective of the study is to better define and outline the clinical spectrum of STXBP1 and SYNGAP1 through detailed developmental, seizure, and quality of life assessments as an extension of routine clinical care.",
+   "url": "https://clinicaltrials.gov/study/NCT06555965"
+  },
+  {
+   "id": "NCT:NCT06356233",
+   "type": "Study",
+   "name": "Phenotyping and Identification of Biological Markers in STXBP1 Encephalopathy",
+   "nct": "NCT06356233",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2024-05-01",
+   "sponsor": "Fundación Iniciativa para las Neurociencias (FINCE)",
+   "enrollment": 10,
+   "conditions": [
+    "STXBP1 Encephalopathy With Epilepsy"
+   ],
+   "countries": [
+    "Spain"
+   ],
+   "summary": "This is a prospective observational study to evaluate the phenotype of 10 patients under 10 years of age with developmental epileptic encephalopathy due to mutation of the STXBP1 gene. The study will consist of a clinical and neurodevelopmental evaluation, magnetic resonance imaging, prolonged electroencephalogram, cardiological study, and analysis of biomarkers in cerebrospinal fluid. These patients will be followed up for 3 years. The aim of the study is, knowing the baseline phenotype, to analyse the response to commonly used drugs and to anticipate the response to different drugs available",
+   "url": "https://clinicaltrials.gov/study/NCT06356233"
+  },
+  {
+   "id": "NCT:NCT04937062",
+   "type": "Study",
+   "name": "Phenylbutyrate for Monogenetic Developmental and Epileptic Encephalopathy",
+   "nct": "NCT04937062",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "EARLY_PHASE1"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2021-03-01",
+   "sponsor": "Weill Medical College of Cornell University",
+   "enrollment": 50,
+   "conditions": [
+    "STXBP1 Encephalopathy With Epilepsy, SLC6A1 Neurodevelopmental Disorder",
+    "Developmental and Epileptic Encephalopathy"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study is to evaluate the use of glycerol phenylbutyrate for monogenetic developmental epileptic encephalopathies (DEEs). DEEs are characterized by epilepsy and developmental delay in early life.\n\nTwo examples of DEEs are STXBP1 and SLC6A1, though there are dozens of others.\n\nSTXBP1 Encephalopathy is a severe disease that can cause seizures and developmental delays in infants and children. SLC6A1 neurodevelopmental disorder is characterized by developmental delay and often epilepsy. Both STXBP1 encephalopathy and SLC6A1 neurodevelopmental disorder cause symptoms because there are not enoug",
+   "url": "https://clinicaltrials.gov/study/NCT04937062"
+  },
+  {
+   "id": "INT:glycerol-phenylbutyrate",
+   "type": "Intervention",
+   "name": "Glycerol Phenylbutyrate",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT05161494",
+   "type": "Study",
+   "name": "Gait in Rare Diseases",
+   "nct": "NCT05161494",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2022-01-25",
+   "sponsor": "Universiteit Antwerpen",
+   "enrollment": 41,
+   "conditions": [
+    "Tuberous Sclerosis",
+    "STXBP1 Encephalopathy With Epilepsy"
+   ],
+   "countries": [
+    "Belgium"
+   ],
+   "summary": "The aim of this pilot study is to explore whether the knowledge and experience gained during the T-GaiD project (Treatment of Gait Disorders in Dravet Syndrome - NCT03857451) can be transferred to other populations with similar problems, i.e. motor and gait problems as a result of a genetic disorder characterized by epilepsy and developmental delay. In this pilot study, 40 people with Tuberous Sclerosis Complex and 30 people with STXBP1 will be recruited via the Antwerp University Hospital and invited for a gait analysis in the M²OCEAN movement lab. The aim of the pilot study is to evaluate th",
+   "url": "https://clinicaltrials.gov/study/NCT05161494"
+  },
+  {
+   "id": "NCT:NCT05232630",
+   "type": "Study",
+   "name": "Fenfluramine for the Treatment of Different Types of Developmental and Epileptic Encephalopathies: a Pilot Trial Exploring Epileptic and Non-epileptic Outcomes",
+   "nct": "NCT05232630",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE4"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2022-10-20",
+   "sponsor": "Hospital Ruber Internacional",
+   "enrollment": 20,
+   "conditions": [
+    "Refractory Epilepsy",
+    "SYNGAP1 Encephalopathy",
+    "STXBP1 Encephalopathy With Epilepsy",
+    "Inv Dup(15) Encephalopathy",
+    "Multifocal or Bilateral Malformations of Cortical Development",
+    "Continuous Spike and Waves During Slow Sleep"
+   ],
+   "countries": [
+    "Spain"
+   ],
+   "summary": "This study is a pilot non-controlled clinical trial with adjunctive fenfluramine for the treatment of five different types of developmental and epileptic encephalopathies (DEEs) focused on epileptic and \"non-epileptic outcomes\": SYNGAP1 and STXBP1 encephalopathies, inv-dup(15) encephalopathy, multifocal or bilateral malformations of cortical development, and continuous spikes and waves during sleep. The main goal is to assess changes in seizure frequency comparing before and after treatment with fenfluramine in five specific types of developmental and epileptic encephalopathies (DEEs). Seconda",
+   "url": "https://clinicaltrials.gov/study/NCT05232630"
+  },
+  {
+   "id": "INT:fenfluramine",
+   "type": "Intervention",
+   "name": "Fenfluramine",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT06983158",
+   "type": "Study",
+   "name": "A Clinical Trial of CAP-002 Gene Therapy in Pediatric Patients With Syntaxin-Binding Protein 1 (STXBP1) Encephalopathy",
+   "nct": "NCT06983158",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-07-03",
+   "sponsor": "Capsida Biotherapeutics, Inc.",
+   "enrollment": 1,
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "The goal of this clinical trial is to learn about the safety of CAP-002 gene therapy in children with Syntaxin-Binding Protein 1 (STXBP1) Encephalopathy. It will also provide information about whether CAP-002 demonstrates efficacy in treating children with STXBP1 with and without seizures.\n\nParticipants will have a single infusion of CAP-002, visit the clinic regularly for 2 years for checkups and tests and have seizures recorded in a diary by their caregiver.",
+   "url": "https://clinicaltrials.gov/study/NCT06983158"
+  },
+  {
+   "id": "INT:gene-therapy",
+   "type": "Intervention",
+   "name": "Gene therapy",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "ORG:rareconnect:STXBP1",
+   "type": "PatientOrg",
+   "name": "STXBP1 - Related disorders",
+   "url": "https://www.rareconnect.org/en/community/STXBP1",
+   "description": "\"STXBP1-related disorders comprise a spectrum of rare autosomal dominant neurodevelopmental conditions caused by changes in the STXBP1 gene. STXBP1-related epileptic encephalopathy was initially discovered in 2008 in individuals with a severe, neonatal epilepsy termed Ohtahara syndrome (Saitsu et al, 2008). In the years following, the spectrum of patient presentations expanded significantly. Individuals with STXBP1-related disorders experience a broad range of symptoms including early-onset seizures, developmental delays, intellectual disability, muscular hypotonia, spasticity and ataxia. Affected individuals may also exhibit some features of autism spectrum disorder. Individuals with STXBP1",
+   "members": 5,
+   "org_kind": "Online patient community",
+   "directory": "RareConnect (EURORDIS)"
+  },
+  {
+   "id": "NIH:F31NS141322",
+   "type": "Grant",
+   "name": "Disease mechanism and genetic therapy for a pathogenic STXBP1 variant",
+   "project_num": "5F31NS141322-02",
+   "fiscal_year": 2026,
+   "award_amount": 31201,
+   "institute": "NINDS",
+   "organization": "BAYLOR COLLEGE OF MEDICINE",
+   "city": "HOUSTON",
+   "country": "UNITED STATES",
+   "start": "2024-12-16",
+   "end": "2026-05-22",
+   "url": "https://reporter.nih.gov/project-details/11322512"
+  },
+  {
+   "id": "RES:nih:78265993",
+   "type": "Researcher",
+   "name": "Brooke  Horist",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 78265993,
+   "organization": "BAYLOR COLLEGE OF MEDICINE"
+  },
+  {
+   "id": "NIH:R01NS127830",
+   "type": "Grant",
+   "name": "Subgroup delineation in genetic epilepsies and developmental brain disorders",
+   "project_num": "5R01NS127830-04",
+   "fiscal_year": 2026,
+   "award_amount": 691483,
+   "institute": "NINDS",
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2023-02-15",
+   "end": "2028-03-31",
+   "url": "https://reporter.nih.gov/project-details/11310175"
+  },
+  {
+   "id": "RES:nih:15318049",
+   "type": "Researcher",
+   "name": "Ingo  Helbig",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 15318049,
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA"
+  },
+  {
+   "id": "NIH:R01NS131512",
+   "type": "Grant",
+   "name": "A computational phenotyping approach to characterize neurogenetic disorders",
+   "project_num": "5R01NS131512-04",
+   "fiscal_year": 2026,
+   "award_amount": 688207,
+   "institute": "NINDS",
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2023-02-15",
+   "end": "2028-03-31",
+   "url": "https://reporter.nih.gov/project-details/11301017"
+  },
+  {
+   "id": "NIH:R01NS116747",
+   "type": "Grant",
+   "name": "Analysis of Synaptic Protein Dynamics",
+   "project_num": "2R01NS116747-15A1",
+   "fiscal_year": 2026,
+   "award_amount": 615206,
+   "institute": "NINDS",
+   "organization": "WEILL MEDICAL COLL OF CORNELL UNIV",
+   "city": "NEW YORK",
+   "country": "UNITED STATES",
+   "start": "2020-05-01",
+   "end": "2031-04-30",
+   "url": "https://reporter.nih.gov/project-details/11366073"
+  },
+  {
+   "id": "RES:nih:9349014",
+   "type": "Researcher",
+   "name": "Jeremy Samuel Dittman",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9349014,
+   "organization": "WEILL MEDICAL COLL OF CORNELL UNIV"
+  },
+  {
+   "id": "NIH:U24NS120854",
+   "type": "Grant",
+   "name": "ClinGen Expert Curation Panel for the Epilepsies",
+   "project_num": "5U24NS120854-05",
+   "fiscal_year": 2026,
+   "award_amount": 379484,
+   "institute": "NINDS",
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2021-08-01",
+   "end": "2028-05-31",
+   "url": "https://reporter.nih.gov/project-details/11375422"
+  },
+  {
+   "id": "RES:nih:2048128",
+   "type": "Researcher",
+   "name": "Heather C. Mefford",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 2048128,
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA"
+  },
+  {
+   "id": "RES:nih:78610744",
+   "type": "Researcher",
+   "name": "Kimberly  Wiltrout",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 78610744,
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA"
+  },
+  {
+   "id": "NIH:R01NS096976",
+   "type": "Grant",
+   "name": "ZEBRAFISH MODELS FOR DRAVET SYNDROME RESEARCH AND DISCOVERY",
+   "project_num": "5R01NS096976-09",
+   "fiscal_year": 2024,
+   "award_amount": 494954,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF CALIFORNIA, SAN FRANCISCO",
+   "city": "SAN FRANCISCO",
+   "country": "UNITED STATES",
+   "start": "2016-04-01",
+   "end": "2026-01-31",
+   "url": "https://reporter.nih.gov/project-details/10774226"
+  },
+  {
+   "id": "RES:nih:1932549",
+   "type": "Researcher",
+   "name": "Scott C Baraban",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1932549,
+   "organization": "UNIVERSITY OF CALIFORNIA, SAN FRANCISCO"
+  },
+  {
+   "id": "HGNC_GROUP:3908",
+   "type": "GeneGroup",
+   "name": "SM family of SNARE chaperones",
+   "url": "https://www.genenames.org/data/genegroup/#!/group/3908"
+  },
+  {
+   "id": "NCT:NCT05249556",
+   "type": "Study",
+   "name": "Double-blind, Randomized, Placebo-controlled Trial of Ganaxolone in CDKL5 Deficiency Patients 6 Months to Less Than 2 Years Old",
+   "nct": "NCT05249556",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2027-03",
+   "sponsor": "Immedica Pharma AB",
+   "enrollment": 20,
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "countries": [],
+   "summary": "This study will assess the efficacy, safety, and tolerability of ganaxolone (GNX) compared with placebo (PBO) as adjunctive therapy to the participant's standard anti-epileptic medication for the treatment of seizures in pediatric patients from 6 months to less than 2 years old with genetically confirmed CDD during a 12-week, DB phase. Pharmacokinetic (PK) assessments and population PK analyses will also be performed during this time. The DB phase will be followed by an optional long-term OL phase at which time all participants will receive GNX as an adjunct to their standard anti-seizure medi",
+   "url": "https://clinicaltrials.gov/study/NCT05249556"
+  },
+  {
+   "id": "INT:ganaxolone",
+   "type": "Intervention",
+   "name": "Ganaxolone",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT05064878",
+   "type": "Study",
+   "name": "A Phase 3 Study to Examine the Efficacy and Safety of ZX008 in Subjects With CDKL5 Deficiency Disorder.",
+   "nct": "NCT05064878",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2022-03-08",
+   "sponsor": "Zogenix, Inc.",
+   "enrollment": 87,
+   "conditions": [
+    "CDKL5 Deficiency Disorder",
+    "Generalized Tonic Clonic Seizure",
+    "Epileptic Spasm",
+    "Refractory Seizures"
+   ],
+   "countries": [
+    "Austria",
+    "Belgium",
+    "Georgia",
+    "Germany",
+    "Ireland",
+    "Israel",
+    "Italy",
+    "Japan",
+    "Netherlands",
+    "Portugal",
+    "Spain",
+    "United Arab Emirates",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "This is a Phase 3 Study to examine the efficacy and safety of ZX008 in children and adults with cyclin-dependent kinase like-5 (CDKL5) deficiency disorder (CDD).",
+   "url": "https://clinicaltrials.gov/study/NCT05064878"
+  },
+  {
+   "id": "NCT:NCT06447675",
+   "type": "Study",
+   "name": "Efficacy and Safety Evaluation of Hyperthermic Baths in the Treatment of Seizures in CDKL5 Deficiency Disorder",
+   "nct": "NCT06447675",
+   "status": "COMPLETED",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-09-20",
+   "sponsor": "Xuanwu Hospital, Beijing",
+   "enrollment": 8,
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "countries": [
+    "China"
+   ],
+   "summary": "The primary objective of this research is to study the efficacy and safety of hyperthermic baths as adjunctive therapy for reducing the frequency of seizures in CDKL5 deficiency.",
+   "url": "https://clinicaltrials.gov/study/NCT06447675"
+  },
+  {
+   "id": "NCT:NCT06663163",
+   "type": "Study",
+   "name": "The Association Between Fever and CDKL5 Deficiency Disorder: a Nationwide Survey",
+   "nct": "NCT06663163",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2024-10-29",
+   "sponsor": "Xuanwu Hospital, Beijing",
+   "enrollment": 131,
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "countries": [
+    "China"
+   ],
+   "summary": "The primary objective of this research is to study the effects of fever on seizure activity in patients with CDKL5 deficiency disorder",
+   "url": "https://clinicaltrials.gov/study/NCT06663163"
+  },
+  {
+   "id": "NCT:NCT03572933",
+   "type": "Study",
+   "name": "Study of Adjunctive Ganaxolone Treatment in Children and Young Adults With CDKL5 Deficiency Disorder",
+   "nct": "NCT03572933",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2018-06-30",
+   "sponsor": "Marinus Pharmaceuticals",
+   "enrollment": 101,
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "countries": [
+    "Australia",
+    "France",
+    "Israel",
+    "Italy",
+    "Poland",
+    "Russia",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "A clinical study to evaluate the efficacy, safety, and tolerability of adjunctive ganaxolone therapy compared to placebo for the treatment of seizures in children and young adults with genetically confirmed CDKL5 gene mutation.",
+   "url": "https://clinicaltrials.gov/study/NCT03572933"
+  },
+  {
+   "id": "NCT:NCT02705677",
+   "type": "Study",
+   "name": "Biobanking of Rett Syndrome and Related Disorders",
+   "nct": "NCT02705677",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2017-09-01",
+   "sponsor": "University of Alabama at Birmingham",
+   "enrollment": 752,
+   "conditions": [
+    "Rett Syndrome",
+    "MECP2 Duplication",
+    "CDKL5",
+    "FOXG1 Disorders"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "The overarching purpose of this study is to advance understanding of the natural history of Rett syndrome (RTT), MECP2-duplication disorder (MECP2 Dup), RTT-related disorders including CDKL5, FOXG1, and individuals with MECP2 mutations who do not have RTT. Although all these disorders are the result of specific genetic changes, there remains broad clinical variation that is not entirely accounted for by known biological factors. Additionally, clinical investigators currently do not have any biomarkers of disease status, clinical severity, or responsiveness to therapeutic intervention. To addre",
+   "url": "https://clinicaltrials.gov/study/NCT02705677"
+  },
+  {
+   "id": "NCT:NCT02758626",
+   "type": "Study",
+   "name": "Ataluren for Nonsense Mutation in CDKL5 and Dravet Syndrome",
+   "nct": "NCT02758626",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2016-11",
+   "sponsor": "NYU Langone Health",
+   "enrollment": 15,
+   "conditions": [
+    "Epilepsy"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This is a phase 2, crossover study of Ataluren for the treatment of nonsense mutation Dravet syndrome or cyclin-dependent kinase-like 5 (CDKL5) deficiency, resulting in drug-resistant epilepsy. Patients will receive 12 weeks of ataluren or placebo during each treatment period. Treatment Period 1 will be followed by a 4-week Washout Period. Based on ataluren PK and pharmacodynamic data, the 4-week washout period is deemed an appropriate length of time to eliminate any ataluren drug effects. Following the Washout Period, patients will crossover to receive the opposite treatment during Treatment ",
+   "url": "https://clinicaltrials.gov/study/NCT02758626"
+  },
+  {
+   "id": "INT:ataluren",
+   "type": "Intervention",
+   "name": "Ataluren",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT02738281",
+   "type": "Study",
+   "name": "Natural History of Rett Syndrome & Related Disorders",
+   "nct": "NCT02738281",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2015-11",
+   "sponsor": "University of Alabama at Birmingham",
+   "enrollment": 1044,
+   "conditions": [
+    "Rett Syndrome",
+    "MECP2 Duplication dIsorder",
+    "CDKL5 Disorder",
+    "FOXG1 Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "The purpose of this study is to advance understanding of the natural history of Rett syndrome (RTT), MECP2-duplication disorder (MECP2 Dup), CDKL5, FOXG1, and individuals with MECP2 mutations who do not have RTT including the range of clinical involvement and to correlate genotype-phenotype over a broad spectrum of phenotypes. While much has been learned about RTT, improvements are required in understanding the role of factors such as X chromosome inactivation, genetic background, and others including the environment, on the great variability observed even between individuals with the same MEC",
+   "url": "https://clinicaltrials.gov/study/NCT02738281"
+  },
+  {
+   "id": "NIH:F31EY035937",
+   "type": "Grant",
+   "name": "Impact of CDKL5 deficiency on thalamocortical dynamics",
+   "project_num": "5F31EY035937-03",
+   "fiscal_year": 2026,
+   "award_amount": 35090,
+   "institute": "NEI",
+   "organization": "YALE UNIVERSITY",
+   "city": "NEW HAVEN",
+   "country": "UNITED STATES",
+   "start": "2023-12-01",
+   "end": "2026-11-30",
+   "url": "https://reporter.nih.gov/project-details/11237178"
+  },
+  {
+   "id": "RES:nih:78215060",
+   "type": "Researcher",
+   "name": "Rachel  Oren",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 78215060,
+   "organization": "YALE UNIVERSITY"
+  },
+  {
+   "id": "NIH:K08AI163377",
+   "type": "Grant",
+   "name": "Characterization of CDKL5 function in host antiviral defense",
+   "project_num": "5K08AI163377-05",
+   "fiscal_year": 2025,
+   "award_amount": 196560,
+   "institute": "NIAID",
+   "organization": "UT SOUTHWESTERN MEDICAL CENTER",
+   "city": "DALLAS",
+   "country": "UNITED STATES",
+   "start": "2021-06-18",
+   "end": "2026-05-31",
+   "url": "https://reporter.nih.gov/project-details/11095971"
+  },
+  {
+   "id": "RES:nih:10095042",
+   "type": "Researcher",
+   "name": "Josephine Wanjiru Thinwa",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 10095042,
+   "organization": "UT SOUTHWESTERN MEDICAL CENTER"
+  },
+  {
+   "id": "NIH:U01NS114312",
+   "type": "Grant",
+   "name": "Multi-site validation of biomarkers and core clinical outcome measures for clinical trial readiness in CDKL5 Deficiency Disorder - Supplement",
+   "project_num": "3U01NS114312-05S1",
+   "fiscal_year": 2025,
+   "award_amount": 77998,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF COLORADO DENVER",
+   "city": "Aurora",
+   "country": "UNITED STATES",
+   "start": "2021-02-15",
+   "end": "2027-01-31",
+   "url": "https://reporter.nih.gov/project-details/11248090"
+  },
+  {
+   "id": "RES:nih:1866075",
+   "type": "Researcher",
+   "name": "Timothy A Benke",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1866075,
+   "organization": "UNIVERSITY OF COLORADO DENVER"
+  },
+  {
+   "id": "RES:nih:14733010",
+   "type": "Researcher",
+   "name": "Jenny  Downs",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14733010,
+   "organization": "UNIVERSITY OF COLORADO DENVER"
+  },
+  {
+   "id": "RES:nih:7031102",
+   "type": "Researcher",
+   "name": "Helen M Leonard",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 7031102,
+   "organization": "UNIVERSITY OF COLORADO DENVER"
+  },
+  {
+   "id": "RES:nih:1879953",
+   "type": "Researcher",
+   "name": "Eric D Marsh",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1879953,
+   "organization": "UNIVERSITY OF COLORADO DENVER"
+  },
+  {
+   "id": "NIH:F32NS131252",
+   "type": "Grant",
+   "name": "Determining the Impact of Callosal Connectivity on Visual Cortical Structure and Cortical Visual Impairment in Cdkl5 Deficiency Disorder",
+   "project_num": "5F32NS131252-02",
+   "fiscal_year": 2024,
+   "award_amount": 79756,
+   "institute": "NINDS",
+   "organization": "BOSTON CHILDREN'S HOSPITAL",
+   "city": "BOSTON",
+   "country": "UNITED STATES",
+   "start": "2023-06-01",
+   "end": "2025-05-31",
+   "url": "https://reporter.nih.gov/project-details/10833018"
+  },
+  {
+   "id": "RES:nih:14573634",
+   "type": "Researcher",
+   "name": "Elyza  Kelly",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14573634,
+   "organization": "BOSTON CHILDREN'S HOSPITAL"
+  },
+  {
+   "id": "NIH:K23NS107646",
+   "type": "Grant",
+   "name": "Diagnosis and Genotype-Phenotype Correlations in Early Life Epilepsy and CDKL5 Disorder",
+   "project_num": "3K23NS107646-05S1",
+   "fiscal_year": 2023,
+   "award_amount": 231255,
+   "institute": "NINDS",
+   "organization": "BOSTON CHILDREN'S HOSPITAL",
+   "city": "BOSTON",
+   "country": "UNITED STATES",
+   "start": "2023-01-01",
+   "end": "2024-03-31",
+   "url": "https://reporter.nih.gov/project-details/10758725"
+  },
+  {
+   "id": "RES:nih:12019939",
+   "type": "Researcher",
+   "name": "Heather Elisa Olson",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 12019939,
+   "organization": "BOSTON CHILDREN'S HOSPITAL"
+  },
+  {
+   "id": "NIH:R21NS126914",
+   "type": "Grant",
+   "name": "Rescuing KCC2 Dysfunction in CDKL5 Deficiency Disorder to Restore GABA(A) Receptor-Mediated Hyperpolarization and Seizure Protection.",
+   "project_num": "5R21NS126914-02",
+   "fiscal_year": 2023,
+   "award_amount": 204300,
+   "institute": "NINDS",
+   "organization": "TUFTS UNIVERSITY BOSTON",
+   "city": "BOSTON",
+   "country": "UNITED STATES",
+   "start": "2022-03-01",
+   "end": "2025-02-28",
+   "url": "https://reporter.nih.gov/project-details/10581661"
+  },
+  {
+   "id": "RES:nih:8228947",
+   "type": "Researcher",
+   "name": "Paul Andrew Davies",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8228947,
+   "organization": "TUFTS UNIVERSITY BOSTON"
+  },
+  {
+   "id": "RES:nih:2403733",
+   "type": "Researcher",
+   "name": "Stephen J Moss",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 2403733,
+   "organization": "TUFTS UNIVERSITY BOSTON"
+  },
+  {
+   "id": "HGNC_GROUP:1491",
+   "type": "GeneGroup",
+   "name": "Cilia and flagella associated",
+   "url": "https://www.genenames.org/data/genegroup/#!/group/1491"
+  },
+  {
+   "id": "HGNC_GROUP:3786",
+   "type": "GeneGroup",
+   "name": "Cyclin dependent kinase like family",
+   "url": "https://www.genenames.org/data/genegroup/#!/group/3786"
+  },
+  {
+   "id": "NCT:NCT07112365",
+   "type": "Study",
+   "name": "The FINTEPLA as an Anti-SUDEP Therapy in Dravet Syndrome Project",
+   "nct": "NCT07112365",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2026-04-27",
+   "sponsor": "The University of Texas Health Science Center, Houston",
+   "enrollment": 25,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study investigates cerebrovascular reactivity (CVR) and functional brain connectivity in Dravet Syndrome (DS) patients with convulsive seizures. Using functional MRI (fMRI), we will define differences in brain responses to CO₂ changes before administration of the drug Fintepla (Baseline), with a library of healthy controls and with those obtained after administration of Fintepla (Day \\~60). Changes in CVR and their relation to ventilatory responses will also be assessed during fMRI.",
+   "url": "https://clinicaltrials.gov/study/NCT07112365"
+  },
+  {
+   "id": "NCT:NCT07013331",
+   "type": "Study",
+   "name": "A PET-MRI Study of Serotoninergic Brainstem Pathway in Patients With Dravet Syndrome",
+   "nct": "NCT07013331",
+   "status": "RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2026-05-04",
+   "sponsor": "Hospices Civils de Lyon",
+   "enrollment": 30,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Drug Resistant Epilepsy",
+    "Healthy Controls"
+   ],
+   "countries": [
+    "France"
+   ],
+   "summary": "Dravet Syndrome (DS) is a severe neurodevelopmental disease, which is predominantly caused by mutations of SCN1A, the gene coding for Nav1.1 voltage-gated sodium channels. DS is characterized by infancy onset, severe cognitive deficit and drug-resistant seizures, including several generalized convulsive seizures per day and frequent status epilepticus, often triggered by fever or hyperthermia. Among the causes of premature deaths in patients with epilepsy, sudden and unexpected death in epilepsy (SUDEP) represents a major cause. SUDEP is a non-traumatic and non-drowning death in patients with ",
+   "url": "https://clinicaltrials.gov/study/NCT07013331"
+  },
+  {
+   "id": "NCT:NCT06872125",
+   "type": "Study",
+   "name": "A Double-blind Study Evaluating the Efficacy, Safety, and Tolerability of Zorevunersen in Patients With Dravet Syndrome",
+   "nct": "NCT06872125",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-06-04",
+   "sponsor": "Stoke Therapeutics, Inc",
+   "enrollment": 170,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "China",
+    "France",
+    "Germany",
+    "Italy",
+    "Japan",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "The purpose of the study is to evaluate the efficacy, safety, and tolerability of zorevunersen in Patients with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT06872125"
+  },
+  {
+   "id": "INT:zorevunersen",
+   "type": "Intervention",
+   "name": "Zorevunersen",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT07251673",
+   "type": "Study",
+   "name": "Longitudinal Study of Phenotypic and Developmental Severity in Patients With Dravet Syndrome With SCN1A Gene Mutation",
+   "nct": "NCT07251673",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2025-09-15",
+   "sponsor": "Assistance Publique - Hôpitaux de Paris",
+   "enrollment": 50,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "France"
+   ],
+   "summary": "Dravet syndrome with SCN1A gene mutation is a developmental and epileptic encephalopathy characterized by treatment-resistant epilepsy and global developmental delay.\n\nDespite the considerable attention recently Dravet syndrome (DS) in drug development, studies characterising the progression of the neurodevelopmental phenotype over time remain limited. In particular, many previous studies of natural history studies have been of short duration or have focused only on a subgroup of the paediatric population.\n\nThis prospective natural history study is being conducted to define more precisely the ",
+   "url": "https://clinicaltrials.gov/study/NCT07251673"
+  },
+  {
+   "id": "NCT:NCT07675746",
+   "type": "Study",
+   "name": "A Study to Evaluate the Safety and Pharmacokinetics of RC001 in Children With Dravet Syndrome",
+   "nct": "NCT07675746",
+   "status": "RECRUITING",
+   "phases": [
+    "EARLY_PHASE1"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-12-22",
+   "sponsor": "Second Affiliated Hospital of Guangzhou Medical University",
+   "enrollment": 8,
+   "conditions": [
+    "Dravet Syndrome (DS)"
+   ],
+   "countries": [
+    "China"
+   ],
+   "summary": "This is an open-label, single-center study to evaluate the safety, tolerability, pharmacokinetics, and preliminary efficacy of intrathecal RC001 in patients with Dravet syndrome aged 2 to 18 years. The study includes a dose-escalation part followed by a fixed dose treatment part, with participant progression based on investigator-assessed safety and efficacy.",
+   "url": "https://clinicaltrials.gov/study/NCT07675746"
+  },
+  {
+   "id": "INT:rc001",
+   "type": "Intervention",
+   "name": "RC001",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT05419492",
+   "type": "Study",
+   "name": "A Clinical Study to Evaluate the Safety and Efficacy of ETX101 in Infants and Children With SCN1A-Positive Dravet Syndrome",
+   "nct": "NCT05419492",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-05-14",
+   "sponsor": "Encoded Therapeutics",
+   "enrollment": 47,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "ENDEAVOR is a Phase 1/2, 2-part, multicenter study to evaluate the safety and efficacy of ETX101 in participants with SCN1A-positive Dravet syndrome aged ≥6 to \\<36 months (Part 1A), aged ≥48 months to \\<18 years (Part 1B), and aged ≥6 to \\<48 months (Part 2). Part 1A follows an open-label, dose-escalation design, Part 1B follows an open-label design, and Part 2 is a randomized, double-blind, sham delayed-treatment control study.",
+   "url": "https://clinicaltrials.gov/study/NCT05419492"
+  },
+  {
+   "id": "INT:etx101",
+   "type": "Intervention",
+   "name": "ETX101",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT06598449",
+   "type": "Study",
+   "name": "Assessment of Safety of the Use of Fenfluramine in Children With Dravet Syndrome Under 24 Months of Age",
+   "nct": "NCT06598449",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-10-22",
+   "sponsor": "University of Colorado, Denver",
+   "enrollment": 5,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Children Under 2 Years"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "Dravet syndrome is a genetic epilepsy associated with pathogenic variants in SCN1A that codes for Nav1.1, a protein necessary for sodium channels. Children with Dravet syndrome classically present in the first year of life with prolonged seizures, often hemiclonic and in the setting of fever or temperature changes such as getting in or out of bath water. Many anti-seizure medications are sodium channel blockers and exacerbate seizures in this patient population. This creates some limitations in medication choices for this patient population. Recently fenfluramine was approved for use in Dravet",
+   "url": "https://clinicaltrials.gov/study/NCT06598449"
+  },
+  {
+   "id": "NCT:NCT05651204",
+   "type": "Study",
+   "name": "GABA Biomarkers in Dravet Syndrome",
+   "nct": "NCT05651204",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2022-09-08",
+   "sponsor": "Cook Children's Health Care System",
+   "enrollment": 36,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study will non-invasively obtain levels of GABA in the brain of children with SCN1A+DS and neurodeveloping children through evoked and induced cortical responses, correlate them with the BOLD responses, and with the levels of GABA in their blood.",
+   "url": "https://clinicaltrials.gov/study/NCT05651204"
+  },
+  {
+   "id": "ORG:nord:epilepsy-foundation",
+   "type": "PatientOrg",
+   "name": "Epilepsy Foundation",
+   "url": "https://www.epilepsy.com/",
+   "nord_url": "https://rarediseases.org/organizations/epilepsy-foundation/",
+   "description": "The Epilepsy Foundation (formerly the Epilepsy Foundation of America) is a non-profit organization with the goal of ensuring that people with seizures are able to participate in all life experiences. It has programs of research, education, advocacy and services. Established in 1968, the foundation has national offices in metropolitan Washington, DC, and a network of local affiliated foundations with offices in about 100 communities. National programs include a toll-free information service, information-rich website, research grants and fellowships, legal and legislative advocacy programs, Epilepsy Gene Discover Project, women’s health initiative, and career choice and employment assistance. ",
+   "org_kind": "Patient organisation",
+   "directory": "NORD"
+  },
+  {
+   "id": "ORG:nord:php-parents-helping-parents-inc",
+   "type": "PatientOrg",
+   "name": "PHP – Parents Helping Parents, Inc.",
+   "url": "https://www.php.com",
+   "nord_url": "https://rarediseases.org/organizations/php-parents-helping-parents-inc/",
+   "description": "The PHP – Parents Helping Parents, Inc., is a multifaceted, comprehensive, non-profit, parent-directed family resource center dedicated to assisting children with any type of special need (mental, physical, emotional, or learning disability). The organization was founded in 1976 as a parent support group, but now parent support is only one of numerous services offered by this organization. The mission of the center is to help children with special needs receive love, hope, respect, and services needed to achieve their full potential by strengthening their families and the professionals who serve them. This mission is attained through well informed, supportive, assertive, and caring families;",
+   "org_kind": "Patient organisation",
+   "directory": "NORD"
+  },
+  {
+   "id": "ORG:nord:american-epilepsy-society",
+   "type": "PatientOrg",
+   "name": "American Epilepsy Society",
+   "url": "https://www.aesnet.org",
+   "nord_url": "https://rarediseases.org/organizations/american-epilepsy-society/",
+   "description": "The American Epilepsy Society (AES) is a non-profit professional society dedicated to supporting individuals affected by epilepsy through research, education, and advocacy. Epilepsy is a group of disorders characterized by episodes of uncontrolled electrical disturbances in the brain. Established in 1936, the American Epilepsy Society, one of the oldest neurological professional organizations in the United States, currently consists of approximately 1,850 members including clinicians, scientists investigating basic and clinical aspects of epilepsy, and other professionals interested in seizure disorders. The Society offers a variety of services including providing information on the latest p",
+   "org_kind": "Patient organisation",
+   "directory": "NORD"
+  },
+  {
+   "id": "ORG:nord:international-league-against-epilepsy",
+   "type": "PatientOrg",
+   "name": "International League Against Epilepsy",
+   "url": "https://www.ilae.org/",
+   "nord_url": "https://rarediseases.org/organizations/international-league-against-epilepsy/",
+   "description": "The International League Against Epilepsy (ILAE) is a non-profit organization whose mission is to ensure that health professionals, patients and their care providers, governments, and the public world-wide have the educational and research resources that are essential in understanding, diagnosing and treating persons with epilepsy. The ILAE is the world’s preeminent association of physicians and other health professionals working towards a world where no persons’ life is limited by Epilepsy. Epilepsy is a group of disorders of the central nervous system characterized by repeated convulsive (paroxysomal) electrical disturbances in the brain. The major symptoms may include loss of consciousnes",
+   "org_kind": "Patient organisation",
+   "directory": "NORD"
+  },
+  {
+   "id": "ORG:nord:dravet-syndrome-foundation-inc",
+   "type": "PatientOrg",
+   "name": "Dravet Syndrome Foundation, Inc.",
+   "url": "https://www.dravetfoundation.org/",
+   "nord_url": "https://rarediseases.org/organizations/dravet-syndrome-foundation-inc/",
+   "description": "The Dravet Syndrome Foundation (DSF) is a volunteer-based, non-profit organization dedicated to raising research funds for Dravet syndrome and related conditions. Dravet syndrome is a rare and catastrophic form of epilepsy beginning in childhood.",
+   "org_kind": "Patient organisation",
+   "directory": "NORD"
+  },
+  {
+   "id": "ORG:nord:intractable-childhood-epilepsy-alliance",
+   "type": "PatientOrg",
+   "name": "Intractable Childhood Epilepsy Alliance",
+   "url": "https://rarediseases.org/organizations/intractable-childhood-epilepsy-alliance/",
+   "nord_url": "https://rarediseases.org/organizations/intractable-childhood-epilepsy-alliance/",
+   "description": "",
+   "org_kind": "Patient organisation",
+   "directory": "NORD"
+  },
+  {
+   "id": "ORG:rareconnect:dravet-syndrome",
+   "type": "PatientOrg",
+   "name": "Dravet Syndrome",
+   "url": "https://www.rareconnect.org/en/community/dravet-syndrome",
+   "description": "Dravet Syndrome is one of the most catastrophic epilepsies and is a rare neurological condition causing severe, difficult to control seizures alongside developmental delay. \n\nSource: Participating patient organizations visible below",
+   "members": 335,
+   "org_kind": "Online patient community",
+   "directory": "RareConnect (EURORDIS)"
+  },
+  {
+   "id": "NIH:F31NS143195",
+   "type": "Grant",
+   "name": "The Nigrotegmental Circuit in an Scn1a+/- Mouse Model of Dravet Syndrome",
+   "project_num": "5F31NS143195-02",
+   "fiscal_year": 2026,
+   "award_amount": 44214,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+   "city": "ANN ARBOR",
+   "country": "UNITED STATES",
+   "start": "2025-09-01",
+   "end": "2028-01-31",
+   "url": "https://reporter.nih.gov/project-details/11416328"
+  },
+  {
+   "id": "RES:nih:79288255",
+   "type": "Researcher",
+   "name": "Chandni  Rana",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 79288255,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "NIH:K08NS121464",
+   "type": "Grant",
+   "name": "Cortico-hippocampal circuit dysfunction in an Scn1a mouse model of epilepsy",
+   "project_num": "5K08NS121464-05",
+   "fiscal_year": 2025,
+   "award_amount": 189540,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+   "city": "ANN ARBOR",
+   "country": "UNITED STATES",
+   "start": "2022-07-01",
+   "end": "2026-06-30",
+   "url": "https://reporter.nih.gov/project-details/11112329"
+  },
+  {
+   "id": "RES:nih:9239549",
+   "type": "Researcher",
+   "name": "Joanna H Mattis",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9239549,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "NIH:R01HL178516",
+   "type": "Grant",
+   "name": "Neuro-cardiac Mechanisms of Sudden Unexpected Death in Epilepsy",
+   "project_num": "1R01HL178516-01A1",
+   "fiscal_year": 2026,
+   "award_amount": 765515,
+   "institute": "NHLBI",
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+   "city": "ANN ARBOR",
+   "country": "UNITED STATES",
+   "start": "2026-05-01",
+   "end": "2030-03-31",
+   "url": "https://reporter.nih.gov/project-details/11291899"
+  },
+  {
+   "id": "RES:nih:1904093",
+   "type": "Researcher",
+   "name": "Lori L. Isom",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1904093,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "RES:nih:8429397",
+   "type": "Researcher",
+   "name": "Erica Sawyer Levitt",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8429397,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "RES:nih:1869803",
+   "type": "Researcher",
+   "name": "Jack M Parent",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1869803,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "NIH:R01NS110869",
+   "type": "Grant",
+   "name": "Interneuron axonopathy underlies circuit dysfunction in a mouse model of Dravet syndrome",
+   "project_num": "5R01NS110869-07",
+   "fiscal_year": 2026,
+   "award_amount": 674970,
+   "institute": "NINDS",
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2019-04-15",
+   "end": "2029-12-31",
+   "url": "https://reporter.nih.gov/project-details/11249243"
+  },
+  {
+   "id": "RES:nih:6730187",
+   "type": "Researcher",
+   "name": "Ethan M Goldberg",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 6730187,
+   "organization": "CHILDREN'S HOSP OF PHILADELPHIA"
+  },
+  {
+   "id": "NIH:R01NS138455",
+   "type": "Grant",
+   "name": "Neuron-specific modulation of gene expression using systemically administered bispecific antibody-ASO conjugates",
+   "project_num": "5R01NS138455-03",
+   "fiscal_year": 2026,
+   "award_amount": 599383,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+   "city": "ANN ARBOR",
+   "country": "UNITED STATES",
+   "start": "2024-07-01",
+   "end": "2029-05-31",
+   "url": "https://reporter.nih.gov/project-details/11357642"
+  },
+  {
+   "id": "RES:nih:9347209",
+   "type": "Researcher",
+   "name": "Peter M Tessier",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9347209,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "RES:nih:10215891",
+   "type": "Researcher",
+   "name": "Greg  Thurber",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 10215891,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "NIH:R01NS134938",
+   "type": "Grant",
+   "name": "Poison exons in epilepsy and neurodevelopment",
+   "project_num": "5R01NS134938-03",
+   "fiscal_year": 2026,
+   "award_amount": 573486,
+   "institute": "NINDS",
+   "organization": "NORTHWESTERN UNIVERSITY",
+   "city": "CHICAGO",
+   "country": "UNITED STATES",
+   "start": "2024-06-01",
+   "end": "2029-05-31",
+   "url": "https://reporter.nih.gov/project-details/11381751"
+  },
+  {
+   "id": "RES:nih:11230297",
+   "type": "Researcher",
+   "name": "Gemma Louise Carvill",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 11230297,
+   "organization": "NORTHWESTERN UNIVERSITY"
+  },
+  {
+   "id": "HGNC_GROUP:1203",
+   "type": "GeneGroup",
+   "name": "Sodium voltage-gated channel alpha subunits",
+   "url": "https://www.genenames.org/data/genegroup/#!/group/1203"
+  }
+ ],
+ "edges": [
+  {
+   "id": "STUDIES:NCT:NCT07377032->MONDO:0014505",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07377032",
+   "target": "MONDO:0014505",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN2B"
+  },
+  {
+   "id": "TESTS:NCT:NCT07377032->INT:l-serine",
+   "rel": "TESTS",
+   "source": "NCT:NCT07377032",
+   "target": "INT:l-serine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01238250->MONDO:0014505",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01238250",
+   "target": "MONDO:0014505",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN2B"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21MH135589->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21MH135589",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:16091247->NIH:R21MH135589",
+   "rel": "LEADS",
+   "source": "RES:nih:16091247",
+   "target": "NIH:R21MH135589",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8746379->NIH:R21MH135589",
+   "rel": "LEADS",
+   "source": "RES:nih:8746379",
+   "target": "NIH:R21MH135589",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R35NS111619->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:R35NS111619",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:1887223->NIH:R35NS111619",
+   "rel": "LEADS",
+   "source": "RES:nih:1887223",
+   "target": "NIH:R35NS111619",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01AG078660->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01AG078660",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:9555676->NIH:R01AG078660",
+   "rel": "LEADS",
+   "source": "RES:nih:9555676",
+   "target": "NIH:R01AG078660",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21HD113986->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21HD113986",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:11731789->NIH:R21HD113986",
+   "rel": "LEADS",
+   "source": "RES:nih:11731789",
+   "target": "NIH:R21HD113986",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:ZIANS002994->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIANS002994",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:9416896->NIH:ZIANS002994",
+   "rel": "LEADS",
+   "source": "RES:nih:9416896",
+   "target": "NIH:ZIANS002994",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:ZIAHD001205->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIAHD001205",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:2415438->NIH:ZIAHD001205",
+   "rel": "LEADS",
+   "source": "RES:nih:2415438",
+   "target": "NIH:ZIAHD001205",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:4586->HGNC_GROUP:1201",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:4586",
+   "target": "HGNC_GROUP:1201",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07377032->MONDO:0013655",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07377032",
+   "target": "MONDO:0013655",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN1"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01238250->MONDO:0013655",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01238250",
+   "target": "MONDO:0013655",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN1"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31NS139688->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31NS139688",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "LEADS:RES:nih:79132985->NIH:F31NS139688",
+   "rel": "LEADS",
+   "source": "RES:nih:79132985",
+   "target": "NIH:F31NS139688",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R35NS111619->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:R35NS111619",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01MH138995->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01MH138995",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "LEADS:RES:nih:1875140->NIH:R01MH138995",
+   "rel": "LEADS",
+   "source": "RES:nih:1875140",
+   "target": "NIH:R01MH138995",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:1910405->NIH:R01MH138995",
+   "rel": "LEADS",
+   "source": "RES:nih:1910405",
+   "target": "NIH:R01MH138995",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31NS145927->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31NS145927",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "LEADS:RES:nih:78256992->NIH:F31NS145927",
+   "rel": "LEADS",
+   "source": "RES:nih:78256992",
+   "target": "NIH:F31NS145927",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:ZIAAG000928->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIAAG000928",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "LEADS:RES:nih:9691131->NIH:ZIAAG000928",
+   "rel": "LEADS",
+   "source": "RES:nih:9691131",
+   "target": "NIH:ZIAAG000928",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21MH134420->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21MH134420",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "LEADS:RES:nih:1890382->NIH:R21MH134420",
+   "rel": "LEADS",
+   "source": "RES:nih:1890382",
+   "target": "NIH:R21MH134420",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:4584->HGNC_GROUP:1201",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:4584",
+   "target": "HGNC_GROUP:1201",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07377032->MONDO:0017325",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07377032",
+   "target": "MONDO:0017325",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN2A"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01238250->MONDO:0017325",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01238250",
+   "target": "MONDO:0017325",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN2A"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21MH132035->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21MH132035",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:7836737->NIH:R21MH132035",
+   "rel": "LEADS",
+   "source": "RES:nih:7836737",
+   "target": "NIH:R21MH132035",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31NS113530->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31NS113530",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:14834094->NIH:F31NS113530",
+   "rel": "LEADS",
+   "source": "RES:nih:14834094",
+   "target": "NIH:F31NS113530",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R35NS111619->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R35NS111619",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01MH134466->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01MH134466",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:1982839->NIH:R01MH134466",
+   "rel": "LEADS",
+   "source": "RES:nih:1982839",
+   "target": "NIH:R01MH134466",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8711227->NIH:R01MH134466",
+   "rel": "LEADS",
+   "source": "RES:nih:8711227",
+   "target": "NIH:R01MH134466",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01HL188006->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01HL188006",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:10513865->NIH:R01HL188006",
+   "rel": "LEADS",
+   "source": "RES:nih:10513865",
+   "target": "NIH:R01HL188006",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01MH138995->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01MH138995",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:4585->HGNC_GROUP:1201",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:4585",
+   "target": "HGNC_GROUP:1201",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07377032->MONDO:0014947",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07377032",
+   "target": "MONDO:0014947",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN2D"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01238250->MONDO:0014947",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01238250",
+   "target": "MONDO:0014947",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene GRIN2D"
+  },
+  {
+   "id": "RESEARCHES:NIH:R35NS111619->HGNC:4588",
+   "rel": "RESEARCHES",
+   "source": "NIH:R35NS111619",
+   "target": "HGNC:4588",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2D"
+  },
+  {
+   "id": "RESEARCHES:NIH:ZIAHD001205->HGNC:4588",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIAHD001205",
+   "target": "HGNC:4588",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2D"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31AA029946->HGNC:4588",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31AA029946",
+   "target": "HGNC:4588",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2D"
+  },
+  {
+   "id": "LEADS:RES:nih:16147885->NIH:F31AA029946",
+   "rel": "LEADS",
+   "source": "RES:nih:16147885",
+   "target": "NIH:F31AA029946",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:4588->HGNC_GROUP:1201",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:4588",
+   "target": "HGNC_GROUP:1201",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06625112->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06625112",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06555965->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06555965",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01238250->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01238250",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06356233->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06356233",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04937062->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04937062",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "TESTS:NCT:NCT04937062->INT:glycerol-phenylbutyrate",
+   "rel": "TESTS",
+   "source": "NCT:NCT04937062",
+   "target": "INT:glycerol-phenylbutyrate",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05161494->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05161494",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05232630->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05232630",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "TESTS:NCT:NCT05232630->INT:fenfluramine",
+   "rel": "TESTS",
+   "source": "NCT:NCT05232630",
+   "target": "INT:fenfluramine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06983158->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06983158",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
+  },
+  {
+   "id": "TESTS:NCT:NCT06983158->INT:gene-therapy",
+   "rel": "TESTS",
+   "source": "NCT:NCT06983158",
+   "target": "INT:gene-therapy",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0012812->ORG:rareconnect:STXBP1",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0012812",
+   "target": "ORG:rareconnect:STXBP1",
+   "source_name": "RareConnect",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "community name matches the disease"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31NS141322->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31NS141322",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:78265993->NIH:F31NS141322",
+   "rel": "LEADS",
+   "source": "RES:nih:78265993",
+   "target": "NIH:F31NS141322",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS127830->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS127830",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:15318049->NIH:R01NS127830",
+   "rel": "LEADS",
+   "source": "RES:nih:15318049",
+   "target": "NIH:R01NS127830",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS131512->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS131512",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:15318049->NIH:R01NS131512",
+   "rel": "LEADS",
+   "source": "RES:nih:15318049",
+   "target": "NIH:R01NS131512",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS116747->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS116747",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:9349014->NIH:R01NS116747",
+   "rel": "LEADS",
+   "source": "RES:nih:9349014",
+   "target": "NIH:R01NS116747",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:U24NS120854->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:U24NS120854",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:15318049->NIH:U24NS120854",
+   "rel": "LEADS",
+   "source": "RES:nih:15318049",
+   "target": "NIH:U24NS120854",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:2048128->NIH:U24NS120854",
+   "rel": "LEADS",
+   "source": "RES:nih:2048128",
+   "target": "NIH:U24NS120854",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:78610744->NIH:U24NS120854",
+   "rel": "LEADS",
+   "source": "RES:nih:78610744",
+   "target": "NIH:U24NS120854",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS096976->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS096976",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:1932549->NIH:R01NS096976",
+   "rel": "LEADS",
+   "source": "RES:nih:1932549",
+   "target": "NIH:R01NS096976",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:11444->HGNC_GROUP:3908",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:11444",
+   "target": "HGNC_GROUP:3908",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05249556->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05249556",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT05249556->INT:ganaxolone",
+   "rel": "TESTS",
+   "source": "NCT:NCT05249556",
+   "target": "INT:ganaxolone",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05064878->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05064878",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT05064878->INT:fenfluramine",
+   "rel": "TESTS",
+   "source": "NCT:NCT05064878",
+   "target": "INT:fenfluramine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06447675->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06447675",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06663163->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06663163",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03572933->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03572933",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT03572933->INT:ganaxolone",
+   "rel": "TESTS",
+   "source": "NCT:NCT03572933",
+   "target": "INT:ganaxolone",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02705677->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02705677",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02758626->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02758626",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT02758626->INT:ataluren",
+   "rel": "TESTS",
+   "source": "NCT:NCT02758626",
+   "target": "INT:ataluren",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02738281->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02738281",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31EY035937->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31EY035937",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:78215060->NIH:F31EY035937",
+   "rel": "LEADS",
+   "source": "RES:nih:78215060",
+   "target": "NIH:F31EY035937",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:K08AI163377->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:K08AI163377",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:10095042->NIH:K08AI163377",
+   "rel": "LEADS",
+   "source": "RES:nih:10095042",
+   "target": "NIH:K08AI163377",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:U01NS114312->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:U01NS114312",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:1866075->NIH:U01NS114312",
+   "rel": "LEADS",
+   "source": "RES:nih:1866075",
+   "target": "NIH:U01NS114312",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:14733010->NIH:U01NS114312",
+   "rel": "LEADS",
+   "source": "RES:nih:14733010",
+   "target": "NIH:U01NS114312",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:7031102->NIH:U01NS114312",
+   "rel": "LEADS",
+   "source": "RES:nih:7031102",
+   "target": "NIH:U01NS114312",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:1879953->NIH:U01NS114312",
+   "rel": "LEADS",
+   "source": "RES:nih:1879953",
+   "target": "NIH:U01NS114312",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:F32NS131252->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:F32NS131252",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:14573634->NIH:F32NS131252",
+   "rel": "LEADS",
+   "source": "RES:nih:14573634",
+   "target": "NIH:F32NS131252",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:K23NS107646->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:K23NS107646",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:12019939->NIH:K23NS107646",
+   "rel": "LEADS",
+   "source": "RES:nih:12019939",
+   "target": "NIH:K23NS107646",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21NS126914->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21NS126914",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:8228947->NIH:R21NS126914",
+   "rel": "LEADS",
+   "source": "RES:nih:8228947",
+   "target": "NIH:R21NS126914",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:2403733->NIH:R21NS126914",
+   "rel": "LEADS",
+   "source": "RES:nih:2403733",
+   "target": "NIH:R21NS126914",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:11411->HGNC_GROUP:1491",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:11411",
+   "target": "HGNC_GROUP:1491",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:11411->HGNC_GROUP:3786",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:11411",
+   "target": "HGNC_GROUP:3786",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07112365->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07112365",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT07112365->INT:fenfluramine",
+   "rel": "TESTS",
+   "source": "NCT:NCT07112365",
+   "target": "INT:fenfluramine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07013331->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07013331",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06872125->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06872125",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06872125->INT:zorevunersen",
+   "rel": "TESTS",
+   "source": "NCT:NCT06872125",
+   "target": "INT:zorevunersen",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07251673->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07251673",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07675746->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07675746",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT07675746->INT:rc001",
+   "rel": "TESTS",
+   "source": "NCT:NCT07675746",
+   "target": "INT:rc001",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05419492->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05419492",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05419492->INT:etx101",
+   "rel": "TESTS",
+   "source": "NCT:NCT05419492",
+   "target": "INT:etx101",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06598449->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06598449",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06598449->INT:fenfluramine",
+   "rel": "TESTS",
+   "source": "NCT:NCT06598449",
+   "target": "INT:fenfluramine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05651204->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05651204",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:epilepsy-foundation",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:nord:epilepsy-foundation",
+   "source_name": "NORD",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "listed on the NORD disease report"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:php-parents-helping-parents-inc",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:nord:php-parents-helping-parents-inc",
+   "source_name": "NORD",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "listed on the NORD disease report"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:american-epilepsy-society",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:nord:american-epilepsy-society",
+   "source_name": "NORD",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "listed on the NORD disease report"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:international-league-against-epilepsy",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:nord:international-league-against-epilepsy",
+   "source_name": "NORD",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "listed on the NORD disease report"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:dravet-syndrome-foundation-inc",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:nord:dravet-syndrome-foundation-inc",
+   "source_name": "NORD",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "listed on the NORD disease report"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:intractable-childhood-epilepsy-alliance",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:nord:intractable-childhood-epilepsy-alliance",
+   "source_name": "NORD",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "listed on the NORD disease report"
+  },
+  {
+   "id": "REPRESENTED_BY:MONDO:0100135->ORG:rareconnect:dravet-syndrome",
+   "rel": "REPRESENTED_BY",
+   "source": "MONDO:0100135",
+   "target": "ORG:rareconnect:dravet-syndrome",
+   "source_name": "RareConnect",
+   "source_tier": 3,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "community name matches the disease"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31NS143195->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31NS143195",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:79288255->NIH:F31NS143195",
+   "rel": "LEADS",
+   "source": "RES:nih:79288255",
+   "target": "NIH:F31NS143195",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:K08NS121464->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:K08NS121464",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:9239549->NIH:K08NS121464",
+   "rel": "LEADS",
+   "source": "RES:nih:9239549",
+   "target": "NIH:K08NS121464",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01HL178516->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01HL178516",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:1904093->NIH:R01HL178516",
+   "rel": "LEADS",
+   "source": "RES:nih:1904093",
+   "target": "NIH:R01HL178516",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8429397->NIH:R01HL178516",
+   "rel": "LEADS",
+   "source": "RES:nih:8429397",
+   "target": "NIH:R01HL178516",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:1869803->NIH:R01HL178516",
+   "rel": "LEADS",
+   "source": "RES:nih:1869803",
+   "target": "NIH:R01HL178516",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS110869->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS110869",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:6730187->NIH:R01NS110869",
+   "rel": "LEADS",
+   "source": "RES:nih:6730187",
+   "target": "NIH:R01NS110869",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS138455->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS138455",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:9347209->NIH:R01NS138455",
+   "rel": "LEADS",
+   "source": "RES:nih:9347209",
+   "target": "NIH:R01NS138455",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:10215891->NIH:R01NS138455",
+   "rel": "LEADS",
+   "source": "RES:nih:10215891",
+   "target": "NIH:R01NS138455",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS134938->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS134938",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:11230297->NIH:R01NS134938",
+   "rel": "LEADS",
+   "source": "RES:nih:11230297",
+   "target": "NIH:R01NS134938",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "MEMBER_OF:HGNC:10585->HGNC_GROUP:1203",
+   "rel": "MEMBER_OF",
+   "source": "HGNC:10585",
+   "target": "HGNC_GROUP:1203",
+   "source_name": "HGNC",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "HGNC gene group membership"
+  }
+ ],
+ "disease_props": {
+  "MONDO:0014505": {
+   "gard_id": "0016063",
+   "reading": [
+    {
+     "pmid": "38999185",
+     "title": "In Silico Methods for the Discovery of Kv7.2/7.3 Channels Modulators: A Comprehensive Review.",
+     "year": "2024",
+     "journal": "Molecules (Basel, Switzerland)"
+    },
+    {
+     "pmid": "32167590",
+     "title": "KCNT1-related epilepsy: An international multicenter cohort of 27 pediatric cases.",
+     "year": "2020",
+     "journal": "Epilepsia"
+    },
+    {
+     "pmid": "31721175",
+     "title": "Sorting nexin 27 (SNX27) variants associated with seizures, developmental delay, behavioral disturbance, and subcortical brain abnormalities.",
+     "year": "2020",
+     "journal": "Clinical genetics"
+    }
+   ]
+  },
+  "MONDO:0013655": {
+   "gard_id": "0013686",
+   "reading": [
+    {
+     "pmid": "42829253",
+     "title": "Caregiver's perspectives toward genome sequencing in children with neurodevelopmental disorders: Integrating genomic information into pediatric care.",
+     "year": "2026",
+     "journal": "Current problems in pediatric and adolescent health care"
+    },
+    {
+     "pmid": "42829212",
+     "title": "Phenotypic and genetic characteristics of children with developmental delay or intellectual disability: a cohort from Northwest China.",
+     "year": "2026",
+     "journal": "BMJ paediatrics open"
+    },
+    {
+     "pmid": "42829165",
+     "title": "Trajectory of maternal perinatal negative psychological states and its association with early offspring neurodevelopment: A longitudinal cohort study.",
+     "year": "2026",
+     "journal": "Journal of affective disorders"
+    }
+   ]
+  },
+  "MONDO:0017325": {
+   "gard_id": "0021134",
+   "reading": []
+  },
+  "MONDO:0014947": {
+   "gard_id": "0016205",
+   "reading": [
+    {
+     "pmid": "38565507",
+     "title": "[Correlation between clinical phenotypes and genotypes among 46 children with SCN1A-related developmental epileptic encephalopathy].",
+     "year": "2024",
+     "journal": "Zhonghua yi xue yi chuan xue za zhi = Zhonghua yixue yichuanxue zazhi = Chinese journal of medical genetics"
+    },
+    {
+     "pmid": "24823731",
+     "title": "Infantile spasms in a boy with an abnormal karyotype (46, XY, der(9)t(7;9)(p15;p22)pat).",
+     "year": "2014",
+     "journal": "Neurology India"
+    }
+   ]
+  },
+  "MONDO:0012812": {
+   "gard_id": "0012900",
+   "reading": [
+    {
+     "pmid": "42793026",
+     "title": "Clinical, Neuroimaging, and Molecular Characterization of a Juvenile PLAN-like Phenotype in Two Siblings Carrying p.Arg645Gln and an Unresolved Exon 4-7 Copy-Number Gain: A Case Report.",
+     "year": "2026",
+     "journal": "Genes"
+    },
+    {
+     "pmid": "42650175",
+     "title": "4-Phenylbutyrate Plus Wildtype GAT-1 Augmentation: A Dual Therapy to Rescue SLC6A1 Variant-Associated Developmental and Epileptic Encephalopathy.",
+     "year": "2026",
+     "journal": "Genes"
+    },
+    {
+     "pmid": "42607618",
+     "title": "Neurocognitive functioning in long-term survivors of glioblastoma, IDH-wildtype and astrocytoma, IDH-mutant, CNS WHO grade 4: A report from EORTC 1419 (ETERNITY).",
+     "year": "2026",
+     "journal": "European journal of cancer (Oxford, England : 1990)"
+    }
+   ]
+  },
+  "MONDO:0010396": {
+   "gard_id": "0018617",
+   "reading": []
+  },
+  "MONDO:0100135": {
+   "gard_id": "0010430",
+   "reading": [
+    {
+     "pmid": "24254932",
+     "title": "Antiepileptic drugs for the treatment of severe myoclonic epilepsy in infancy.",
+     "year": "2013",
+     "journal": "The Cochrane database of systematic reviews"
+    },
+    {
+     "pmid": "23622210",
+     "title": "Dravet syndrome (severe myoclonic epilepsy in infancy).",
+     "year": "2013",
+     "journal": "Handbook of clinical neurology"
+    }
+   ]
+  }
+ },
+ "meta": {
+  "retrieved": "2026-10-04",
+  "notes": [
+   "GRIN2B: no NORD organisations (no NORD report found)",
+   "GRIN1: no NORD organisations (no NORD report found)",
+   "GRIN2A: no NORD organisations (no NORD report found)",
+   "GRIN2D: no NORD organisations (no NORD report found)",
+   "STXBP1: no NORD organisations (no NORD report found)",
+   "CDKL5: no NORD organisations (no NORD report found)"
+  ],
+  "sources": [
+   "ClinicalTrials.gov API v2",
+   "NORD (scraper)",
+   "RareConnect (scraper)",
+   "RARe-SOURCE / GARD (scraper)",
+   "NIH RePORTER API v2",
+   "HGNC REST"
+  ]
+ }
+}

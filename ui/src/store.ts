@@ -12,6 +12,8 @@ interface State {
   seeds: Set<string>
   selected: Selection
   minSim: number
+  showBridges: boolean
+  setShowBridges: (v: boolean) => void
   focusTick: number
   layoutTick: number
   setModel: (m: Model) => void
@@ -27,7 +29,7 @@ interface State {
 
 // Phenotypes and variants are detail, not structure: they never appear implicitly
 // (hundreds of them). They are added on request from a card, or to explain a similarity.
-const DETAIL = new Set(['Phenotype', 'Variant', 'Claim', 'Researcher', 'Intervention'])
+const DETAIL = new Set(['Phenotype', 'Variant', 'Claim', 'Researcher', 'Intervention', 'Study', 'Grant', 'PatientOrg'])
 const expandable = (m: Model, id: string) =>
   neighbours(m, id).filter((x) => !DETAIL.has(x.node.type)).map((x) => x.node.id)
 
@@ -38,6 +40,10 @@ const seedSet = (m: Model) => {
     if (n.type !== 'Disease' || n.paper_scoped) continue // paper-only names are not real diseases
     s.add(n.id)
     neighbours(m, n.id, ['Gene', 'Paper', 'Mechanism']).forEach((g) => s.add(g.node.id))
+    // gene families shared by 2+ mapped genes make 'different names, same receptor' visible from the start
+    neighbours(m, n.id, ['Gene']).forEach((g) => neighbours(m, g.node.id, ['GeneGroup']).forEach((x) => {
+      if (neighbours(m, x.node.id, ['Gene']).length > 1) s.add(x.node.id)
+    }))
   }
   return s
 }
@@ -48,6 +54,8 @@ export const useStore = create<State>((set, get) => ({
   seeds: new Set(),
   selected: null,
   minSim: DEFAULT_MIN_SIM,
+  showBridges: true,
+  setShowBridges: (showBridges) => set({ showBridges }),
   focusTick: 0,
   layoutTick: 0,
 
@@ -104,6 +112,11 @@ export const useStore = create<State>((set, get) => ({
     } else {
       expandable(model, id).forEach((x) => next.add(x))
       if (n.type === 'Phenotype') neighbours(model, id, ['Disease']).forEach((d) => next.add(d.node.id))
+    }
+    // never leave a revealed node floating alone: if nothing around it is visible, show its direct links
+    // (e.g. a drug from search brings its trials, which connect to the diseases already on the map)
+    if (!neighbours(model, id).some((x) => next.has(x.node.id))) {
+      neighbours(model, id).slice(0, 12).forEach((x) => next.add(x.node.id))
     }
     set({
       visible: next,

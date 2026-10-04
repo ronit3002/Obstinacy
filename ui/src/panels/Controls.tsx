@@ -9,10 +9,10 @@ const LEVELS = [
   { id: 'moderate', label: 'Moderate+', min: STRENGTH_CUTOFFS.moderate },
   { id: 'strong', label: 'Strong', min: STRENGTH_CUTOFFS.strong },
 ]
-const LEGEND: [string, string][] = [['Disease', 'Disease'], ['Gene', 'Gene'], ['Paper', 'Paper'], ['Phenotype', 'Symptom']]
+const LEGEND: [string, string][] = [['Disease', 'Disease'], ['Gene', 'Gene'], ['GeneGroup', 'Gene family'], ['Paper', 'Paper'], ['Mechanism', 'Mechanism']]
 
 export default function Controls() {
-  const { minSim, setMinSim, reset } = useStore()
+  const { minSim, setMinSim, showBridges, setShowBridges, reset } = useStore()
   const level = minSim >= STRENGTH_CUTOFFS.strong ? 'strong' : minSim >= STRENGTH_CUTOFFS.moderate ? 'moderate' : 'all'
   return (
     <div className="absolute bottom-4 left-4 z-20 flex flex-col items-start gap-2">
@@ -26,6 +26,12 @@ export default function Controls() {
           </button>
         ))}
         <span className="mx-1 h-4 w-px bg-line" />
+        <button onClick={() => setShowBridges(!showBridges)} title="Links from shared gene families, trials, drugs, researchers and patient groups"
+          className={cx('flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[12px] font-medium transition-colors',
+            showBridges ? 'bg-[#7c3aed]/10 text-[#7c3aed]' : 'text-ink-3 hover:text-ink-2')}>
+          <span className="h-[2px] w-3 rounded border-t-2 border-dashed border-current" />Shared assets
+        </button>
+        <span className="mx-1 h-4 w-px bg-line" />
         <button onClick={reset} title="Reset view" className="flex h-7 w-7 items-center justify-center rounded-lg text-ink-2 hover:bg-black/[0.04]">
           <RotateCcw size={14} strokeWidth={2.2} />
         </button>
@@ -37,6 +43,7 @@ export default function Controls() {
           </span>
         ))}
         <span className="flex items-center gap-1.5"><span className="h-[2px] w-4 rounded bg-disease/50" />Similar symptoms</span>
+        <span className="flex items-center gap-1.5"><span className="w-4 border-t-2 border-dashed border-[#7c3aed]/60" />Shared assets</span>
       </div>
     </div>
   )

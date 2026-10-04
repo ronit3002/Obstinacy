@@ -1,6 +1,6 @@
 export type NodeType =
   | 'Disease' | 'Gene' | 'Variant' | 'Mechanism' | 'Phenotype'
-  | 'Paper' | 'Claim' | 'Study' | 'PatientOrg' | 'Registry' | 'Researcher' | 'Intervention'
+  | 'Paper' | 'Claim' | 'Study' | 'PatientOrg' | 'Registry' | 'Researcher' | 'Intervention' | 'Grant' | 'GeneGroup'
 
 export interface GNode {
   id: string

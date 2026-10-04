@@ -80,7 +80,7 @@ function PaperRows({ papers }: { papers: { node: GNode; edge: GEdge }[] }) {
 /** Neighbours of types we don't have data for yet get an honest empty state. */
 function OtherConnections({ n, m }: { n: GNode; m: Model }) {
   const { reveal } = useStore()
-  const groups: [string, string][] = [['Mechanism', 'Mechanisms'], ['PatientOrg', 'Patient groups'], ['Study', 'Studies']]
+  const groups: [string, string][] = [['Mechanism', 'Mechanisms']]
   const nb = neighbours(m, n.id)
   const present = groups.map(([t, title]) => ({ t, title, items: nb.filter((x) => x.node.type === t) })).filter((g) => g.items.length)
   const missing = groups.filter(([t]) => !nb.some((x) => x.node.type === t)).map(([, title]) => title.toLowerCase())
@@ -107,14 +107,116 @@ function OtherConnections({ n, m }: { n: GNode; m: Model }) {
   )
 }
 
+/* ------------------------------------------------------- assets helpers -- */
+
+const TRIAL_STATUS: Record<string, { label: string; color: string }> = {
+  RECRUITING: { label: 'Recruiting', color: '#12b886' },
+  NOT_YET_RECRUITING: { label: 'Not yet recruiting', color: '#2f6bff' },
+  ENROLLING_BY_INVITATION: { label: 'By invitation', color: '#2f6bff' },
+  ACTIVE_NOT_RECRUITING: { label: 'Active', color: '#f59f00' },
+  COMPLETED: { label: 'Completed', color: '#8a94a6' },
+  TERMINATED: { label: 'Terminated', color: '#e03131' },
+  WITHDRAWN: { label: 'Withdrawn', color: '#e03131' },
+  SUSPENDED: { label: 'Suspended', color: '#e03131' },
+}
+const trialStatus = (s: unknown) =>
+  TRIAL_STATUS[String(s)] ?? { label: titleCase(String(s || 'unknown').toLowerCase().replace(/_/g, ' ')), color: '#8a94a6' }
+const phaseText = (p: unknown) => {
+  const ph = (p as string[]) ?? []
+  return ph.length && ph[0] !== 'NA'
+    ? ph.map((x) => x.replace('EARLY_PHASE', 'Early phase ').replace('PHASE', 'Phase ')).join('/')
+    : 'Observational / other'
+}
+const money = (v: unknown) => (typeof v === 'number' && v > 0 ? `$${v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : Math.round(v / 1e3) + 'k'}` : '')
+const isActiveTrial = (n: GNode) =>
+  ['RECRUITING', 'NOT_YET_RECRUITING', 'ENROLLING_BY_INVITATION', 'ACTIVE_NOT_RECRUITING'].includes(String(n.status))
+
+function TrialRows({ trials, limit = 5 }: { trials: GNode[]; limit?: number }) {
+  const { reveal } = useStore()
+  const sorted = [...trials].sort((a, b) => Number(isActiveTrial(b)) - Number(isActiveTrial(a)))
+  return (
+    <More items={sorted} initial={limit} wrap="" render={(t) => {
+      const st = trialStatus(t.status)
+      return (
+        <Row key={t.id} leading={<TypeTile type="Study" />} title={t.name}
+          subtitle={`${phaseText(t.phases)}${t.sponsor ? ' · ' + String(t.sponsor) : ''}`}
+          trailing={<Badge color={st.color}>{st.label}</Badge>} onClick={() => reveal(t.id)} />
+      )
+    }} />
+  )
+}
+
+function OrgRows({ orgs }: { orgs: GNode[] }) {
+  const { reveal } = useStore()
+  return (
+    <>
+      {orgs.map((o) => (
+        <Row key={o.id} leading={<TypeTile type="PatientOrg" />} title={o.name}
+          subtitle={`${String(o.org_kind ?? 'Patient group')} · ${String(o.directory ?? '')}${o.members ? ` · ${o.members} members` : ''}`}
+          onClick={() => reveal(o.id)} />
+      ))}
+    </>
+  )
+}
+
+function GrantRows({ grants, m }: { grants: GNode[]; m: Model }) {
+  const { reveal } = useStore()
+  return (
+    <More items={grants} initial={4} wrap="" render={(g) => {
+      const pis = neighbours(m, g.id, ['Researcher']).map((x) => x.node.name)
+      return (
+        <Row key={g.id} leading={<TypeTile type="Grant" />} title={g.name}
+          subtitle={`${pis.slice(0, 2).join(', ') || 'PI not listed'} · ${String(g.organization ?? '')}`}
+          trailing={<span className="text-[11.5px] tabular-nums text-ink-3">FY{String(g.fiscal_year ?? '')}</span>}
+          onClick={() => reveal(g.id)} />
+      )
+    }} />
+  )
+}
+
+const BRIDGE_KINDS: [string, string, string][] = [
+  ['shared_gene_groups', 'Gene family', 'GeneGroup'],
+  ['shared_studies', 'Same trial or registry', 'Study'],
+  ['shared_interventions', 'Same drug tested', 'Intervention'],
+  ['shared_researchers', 'Same NIH-funded researcher', 'Researcher'],
+  ['shared_orgs', 'Same patient organisation', 'PatientOrg'],
+]
+
+function BridgeRows({ n, m }: { n: GNode; m: Model }) {
+  const { select } = useStore()
+  const bridges = neighbours(m, n.id).filter((x) => x.edge.rel === 'DISEASE_BRIDGE')
+  if (!bridges.length) {
+    return <p className="text-[13px] text-ink-3">No shared gene family, trial, drug, researcher or patient group with another mapped disease.</p>
+  }
+  return (
+    <>
+      {bridges.map(({ node, edge }) => (
+        <Row key={edge.id} leading={<TypeTile type="Disease" />} title={nodeLabel(node)}
+          subtitle={BRIDGE_KINDS.filter(([k]) => ((edge[k] as unknown[]) ?? []).length).map(([, l]) => l).join(' · ')}
+          trailing={<Badge color="#7c3aed">{String(edge.connection_label)}</Badge>}
+          onClick={() => select({ kind: 'edge', id: edge.id })} />
+      ))}
+    </>
+  )
+}
+
+/** A disease's genes -> NIH grants that mention them. */
+const grantsForDisease = (n: GNode, m: Model) =>
+  neighbours(m, n.id, ['Gene']).flatMap((g) => neighbours(m, g.node.id, ['Grant']).map((x) => x.node))
+
 /* --------------------------------------------------------------- disease -- */
 
 function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
   const { reveal, select, addNodes } = useStore()
-  const [tab, setTab] = useState<'overview' | 'connections' | 'sources'>('overview')
+  const [tab, setTab] = useState<'overview' | 'action' | 'connections' | 'sources'>('overview')
   const nb = neighbours(m, n.id)
   const genes = nb.filter((x) => x.node.type === 'Gene')
   const papers = nb.filter((x) => x.node.type === 'Paper')
+  const trials = nb.filter((x) => x.node.type === 'Study').map((x) => x.node)
+  const orgs = nb.filter((x) => x.node.type === 'PatientOrg').map((x) => x.node)
+  const grants = grantsForDisease(n, m)
+  const bridges = nb.filter((x) => x.edge.rel === 'DISEASE_BRIDGE')
+  const reading = (n.reading as { pmid: string; title: string; year: string; journal: string }[]) ?? []
   const similar = nb.filter((x) => x.edge.rel === 'DISEASE_MATCH').sort((a, b) => (b.edge.score as number) - (a.edge.score as number))
   // symptoms that also appear in other diseases are the interesting ones: rank them first
   const symptoms = nb.filter((x) => x.node.type === 'Phenotype').map((x) => ({
@@ -132,14 +234,40 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
       <div className="mt-4 flex gap-2">
         <Stat label="Closest match" value={top ? nodeLabel(top.node) : '—'}
           hint={top ? <span className="inline-flex items-center gap-1.5"><Strength level={strengthOf(top.edge.score as number)} />{String(top.edge.connection_label)}</span> : 'none above threshold'} />
-        <Stat label="Papers" value={papers.length} hint={papers.length ? 'AI-extracted' : 'none linked'} />
+        <Stat label="Trials" value={trials.length} hint={`${trials.filter(isActiveTrial).length} active`} />
+        <Stat label="Groups" value={orgs.length} hint={orgs.length ? 'patient groups' : 'none found'} />
       </div>
 
       <div className="mt-4"><Tabs value={tab} onChange={setTab} tabs={[
-        { id: 'overview', label: 'Overview' }, { id: 'connections', label: 'Connections', count: similar.length },
+        { id: 'overview', label: 'Overview' }, { id: 'action', label: 'Take action' },
+        { id: 'connections', label: 'Links', count: similar.length + bridges.length },
         { id: 'sources', label: 'Sources' }]} /></div>
 
       <div className="mt-2">
+        {tab === 'action' && (
+          <>
+            <Section title="Patient groups & communities" count={orgs.length}>
+              {orgs.length ? <OrgRows orgs={orgs} /> : (
+                <Callout icon={<Info size={16} />} title="No patient group found yet" color="#8a94a6">
+                  None of the directories we searched (NORD, RareConnect) list a group for this disease. That does not
+                  mean none exists: gene-specific foundations are often missing from directories.
+                </Callout>
+              )}
+            </Section>
+            <Section title="Clinical trials & registries" count={trials.length}>
+              {trials.length ? <TrialRows trials={trials} /> : <p className="text-[13px] text-ink-3">No matching study on ClinicalTrials.gov.</p>}
+              <p className="mt-2 text-[11.5px] text-ink-3">From ClinicalTrials.gov. A study counts if its conditions or title name this disease or its gene.</p>
+            </Section>
+            <Section title="Researchers & funding" count={grants.length}>
+              {grants.length ? <GrantRows grants={grants} m={m} /> : <p className="text-[13px] text-ink-3">No recent NIH-funded project mentions this gene.</p>}
+              <p className="mt-2 text-[11.5px] text-ink-3">NIH RePORTER projects (2022–2026) whose text mentions {genes.map((g) => g.node.name).join(', ')}.</p>
+            </Section>
+            <Section title="Shared with other diseases" count={bridges.length}>
+              <BridgeRows n={n} m={m} />
+            </Section>
+          </>
+        )}
+
         {tab === 'overview' && (
           <>
             {about && <Section title="About"><Clamp>{about}</Clamp><p className="mt-2 text-[11.5px] text-ink-3">Definition from MONDO</p></Section>}
@@ -183,6 +311,7 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
                   onClick={() => reveal(g.node.id)} />
               ))}
             </Section>
+            <Section title="Shared assets" count={bridges.length}><BridgeRows n={n} m={m} /></Section>
             {papers.length > 0 && <Section title="Papers" count={papers.length}><PaperRows papers={papers} /></Section>}
             <OtherConnections n={n} m={m} />
           </>
@@ -196,7 +325,26 @@ function DiseaseCard({ n, m }: { n: GNode; m: Model }) {
               <Row leading={<TypeTile type="Phenotype" />} title="Human Phenotype Ontology" subtitle={`${symptoms.length} symptom annotations`} />
               <Row leading={<TypeTile type="Gene" />} title="HGNC" subtitle="Gene identity and aliases" />
               {papers.length > 0 && <Row leading={<TypeTile type="Paper" />} title="PubMed abstracts" subtitle="Claims extracted by an AI model with verbatim evidence" />}
+              <Row leading={<TypeTile type="Study" />} title="ClinicalTrials.gov" subtitle={`${trials.length} studies`} />
+              <Row leading={<TypeTile type="PatientOrg" />} title="NORD · RareConnect" subtitle={`${orgs.length} patient groups`} />
+              <Row leading={<TypeTile type="Grant" />} title="NIH RePORTER" subtitle={`${grants.length} funded projects`} />
             </Section>
+            {reading.length > 0 && (
+              <Section title="Further reading" count={reading.length} defaultOpen={false}>
+                {reading.map((r) => (
+                  <a key={r.pmid} href={`https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`} target="_blank" rel="noreferrer"
+                    className="group -mx-2 flex items-start gap-3 rounded-xl px-2 py-2 hover:bg-subtle">
+                    <TypeTile type="Paper" />
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[13px] leading-snug text-ink">{r.title}</span>
+                      <span className="block text-[11.5px] text-ink-3">{r.journal} · {r.year}</span>
+                    </span>
+                    <ExternalLink size={14} className="mt-1 shrink-0 text-ink-3 group-hover:text-accent" />
+                  </a>
+                ))}
+                <p className="mt-2 text-[11.5px] text-ink-3">Curated references from NIH RARe-SOURCE (GARD {String(n.gard_id ?? '')}).</p>
+              </Section>
+            )}
           </>
         )}
       </div>
@@ -213,6 +361,8 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
   const diseases = nb.filter((x) => x.node.type === 'Disease')
   const variants = nb.filter((x) => x.node.type === 'Variant')
   const claims = nb.filter((x) => x.node.type === 'Claim')
+  const families = nb.filter((x) => x.node.type === 'GeneGroup').map((x) => x.node)
+  const grants = nb.filter((x) => x.node.type === 'Grant').map((x) => x.node)
   const counts = Object.entries((n.variant_counts as Record<string, number>) ?? {}).sort((a, b) => b[1] - a[1])
   const total = counts.reduce((s, [, v]) => s + v, 0) || 1
   const pathogenic = counts.filter(([k]) => /^pathogenic/i.test(k)).reduce((s, [, v]) => s + v, 0)
@@ -233,6 +383,19 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
       <div className="mt-2">
         {tab === 'overview' && (
           <>
+            {families.length > 0 && (
+              <Section title="Gene family" count={families.length}>
+                {families.map((f) => {
+                  const others = neighbours(m, f.id, ['Gene']).filter((x) => x.node.id !== n.id)
+                  return (
+                    <Row key={f.id} leading={<TypeTile type="GeneGroup" />} title={f.name}
+                      subtitle={others.length ? `Also in the atlas: ${others.map((x) => x.node.name).join(', ')}` : 'No other mapped gene in this family'}
+                      onClick={() => reveal(f.id)} />
+                  )
+                })}
+                <p className="mt-2 text-[11.5px] text-ink-3">Curated HGNC gene groups: different gene names that build the same kind of protein.</p>
+              </Section>
+            )}
             {claims.length > 0 && (
               <Section title="What papers say" count={claims.length}>
                 {claims.map((c) => <ClaimRow key={c.node.id} c={c.node} />)}
@@ -269,6 +432,9 @@ function GeneCard({ n, m }: { n: GNode; m: Model }) {
                   onClick={() => reveal(d.node.id)} />
               ))}
               {diseases.length < 2 && <p className="mt-2 text-[11.5px] text-ink-3">No other mapped disease shares this gene.</p>}
+            </Section>
+            <Section title="NIH-funded research" count={grants.length}>
+              {grants.length ? <GrantRows grants={grants} m={m} /> : <p className="text-[13px] text-ink-3">No recent NIH project mentions this gene.</p>}
             </Section>
             <OtherConnections n={n} m={m} />
           </>
@@ -437,6 +603,182 @@ function ClaimCard({ n, m }: { n: GNode; m: Model }) {
   )
 }
 
+/* ------------------------------------------------- assets & communities -- */
+
+function Facts({ rows }: { rows: [string, ReactNode][] }) {
+  return (
+    <>
+      {rows.filter(([, v]) => v !== '' && v !== undefined && v !== null).map(([k, v]) => (
+        <div key={k} className="flex justify-between gap-4 py-1 text-[13px]">
+          <span className="shrink-0 text-ink-3">{k}</span><span className="text-right font-medium text-ink">{v}</span>
+        </div>
+      ))}
+    </>
+  )
+}
+
+function LinkedDiseases({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const ds = neighbours(m, n.id, ['Disease'])
+  return <>{ds.map((d) => (
+    <Row key={d.node.id} leading={<TypeTile type="Disease" />} title={nodeLabel(d.node)}
+      subtitle={String(d.edge.match_reason ?? titleCase(d.node.name))} onClick={() => reveal(d.node.id)} />
+  ))}</>
+}
+
+function StudyCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const st = trialStatus(n.status)
+  const drugs = neighbours(m, n.id, ['Intervention']).map((x) => x.node)
+  const diseases = neighbours(m, n.id, ['Disease'])
+  return (
+    <>
+      <Header n={n} title={n.name} meta={<><Badge color={st.color}>{st.label}</Badge><Badge color="#4f46e5">{phaseText(n.phases)}</Badge></>} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Diseases in atlas" value={diseases.length} />
+        <Stat label="Enrolment" value={n.enrollment ? String(n.enrollment) : '–'} hint="participants" />
+      </div>
+      <div className="mt-3">
+        {typeof n.summary === 'string' && n.summary && <Section title="What this study does"><Clamp>{n.summary}</Clamp></Section>}
+        <Section title="Details">
+          <Facts rows={[
+            ['Sponsor', String(n.sponsor ?? '')], ['Started', String(n.start ?? '')],
+            ['Type', titleCase(String(n.study_type ?? '').toLowerCase())],
+            ['Countries', ((n.countries as string[]) ?? []).slice(0, 6).join(', ')],
+          ]} />
+        </Section>
+        {drugs.length > 0 && (
+          <Section title="Treatment tested" count={drugs.length}>
+            <div className="flex flex-wrap gap-1.5">{drugs.map((d) => <Chip key={d.id} color={TYPE_COLOR.Intervention} onClick={() => reveal(d.id)}>{d.name}</Chip>)}</div>
+          </Section>
+        )}
+        <Section title="Conditions listed" count={((n.conditions as string[]) ?? []).length} defaultOpen={false}>
+          <div className="flex flex-wrap gap-1.5">{((n.conditions as string[]) ?? []).map((c) => <Chip key={c}>{c}</Chip>)}</div>
+        </Section>
+        <Section title="Linked diseases" count={diseases.length}><LinkedDiseases n={n} m={m} /></Section>
+        {diseases.length > 1 && (
+          <Callout icon={<Lightbulb size={16} />} title="A shared asset">
+            This study already includes several of the mapped diseases. Communities can ask the sponsor how its
+            data, protocol or registry could be reused.
+          </Callout>
+        )}
+        <Section title="Source"><SourcesList n={n} /></Section>
+      </div>
+    </>
+  )
+}
+
+function OrgCard({ n, m }: { n: GNode; m: Model }) {
+  return (
+    <>
+      <Header n={n} meta={<><Badge color={TYPE_COLOR.PatientOrg}>{String(n.org_kind ?? 'Patient group')}</Badge><Badge color="#64748b">{String(n.directory ?? '')}</Badge></>} />
+      {n.members ? <div className="mt-4 flex gap-2"><Stat label="Members" value={String(n.members)} hint="on RareConnect" /></div> : null}
+      <div className="mt-3">
+        {typeof n.description === 'string' && n.description && <Section title="About"><Clamp>{n.description}</Clamp></Section>}
+        <Section title="Supports"><LinkedDiseases n={n} m={m} /></Section>
+        <Section title="Contact"><SourcesList n={n} /></Section>
+        <p className="mt-2 text-[11.5px] text-ink-3">Listed in the {String(n.directory ?? '')} directory. Check the organisation’s own site for current details.</p>
+      </div>
+    </>
+  )
+}
+
+function GrantCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const pis = neighbours(m, n.id, ['Researcher'])
+  const genes = neighbours(m, n.id, ['Gene'])
+  return (
+    <>
+      <Header n={n} title={n.name} meta={<><Badge color={TYPE_COLOR.Grant}>{String(n.institute ?? 'NIH')}</Badge><Badge color="#64748b">FY{String(n.fiscal_year ?? '')}</Badge></>} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Latest award" value={money(n.award_amount) || '–'} hint="per year" />
+        <Stat label="Principal investigators" value={pis.length} />
+      </div>
+      <div className="mt-3">
+        <Section title="Who leads it" count={pis.length}>
+          {pis.map((p) => {
+            const otherGrants = neighbours(m, p.node.id, ['Grant']).length - 1
+            return (
+              <Row key={p.node.id} leading={<TypeTile type="Researcher" />} title={p.node.name}
+                subtitle={`${String(p.node.organization ?? n.organization ?? '')}${otherGrants > 0 ? ` · ${otherGrants} more project${otherGrants > 1 ? 's' : ''} in the atlas` : ''}`}
+                onClick={() => reveal(p.node.id)} />
+            )
+          })}
+        </Section>
+        <Section title="Details">
+          <Facts rows={[['Organisation', String(n.organization ?? '')], ['Location', [n.city, n.country].filter(Boolean).join(', ')],
+            ['Project number', String(n.project_num ?? '')], ['Period', [n.start, n.end].filter(Boolean).join(' – ')]]} />
+        </Section>
+        <Section title="Related genes" count={genes.length}>
+          {genes.map((g) => <Row key={g.node.id} leading={<TypeTile type="Gene" />} title={g.node.name} subtitle={String(g.edge.match_reason ?? '')} onClick={() => reveal(g.node.id)} />)}
+        </Section>
+        <Section title="Source"><SourcesList n={n} /></Section>
+      </div>
+    </>
+  )
+}
+
+function GeneGroupCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const genes = neighbours(m, n.id, ['Gene'])
+  const diseases = genes.flatMap((g) => neighbours(m, g.node.id, ['Disease']).map((d) => ({ gene: g.node, d: d.node })))
+  return (
+    <>
+      <Header n={n} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Genes in atlas" value={genes.length} />
+        <Stat label="Diseases" value={diseases.length} />
+      </div>
+      <div className="mt-3">
+        {genes.length > 1 && (
+          <Callout icon={<Lightbulb size={16} />} title="Different names, same building block" color="#7c3aed">
+            These genes all encode parts of the same protein family, so their diseases may share biology and research,
+            even though their names differ.
+          </Callout>
+        )}
+        <Section title="Genes" count={genes.length}>
+          {genes.map((g) => <Row key={g.node.id} leading={<TypeTile type="Gene" />} title={g.node.name} subtitle={String(g.node.full_name ?? '')} onClick={() => reveal(g.node.id)} />)}
+        </Section>
+        <Section title="Diseases" count={diseases.length}>
+          {diseases.map(({ gene, d }) => <Row key={d.id} leading={<TypeTile type="Disease" />} title={nodeLabel(d)} subtitle={`via ${gene.name}`} onClick={() => reveal(d.id)} />)}
+        </Section>
+        <Section title="Source"><SourcesList n={n} /></Section>
+      </div>
+    </>
+  )
+}
+
+function InterventionCard({ n, m }: { n: GNode; m: Model }) {
+  const { reveal } = useStore()
+  const trials = neighbours(m, n.id, ['Study']).map((x) => x.node)
+  const claims = neighbours(m, n.id, ['Claim']).map((x) => x.node)
+  const diseases = new Map<string, GNode>()
+  trials.forEach((t) => neighbours(m, t.id, ['Disease']).forEach((d) => diseases.set(d.node.id, d.node)))
+  return (
+    <>
+      <Header n={n} meta={n.intervention_type ? <Badge color={TYPE_COLOR.Intervention}>{titleCase(String(n.intervention_type))}</Badge> : undefined} />
+      <div className="mt-4 flex gap-2">
+        <Stat label="Trials" value={trials.length} hint={`${trials.filter(isActiveTrial).length} active`} />
+        <Stat label="Diseases" value={diseases.size} hint="in the atlas" />
+      </div>
+      <div className="mt-3">
+        {diseases.size > 1 && (
+          <Callout icon={<Lightbulb size={16} />} title="Tested across communities">
+            This treatment is being studied in several mapped diseases. Results, dosing and safety data from one
+            community’s trial can inform the others.
+          </Callout>
+        )}
+        <Section title="Tested for" count={diseases.size}>
+          {[...diseases.values()].map((d) => <Row key={d.id} leading={<TypeTile type="Disease" />} title={nodeLabel(d)} subtitle={titleCase(d.name)} onClick={() => reveal(d.id)} />)}
+          {!diseases.size && <p className="text-[13px] text-ink-3">Not linked to a trial in the atlas.</p>}
+        </Section>
+        {trials.length > 0 && <Section title="Trials" count={trials.length}><TrialRows trials={trials} /></Section>}
+        {claims.length > 0 && <Section title="What papers say" count={claims.length}>{claims.map((c) => <ClaimRow key={c.id} c={c} />)}</Section>}
+      </div>
+    </>
+  )
+}
+
 /* --------------------------------------------------------------- generic -- */
 
 function GenericCard({ n, m }: { n: GNode; m: Model }) {
@@ -590,9 +932,60 @@ function MatchCard({ e, m }: { e: GEdge; m: Model }) {
   )
 }
 
+function BridgeCard({ e, m }: { e: GEdge; m: Model }) {
+  const { reveal } = useStore()
+  const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
+  const kinds = BRIDGE_KINDS.filter(([k]) => ((e[k] as unknown[]) ?? []).length)
+  return (
+    <>
+      <p className="text-[12px] font-semibold text-[#7c3aed]">What these communities share</p>
+      <div className="mt-3 flex items-center gap-2">
+        {[a, b].map((x, i) => (
+          <div key={x.id} className="contents">
+            {i === 1 && <span className="px-1 text-[18px] text-[#7c3aed]">⇄</span>}
+            <button onClick={() => reveal(x.id)} className="card-shadow min-w-0 flex-1 rounded-xl bg-white p-3 text-left hover:shadow-md">
+              <span className="block h-2.5 w-2.5 rounded-full bg-disease" />
+              <span className="mt-2 block truncate text-[13.5px] font-semibold text-ink">{nodeLabel(x)}</span>
+              <span className="block truncate text-[11.5px] text-ink-3">{String(x.short ?? '')} gene</span>
+            </button>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        <Badge color="#7c3aed">{String(e.connection_label)}</Badge>
+        <Badge color="#12b886" icon={<ShieldCheck size={12} />}>Facts from curated sources</Badge>
+      </div>
+      <div className="mt-3">
+        {kinds.map(([k, label, type]) => (
+          <Section key={k} title={label} count={(e[k] as unknown[]).length}>
+            {(e[k] as { id: string; name: string }[]).map((x) => {
+              const node = m.nodes.get(x.id)
+              return <Row key={x.id} leading={<TypeTile type={type} />} title={x.name}
+                subtitle={node?.type === 'Study' ? trialStatus(node.status).label : node?.type === 'Researcher' ? String(node.organization ?? '') : undefined}
+                onClick={() => reveal(x.id)} />
+            })}
+          </Section>
+        ))}
+      </div>
+      <Callout icon={<Lightbulb size={16} />} title="Why this matters">
+        {kinds[0]?.[0] === 'shared_gene_groups'
+          ? 'Different gene names, same protein family: findings, models and drug candidates for one may inform the other.'
+          : kinds.some(([k]) => k === 'shared_studies')
+            ? 'Both communities are already part of the same study, a ready-made place to compare data and recruit together.'
+            : kinds.some(([k]) => k === 'shared_interventions')
+              ? 'The same drug is being tested in both. Results and safety data from one trial are directly relevant to the other.'
+              : 'A shared researcher or organisation is a natural first contact for joint work.'}
+        {' '}It is a lead to check, not proof of a shared cause.
+      </Callout>
+      <p className="mt-3 text-[11.5px] text-ink-3">Sources: HGNC gene groups, ClinicalTrials.gov, NIH RePORTER (PI profile IDs), NORD and RareConnect · retrieved {e.retrieved}</p>
+    </>
+  )
+}
+
 function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
   const { reveal } = useStore()
   if (e.rel === 'DISEASE_MATCH') return <MatchCard e={e} m={m} />
+  if (e.rel === 'DISEASE_BRIDGE') return <BridgeCard e={e} m={m} />
   const a = m.nodes.get(e.source)!, b = m.nodes.get(e.target)!
   const st = STATUS[e.status]
   const ev = e.evidence as { via: string; reference: string; code: string }[] | undefined
@@ -636,7 +1029,7 @@ function EdgeCard({ e, m }: { e: GEdge; m: Model }) {
 
 /* ----------------------------------------------------------------- sheet -- */
 
-const SPECIAL = ['Disease', 'Gene', 'Paper', 'Claim']
+const SPECIAL = ['Disease', 'Gene', 'Paper', 'Claim', 'Study', 'PatientOrg', 'Grant', 'GeneGroup', 'Intervention']
 
 export default function DetailPanel() {
   const { model, selected, select } = useStore()
@@ -668,6 +1061,11 @@ export default function DetailPanel() {
                 {node?.type === 'Gene' && <GeneCard n={node} m={model} />}
                 {node?.type === 'Paper' && <PaperCard n={node} m={model} />}
                 {node?.type === 'Claim' && <ClaimCard n={node} m={model} />}
+                {node?.type === 'Study' && <StudyCard n={node} m={model} />}
+                {node?.type === 'PatientOrg' && <OrgCard n={node} m={model} />}
+                {node?.type === 'Grant' && <GrantCard n={node} m={model} />}
+                {node?.type === 'GeneGroup' && <GeneGroupCard n={node} m={model} />}
+                {node?.type === 'Intervention' && <InterventionCard n={node} m={model} />}
                 {node && !SPECIAL.includes(node.type) && <GenericCard n={node} m={model} />}
                 {edge && <EdgeCard e={edge} m={model} />}
               </motion.div>
