@@ -1,4 +1,4 @@
-# Bison
+# Obstinacy
 Source code for Global AI Hackathon: Challenge Track 5
 
 ## Demo data pipeline (what feeds the web app)
@@ -78,6 +78,8 @@ Add `--decisions <file>` (and `--sign`) to go back to a hand-picked, signed huma
 
 The pipeline uses the **OpenAI API** (Responses API with Structured Outputs). Both CLI
 entry points read the API settings from `.env` without executing it. Add:
+
+cp .env.example .env   # then fill in your OpenAI key and model IDs
 
 ```dotenv
 LLM_PROVIDER=openai
