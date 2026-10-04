@@ -2,6 +2,7 @@ import cytoscape from 'cytoscape'
 import fcose from 'cytoscape-fcose'
 import { Maximize2, Minus, Plus } from 'lucide-react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { TYPE_COLOR, nodeLabel, nodeSubtitle } from './model'
@@ -78,7 +79,7 @@ function alignTo(before: Map<string, { x: number; y: number }>, ids: string[], c
   return (plain.err <= mirrored.err ? plain : mirrored).tf
 }
 
-type NodeEls = { root: HTMLDivElement; bubble: HTMLDivElement; label: HTMLDivElement | null }
+type NodeEls = { root: HTMLDivElement; bubble: HTMLDivElement; label: HTMLDivElement | null; labelRoot: HTMLDivElement | null }
 
 export default function GraphView() {
   const box = useRef<HTMLDivElement>(null)
@@ -86,6 +87,7 @@ export default function GraphView() {
   const cyRef = useRef<cytoscape.Core | null>(null)
   const els = useRef(new Map<string, NodeEls>())
   const [ids, setIds] = useState<string[]>([])
+  const [labelLayer, setLabelLayer] = useState<HTMLDivElement | null>(null)
   const { model, visible, minSim, layoutTick, focusTick, selected, layers, groupFocus } = useStore()
   const layerKey = useRef('')
 
@@ -100,6 +102,10 @@ export default function GraphView() {
       const p = n.renderedPosition()
       const d = sizeOf(n.data('type')) * z
       e.root.style.transform = `translate(${p.x}px, ${p.y}px)`
+      if (e.labelRoot) {  // labels live in their own layer above all bubbles; mirror position and state
+        e.labelRoot.style.transform = e.root.style.transform
+        e.labelRoot.className = e.root.className
+      }
       e.bubble.style.width = e.bubble.style.height = `${d}px`
       e.bubble.style.marginLeft = e.bubble.style.marginTop = `${-d / 2}px`
       if (e.label) {
@@ -363,13 +369,15 @@ export default function GraphView() {
       {/* Cytoscape forces position:relative on its container, so it needs a sized wrapper */}
       <div ref={box} className="h-full w-full" />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {model && ids.map((id) => {
+        {model && labelLayer && ids.map((id) => {
           const n = model.nodes.get(id)
           if (!n) return null
-          return <NodeView key={id} id={id} type={n.type} title={nodeLabel(n)} subtitle={nodeSubtitle(n, model)}
+          return <NodeView key={id} id={id} type={n.type} title={nodeLabel(n)} subtitle={nodeSubtitle(n, model)} labelLayer={labelLayer}
             register={(e) => { if (e) els.current.set(id, e); else els.current.delete(id) }} />
         })}
       </div>
+      {/* all labels sit in one layer above every bubble, so a name is never hidden behind a neighbour */}
+      <div ref={setLabelLayer} className="pointer-events-none absolute inset-0 overflow-hidden" />
 
       <div className="glass absolute bottom-4 right-4 z-20 flex flex-col overflow-hidden rounded-xl">
         {[
@@ -387,14 +395,15 @@ export default function GraphView() {
   )
 }
 
-function NodeView({ id, type, title, subtitle, register }: {
-  id: string; type: string; title: string; subtitle: string; register: (e: NodeEls | null) => void
+function NodeView({ id, type, title, subtitle, register, labelLayer }: {
+  id: string; type: string; title: string; subtitle: string; register: (e: NodeEls | null) => void; labelLayer: HTMLDivElement
 }) {
   const root = useRef<HTMLDivElement>(null)
+  const labelRoot = useRef<HTMLDivElement>(null)
   const bubble = useRef<HTMLDivElement>(null)
   const label = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
-    register({ root: root.current!, bubble: bubble.current!, label: label.current })
+    register({ root: root.current!, bubble: bubble.current!, label: label.current, labelRoot: labelRoot.current })
     return () => register(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
@@ -418,8 +427,8 @@ function NodeView({ id, type, title, subtitle, register }: {
         <span className="node-ring absolute inset-0 rounded-full" style={{ boxShadow: `0 0 0 3px ${c}` }} />
         {withIcon && Icon && <Icon className="h-[46%] w-[46%] text-white" strokeWidth={2.2} />}
       </div>
-      {type !== 'Variant' || title ? (
-        <div ref={label} className={type === 'Gene'
+      {(type !== 'Variant' || title) && createPortal(
+        <div ref={labelRoot} className="node"><div ref={label} className={type === 'Gene'
           ? 'absolute -translate-y-1/2 whitespace-nowrap text-left transition-opacity'
           : 'absolute -translate-x-1/2 whitespace-nowrap text-center transition-opacity'}>
           <div className={big
@@ -430,8 +439,7 @@ function NodeView({ id, type, title, subtitle, register }: {
             {title}
           </div>
           {subtitle && type === 'Gene' && <div className="mt-0.5 text-[10.5px] font-medium text-ink-3">{subtitle}</div>}
-        </div>
-      ) : null}
+        </div></div>, labelLayer)}
     </div>
   )
 }
