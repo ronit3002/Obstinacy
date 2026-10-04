@@ -36,8 +36,8 @@ OUT = PROC / "enrichment.json"
 TODAY = date.today().isoformat()
 UA = {"User-Agent": "rare-disease-atlas/0.1 (hackathon research prototype)"}
 
-MAX_TRIALS = 8          # per disease, most relevant first
-MAX_GRANTS = 6          # per gene
+MAX_TRIALS = 60         # per disease, most relevant first (cards show 5, then "show more")
+MAX_GRANTS = 15         # per gene
 REPORTER_YEARS = [2022, 2023, 2024, 2025, 2026]
 
 REFRESH = False
@@ -83,15 +83,23 @@ def match_reason(text_fields, terms, gene):
 
 
 # ------------------------------------------------------ ClinicalTrials.gov ----
-def fetch_trials(query_cond=None, query_term=None):
-    params = {"pageSize": 50, "format": "json"}
+def fetch_trials(query_cond=None, query_term=None, max_pages=8):
+    """All matching studies, following nextPageToken (up to max_pages x 100)."""
+    params = {"pageSize": 100, "format": "json"}
     if query_cond:
         params["query.cond"] = query_cond
     if query_term:
         params["query.term"] = query_term
-    r = requests.get("https://clinicaltrials.gov/api/v2/studies", params=params, headers=UA, timeout=60)
-    r.raise_for_status()
-    return r.json().get("studies", [])
+    studies = []
+    for _ in range(max_pages):
+        r = requests.get("https://clinicaltrials.gov/api/v2/studies", params=params, headers=UA, timeout=60)
+        r.raise_for_status()
+        data = r.json()
+        studies += data.get("studies", [])
+        if not data.get("nextPageToken"):
+            break
+        params["pageToken"] = data["nextPageToken"]
+    return studies
 
 
 STATUS_RANK = {"RECRUITING": 0, "NOT_YET_RECRUITING": 1, "ACTIVE_NOT_RECRUITING": 2,
@@ -101,9 +109,9 @@ STATUS_RANK = {"RECRUITING": 0, "NOT_YET_RECRUITING": 1, "ACTIVE_NOT_RECRUITING"
 def trials_for(d, gene):
     terms = disease_terms(d)
     raw = []
-    raw += cached("ctgov", "cond:" + d["name"], lambda: fetch_trials(query_cond=d["name"]))
+    raw += cached("ctgov_all", "cond:" + d["name"], lambda: fetch_trials(query_cond=d["name"]))
     if gene:
-        raw += cached("ctgov", "term:" + gene, lambda: fetch_trials(query_term=gene))
+        raw += cached("ctgov_all", "term:" + gene, lambda: fetch_trials(query_term=gene))
     picked = {}
     for s in raw:
         p = s.get("protocolSection", {})

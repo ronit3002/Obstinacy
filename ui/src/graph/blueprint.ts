@@ -13,7 +13,7 @@ const WEIGHT: Record<string, number> = {
   Disease: 1, GeneGroup: 0.45, Mechanism: 0.4, Gene: 0.32, Intervention: 0.3, Study: 0.28, Paper: 0.26,
   PatientOrg: 0.26, Grant: 0.22, Researcher: 0.16, Phenotype: 0.1, Claim: 0.08, Variant: 0.05,
 }
-const PULL = 0.3        // max share of the distance a grid point is pulled towards a disease
+const PULL = 0.22       // share of the distance a grid point is pulled towards a disease
 const MAX_MASSES = 140  // performance cap: only the heaviest visible nodes press
 
 type Mass = { x: number; y: number; s: number; r2: number; r: number; w: number }
@@ -62,15 +62,20 @@ export function drawBlueprint(canvas: HTMLCanvasElement, cy: cytoscape.Core, sel
       const f = m.s * Math.exp(-d2 / m.r2)
       dx += vx * f; dy += vy * f
     }
-    // several overlapping weights never fold the mat over itself
-    const len = Math.hypot(dx, dy), cap = 60 * Math.max(z, 0.4)
-    if (len > cap) { dx *= cap / len; dy *= cap / len }
+    // smooth saturation (tanh) instead of a hard cap: overlapping weights deepen the dip gradually
+    // and never fold the mat or leave a corner where the cap would kick in
+    const len = Math.hypot(dx, dy)
+    if (len > 1e-6) {
+      const cap = 34 * Math.max(z, 0.4)
+      const k = (cap * Math.tanh(len / cap)) / len
+      dx *= k; dy *= k
+    }
     return [x + dx, y + dy]
   }
 
   const step = MINOR * z
   const showMinor = step >= 14
-  const sample = 12 // px between samples along a line
+  const sample = 7 // px between samples along a line (small = smooth curves)
   const i0 = Math.floor(-pan.x / step) - 2, i1 = Math.ceil((w - pan.x) / step) + 2
   const j0 = Math.floor(-pan.y / step) - 2, j1 = Math.ceil((h - pan.y) / step) + 2
 

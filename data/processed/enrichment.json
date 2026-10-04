@@ -389,6 +389,98 @@
    "organization": "EUNICE KENNEDY SHRIVER NATIONAL INSTITUTE OF CHILD HEALTH & HUMAN DEVELOPMENT"
   },
   {
+   "id": "NIH:R21MH132035",
+   "type": "Grant",
+   "name": "Modeling schizophrenia with patient-specific mutations in GRIN2A and SP4",
+   "project_num": "1R21MH132035-01A1",
+   "fiscal_year": 2023,
+   "award_amount": 496100,
+   "institute": "NIMH",
+   "organization": "LIEBER INSTITUTE, INC.",
+   "city": "BALTIMORE",
+   "country": "UNITED STATES",
+   "start": "2023-08-01",
+   "end": "2025-07-31",
+   "url": "https://reporter.nih.gov/project-details/10741466"
+  },
+  {
+   "id": "RES:nih:7836737",
+   "type": "Researcher",
+   "name": "Brady J Maher",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 7836737,
+   "organization": "LIEBER INSTITUTE, INC."
+  },
+  {
+   "id": "NIH:U01AA027487",
+   "type": "Grant",
+   "name": "Pharmacogenomics of Acamprosate Treatment Outcome (Supplement)",
+   "project_num": "3U01AA027487-05S1",
+   "fiscal_year": 2023,
+   "award_amount": 155616,
+   "institute": "NIAAA",
+   "organization": "MAYO CLINIC ROCHESTER",
+   "city": "ROCHESTER",
+   "country": "UNITED STATES",
+   "start": "2018-09-01",
+   "end": "2024-08-31",
+   "url": "https://reporter.nih.gov/project-details/10692481"
+  },
+  {
+   "id": "RES:nih:9367542",
+   "type": "Researcher",
+   "name": "Joanna M Biernacka",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9367542,
+   "organization": "MAYO CLINIC ROCHESTER"
+  },
+  {
+   "id": "RES:nih:8240987",
+   "type": "Researcher",
+   "name": "Victor M. Karpyak",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8240987,
+   "organization": "MAYO CLINIC ROCHESTER"
+  },
+  {
+   "id": "NIH:F31AA029946",
+   "type": "Grant",
+   "name": "The early and lasting mechanisms underlying predator odor stressor-induced adaptations to alcohol interoceptive sensitivity",
+   "project_num": "5F31AA029946-02",
+   "fiscal_year": 2023,
+   "award_amount": 18242,
+   "institute": "NIAAA",
+   "organization": "UNIV OF NORTH CAROLINA CHAPEL HILL",
+   "city": "CHAPEL HILL",
+   "country": "UNITED STATES",
+   "start": "2022-02-01",
+   "end": "2023-05-31",
+   "url": "https://reporter.nih.gov/project-details/10560497"
+  },
+  {
+   "id": "RES:nih:16147885",
+   "type": "Researcher",
+   "name": "Ryan Edward Tyler",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 16147885,
+   "organization": "UNIV OF NORTH CAROLINA CHAPEL HILL"
+  },
+  {
+   "id": "NIH:RF1AG078660",
+   "type": "Grant",
+   "name": "Network Medicine for Alzheimers Disease: Functional Dissection and Pharmacologic Perturbation of a Human Brain Synaptic Regulatory Expression Signature",
+   "project_num": "1RF1AG078660-01",
+   "fiscal_year": 2022,
+   "award_amount": 1509105,
+   "institute": "NIA",
+   "organization": "BAYLOR COLLEGE OF MEDICINE",
+   "city": "HOUSTON",
+   "country": "UNITED STATES",
+   "start": "2022-08-15",
+   "end": "2025-07-31",
+   "url": "https://reporter.nih.gov/project-details/10503884"
+  },
+  {
    "id": "HGNC_GROUP:1201",
    "type": "GeneGroup",
    "name": "Glutamate ionotropic receptor NMDA type subunits",
@@ -518,27 +610,35 @@
    "organization": "UNIVERSITY OF WISCONSIN-MADISON"
   },
   {
-   "id": "NIH:R21MH132035",
+   "id": "NIH:R01NS112291",
    "type": "Grant",
-   "name": "Modeling schizophrenia with patient-specific mutations in GRIN2A and SP4",
-   "project_num": "1R21MH132035-01A1",
+   "name": "RNA Processing-Mediated Mechanisms of CNS Dysfunction in Myotonic Dystrophy",
+   "project_num": "3R01NS112291-05S1",
    "fiscal_year": 2023,
-   "award_amount": 496100,
-   "institute": "NIMH",
-   "organization": "LIEBER INSTITUTE, INC.",
-   "city": "BALTIMORE",
+   "award_amount": 72864,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF FLORIDA",
+   "city": "GAINESVILLE",
    "country": "UNITED STATES",
-   "start": "2023-08-01",
-   "end": "2025-07-31",
-   "url": "https://reporter.nih.gov/project-details/10741466"
+   "start": "2019-07-01",
+   "end": "2025-06-30",
+   "url": "https://reporter.nih.gov/project-details/10852078"
   },
   {
-   "id": "RES:nih:7836737",
+   "id": "RES:nih:1881563",
    "type": "Researcher",
-   "name": "Brady J Maher",
+   "name": "Gary J Bassell",
    "identity": "NIH RePORTER profile",
-   "profile_id": 7836737,
-   "organization": "LIEBER INSTITUTE, INC."
+   "profile_id": 1881563,
+   "organization": "UNIVERSITY OF FLORIDA"
+  },
+  {
+   "id": "RES:nih:8828628",
+   "type": "Researcher",
+   "name": "Eric T Wang",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8828628,
+   "organization": "UNIVERSITY OF FLORIDA"
   },
   {
    "id": "NIH:F31NS113530",
@@ -618,27 +718,120 @@
    "organization": "STANFORD UNIVERSITY"
   },
   {
-   "id": "NIH:F31AA029946",
+   "id": "NIH:R01DA060755",
    "type": "Grant",
-   "name": "The early and lasting mechanisms underlying predator odor stressor-induced adaptations to alcohol interoceptive sensitivity",
-   "project_num": "5F31AA029946-02",
-   "fiscal_year": 2023,
-   "award_amount": 18242,
-   "institute": "NIAAA",
-   "organization": "UNIV OF NORTH CAROLINA CHAPEL HILL",
-   "city": "CHAPEL HILL",
+   "name": "HIV Tat and Opiate-mediated aberrations in glial-neuronal crosstalk: Implications for the role of extracellular RNA in HAND",
+   "project_num": "5R01DA060755-03",
+   "fiscal_year": 2026,
+   "award_amount": 517330,
+   "institute": "NIDA",
+   "organization": "UNIVERSITY OF NEBRASKA MEDICAL CENTER",
+   "city": "OMAHA",
    "country": "UNITED STATES",
-   "start": "2022-02-01",
-   "end": "2023-05-31",
-   "url": "https://reporter.nih.gov/project-details/10560497"
+   "start": "2024-07-01",
+   "end": "2029-04-30",
+   "url": "https://reporter.nih.gov/project-details/11319815"
   },
   {
-   "id": "RES:nih:16147885",
+   "id": "RES:nih:6603238",
    "type": "Researcher",
-   "name": "Ryan Edward Tyler",
+   "name": "Shilpa J Buch",
    "identity": "NIH RePORTER profile",
-   "profile_id": 16147885,
-   "organization": "UNIV OF NORTH CAROLINA CHAPEL HILL"
+   "profile_id": 6603238,
+   "organization": "UNIVERSITY OF NEBRASKA MEDICAL CENTER"
+  },
+  {
+   "id": "RES:nih:14858657",
+   "type": "Researcher",
+   "name": "Susmita  Sil",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14858657,
+   "organization": "UNIVERSITY OF NEBRASKA MEDICAL CENTER"
+  },
+  {
+   "id": "NIH:R01MH144274",
+   "type": "Grant",
+   "name": "Leveraging the dysbindin-1 - Src pathway to restore GluN2A function in schizophrenia",
+   "project_num": "1R01MH144274-01",
+   "fiscal_year": 2026,
+   "award_amount": 249000,
+   "institute": "NIMH",
+   "organization": "UNIVERSITY OF SOUTHERN CALIFORNIA",
+   "city": "Los Angeles",
+   "country": "UNITED STATES",
+   "start": "2026-07-01",
+   "end": "2029-06-30",
+   "url": "https://reporter.nih.gov/project-details/11338891"
+  },
+  {
+   "id": "RES:nih:6405261",
+   "type": "Researcher",
+   "name": "Steven J Siegel",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 6405261,
+   "organization": "UNIVERSITY OF SOUTHERN CALIFORNIA"
+  },
+  {
+   "id": "RES:nih:11117452",
+   "type": "Researcher",
+   "name": "Dong  Song",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 11117452,
+   "organization": "UNIVERSITY OF SOUTHERN CALIFORNIA"
+  },
+  {
+   "id": "NIH:R01HD082373",
+   "type": "Grant",
+   "name": "NMDAR Mutations & Neurodevelopmental Disorder: from Mechanism to Targeted Therapy",
+   "project_num": "5R01HD082373-10",
+   "fiscal_year": 2025,
+   "award_amount": 336475,
+   "institute": "NICHD",
+   "organization": "EMORY UNIVERSITY",
+   "city": "ATLANTA",
+   "country": "UNITED STATES",
+   "start": "2015-04-01",
+   "end": "2027-03-31",
+   "url": "https://reporter.nih.gov/project-details/11061262"
+  },
+  {
+   "id": "RES:nih:2244211",
+   "type": "Researcher",
+   "name": "Hongjie  Yuan",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 2244211,
+   "organization": "EMORY UNIVERSITY"
+  },
+  {
+   "id": "NIH:R01NS089435",
+   "type": "Grant",
+   "name": "HIV-1 Tat genetic variation impacts NeuroAIDS",
+   "project_num": "5R01NS089435-10",
+   "fiscal_year": 2024,
+   "award_amount": 603073,
+   "institute": "NINDS",
+   "organization": "DREXEL UNIVERSITY",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2015-02-01",
+   "end": "2025-06-30",
+   "url": "https://reporter.nih.gov/project-details/10757690"
+  },
+  {
+   "id": "RES:nih:8623400",
+   "type": "Researcher",
+   "name": "Sandhya  Kortagere",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8623400,
+   "organization": "DREXEL UNIVERSITY"
+  },
+  {
+   "id": "RES:nih:10179591",
+   "type": "Researcher",
+   "name": "Michael R Nonnemacher",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 10179591,
+   "organization": "DREXEL UNIVERSITY"
   },
   {
    "id": "NCT:NCT06625112",
@@ -815,6 +1008,24 @@
    "intervention_type": "drug"
   },
   {
+   "id": "NCT:NCT05462054",
+   "type": "Study",
+   "name": "Natural History Study in Pediatric Patients with STXBP1 Encephalopathy with Epilepsy",
+   "nct": "NCT05462054",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2024-10",
+   "sponsor": "Capsida Biotherapeutics, Inc.",
+   "enrollment": 0,
+   "conditions": [
+    "STXBP1 Encephalopathy with Epilepsy"
+   ],
+   "countries": [],
+   "summary": "This is a prospective, non-interventional, longitudinal study designed to characterize the natural history of STXBP1 related encephalopathy with epilepsy, in participants ≤ \\<5 years of age.",
+   "url": "https://clinicaltrials.gov/study/NCT05462054"
+  },
+  {
    "id": "ORG:rareconnect:STXBP1",
    "type": "PatientOrg",
    "name": "STXBP1 - Related disorders",
@@ -963,10 +1174,102 @@
    "organization": "UNIVERSITY OF CALIFORNIA, SAN FRANCISCO"
   },
   {
+   "id": "NIH:U54NS117170",
+   "type": "Grant",
+   "name": "Genes to Proteins",
+   "project_num": "5U54NS117170-05",
+   "fiscal_year": 2024,
+   "award_amount": 276432,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+   "city": "ANN ARBOR",
+   "country": "UNITED STATES",
+   "start": "2020-09-15",
+   "end": "2026-07-31",
+   "url": "https://reporter.nih.gov/project-details/10873143"
+  },
+  {
+   "id": "RES:nih:2075379",
+   "type": "Researcher",
+   "name": "Margaret Elizabeth Ross",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 2075379,
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR"
+  },
+  {
+   "id": "NIH:P01HL144457",
+   "type": "Grant",
+   "name": "Project 4: Epigenetic Mechanisms Modulating VWF",
+   "project_num": "5P01HL144457-05",
+   "fiscal_year": 2023,
+   "award_amount": 301897,
+   "institute": "NHLBI",
+   "organization": "VERSITI BLOOD HEALTH, INC.",
+   "city": "MILWAUKEE",
+   "country": "UNITED STATES",
+   "start": "2019-03-15",
+   "end": "2025-02-28",
+   "url": "https://reporter.nih.gov/project-details/10584539"
+  },
+  {
+   "id": "RES:nih:14128114",
+   "type": "Researcher",
+   "name": "Christopher  Ng",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14128114,
+   "organization": "VERSITI BLOOD HEALTH, INC."
+  },
+  {
+   "id": "NIH:F30HD100096",
+   "type": "Grant",
+   "name": "Munc18-1 mutations disrupt syntaxin-5 stability and general secretory trafficking",
+   "project_num": "5F30HD100096-03",
+   "fiscal_year": 2022,
+   "award_amount": 46261,
+   "institute": "NICHD",
+   "organization": "WEILL MEDICAL COLL OF CORNELL UNIV",
+   "city": "NEW YORK",
+   "country": "UNITED STATES",
+   "start": "2020-08-03",
+   "end": "2023-05-18",
+   "url": "https://reporter.nih.gov/project-details/10451793"
+  },
+  {
+   "id": "RES:nih:14175517",
+   "type": "Researcher",
+   "name": "Debra  Abramov",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14175517,
+   "organization": "WEILL MEDICAL COLL OF CORNELL UNIV"
+  },
+  {
    "id": "HGNC_GROUP:3908",
    "type": "GeneGroup",
    "name": "SM family of SNARE chaperones",
    "url": "https://www.genenames.org/data/genegroup/#!/group/3908"
+  },
+  {
+   "id": "NCT:NCT05558371",
+   "type": "Study",
+   "name": "International CDKL5 Clinical Research Network",
+   "nct": "NCT05558371",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2021-02-15",
+   "sponsor": "University of Colorado, Denver",
+   "enrollment": 1000,
+   "conditions": [
+    "CDKL5",
+    "CDKL5 Deficiency Disorder",
+    "CDD"
+   ],
+   "countries": [
+    "Australia",
+    "United States"
+   ],
+   "summary": "Pathogenic variants in the Cyclin-dependent kinase like 5 (CDKL5) gene cause CDKL5 deficiency disorder (CDD, MIM 300672, 105830), a severe developmental and epileptic encephalopathy associated with cognitive and motor impairments and cortical visual impairment. While capability for disease modifying therapies is accelerating, there is a critical barrier for clinical trial readiness that may result in failure of these therapies, not due to lack of efficacy but due to lack of validated outcome measures and biomarkers. The measures and biomarkers validated here will be adaptable to other developm",
+   "url": "https://clinicaltrials.gov/study/NCT05558371"
   },
   {
    "id": "NCT:NCT05249556",
@@ -993,6 +1296,26 @@
    "type": "Intervention",
    "name": "Ganaxolone",
    "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT07602205",
+   "type": "Study",
+   "name": "Efficacy and Safety of Daily Home-based Hyperthermic Baths for Reducing Epileptic Seizures in CDKL5 Deficiency Disorder: A PROBE Clinical Trial",
+   "nct": "NCT07602205",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2026-08-01",
+   "sponsor": "Xuanwu Hospital, Beijing",
+   "enrollment": 34,
+   "conditions": [
+    "CDKL5 Deficiency Disorder"
+   ],
+   "countries": [],
+   "summary": "The primary objective of this research is to study the efficacy and safety of daily, home-based hyperthermic baths for reducing epileptic seizures in CDKL5 Deficiency Disorder.",
+   "url": "https://clinicaltrials.gov/study/NCT07602205"
   },
   {
    "id": "NCT:NCT05064878",
@@ -1031,6 +1354,32 @@
    ],
    "summary": "This is a Phase 3 Study to examine the efficacy and safety of ZX008 in children and adults with cyclin-dependent kinase like-5 (CDKL5) deficiency disorder (CDD).",
    "url": "https://clinicaltrials.gov/study/NCT05064878"
+  },
+  {
+   "id": "NCT:NCT05373719",
+   "type": "Study",
+   "name": "Observational Study in Patients With Cyclin-dependent Kinase-like 5 Deficiency Disorder",
+   "nct": "NCT05373719",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2022-09-30",
+   "sponsor": "Loulou Foundation",
+   "enrollment": 112,
+   "conditions": [
+    "Cyclin-Dependent Kinase-Like 5 Deficiency Disorder"
+   ],
+   "countries": [
+    "Canada",
+    "France",
+    "Germany",
+    "Italy",
+    "Spain",
+    "United Arab Emirates",
+    "United States"
+   ],
+   "summary": "Observational, noninterventional, 3-year study to examine the presence of detectable differences in neurocognitive, developmental, motor, neurophysiologic, and quality of life measures over time in patients with cyclin-dependent kinase-like 5 deficiency disorder.",
+   "url": "https://clinicaltrials.gov/study/NCT05373719"
   },
   {
    "id": "NCT:NCT06447675",
@@ -1075,6 +1424,34 @@
    "url": "https://clinicaltrials.gov/study/NCT06663163"
   },
   {
+   "id": "NCT:NCT03861871",
+   "type": "Study",
+   "name": "Fenfluramine in CDKL5 Deficiency Disorder (CDD)",
+   "nct": "NCT03861871",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2019-10-29",
+   "sponsor": "NYU Langone Health",
+   "enrollment": 7,
+   "conditions": [
+    "CDD"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study will be enrolling 10 patients, ages 2-18 years old, with a confirmed genetic/clinical diagnosis of CDKL5 Deficiency Disorder (CDD) in an open label trial of fenfluramine for seizure control. Patients will be titrated over 14 days to a dose of ZX008 0.8 mg/kg/day (maximum dose 30 mg/d).",
+   "url": "https://clinicaltrials.gov/study/NCT03861871"
+  },
+  {
+   "id": "INT:fenfluramine-hydrochloride",
+   "type": "Intervention",
+   "name": "Fenfluramine Hydrochloride",
+   "intervention_type": "drug"
+  },
+  {
    "id": "NCT:NCT03572933",
    "type": "Study",
    "name": "Study of Adjunctive Ganaxolone Treatment in Children and Young Adults With CDKL5 Deficiency Disorder",
@@ -1102,6 +1479,35 @@
    ],
    "summary": "A clinical study to evaluate the efficacy, safety, and tolerability of adjunctive ganaxolone therapy compared to placebo for the treatment of seizures in children and young adults with genetically confirmed CDKL5 gene mutation.",
    "url": "https://clinicaltrials.gov/study/NCT03572933"
+  },
+  {
+   "id": "NCT:NCT03694275",
+   "type": "Study",
+   "name": "A Multicenter, Open-label, Pilot Study of Soticlestat (TAK-935/OV935) in Participants With 15Q Duplication Syndrome (Dup 15q) or Cyclin-Dependent Kinase-Like 5 (CDKL5) Deficiency Disorder (ARCADE STUDY)",
+   "nct": "NCT03694275",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2018-09-10",
+   "sponsor": "Takeda",
+   "enrollment": 20,
+   "conditions": [
+    "15q Duplication Syndrome",
+    "CDKL5 Deficiency Disease"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "The purpose of this study is to investigate the effect of soticlestat on the frequency of motor seizures for participants with Dup15q or CDD during the Maintenance Period.",
+   "url": "https://clinicaltrials.gov/study/NCT03694275"
+  },
+  {
+   "id": "INT:soticlestat",
+   "type": "Intervention",
+   "name": "Soticlestat",
+   "intervention_type": "drug"
   },
   {
    "id": "NCT:NCT02705677",
@@ -1176,6 +1582,103 @@
    ],
    "summary": "The purpose of this study is to advance understanding of the natural history of Rett syndrome (RTT), MECP2-duplication disorder (MECP2 Dup), CDKL5, FOXG1, and individuals with MECP2 mutations who do not have RTT including the range of clinical involvement and to correlate genotype-phenotype over a broad spectrum of phenotypes. While much has been learned about RTT, improvements are required in understanding the role of factors such as X chromosome inactivation, genetic background, and others including the environment, on the great variability observed even between individuals with the same MEC",
    "url": "https://clinicaltrials.gov/study/NCT02738281"
+  },
+  {
+   "id": "NCT:NCT06448663",
+   "type": "Study",
+   "name": "Targeting the Gut to Improve Seizure Control in CDKL5 Deficiency Disorder (CDD)",
+   "nct": "NCT06448663",
+   "status": "UNKNOWN",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-04-01",
+   "sponsor": "University of Milan",
+   "enrollment": 20,
+   "conditions": [
+    "CDKL5"
+   ],
+   "countries": [
+    "Italy"
+   ],
+   "summary": "Standard anti-seizure medications have limited efficacy in seizure control in cyclin-dependent kinase-like 5 deficiency disorder (CDD).\n\nThe study will investigate whether targeting the gut-microbiota-brain axis in CDD patients can alleviate seizures and ameliorate other comorbidities.",
+   "url": "https://clinicaltrials.gov/study/NCT06448663"
+  },
+  {
+   "id": "INT:alpha-lactalbumin",
+   "type": "Intervention",
+   "name": "Alpha-lactalbumin",
+   "intervention_type": "dietary_supplement"
+  },
+  {
+   "id": "NCT:NCT03635073",
+   "type": "Study",
+   "name": "A Study of Soticlestat in Adults and Children With Rare Epilepsies",
+   "nct": "NCT03635073",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2018-07-19",
+   "sponsor": "Takeda",
+   "enrollment": 156,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "countries": [
+    "Australia",
+    "Canada",
+    "China",
+    "Israel",
+    "Poland",
+    "Portugal",
+    "Spain",
+    "United States"
+   ],
+   "summary": "The main aim is to assess the long-term safety and tolerability of soticlestat when used along with other anti-seizure treatment.\n\nParticipants will receive soticlestat twice a day. Participants will visit the study clinic every 2-6 months throughout the study.\n\nStudy treatments may continue as long as the participant is receiving benefit from it.",
+   "url": "https://clinicaltrials.gov/study/NCT03635073"
+  },
+  {
+   "id": "NCT:NCT04486768",
+   "type": "Study",
+   "name": "International CDKL5 Registry",
+   "nct": "NCT04486768",
+   "status": "SUSPENDED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2018-12-05",
+   "sponsor": "University of Pennsylvania",
+   "enrollment": 500,
+   "conditions": [
+    "CDKL5 Deficiency Disorder (CDD)"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "Owing to the recent classification of CDKL5 Deficiency Disorder (CDD) as a unique disorder, there is a limited understanding of overall disease natural history and meaningful outcome measures. An international patient registry aimed at collecting both patient/caregiver and clinician-entered demographic, patient-reported outcome (PRO) and treatment data would benefit both the scientific and patient communities. This CDD registry will follow up to 500 patients diagnosed with CDD over several years through both the patients/caregivers and their clinicians. Initial data will be collected upon enro",
+   "url": "https://clinicaltrials.gov/study/NCT04486768"
+  },
+  {
+   "id": "NCT:NCT04678479",
+   "type": "Study",
+   "name": "Ganaxolone Expanded Access Program Compassionate Use",
+   "nct": "NCT04678479",
+   "status": "NO_LONGER_AVAILABLE",
+   "phases": [],
+   "study_type": "EXPANDED_ACCESS",
+   "start": "",
+   "sponsor": "Marinus Pharmaceuticals",
+   "enrollment": null,
+   "conditions": [
+    "CDKL5 Disorder"
+   ],
+   "countries": [],
+   "summary": "The primary objective is to provide GNX to patients ≥ 2 years with CDD-related seizures who are refractory to, or intolerant of, standard therapy.",
+   "url": "https://clinicaltrials.gov/study/NCT04678479"
   },
   {
    "id": "NIH:F31EY035937",
@@ -1348,6 +1851,90 @@
    "organization": "TUFTS UNIVERSITY BOSTON"
   },
   {
+   "id": "NIH:R01NS102731",
+   "type": "Grant",
+   "name": "Pathogenic Studies of CDKL5 Disorder",
+   "project_num": "5R01NS102731-05",
+   "fiscal_year": 2022,
+   "award_amount": 538031,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF PENNSYLVANIA",
+   "city": "PHILADELPHIA",
+   "country": "UNITED STATES",
+   "start": "2018-06-01",
+   "end": "2024-03-31",
+   "url": "https://reporter.nih.gov/project-details/10371048"
+  },
+  {
+   "id": "RES:nih:8655671",
+   "type": "Researcher",
+   "name": "Zhaolan  Zhou",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8655671,
+   "organization": "UNIVERSITY OF PENNSYLVANIA"
+  },
+  {
+   "id": "NIH:R44NS124469",
+   "type": "Grant",
+   "name": "The first adaptable 3D-formfitting microelectrode array for organoid-based models of neurological and neurodegenerative diseases",
+   "project_num": "2R44NS124469-02",
+   "fiscal_year": 2026,
+   "award_amount": 700518,
+   "institute": "NINDS",
+   "organization": "BMSEED, LLC",
+   "city": "TEMPE",
+   "country": "UNITED STATES",
+   "start": "2022-09-18",
+   "end": "2028-08-31",
+   "url": "https://reporter.nih.gov/project-details/11311188"
+  },
+  {
+   "id": "RES:nih:9777859",
+   "type": "Researcher",
+   "name": "Oliver  Graudejus",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 9777859,
+   "organization": "BMSEED, LLC"
+  },
+  {
+   "id": "NIH:R21NS138525",
+   "type": "Grant",
+   "name": "Deep Behavioral Phenotyping of Novel Zebrafish Epilepsy Models",
+   "project_num": "3R21NS138525-01S1",
+   "fiscal_year": 2025,
+   "award_amount": 69700,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF CALIFORNIA, SAN FRANCISCO",
+   "city": "SAN FRANCISCO",
+   "country": "UNITED STATES",
+   "start": "2024-07-01",
+   "end": "2026-06-30",
+   "url": "https://reporter.nih.gov/project-details/11327604"
+  },
+  {
+   "id": "NIH:R01MH118351",
+   "type": "Grant",
+   "name": "Investigating a candidate therapeutic for Rett Syndrome",
+   "project_num": "5R01MH118351-05",
+   "fiscal_year": 2023,
+   "award_amount": 756028,
+   "institute": "NIMH",
+   "organization": "MASSACHUSETTS GENERAL HOSPITAL",
+   "city": "BOSTON",
+   "country": "UNITED STATES",
+   "start": "2019-07-01",
+   "end": "2024-04-30",
+   "url": "https://reporter.nih.gov/project-details/10612000"
+  },
+  {
+   "id": "RES:nih:1931281",
+   "type": "Researcher",
+   "name": "Jeannie T Lee",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 1931281,
+   "organization": "MASSACHUSETTS GENERAL HOSPITAL"
+  },
+  {
    "id": "HGNC_GROUP:1491",
    "type": "GeneGroup",
    "name": "Cilia and flagella associated",
@@ -1407,6 +1994,36 @@
    "url": "https://clinicaltrials.gov/study/NCT07013331"
   },
   {
+   "id": "NCT:NCT07531745",
+   "type": "Study",
+   "name": "ASCEND: Safety and Tolerability of ION337 for the Treatment of Dravet Syndrome",
+   "nct": "NCT07531745",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2026-05-21",
+   "sponsor": "Ionis Pharmaceuticals, Inc.",
+   "enrollment": 32,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Canada",
+    "United States"
+   ],
+   "summary": "The primary purpose of this study is to evaluate the safety and tolerability of ION337 in participants with Dravet syndrome (DS).",
+   "url": "https://clinicaltrials.gov/study/NCT07531745"
+  },
+  {
+   "id": "INT:ion337",
+   "type": "Intervention",
+   "name": "ION337",
+   "intervention_type": "drug"
+  },
+  {
    "id": "NCT:NCT06872125",
    "type": "Study",
    "name": "A Double-blind Study Evaluating the Efficacy, Safety, and Tolerability of Zorevunersen in Patients With Dravet Syndrome",
@@ -1460,6 +2077,28 @@
    ],
    "summary": "Dravet syndrome with SCN1A gene mutation is a developmental and epileptic encephalopathy characterized by treatment-resistant epilepsy and global developmental delay.\n\nDespite the considerable attention recently Dravet syndrome (DS) in drug development, studies characterising the progression of the neurodevelopmental phenotype over time remain limited. In particular, many previous studies of natural history studies have been of short duration or have focused only on a subgroup of the paediatric population.\n\nThis prospective natural history study is being conducted to define more precisely the ",
    "url": "https://clinicaltrials.gov/study/NCT07251673"
+  },
+  {
+   "id": "NCT:NCT05126914",
+   "type": "Study",
+   "name": "Multicentre Real-life Follow-up Study of Rare Epileptic Syndromes in Children and Adolescents",
+   "nct": "NCT05126914",
+   "status": "RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2025-12-11",
+   "sponsor": "Assistance Publique - Hôpitaux de Paris",
+   "enrollment": 1000,
+   "conditions": [
+    "Epilepsy",
+    "West Syndrome",
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "France"
+   ],
+   "summary": "Rare epilepsies as a whole account for 20-30% of epilepsies, but knowledge about prognostic factors is currently limited. This means that it is difficult to provide adequate information to families at diagnosis and during follow-up. Prognostic factors are also important for management as they can have an impact on the patient's outcome (time to intervention, choice of one molecule over another, etc.). Finally, few treatments are currently available for these epilepsies. One of the limitations to the development of treatments is the lack of real life data as it is difficult to create reliable p",
+   "url": "https://clinicaltrials.gov/study/NCT05126914"
   },
   {
    "id": "NCT:NCT07675746",
@@ -1544,6 +2183,37 @@
    "url": "https://clinicaltrials.gov/study/NCT06598449"
   },
   {
+   "id": "NCT:NCT06401538",
+   "type": "Study",
+   "name": "BMB-101 in Absence Epilepsy and DEE",
+   "nct": "NCT06401538",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-12-05",
+   "sponsor": "Bright Minds Biosciences Pty Ltd",
+   "enrollment": 20,
+   "conditions": [
+    "Absence Epilepsy",
+    "Jeavons Syndrome",
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "countries": [
+    "Australia"
+   ],
+   "summary": "The study is a pilot, open-label, study to test whether BMB-101 is safe and effective in reducing the frequency of seizures in subjects with Absence Epilepsy including Epilepsy with Eyelid Myoclonia (also called Jeavons Syndrome) as well as Developmental Epileptic Encephalopathies such as Dravet and Lennox Gastaut. The study will last up to 6 months. There will be a 1 month screening period, then up to 3 months on open-label BMB-101 including titration and tapering/washout periods, and then a 1 month follow-up period. There will be 6 clinic visits.",
+   "url": "https://clinicaltrials.gov/study/NCT06401538"
+  },
+  {
+   "id": "INT:bmb-101",
+   "type": "Intervention",
+   "name": "BMB-101",
+   "intervention_type": "drug"
+  },
+  {
    "id": "NCT:NCT05651204",
    "type": "Study",
    "name": "GABA Biomarkers in Dravet Syndrome",
@@ -1562,6 +2232,1455 @@
    ],
    "summary": "This study will non-invasively obtain levels of GABA in the brain of children with SCN1A+DS and neurodeveloping children through evoked and induced cortical responses, correlate them with the BOLD responses, and with the levels of GABA in their blood.",
    "url": "https://clinicaltrials.gov/study/NCT05651204"
+  },
+  {
+   "id": "NCT:NCT04462770",
+   "type": "Study",
+   "name": "A Study of EPX-100 (Clemizole Hydrochloride) in Participants With Dravet Syndrome",
+   "nct": "NCT04462770",
+   "status": "RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2020-09-15",
+   "sponsor": "Epygenix",
+   "enrollment": 150,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Argentina",
+    "Brazil",
+    "Canada",
+    "Georgia",
+    "Hungary",
+    "India",
+    "Poland",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "This is a multicenter, Phase 3, randomized, double-blind, placebo-controlled study designed to evaluate the efficacy and safety of clemizole hydrochloride (EPX-100) as adjunctive therapy in children and adult participants with Dravet syndrome (DS).",
+   "url": "https://clinicaltrials.gov/study/NCT04462770"
+  },
+  {
+   "id": "INT:clemizole-hcl",
+   "type": "Intervention",
+   "name": "Clemizole HCl",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT06924827",
+   "type": "Study",
+   "name": "A Study to Investigate the Transition of Children From 'Artisanal\" Cannabidiol (CBD) to Epidiolex",
+   "nct": "NCT06924827",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2027-01-01",
+   "sponsor": "Elizabeth Donner",
+   "enrollment": 25,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "countries": [
+    "Canada"
+   ],
+   "summary": "The goal of this clinical trial is to learn the best way to switch children with Lennox-Gastaut Syndrome (LGS) or Dravet Syndrome (DS) taking 'artisanal' (non pharmaceutical-grade) cannabidiol (CBD) to Epidiolex for treatment of seizures. The main questions it aims to answer are:\n\n* How well does a gradual switch from 'artisanal' CBD to Epidiolex work?\n* Does the same dose of Epidiolex as 'artisanal' CBD work best?\n* What side-effects or medical problems do participants have when switching from 'artisanal' CBD to Epidiolex?\n\nResearchers will examine how successful switching from 'artisanal' CB",
+   "url": "https://clinicaltrials.gov/study/NCT06924827"
+  },
+  {
+   "id": "INT:epidiolex",
+   "type": "Intervention",
+   "name": "Epidiolex",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT07801404",
+   "type": "Study",
+   "name": "Biomarkers of Neurodegeneration, Synaptic Plasticity and Neuroinflammation in Dravet Syndrome",
+   "nct": "NCT07801404",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2026-09-15",
+   "sponsor": "Fondazione Policlinico Universitario Agostino Gemelli IRCCS",
+   "enrollment": 90,
+   "conditions": [
+    "Dravet Syndrome (DS)"
+   ],
+   "countries": [
+    "Italy"
+   ],
+   "summary": "Dravet syndrome (DS) is a developmental and epileptic encephalopathy, usually caused by de novo pathogenic SCN1A variants, characterized by early-onset prolonged febrile seizures, subsequent drug-resistant polymorphic epilepsy, developmental impairment, and, in some patients, progressive motor, cognitive and behavioral decline. Despite the expanding therapeutic landscape, objective biomarkers for disease stratification, monitoring and treatment response are lacking. Blood-based markers of neurodegeneration, synaptic plasticity and neuroinflammation are promising candidates because they are min",
+   "url": "https://clinicaltrials.gov/study/NCT07801404"
+  },
+  {
+   "id": "NCT:NCT06738732",
+   "type": "Study",
+   "name": "CBD Delivery with the A-Synaptic GT4 Transdermal Delivery System in with Dravet Syndrome And/or Lennox-Gastaut Syndrome",
+   "nct": "NCT06738732",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-01",
+   "sponsor": "Alexander Rotenberg",
+   "enrollment": 25,
+   "conditions": [
+    "Lennox-Gastaut Syndrome (LGS)",
+    "Dravet Syndrome (DS)"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study is a preliminary open-label, single-arm Phase II investigation into the safety and efficacy of transdermal cannabidiol (CBD) delivered using GT4 skin bream technology in individuals diagnosed with Dravet and/or Lennox-Gastatu syndrome (DS and/or LGS). We aim to enroll 25 participants between the ages of 2 and 55 diagnosed with DS and/or LGS.\n\nTransdermal delivery of cannabinoids may provide advantages over other traditional routes of administration. Noted advantages include avoidance of first pass metabolism which mitigates potentially dangerous drug-drug interactions due to delayed",
+   "url": "https://clinicaltrials.gov/study/NCT06738732"
+  },
+  {
+   "id": "INT:cbd",
+   "type": "Intervention",
+   "name": "CBD",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT07225231",
+   "type": "Study",
+   "name": "Clinical Utility of Reduced EEG Home Monitoring in Fenfluramine Titration for Dravet and LGS",
+   "nct": "NCT07225231",
+   "status": "NOT_YET_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-12-15",
+   "sponsor": "Byteflies",
+   "enrollment": 20,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox Gastaut Syndrome (LGS)"
+   ],
+   "countries": [],
+   "summary": "The goal of this real world data study is to evaluate the clinical utility of remote patient monitoring solution (using Byteflies' EpiCare@Home with reduced EEG montage and other vital signs) with Dravet and LGS patients (ages 3 and up with the exclusion of adults above weight allowing variable titration) to identify an optimal Fenfluramine treatment.\n\nPatients will wear one or more small portable and medically certified measuring devices. Through these devices, electroencephalography (EEG) signals, as well as electro-cardiography (ECG), heart rate, respiration rate, and physical activity are ",
+   "url": "https://clinicaltrials.gov/study/NCT07225231"
+  },
+  {
+   "id": "NCT:NCT05485831",
+   "type": "Study",
+   "name": "Epidyolex® in Lennox Gastaut, Dravet Syndrome and Tuberous Sclerosis Complex: an Observational Study in ITALY",
+   "nct": "NCT05485831",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2025-02-24",
+   "sponsor": "Jazz Pharmaceuticals",
+   "enrollment": 111,
+   "conditions": [
+    "Lennox Gastaut Syndrome",
+    "Dravet Syndrome",
+    "Tuberous Sclerosis Complex"
+   ],
+   "countries": [
+    "Italy"
+   ],
+   "summary": "This is a prospective, observational study on approximately 70-100 Real World participants affected by LGS, DS, or TSC treated with Epidyolex® as prescribed in the summary of product characteristics. The eligible participants are expected to participate in the study for a duration of 52 weeks of treatment.",
+   "url": "https://clinicaltrials.gov/study/NCT05485831"
+  },
+  {
+   "id": "NCT:NCT06112275",
+   "type": "Study",
+   "name": "A Clinical Study to Evaluate the Safety and Efficacy of ETX101, an AAV9-Delivered Gene Therapy in Children With SCN1A-positive Dravet Syndrome (Australia Only)",
+   "nct": "NCT06112275",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-02-28",
+   "sponsor": "Encoded Therapeutics",
+   "enrollment": 4,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Australia"
+   ],
+   "summary": "WAYFINDER is a Phase 1/2 study in Australia to evaluate the safety and efficacy of ETX101 in participants with SCN1A-positive Dravet syndrome aged 6 to \\<84 months. The study follows an open-label, dose-escalation design.",
+   "url": "https://clinicaltrials.gov/study/NCT06112275"
+  },
+  {
+   "id": "NCT:NCT06283212",
+   "type": "Study",
+   "name": "A Clinical Study to Evaluate the Safety and Efficacy of ETX101, an AAV9-Delivered Gene Therapy in Children With SCN1A-positive Dravet Syndrome",
+   "nct": "NCT06283212",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-05-09",
+   "sponsor": "Encoded Therapeutics",
+   "enrollment": 5,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United Kingdom"
+   ],
+   "summary": "EXPEDITION is a Phase 1/2 study in the UK to evaluate the safety and efficacy of ETX101 in participants with SCN1A-positive Dravet Syndrome aged 6 to \\< 48 months. The study follows and open-label, dose-escalation design.",
+   "url": "https://clinicaltrials.gov/study/NCT06283212"
+  },
+  {
+   "id": "NCT:NCT06660394",
+   "type": "Study",
+   "name": "A Phase 3, Placebo-Controlled Study to Investigate LP352 in Children and Adults With Dravet Syndrome (DS)",
+   "nct": "NCT06660394",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-09-25",
+   "sponsor": "Longboard Pharmaceuticals",
+   "enrollment": 96,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "Belgium",
+    "Brazil",
+    "Canada",
+    "China",
+    "Denmark",
+    "Finland",
+    "France",
+    "Germany",
+    "Italy",
+    "Japan",
+    "Latvia",
+    "Mexico",
+    "Portugal",
+    "Serbia",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "This (DEEp SEA Study) is a double-blind, randomized, placebo-controlled, multicenter study to investigate the efficacy, safety, and tolerability of LP352 in the treatment of seizures in children and adults with DS. The study consists of 3 main phases: Screening, Titration period, and Maintenance period, followed by a Taper period and Follow-Up. Participants will be randomized to LP352 or placebo. The total duration of the study will be approximately 24 months.",
+   "url": "https://clinicaltrials.gov/study/NCT06660394"
+  },
+  {
+   "id": "INT:lp352",
+   "type": "Intervention",
+   "name": "LP352",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT05472389",
+   "type": "Study",
+   "name": "Neurodevelopmental Impact of Epilepsy on Autonomic Function in Dravet Syndrome",
+   "nct": "NCT05472389",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2022-10-14",
+   "sponsor": "Hospices Civils de Lyon",
+   "enrollment": 92,
+   "conditions": [
+    "Dravet Syndrome",
+    "Epilepsy"
+   ],
+   "countries": [
+    "Belgium",
+    "France",
+    "Germany"
+   ],
+   "summary": "Dravet Syndrome (DS) is a severe epileptic encephalopathy, which main cause is mutations of SCN1A, the gene coding for the Nav1.1 voltage-gated sodium channel. DS is characterized by childhood onset, severe cognitive deficit and drug-resistant seizures, including several generalized convulsive seizures per day, frequent status epilepticus and high seizure-related mortality rate. Sudden and unexpected death in epilepsy (SUDEP) represents the major cause of premature deaths. The risk of SUDEP is thus about 9/1000-person-year in comparison with about 5/1000-person-year in the whole population of ",
+   "url": "https://clinicaltrials.gov/study/NCT05472389"
+  },
+  {
+   "id": "NCT:NCT04740476",
+   "type": "Study",
+   "name": "An Open-Label Extension Study of STK-001 for Patients With Dravet Syndrome",
+   "nct": "NCT04740476",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2021-01-20",
+   "sponsor": "Stoke Therapeutics, Inc",
+   "enrollment": 60,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "Stoke Therapeutics is evaluating the long-term safety \\& tolerability of repeated doses of zorevunersen (STK-001) in patients with Dravet syndrome who previously participated in studies of zorevunersen. Change in seizure frequency and overall clinical status, and quality of life will be measured as secondary endpoints in this open-label study.",
+   "url": "https://clinicaltrials.gov/study/NCT04740476"
+  },
+  {
+   "id": "NCT:NCT05044819",
+   "type": "Study",
+   "name": "Assessment of Potential for Chronic Liver Injury in Participants Treated With Epidiolex (Cannabidiol) Oral Solution",
+   "nct": "NCT05044819",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [
+    "PHASE4"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2021-07-07",
+   "sponsor": "Jazz Pharmaceuticals",
+   "enrollment": 154,
+   "conditions": [
+    "Lennox Gastaut Syndrome",
+    "Dravet Syndrome",
+    "Tuberous Sclerosis Complex"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study will monitor for potential chronic liver injury and liver fibrosis, in participants treated with cannabidiol oral solution.",
+   "url": "https://clinicaltrials.gov/study/NCT05044819"
+  },
+  {
+   "id": "INT:cannabidiol",
+   "type": "Intervention",
+   "name": "Cannabidiol",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT03655223",
+   "type": "Study",
+   "name": "Early Check: Expanded Screening in Newborns",
+   "nct": "NCT03655223",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2018-10-15",
+   "sponsor": "RTI International",
+   "enrollment": 30000,
+   "conditions": [
+    "Spinal Muscular Atrophy",
+    "Fragile X Syndrome",
+    "Fragile X - Premutation",
+    "Duchenne Muscular Dystrophy",
+    "Hyperinsulinemic Hypoglycemia, Familial 1",
+    "Diabetes Mellitus",
+    "Adrenoleukodystrophy, Neonatal",
+    "Medium-chain Acyl-CoA Dehydrogenase Deficiency",
+    "Very Long Chain Acyl Coa Dehydrogenase Deficiency",
+    "Beta-ketothiolase Deficiency",
+    "Severe Combined Immunodeficiency Due to Adenosine Deaminase Deficiency",
+    "Primary Hyperoxaluria Type 1",
+    "Congenital Bile Acid Synthesis Defect Type 2",
+    "Pyridoxine-Dependent Epilepsy",
+    "Hereditary Fructose Intolerance",
+    "Hypophosphatasia",
+    "Hyperargininemia",
+    "Mucopolysaccharidosis Type 6",
+    "Argininosuccinic Aciduria",
+    "Citrullinemia, Type I",
+    "Wilson Disease",
+    "Maple Syrup Urine Disease, Type 1A",
+    "Maple Syrup Urine Disease, Type 1B",
+    "Biotinidase Deficiency",
+    "Neonatal Severe Primary Hyperparathyroidism",
+    "Intrinsic Factor Deficiency",
+    "Usher Syndrome Type 1D/F Digenic (Diagnosis)",
+    "Cystic Fibrosis",
+    "Stickler Syndrome Type 2",
+    "Stickler Syndrome Type 1",
+    "Alport Syndrome, Autosomal Recessive",
+    "Alport Syndrome, X-Linked",
+    "Carbamoyl Phosphate Synthetase I Deficiency Disease",
+    "Carnitine Palmitoyl Transferase 1A Deficiency",
+    "Carnitine Palmitoyltransferase II Deficiency",
+    "Cystinosis",
+    "Chronic Granulomatous Disease",
+    "Cerebrotendinous Xanthomatoses",
+    "Maple Syrup Urine Disease, Type 2",
+    "Severe Combined Immunodeficiency Due to DCLRE1C Deficiency",
+    "Thyroid Dyshormonogenesis 6",
+    "Thyroid Dyshormonogenesis 5",
+    "Supravalvar Aortic Stenosis",
+    "Factor X Deficiency",
+    "Hemophilia A",
+    "Hemophilia B",
+    "Tyrosinemia, Type I",
+    "Fructose 1,6 Bisphosphatase Deficiency",
+    "Glycogen Storage Disease Type I",
+    "G6PD Deficiency",
+    "Glycogen Storage Disease II",
+    "Galactokinase Deficiency",
+    "Mucopolysaccharidosis Type IV A",
+    "Galactosemias",
+    "Guanidinoacetate Methyltransferase Deficiency",
+    "Agat Deficiency",
+    "Glutaryl-CoA Dehydrogenase Deficiency",
+    "Gtp Cyclohydrolase I Deficiency",
+    "Hyperinsulinism-Hyperammonemia Syndrome",
+    "Primary Hyperoxaluria Type 2",
+    "3-Hydroxyacyl-CoA Dehydrogenase Deficiency",
+    "Long-chain 3-hydroxyacyl-CoA Dehydrogenase Deficiency",
+    "Mitochondrial Trifunctional Protein Deficiency",
+    "Sickle Cell Disease",
+    "Beta-Thalassemia",
+    "Holocarboxylase Synthetase Deficiency",
+    "3-Hydroxy-3-Methylglutaric Aciduria",
+    "Primary Hyperoxaluria Type 3",
+    "Hermansky-Pudlak Syndrome 1",
+    "Hermansky-Pudlak Syndrome 4",
+    "Apparent Mineralocorticoid Excess",
+    "HSDB",
+    "CBAS1",
+    "Mucopolysaccharidosis Type 2",
+    "Mucopolysaccharidosis Type 1",
+    "Severe Combined Immunodeficiency, X Linked",
+    "Severe Combined Immunodeficiency Due to IL-7Ralpha Deficiency",
+    "Diabetes Mellitus, Permanent Neonatal",
+    "Isovaleric Acidemia",
+    "Severe Combined Immunodeficiency T-Cell Negative B-Cell Positive Due to Janus Kinase-3 Deficiency (Disorder)",
+    "Jervell and Lange-Nielsen Syndrome 2",
+    "Hyperinsulinemic Hypoglycemia, Familial, 2",
+    "Diabetes Mellitus, Permanent Neonatal, With Neurologic Features",
+    "Jervell and Lange-Nielsen Syndrome 1",
+    "Lysosomal Acid Lipase Deficiency",
+    "CblF",
+    "3-Methylcrotonyl CoA Carboxylase 1 Deficiency",
+    "3-Methylcrotonyl CoA Carboxylase 2 Deficiency",
+    "Waardenburg Syndrome Type 2A",
+    "Methylmalonic Aciduria cblA Type",
+    "Methylmalonic Aciduria cblB Type",
+    "Methylmalonic Aciduria and Homocystinuria Type cblC",
+    "MAHCD",
+    "Methylmalonic Aciduria Due to Methylmalonyl-CoA Mutase Deficiency",
+    "Congenital Disorder of Glycosylation Type 1B",
+    "Mthfr Deficiency",
+    "Methylcobalamin Deficiency Type Cbl G (Disorder)",
+    "Methylcobalamin Deficiency Type cblE",
+    "Usher Syndrome, Type 1B",
+    "N-acetylglutamate Synthase Deficiency",
+    "Ornithine Transcarbamylase Deficiency",
+    "Phenylketonurias",
+    "Waardenburg Syndrome Type 1",
+    "Congenital Hypothyroidism",
+    "Propionic Acidemia",
+    "Usher Syndrome, Type 1F",
+    "Pancreatic Agenesis 1",
+    "Hereditary Hypophosphatemic Rickets",
+    "Glycogen Storage Disease IXB",
+    "Glycogen Storage Disease IXC",
+    "MOWS",
+    "Epilepsy, Early-Onset, Vitamin B6-Dependent",
+    "Pyridoxal Phosphate-Responsive Seizures",
+    "Pituitary Hormone Deficiency, Combined, 1",
+    "Ptsd",
+    "Dihydropteridine Reductase Deficiency",
+    "Severe Combined Immunodeficiency Due to RAG1 Deficiency",
+    "Severe Combined Immunodeficiency Due to RAG2 Deficiency",
+    "Retinoblastoma",
+    "Multiple Endocrine Neoplasia Type 2B",
+    "Pseudohypoaldosteronism, Type I",
+    "Liddle Syndrome",
+    "Biotin-Responsive Basal Ganglia Disease",
+    "SCD",
+    "DIAR1",
+    "GSD1C",
+    "Acrodermatitis Enteropathica",
+    "Thyroid Dyshormonogenesis 1",
+    "Riboflavin Transporter Deficiency",
+    "Waardenburg Syndrome, Type 2E",
+    "SRD",
+    "Congenital Lipoid Adrenal Hyperplasia Due to STAR Deficiency",
+    "Barth Syndrome",
+    "Adrenocorticotropic Hormone Deficiency",
+    "Transcobalamin II Deficiency",
+    "Thyroid Dyshormonogenesis 3",
+    "Segawa Syndrome, Autosomal Recessive",
+    "Autosomal Recessive Nonsyndromic Hearing Loss",
+    "Thyroid Dyshormonogenesis 2A",
+    "Congenital Isolated Thyroid Stimulating Hormone Deficiency",
+    "Hypothyroidism Due to TSH Receptor Mutations",
+    "Usher Syndrome Type 1C",
+    "Usher Syndrome Type 1G (Diagnosis)",
+    "Von Willebrand Disease, Type 3",
+    "Combined Immunodeficiency Due to ZAP70 Deficiency",
+    "Adenine Phosphoribosyltransferase Deficiency",
+    "Metachromatic Leukodystrophy",
+    "Canavan Disease",
+    "Menkes Disease",
+    "Carbonic Anhydrase VA Deficiency",
+    "Developmental and Epileptic Encephalopathy 2",
+    "17 Alpha-Hydroxylase Deficiency",
+    "Smith-Lemli-Opitz Syndrome",
+    "Krabbe Disease",
+    "Glutathione Synthetase Deficiency",
+    "Mucopolysaccharidosis Type 7",
+    "Rett Syndrome",
+    "Molybdenum Cofactor Deficiency, Type A",
+    "Niemann-Pick Disease, Type C1",
+    "Niemann-Pick Disease Type C2",
+    "Ornithine Aminotransferase Deficiency",
+    "3-Phosphoglycerate Dehydrogenase Deficiency",
+    "Leber Congenital Amaurosis 2",
+    "Dravet Syndrome",
+    "Mucopolysaccharidosis Type 3 A",
+    "Ornithine Translocase Deficiency",
+    "Carnitine-acylcarnitine Translocase Deficiency",
+    "Glucose Transporter Type 1 Deficiency Syndrome",
+    "Creatine Transporter Deficiency",
+    "Niemann-Pick Disease Type A",
+    "Pitt Hopkins Syndrome",
+    "Tuberous Sclerosis 1",
+    "Tuberous Sclerosis 2",
+    "Ataxia With Isolated Vitamin E Deficiency",
+    "Angelman Syndrome",
+    "Prader-Willi Syndrome",
+    "Homocystinuria",
+    "Permanent Neonatal Diabetes Mellitus",
+    "Transient Neonatal Diabetes Mellitus",
+    "Factor VII Deficiency",
+    "Glycogen Storage Disease Type IXA1",
+    "Glycogen Storage Disease, Type IXA2",
+    "Glycogen Storage Disease IC",
+    "Glycogen Storage Disease Type IB",
+    "Central Hypoventilation Syndrome With or Without Hirschsprung Disease"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "Early Check provides voluntary screening of newborns for a selected panel of conditions. The study has three main objectives: 1) develop and implement an approach to identify affected infants, 2) address the impact on infants and families who screen positive, and 3) evaluate the Early Check program. The Early Check screening will lead to earlier identification of newborns with rare health conditions in addition to providing important data on the implementation of this model program. Early diagnosis may result in health and development benefits for the newborns. Infants who have newborn screeni",
+   "url": "https://clinicaltrials.gov/study/NCT03655223"
+  },
+  {
+   "id": "NCT:NCT07176832",
+   "type": "Study",
+   "name": "Bioavailability of Stiripentol After Single Oral Dose of Capsule vs Suspension in Healthy Subjects (STILIQ)",
+   "nct": "NCT07176832",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2025-06-01",
+   "sponsor": "Biocodex",
+   "enrollment": 24,
+   "conditions": [
+    "Dravet Syndrome",
+    "Epilepsy",
+    "Childhood",
+    "Epileptic Encephalopathy",
+    "Pediatric Epilepsy"
+   ],
+   "countries": [
+    "France"
+   ],
+   "summary": "This is a Phase I, open-label, randomized, single-center, two-way cross-over study evaluating the relative bioavailability, pharmacokinetics, safety, and palatability of two formulations of stiripentol (Diacomit®), indicated in Dravet syndrome. The investigational products are 500 mg capsules (reference) and a 50 mg/mL oral suspension (test).\n\nThe primary objective is to compare the relative bioavailability of the two formulations after a single 1,000 mg oral dose under fed conditions, based on Cmax, AUC0-t, and AUC0-∞. Secondary objectives include other PK parameters (tmax, tlag, ke, t1/2) an",
+   "url": "https://clinicaltrials.gov/study/NCT07176832"
+  },
+  {
+   "id": "INT:stiripentol",
+   "type": "Intervention",
+   "name": "Stiripentol",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "INT:stiripentol-oral",
+   "type": "Intervention",
+   "name": "Stiripentol oral",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT06118255",
+   "type": "Study",
+   "name": "A Study to Evaluate Safety, Tolerability, and Pharmacokinetics of Fenfluramine (Hydrochloride) in Infants 1 Year to Less Than 2 Years of Age With Dravet Syndrome",
+   "nct": "NCT06118255",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-05-21",
+   "sponsor": "UCB BIOSCIENCES, Inc.",
+   "enrollment": 25,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Belgium",
+    "Germany",
+    "Italy",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "The primary purpose of this study is evaluate the safety and tolerability of fenfluramine hydrochloride (HCl) 0.2 to 0.8 mg/kg/day in infants 1 year to less than 2 years of age with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT06118255"
+  },
+  {
+   "id": "NCT:NCT05982717",
+   "type": "Study",
+   "name": "A Study to Gather Information About Overall Occurrence and New Cases of Dravet and Lennox-Gastaut Syndromes in Children, Teenagers and Adults in Spain",
+   "nct": "NCT05982717",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2023-10-26",
+   "sponsor": "Takeda",
+   "enrollment": 237,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "countries": [
+    "Spain"
+   ],
+   "summary": "The main aims of this study are to gather information about how many children, teenagers and adults in Spain have been diagnosed with Dravet syndrome and Lennox-Gastaut syndrome as well as to learn about the number of new Dravet syndrome and Lennox-Gastaut syndrome cases in persons in Spain.\n\nParticipants' data will be taken from their medical records (charts), which were already collected as a part of their routine care in public hospitals in Spain between 01 January 2021 and 31 December 2022.",
+   "url": "https://clinicaltrials.gov/study/NCT05982717"
+  },
+  {
+   "id": "NCT:NCT05364021",
+   "type": "Study",
+   "name": "Study to Investigate LP352 in Subjects With Developmental and Epileptic Encephalopathies",
+   "nct": "NCT05364021",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2022-03-03",
+   "sponsor": "Longboard Pharmaceuticals",
+   "enrollment": 52,
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy",
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "United States"
+   ],
+   "summary": "The objective of this study is to assess the safety, tolerability, efficacy, and pharmacokinetics of adjunctive therapy of LP352 in adults and adolescents with developmental and epileptic encephalopathies.",
+   "url": "https://clinicaltrials.gov/study/NCT05364021"
+  },
+  {
+   "id": "NCT:NCT05544058",
+   "type": "Study",
+   "name": "Retrospective Non-interventional Study of Stiripentol Use in Dravet Patients in the USA",
+   "nct": "NCT05544058",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2022-04-27",
+   "sponsor": "Biocodex",
+   "enrollment": 100,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "The present study aims to collect data regarding the history of the disease, previous and current treatments, and the clinical status of Dravet patients during the 3 months prior to stiripentol initiation, the first 3 months on stiripentol and the last 3 months on stiripentol (irrespective of stiripentol discontinuation).",
+   "url": "https://clinicaltrials.gov/study/NCT05544058"
+  },
+  {
+   "id": "NCT:NCT05626634",
+   "type": "Study",
+   "name": "Open-label, Long-term Safety Study of LP352 in Subjects With Developmental and Epileptic Encephalopathy",
+   "nct": "NCT05626634",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2022-11-08",
+   "sponsor": "Longboard Pharmaceuticals",
+   "enrollment": 41,
+   "conditions": [
+    "Developmental and Epileptic Encephalopathy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "United States"
+   ],
+   "summary": "The objective of this study is to assess the long-term safety, tolerability, and efficacy of adjunctive therapy of LP352 in subjects with developmental and epileptic encephalopathies who completed participation in Study LP352-201.",
+   "url": "https://clinicaltrials.gov/study/NCT05626634"
+  },
+  {
+   "id": "NCT:NCT04940624",
+   "type": "Study",
+   "name": "A Study of Soticlestat as an Add-on Therapy in Children and Young Adults With Dravet Syndrome",
+   "nct": "NCT04940624",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2021-10-28",
+   "sponsor": "Takeda",
+   "enrollment": 144,
+   "conditions": [
+    "Dravet Syndrome (DS)"
+   ],
+   "countries": [
+    "Australia",
+    "Brazil",
+    "Canada",
+    "China",
+    "France",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Italy",
+    "Japan",
+    "Latvia",
+    "Netherlands",
+    "Poland",
+    "Russia",
+    "Serbia",
+    "Spain",
+    "Ukraine",
+    "United States"
+   ],
+   "summary": "The main aim of the study is to learn if soticlestat, when given as an add-on therapy, reduces the number of convulsive seizures in children and young adults with DS.\n\nParticipants will receive their standard antiseizure therapy, plus either a tablet of soticlestat or placebo for 16 weeks. A placebo looks just like soticlestat but will not have any medicine in it.\n\nParticipants may continue treatment in an extension study, based on the extension study's entry criteria. Those that want to stop treatment will have a gradual dose reduction during 1 week and then be followed up for 2 weeks.",
+   "url": "https://clinicaltrials.gov/study/NCT04940624"
+  },
+  {
+   "id": "NCT:NCT07592650",
+   "type": "Study",
+   "name": "Applicability and Effectiveness of Remote Occupational Therapy",
+   "nct": "NCT07592650",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2021-12-16",
+   "sponsor": "Fondazione Policlinico Universitario Agostino Gemelli IRCCS",
+   "enrollment": 14,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Italy"
+   ],
+   "summary": "The pandemic has made it necessary to imagine and experiment with new ways for disabled patients to continue their care, responding to the sudden employment and emotional void of this historical period. With this in mind, several studies have shown how telemedicine and telerehabilitation can represent a new frontier in care, reducing costs, shortening distances, increasing continuity of care, and also allowing services to be performed in a comfortable and familiar environment. All these elements also combine to determine a positive effect on the patient's compliance with the therapeutic projec",
+   "url": "https://clinicaltrials.gov/study/NCT07592650"
+  },
+  {
+   "id": "NCT:NCT04442295",
+   "type": "Study",
+   "name": "An Open-Label Study to Investigate the Safety of Single and Multiple Ascending Doses in Children and Adolescents With Dravet Syndrome",
+   "nct": "NCT04442295",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1",
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2020-06-29",
+   "sponsor": "Stoke Therapeutics, Inc",
+   "enrollment": 62,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "Stoke Therapeutics is evaluating the safety and tolerability of single and multiple ascending doses of STK-001 in patients with Dravet syndrome. Change in seizure frequency, overall clinical status, and quality of life will be measured as secondary endpoints in this open-label study.",
+   "url": "https://clinicaltrials.gov/study/NCT04442295"
+  },
+  {
+   "id": "INT:stk-001",
+   "type": "Intervention",
+   "name": "STK-001",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT03936777",
+   "type": "Study",
+   "name": "A Study to Investigate the Long-Term Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution in Children and Adults With Epileptic Encephalopathy Including Dravet Syndrome and Lennox-Gastaut Syndrome",
+   "nct": "NCT03936777",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2019-04-22",
+   "sponsor": "Zogenix, Inc.",
+   "enrollment": 412,
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome",
+    "Epileptic Encephalopathy"
+   ],
+   "countries": [
+    "Australia",
+    "Belgium",
+    "Canada",
+    "Denmark",
+    "France",
+    "Germany",
+    "Italy",
+    "Mexico",
+    "Netherlands",
+    "Poland",
+    "Spain",
+    "Sweden",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "This is an international, multicenter, open-label, long-term safety study of ZX008 in subjects with Dravet syndrome, Lennox-Gastaut syndrome or epileptic encephalopathy",
+   "url": "https://clinicaltrials.gov/study/NCT03936777"
+  },
+  {
+   "id": "INT:zx008",
+   "type": "Intervention",
+   "name": "ZX008",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT04069689",
+   "type": "Study",
+   "name": "Study of Safety and Pharmacokinetics of Oral Doses of EPX-100 in Healthy Subjects.",
+   "nct": "NCT04069689",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2019-08-29",
+   "sponsor": "Epygenix",
+   "enrollment": 24,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This is a placebo-controlled, double-blind, 2-period study in 3 sequential groups of 8 healthy subjects each. The safety and pharmacokinetics of escalating single and multiple oral doses of EPX-100 will be assessed in fasting healthy subjects and following a high-fat meal.",
+   "url": "https://clinicaltrials.gov/study/NCT04069689"
+  },
+  {
+   "id": "INT:epx-100",
+   "type": "Intervention",
+   "name": "EPX-100",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT03467113",
+   "type": "Study",
+   "name": "A Study to Assess the Safety and Tolerability of ZX008 in Children and Young Adults With Dravet Syndrome or Lennox Gastaut Syndrome Currently Taking Cannabidiol",
+   "nct": "NCT03467113",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE1"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2018-01-19",
+   "sponsor": "Zogenix International Limited, Inc., a subsidiary of Zogenix, Inc.",
+   "enrollment": 9,
+   "conditions": [
+    "Dravet Syndrome",
+    "Lennox Gastaut Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This is an open label study to evaluate the safety of ZX008 (fenfluramine) in patients with Dravet syndrome (DS) or Lennox Gastaut syndrome (LGS) who are being administered cannabidiol (CBD).",
+   "url": "https://clinicaltrials.gov/study/NCT03467113"
+  },
+  {
+   "id": "INT:zx008-0-2-to",
+   "type": "Intervention",
+   "name": "ZX008 0.2 to",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT03650452",
+   "type": "Study",
+   "name": "A Phase 2, Multicenter, Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of TAK-935 (OV935) as an Adjunctive Therapy in Pediatric Participants With Developmental and/or Epileptic Encephalopathies",
+   "nct": "NCT03650452",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2018-08-08",
+   "sponsor": "Takeda",
+   "enrollment": 141,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "Canada",
+    "China",
+    "Israel",
+    "Poland",
+    "Portugal",
+    "Spain",
+    "United States"
+   ],
+   "summary": "The purpose of this study is to investigate the effect on the frequency of all seizures (convulsive and drop) in participants treated with TAK-935 compared to placebo.",
+   "url": "https://clinicaltrials.gov/study/NCT03650452"
+  },
+  {
+   "id": "INT:tak-935",
+   "type": "Intervention",
+   "name": "TAK-935",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT03857451",
+   "type": "Study",
+   "name": "Treatment of Gait Disorders in Children With Dravet Syndrome",
+   "nct": "NCT03857451",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2017-01-01",
+   "sponsor": "Universiteit Antwerpen",
+   "enrollment": 50,
+   "conditions": [
+    "Dravet Syndrome",
+    "Severe Myoclonic Epilepsy of Infancy"
+   ],
+   "countries": [
+    "Belgium"
+   ],
+   "summary": "Dravet syndrome is a severe infantile onset epilepsy syndrome with a prevalence of 1/15.000 to 1/30.000. An infant with an apparently normal development presents around 6 months of age with a convulsive status epilepticus. Seizures can be triggered by fever, illness or vaccination. Because of its drug-resistance, in the past, most attention has been paid to seizure control. However, developmental and behavioural problems also become a serious concern during the second year of life. Outcome is poor, with intellectual disability and ongoing seizures. On the long term, the deterioration in gait i",
+   "url": "https://clinicaltrials.gov/study/NCT03857451"
+  },
+  {
+   "id": "NCT:NCT02926898",
+   "type": "Study",
+   "name": "A 2-Part Study to Investigate the Dose-Ranging Safety and Pharmacokinetics, Followed by the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution as an Adjunctive Therapy in Children ≥ 2 Years Old and Young Adults With Dravet Syndrome",
+   "nct": "NCT02926898",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2017-01-27",
+   "sponsor": "Zogenix International Limited, Inc., a subsidiary of Zogenix, Inc.",
+   "enrollment": 87,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Canada",
+    "France",
+    "Germany",
+    "Netherlands",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "The primary purpose of this study is to evaluate the safety, tolerability, and efficacy of ZX008 (fenfluramine hydrochloride) when added to adjunctive antiepileptic stiripentol treatment in children and young adults with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT02926898"
+  },
+  {
+   "id": "NCT:NCT02682927",
+   "type": "Study",
+   "name": "A Trial of Two Fixed Doses of ZX008 (Fenfluramine HCl) in Children and Young Adults With Dravet Syndrome",
+   "nct": "NCT02682927",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2016-01-15",
+   "sponsor": "Zogenix International Limited, Inc., a subsidiary of Zogenix, Inc.",
+   "enrollment": 262,
+   "conditions": [
+    "Dravet Syndrome",
+    "Seizure Disorder"
+   ],
+   "countries": [
+    "Australia",
+    "Belgium",
+    "Canada",
+    "Denmark",
+    "France",
+    "Germany",
+    "Italy",
+    "Japan",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "Study 1 and Study 3 are the prospective, merged analyses of 2 identical double-blind, placebo-controlled studies, ZX008-1501 and ZX008-1502, to assess the efficacy, safety, and pharmacokinetics of ZX008 when used as adjunctive therapy in pediatric and young adult subjects with Dravet syndrome. Study 1501 and Study 1502 were conducted in parallel; Study 1501 was conducted at approximately 30 study sites in North America; Study 1502 was conducted at approximately 30 study sites in Europe, Asia and Australia. Upon completion of the Baseline Period after initial Screening and Baseline charting of ",
+   "url": "https://clinicaltrials.gov/study/NCT02682927"
+  },
+  {
+   "id": "NCT:NCT02823145",
+   "type": "Study",
+   "name": "An Open-Label Extension Trial to Assess the Long-Term Safety of ZX008 (Fenfluramine Hydrochloride HCl) Oral Solution in Children and Young Adults With Dravet Syndrome",
+   "nct": "NCT02823145",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2016-06-08",
+   "sponsor": "Zogenix International Limited, Inc., a subsidiary of Zogenix, Inc.",
+   "enrollment": 375,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "Belgium",
+    "Canada",
+    "Denmark",
+    "France",
+    "Germany",
+    "Italy",
+    "Japan",
+    "Netherlands",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "This is an international, multicenter, open-label, long-term safety study of ZX008 in subjects with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT02823145"
+  },
+  {
+   "id": "NCT:NCT02091375",
+   "type": "Study",
+   "name": "Antiepileptic Efficacy Study of GWP42003-P in Children and Young Adults With Dravet Syndrome (GWPCARE1)",
+   "nct": "NCT02091375",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2015-03-30",
+   "sponsor": "Jazz Pharmaceuticals",
+   "enrollment": 120,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "France",
+    "Poland",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "To investigate the potential antiepileptic effects of cannabidiol (GWP42003-P) in children and young adults with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT02091375"
+  },
+  {
+   "id": "INT:gwp42003",
+   "type": "Intervention",
+   "name": "GWP42003",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT02224703",
+   "type": "Study",
+   "name": "GWPCARE2 A Study to Investigate the Efficacy and Safety of Cannabidiol (GWP42003-P) in Children and Young Adults With Dravet Syndrome",
+   "nct": "NCT02224703",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2015-04-13",
+   "sponsor": "Jazz Pharmaceuticals",
+   "enrollment": 199,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "Israel",
+    "Netherlands",
+    "Poland",
+    "Spain",
+    "United States"
+   ],
+   "summary": "To investigate the potential antiepileptic effects of cannabidiol (GWP42003-P) in children and young adults with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT02224703"
+  },
+  {
+   "id": "NCT:NCT02415686",
+   "type": "Study",
+   "name": "Cardiac Arrhythmias in Dravet Syndrome",
+   "nct": "NCT02415686",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2015-06",
+   "sponsor": "Stichting Epilepsie Instellingen Nederland",
+   "enrollment": 59,
+   "conditions": [
+    "Epilepsy"
+   ],
+   "countries": [
+    "Germany",
+    "Netherlands",
+    "United Kingdom"
+   ],
+   "summary": "SUMMARY\n\nRationale:\n\nPeople with Dravet Syndrome (DS), a rare epilepsy syndrome, have a high risk of Sudden Unexpected Death in Epilepsy (SUDEP). Mouse models indicated that the responsible sodium channel mutation (SCN1A) not only alters cortical excitability but also increases the propensity to arrhythmias. Little is known yet about the prevalence of seizure-induced arrhythmias in human DS subjects.\n\nObjective:\n\nTo assess the prevalence of cardiac arrhythmias in DS and to compare the prevalence of cardiac arrhythmias between DS subjects and subjects with other types of epilepsy.\n\nStudy design",
+   "url": "https://clinicaltrials.gov/study/NCT02415686"
+  },
+  {
+   "id": "NCT:NCT02224573",
+   "type": "Study",
+   "name": "An Open Label Extension Study of Cannabidiol (GWP42003-P) in Children and Adults With Dravet or Lennox-Gastaut Syndromes",
+   "nct": "NCT02224573",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2015-06-11",
+   "sponsor": "GW Research Ltd",
+   "enrollment": 681,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome",
+    "Lennox-Gastaut Syndrome"
+   ],
+   "countries": [],
+   "summary": "To investigate the potential antiepileptic effects of cannabidiol (GWP42003-P) in children and adults with Dravet or Lennox-Gastaut syndromes.",
+   "url": "https://clinicaltrials.gov/study/NCT02224573"
+  },
+  {
+   "id": "NCT:NCT02896608",
+   "type": "Study",
+   "name": "Neuronal Excitability of HCN1 Channel Mutations in Dravet Syndrome",
+   "nct": "NCT02896608",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2015-10-29",
+   "sponsor": "Fondation Ophtalmologique Adolphe de Rothschild",
+   "enrollment": 92,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "France"
+   ],
+   "summary": "This study addresses the changes in the axonal excitability parameters. It will compare these changes in patients with early infantile epileptic encephalopathy with HCN1 channel mutation and in control patients, with and without epilepsy.",
+   "url": "https://clinicaltrials.gov/study/NCT02896608"
+  },
+  {
+   "id": "NCT:NCT02229032",
+   "type": "Study",
+   "name": "Genetic Analysis Between Charlotte's Web Responders Versus Non- Responders in a Dravet Population",
+   "nct": "NCT02229032",
+   "status": "COMPLETED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2014-08",
+   "sponsor": "University of Colorado, Denver",
+   "enrollment": 19,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "There is tremendous curiosity about medical marijuana and the treatment of epilepsy. In a specific genetic epilepsy known as Dravet Syndrome, a mutation occurs affecting the SCN1A gene. A specific strain of marijuana known as Charlotte's Web, available in Colorado, may have activity in this catastrophic epilepsy syndrome. Anecdotal reports suggest both success and lack of response with this therapy. Genetic analysis of the differences between Dravet responders and non-responders may prove useful for identifying patients likely to be helped by this therapy, as well as shed light on the putative",
+   "url": "https://clinicaltrials.gov/study/NCT02229032"
+  },
+  {
+   "id": "NCT:NCT02091206",
+   "type": "Study",
+   "name": "A Dose-ranging Pharmacokinetics and Safety Study of GWP42003-P in Children With Dravet Syndrome (GWPCARE1)",
+   "nct": "NCT02091206",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2014-10-22",
+   "sponsor": "Jazz Pharmaceuticals",
+   "enrollment": 34,
+   "conditions": [
+    "Epilepsy",
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "To evaluate the safety and pharmacokinetics (PK) of multiple doses of GWP42003-P compared with placebo in children with Dravet syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT02091206"
+  },
+  {
+   "id": "NCT:NCT01607073",
+   "type": "Study",
+   "name": "Verapamil as Therapy for Children and Young Adults With Dravet Syndrome",
+   "nct": "NCT01607073",
+   "status": "COMPLETED",
+   "phases": [
+    "PHASE2"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2012-04",
+   "sponsor": "Gillette Children's Specialty Healthcare",
+   "enrollment": 2,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "United States"
+   ],
+   "summary": "This study will assess how well the drug verapamil can improve control of seizures and dysautonomia symptoms in children and young adults diagnosed with Dravet syndrome. The safety of verapamil when given with all concomitant medications will also be assessed.",
+   "url": "https://clinicaltrials.gov/study/NCT01607073"
+  },
+  {
+   "id": "INT:verapamil",
+   "type": "Intervention",
+   "name": "Verapamil",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT06422377",
+   "type": "Study",
+   "name": "A Study Evaluating Soticlestat in Participants With Dravet Syndrome or Lennox-Gastaut Syndrome Who Have Been Exposed to Fenfluramine",
+   "nct": "NCT06422377",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2024-04-25",
+   "sponsor": "Takeda",
+   "enrollment": 1,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "countries": [
+    "Denmark"
+   ],
+   "summary": "The purpose of this study is to check how soticlestat impacts symptoms of Dravet syndrome \\[DS\\] and Lennox-Gastaut syndrome \\[LGS\\] in participants who have been exposed to fenfluramine.",
+   "url": "https://clinicaltrials.gov/study/NCT06422377"
+  },
+  {
+   "id": "NCT:NCT06395792",
+   "type": "Study",
+   "name": "A Study on Dravet Syndrome (DS) and Lennox-Gastaut Syndrome (LGS) in Children, Teenagers and Adults in Portugal",
+   "nct": "NCT06395792",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2024-12-01",
+   "sponsor": "Takeda",
+   "enrollment": 0,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox-Gastaut Syndrome (LGS)"
+   ],
+   "countries": [],
+   "summary": "The main aim of this study is to learn about the percentage of persons diagnosed with Dravet Syndrome (DS) and Lennox-Gastaut-Syndrome (LGS) in 2022 and of persons newly diagnosed in 2021 and 2022 compared to the overall population in Portugal. Other aims are to understand how many percent of the persons diagnosed with DS and LGS are children, teenagers or adults and gather additional information on diagnosis and persons diagnosed with DS and LGS in Portugal.\n\nInformation will be taken from a participant's existing medical hospital records. It is planned to review data in approximately 3 publi",
+   "url": "https://clinicaltrials.gov/study/NCT06395792"
+  },
+  {
+   "id": "NCT:NCT05560282",
+   "type": "Study",
+   "name": "Fenfluramine for Adult Dravet Patients",
+   "nct": "NCT05560282",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2023-01-11",
+   "sponsor": "University Health Network, Toronto",
+   "enrollment": 7,
+   "conditions": [
+    "Dravet Syndrome",
+    "Dravet Syndrome, Intractable"
+   ],
+   "countries": [
+    "Canada"
+   ],
+   "summary": "Full Title: Fenfluramine for the treatment of refractory Epilepsy in Adult Dravet patients\n\nShort Title: Fenfluramine for Adult Dravet patients\n\nClinical Phase: Phase III\n\nSample Size: A total of 15 participants will be included in the study.\n\nStudy Population: Adult patients (18 years and older) with drug-resistant epilepsy (maintained on their existing medications, with exception of cannabidiol) and genetically confirmed Dravet syndrome will be recruited to participate in the study.\n\nAccrual Period: 12 months Study Design: Open label, non-randomized and uncontrolled add-on trial in adults (1",
+   "url": "https://clinicaltrials.gov/study/NCT05560282"
+  },
+  {
+   "id": "NCT:NCT06371794",
+   "type": "Study",
+   "name": "EXploring novEl Molecular Determinants of DRAvet Syndrome Phenotype Heterogeneity",
+   "nct": "NCT06371794",
+   "status": "UNKNOWN",
+   "phases": [
+    "NA"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2023-07-06",
+   "sponsor": "Fondazione Policlinico Universitario Agostino Gemelli IRCCS",
+   "enrollment": 16,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Italy"
+   ],
+   "summary": "Dravet syndrome is characterized as a developmental encephalopathy resulting from mutations of SCN1A, the gene encoding the alpha subunit of the voltage-gated sodium channel Nav1.1. The syndrome typically presents with drug-resistant epilepsy and varying degrees of cognitive disorders. Current treatment efficacy may be hindered by insufficient knowledge of undiscovered molecular determinants of the disease and its heterogeneous nature. Utilizing induced pluripotent stem cells (iPSCs) derived from skin biopsies, accessibility to patients' brain neurons has enabled successful modeling of various",
+   "url": "https://clinicaltrials.gov/study/NCT06371794"
+  },
+  {
+   "id": "NCT:NCT05140122",
+   "type": "Study",
+   "name": "LEONIDaS Caregivers Study",
+   "nct": "NCT05140122",
+   "status": "WITHDRAWN",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2023-10-26",
+   "sponsor": "University of Oxford",
+   "enrollment": 0,
+   "conditions": [
+    "Dravet Syndrome",
+    "Depression",
+    "Anxiety"
+   ],
+   "countries": [],
+   "summary": "Dravet syndrome is a rare form of severe epilepsy that begins in the first year of life and is associated with frequent and/or prolonged seizures. Individuals with Dravet Syndrome often experience a range of comorbidities, including behavioral and developmental delays, movement and balance issues, sleep difficulties, chronic infections, and growth and nutritional issues. Patients with Dravet syndrome are at high risk of death due to SUDEP (Sudden Unexpected Death in Epilepsy), prolonged seizures, seizure-related accidents, and infections.\n\nDue to the severity of this condition, parents of chil",
+   "url": "https://clinicaltrials.gov/study/NCT05140122"
+  },
+  {
+   "id": "INT:multiple",
+   "type": "Intervention",
+   "name": "Multiple",
+   "intervention_type": "drug"
+  },
+  {
+   "id": "NCT:NCT06504511",
+   "type": "Study",
+   "name": "SCN1A Horizons A Natural History Study of SCN1A-related Epilepsies in the United Kingdom",
+   "nct": "NCT06504511",
+   "status": "UNKNOWN",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2023-11-20",
+   "sponsor": "NHS Greater Glasgow and Clyde",
+   "enrollment": 400,
+   "conditions": [
+    "SCN1A",
+    "Dravet Syndrome",
+    "Epilepsy"
+   ],
+   "countries": [
+    "United Kingdom"
+   ],
+   "summary": "The aims of this prospective natural history study are to define the seizure, neuro-developmental, and behavioural characteristics of SCN1A-related epilepsies/Dravet syndrome in children and adults longitudinally over a period of three years. In addition, this study will compare missense and truncating genotypes in terms of i) rates of change of countable convulsive seizures per month and ii) neurodevelopmental outcome and trajectories.",
+   "url": "https://clinicaltrials.gov/study/NCT06504511"
+  },
+  {
+   "id": "NCT:NCT05163314",
+   "type": "Study",
+   "name": "A Study of Soticlestat as an Add-on Therapy in Children and Adults With Dravet Syndrome or Lennox-Gastaut Syndrome",
+   "nct": "NCT05163314",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2022-03-04",
+   "sponsor": "Takeda",
+   "enrollment": 352,
+   "conditions": [
+    "Dravet Syndrome (DS)",
+    "Lennox Gastaut Syndrome (LGS)"
+   ],
+   "countries": [
+    "Australia",
+    "Belgium",
+    "Brazil",
+    "Canada",
+    "China",
+    "France",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Italy",
+    "Japan",
+    "Latvia",
+    "Mexico",
+    "Netherlands",
+    "Poland",
+    "Russia",
+    "Serbia",
+    "Spain",
+    "Ukraine",
+    "United States"
+   ],
+   "summary": "The main aim of the study is to learn if soticlestat, when given as an add-on therapy, reduces the number of seizures in children and adults with Dravet Syndrome (DS) or Lennox-Gastaut Syndrome (LGS).\n\nParticipants will receive their standard anti-seizure therapy, plus tablets of soticlestat. There will be scheduled visits and follow-up phone calls throughout the study.",
+   "url": "https://clinicaltrials.gov/study/NCT05163314"
+  },
+  {
+   "id": "NCT:NCT04537832",
+   "type": "Study",
+   "name": "Natural History Study of Infants and Children With Developmental and Epileptic Encephalopathies",
+   "nct": "NCT04537832",
+   "status": "TERMINATED",
+   "phases": [],
+   "study_type": "OBSERVATIONAL",
+   "start": "2021-01-18",
+   "sponsor": "Encoded Therapeutics",
+   "enrollment": 58,
+   "conditions": [
+    "Dravet Syndrome"
+   ],
+   "countries": [
+    "Australia",
+    "Spain",
+    "United Kingdom",
+    "United States"
+   ],
+   "summary": "This is a multicenter, prospective, 2-year observational study in infants and children with developmental and epileptic encephalopathies (DEEs). The DEE currently being investigated is SCN1A-positive Dravet Syndrome.",
+   "url": "https://clinicaltrials.gov/study/NCT04537832"
+  },
+  {
+   "id": "NCT:NCT04485104",
+   "type": "Study",
+   "name": "Assessment of Adjunctive Cannabidiol Oral Solution (GWP42003-P) in Children With Tuberous Sclerosis Complex (TSC), Dravet Syndrome (DS), or Lennox-Gastaut Syndrome (LGS) Who Experience Inadequately-controlled Seizures",
+   "nct": "NCT04485104",
+   "status": "TERMINATED",
+   "phases": [
+    "PHASE3"
+   ],
+   "study_type": "INTERVENTIONAL",
+   "start": "2021-05-19",
+   "sponsor": "Jazz Pharmaceuticals",
+   "enrollment": 3,
+   "conditions": [
+    "Seizure in Participants With Tuberous Sclerosis Complex",
+    "Seizure in Participants With Dravet Syndrome",
+    "Seizure in Participants With Lennox-Gastaut Syndrome"
+   ],
+   "countries": [
+    "Italy",
+    "Spain",
+    "United States"
+   ],
+   "summary": "This study will be conducted to evaluate the safety, pharmacokinetics (PK), and efficacy of adjunctive GWP42003-P in participants \\< 2 years of age with tuberous sclerosis complex (TSC), Lennox-Gastaut syndrome (LGS), or Dravet syndrome (DS).",
+   "url": "https://clinicaltrials.gov/study/NCT04485104"
   },
   {
    "id": "ORG:nord:epilepsy-foundation",
@@ -1796,6 +3915,213 @@
    "organization": "NORTHWESTERN UNIVERSITY"
   },
   {
+   "id": "NIH:R01NS131467",
+   "type": "Grant",
+   "name": "Dravet Syndrome Anti-Epileptic Control by Targeting GIRK Channels",
+   "project_num": "5R01NS131467-04",
+   "fiscal_year": 2026,
+   "award_amount": 551077,
+   "institute": "NINDS",
+   "organization": "NORTHEASTERN UNIVERSITY",
+   "city": "BOSTON",
+   "country": "UNITED STATES",
+   "start": "2023-03-01",
+   "end": "2027-12-31",
+   "url": "https://reporter.nih.gov/project-details/11261627"
+  },
+  {
+   "id": "RES:nih:8581396",
+   "type": "Researcher",
+   "name": "Leigh Daniel Plant",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8581396,
+   "organization": "NORTHEASTERN UNIVERSITY"
+  },
+  {
+   "id": "NIH:R56NS146841",
+   "type": "Grant",
+   "name": "Mechanisms and Treatment of SCN3A-Developmental and Epileptic Encephalopathy",
+   "project_num": "1R56NS146841-01A1",
+   "fiscal_year": 2026,
+   "award_amount": 532762,
+   "institute": "NINDS",
+   "organization": "COLUMBIA UNIVERSITY HEALTH SCIENCES",
+   "city": "NEW YORK",
+   "country": "UNITED STATES",
+   "start": "2026-09-17",
+   "end": "2027-08-31",
+   "url": "https://reporter.nih.gov/project-details/11631660"
+  },
+  {
+   "id": "RES:nih:10406460",
+   "type": "Researcher",
+   "name": "Christopher D Makinson",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 10406460,
+   "organization": "COLUMBIA UNIVERSITY HEALTH SCIENCES"
+  },
+  {
+   "id": "NIH:R01NS126392",
+   "type": "Grant",
+   "name": "SCN8A encephalopathy: disease mechanisms and treatment",
+   "project_num": "5R01NS126392-04",
+   "fiscal_year": 2026,
+   "award_amount": 523154,
+   "institute": "NINDS",
+   "organization": "EMORY UNIVERSITY",
+   "city": "ATLANTA",
+   "country": "UNITED STATES",
+   "start": "2023-03-01",
+   "end": "2028-02-29",
+   "url": "https://reporter.nih.gov/project-details/11285465"
+  },
+  {
+   "id": "RES:nih:7347049",
+   "type": "Researcher",
+   "name": "Andrew P Escayg",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 7347049,
+   "organization": "EMORY UNIVERSITY"
+  },
+  {
+   "id": "NIH:R21NS145127",
+   "type": "Grant",
+   "name": "Exploring the contribution of extracellular vesicles to epileptogenesis in TLE and DS",
+   "project_num": "1R21NS145127-01A1",
+   "fiscal_year": 2026,
+   "award_amount": 420142,
+   "institute": "NINDS",
+   "organization": "EMORY UNIVERSITY",
+   "city": "ATLANTA",
+   "country": "UNITED STATES",
+   "start": "2026-05-04",
+   "end": "2028-04-30",
+   "url": "https://reporter.nih.gov/project-details/11374314"
+  },
+  {
+   "id": "NIH:R01NS143722",
+   "type": "Grant",
+   "name": "Seizure-Induced Remodeling of Cholinergic Networks in Dravet Syndrome",
+   "project_num": "5R01NS143722-02",
+   "fiscal_year": 2026,
+   "award_amount": 415813,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF MICHIGAN AT ANN ARBOR",
+   "city": "ANN ARBOR",
+   "country": "UNITED STATES",
+   "start": "2025-08-07",
+   "end": "2030-07-31",
+   "url": "https://reporter.nih.gov/project-details/11386355"
+  },
+  {
+   "id": "NIH:R21NS152136",
+   "type": "Grant",
+   "name": "Effects of cannabidiol (CBD) on synaptic excitatory and inhibitory balance",
+   "project_num": "1R21NS152136-01A1",
+   "fiscal_year": 2026,
+   "award_amount": 414732,
+   "institute": "NINDS",
+   "organization": "UNIVERSITY OF COLORADO DENVER",
+   "city": "Aurora",
+   "country": "UNITED STATES",
+   "start": "2026-09-22",
+   "end": "2028-08-31",
+   "url": "https://reporter.nih.gov/project-details/11513736"
+  },
+  {
+   "id": "RES:nih:14328931",
+   "type": "Researcher",
+   "name": "Won Chan  Oh",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 14328931,
+   "organization": "UNIVERSITY OF COLORADO DENVER"
+  },
+  {
+   "id": "NIH:R01NS136214",
+   "type": "Grant",
+   "name": "Spreading Depolarization and Progression of Developmental Epileptic Encephalopathy",
+   "project_num": "5R01NS136214-02",
+   "fiscal_year": 2026,
+   "award_amount": 400000,
+   "institute": "NINDS",
+   "organization": "BAYLOR COLLEGE OF MEDICINE",
+   "city": "HOUSTON",
+   "country": "UNITED STATES",
+   "start": "2025-06-26",
+   "end": "2030-03-31",
+   "url": "https://reporter.nih.gov/project-details/11361679"
+  },
+  {
+   "id": "RES:nih:11811756",
+   "type": "Researcher",
+   "name": "Isamu  Aiba",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 11811756,
+   "organization": "BAYLOR COLLEGE OF MEDICINE"
+  },
+  {
+   "id": "NIH:R01EB035016",
+   "type": "Grant",
+   "name": "Engineering human-derived programmable RNA effectors to retune gene expression",
+   "project_num": "5R01EB035016-04",
+   "fiscal_year": 2026,
+   "award_amount": 398625,
+   "institute": "NIBIB",
+   "organization": "UNIVERSITY OF CHICAGO",
+   "city": "CHICAGO",
+   "country": "UNITED STATES",
+   "start": "2023-06-01",
+   "end": "2027-05-31",
+   "url": "https://reporter.nih.gov/project-details/11330495"
+  },
+  {
+   "id": "RES:nih:10734158",
+   "type": "Researcher",
+   "name": "Bryan  Dickinson",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 10734158,
+   "organization": "UNIVERSITY OF CHICAGO"
+  },
+  {
+   "id": "NIH:R61NS138832",
+   "type": "Grant",
+   "name": "Development of an oligonucleotide therapeutic for Dravet syndrome",
+   "project_num": "5R61NS138832-02",
+   "fiscal_year": 2026,
+   "award_amount": 393239,
+   "institute": "NINDS",
+   "organization": "ALLEN INSTITUTE",
+   "city": "SEATTLE",
+   "country": "UNITED STATES",
+   "start": "2025-05-15",
+   "end": "2027-04-30",
+   "url": "https://reporter.nih.gov/project-details/11330318"
+  },
+  {
+   "id": "RES:nih:11412421",
+   "type": "Researcher",
+   "name": "Bryan Bentley Gore",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 11412421,
+   "organization": "ALLEN INSTITUTE"
+  },
+  {
+   "id": "RES:nih:8960090",
+   "type": "Researcher",
+   "name": "Boaz Pirie Levi",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8960090,
+   "organization": "ALLEN INSTITUTE"
+  },
+  {
+   "id": "RES:nih:8624334",
+   "type": "Researcher",
+   "name": "John K Mich",
+   "identity": "NIH RePORTER profile",
+   "profile_id": 8624334,
+   "organization": "ALLEN INSTITUTE"
+  },
+  {
    "id": "HGNC_GROUP:1203",
    "type": "GeneGroup",
    "name": "Sodium voltage-gated channel alpha subunits",
@@ -1988,6 +4314,109 @@
    "method": "curated_import"
   },
   {
+   "id": "RESEARCHES:NIH:R21MH132035->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21MH132035",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:7836737->NIH:R21MH132035",
+   "rel": "LEADS",
+   "source": "RES:nih:7836737",
+   "target": "NIH:R21MH132035",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:U01AA027487->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:U01AA027487",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:9367542->NIH:U01AA027487",
+   "rel": "LEADS",
+   "source": "RES:nih:9367542",
+   "target": "NIH:U01AA027487",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8240987->NIH:U01AA027487",
+   "rel": "LEADS",
+   "source": "RES:nih:8240987",
+   "target": "NIH:U01AA027487",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31AA029946->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31AA029946",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:16147885->NIH:F31AA029946",
+   "rel": "LEADS",
+   "source": "RES:nih:16147885",
+   "target": "NIH:F31AA029946",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:RF1AG078660->HGNC:4586",
+   "rel": "RESEARCHES",
+   "source": "NIH:RF1AG078660",
+   "target": "HGNC:4586",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2B"
+  },
+  {
+   "id": "LEADS:RES:nih:9555676->NIH:RF1AG078660",
+   "rel": "LEADS",
+   "source": "RES:nih:9555676",
+   "target": "NIH:RF1AG078660",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "MEMBER_OF:HGNC:4586->HGNC_GROUP:1201",
    "rel": "MEMBER_OF",
    "source": "HGNC:4586",
@@ -2162,6 +4591,64 @@
    "method": "curated_import"
   },
   {
+   "id": "RESEARCHES:NIH:ZIAHD001205->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIAHD001205",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21MH132035->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21MH132035",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS112291->HGNC:4584",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS112291",
+   "target": "HGNC:4584",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN1"
+  },
+  {
+   "id": "LEADS:RES:nih:1881563->NIH:R01NS112291",
+   "rel": "LEADS",
+   "source": "RES:nih:1881563",
+   "target": "NIH:R01NS112291",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8828628->NIH:R01NS112291",
+   "rel": "LEADS",
+   "source": "RES:nih:8828628",
+   "target": "NIH:R01NS112291",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "MEMBER_OF:HGNC:4584->HGNC_GROUP:1201",
    "rel": "MEMBER_OF",
    "source": "HGNC:4584",
@@ -2208,17 +4695,6 @@
    "status": "observation",
    "method": "curated_import",
    "match_reason": "project text mentions GRIN2A"
-  },
-  {
-   "id": "LEADS:RES:nih:7836737->NIH:R21MH132035",
-   "rel": "LEADS",
-   "source": "RES:nih:7836737",
-   "target": "NIH:R21MH132035",
-   "source_name": "NIH RePORTER",
-   "source_tier": 1,
-   "retrieved": "2026-10-04",
-   "status": "observation",
-   "method": "curated_import"
   },
   {
    "id": "RESEARCHES:NIH:F31NS113530->HGNC:4585",
@@ -2325,6 +4801,179 @@
    "match_reason": "project text mentions GRIN2A"
   },
   {
+   "id": "RESEARCHES:NIH:R01DA060755->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01DA060755",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:6603238->NIH:R01DA060755",
+   "rel": "LEADS",
+   "source": "RES:nih:6603238",
+   "target": "NIH:R01DA060755",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:14858657->NIH:R01DA060755",
+   "rel": "LEADS",
+   "source": "RES:nih:14858657",
+   "target": "NIH:R01DA060755",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01MH144274->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01MH144274",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:6405261->NIH:R01MH144274",
+   "rel": "LEADS",
+   "source": "RES:nih:6405261",
+   "target": "NIH:R01MH144274",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:11117452->NIH:R01MH144274",
+   "rel": "LEADS",
+   "source": "RES:nih:11117452",
+   "target": "NIH:R01MH144274",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31NS145927->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31NS145927",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01HD082373->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01HD082373",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:2244211->NIH:R01HD082373",
+   "rel": "LEADS",
+   "source": "RES:nih:2244211",
+   "target": "NIH:R01HD082373",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:ZIANS002994->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIANS002994",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS089435->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS089435",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "LEADS:RES:nih:8623400->NIH:R01NS089435",
+   "rel": "LEADS",
+   "source": "RES:nih:8623400",
+   "target": "NIH:R01NS089435",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:10179591->NIH:R01NS089435",
+   "rel": "LEADS",
+   "source": "RES:nih:10179591",
+   "target": "NIH:R01NS089435",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:ZIAHD001205->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:ZIAHD001205",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
+   "id": "RESEARCHES:NIH:F31AA029946->HGNC:4585",
+   "rel": "RESEARCHES",
+   "source": "NIH:F31AA029946",
+   "target": "HGNC:4585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions GRIN2A"
+  },
+  {
    "id": "MEMBER_OF:HGNC:4585->HGNC_GROUP:1201",
    "rel": "MEMBER_OF",
    "source": "HGNC:4585",
@@ -2395,17 +5044,6 @@
    "status": "observation",
    "method": "curated_import",
    "match_reason": "project text mentions GRIN2D"
-  },
-  {
-   "id": "LEADS:RES:nih:16147885->NIH:F31AA029946",
-   "rel": "LEADS",
-   "source": "RES:nih:16147885",
-   "target": "NIH:F31AA029946",
-   "source_name": "NIH RePORTER",
-   "source_tier": 1,
-   "retrieved": "2026-10-04",
-   "status": "observation",
-   "method": "curated_import"
   },
   {
    "id": "MEMBER_OF:HGNC:4588->HGNC_GROUP:1201",
@@ -2547,6 +5185,18 @@
    "retrieved": "2026-10-04",
    "status": "observation",
    "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05462054->MONDO:0012812",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05462054",
+   "target": "MONDO:0012812",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene STXBP1"
   },
   {
    "id": "REPRESENTED_BY:MONDO:0012812->ORG:rareconnect:STXBP1",
@@ -2721,6 +5371,75 @@
    "method": "curated_import"
   },
   {
+   "id": "RESEARCHES:NIH:U54NS117170->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:U54NS117170",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:2075379->NIH:U54NS117170",
+   "rel": "LEADS",
+   "source": "RES:nih:2075379",
+   "target": "NIH:U54NS117170",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:P01HL144457->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:P01HL144457",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:14128114->NIH:P01HL144457",
+   "rel": "LEADS",
+   "source": "RES:nih:14128114",
+   "target": "NIH:P01HL144457",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:F30HD100096->HGNC:11444",
+   "rel": "RESEARCHES",
+   "source": "NIH:F30HD100096",
+   "target": "HGNC:11444",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions STXBP1"
+  },
+  {
+   "id": "LEADS:RES:nih:14175517->NIH:F30HD100096",
+   "rel": "LEADS",
+   "source": "RES:nih:14175517",
+   "target": "NIH:F30HD100096",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "MEMBER_OF:HGNC:11444->HGNC_GROUP:3908",
    "rel": "MEMBER_OF",
    "source": "HGNC:11444",
@@ -2731,6 +5450,18 @@
    "status": "observation",
    "method": "curated_import",
    "match_reason": "HGNC gene group membership"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05558371->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05558371",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
   },
   {
    "id": "STUDIES:NCT:NCT05249556->MONDO:0010396",
@@ -2756,6 +5487,18 @@
    "method": "curated_import"
   },
   {
+   "id": "STUDIES:NCT:NCT07602205->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07602205",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
    "id": "STUDIES:NCT:NCT05064878->MONDO:0010396",
    "rel": "STUDIES",
    "source": "NCT:NCT05064878",
@@ -2777,6 +5520,18 @@
    "retrieved": "2026-10-04",
    "status": "observation",
    "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05373719->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05373719",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
   },
   {
    "id": "STUDIES:NCT:NCT06447675->MONDO:0010396",
@@ -2803,6 +5558,29 @@
    "match_reason": "mentions the gene CDKL5"
   },
   {
+   "id": "STUDIES:NCT:NCT03861871->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03861871",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT03861871->INT:fenfluramine-hydrochloride",
+   "rel": "TESTS",
+   "source": "NCT:NCT03861871",
+   "target": "INT:fenfluramine-hydrochloride",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "STUDIES:NCT:NCT03572933->MONDO:0010396",
    "rel": "STUDIES",
    "source": "NCT:NCT03572933",
@@ -2819,6 +5597,29 @@
    "rel": "TESTS",
    "source": "NCT:NCT03572933",
    "target": "INT:ganaxolone",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03694275->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03694275",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT03694275->INT:soticlestat",
+   "rel": "TESTS",
+   "source": "NCT:NCT03694275",
+   "target": "INT:soticlestat",
    "source_name": "ClinicalTrials.gov",
    "source_tier": 1,
    "retrieved": "2026-10-04",
@@ -2871,6 +5672,87 @@
    "status": "observation",
    "method": "curated_import",
    "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06448663->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06448663",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT06448663->INT:alpha-lactalbumin",
+   "rel": "TESTS",
+   "source": "NCT:NCT06448663",
+   "target": "INT:alpha-lactalbumin",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03635073->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03635073",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT03635073->INT:soticlestat",
+   "rel": "TESTS",
+   "source": "NCT:NCT03635073",
+   "target": "INT:soticlestat",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04486768->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04486768",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04678479->MONDO:0010396",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04678479",
+   "target": "MONDO:0010396",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene CDKL5"
+  },
+  {
+   "id": "TESTS:NCT:NCT04678479->INT:ganaxolone",
+   "rel": "TESTS",
+   "source": "NCT:NCT04678479",
+   "target": "INT:ganaxolone",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
   },
   {
    "id": "RESEARCHES:NIH:F31EY035937->HGNC:11411",
@@ -3055,6 +5937,98 @@
    "method": "curated_import"
   },
   {
+   "id": "RESEARCHES:NIH:R01NS102731->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS102731",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:8655671->NIH:R01NS102731",
+   "rel": "LEADS",
+   "source": "RES:nih:8655671",
+   "target": "NIH:R01NS102731",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R44NS124469->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:R44NS124469",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:9777859->NIH:R44NS124469",
+   "rel": "LEADS",
+   "source": "RES:nih:9777859",
+   "target": "NIH:R44NS124469",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21NS138525->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21NS138525",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:1932549->NIH:R21NS138525",
+   "rel": "LEADS",
+   "source": "RES:nih:1932549",
+   "target": "NIH:R21NS138525",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01MH118351->HGNC:11411",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01MH118351",
+   "target": "HGNC:11411",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions CDKL5"
+  },
+  {
+   "id": "LEADS:RES:nih:1931281->NIH:R01MH118351",
+   "rel": "LEADS",
+   "source": "RES:nih:1931281",
+   "target": "NIH:R01MH118351",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "MEMBER_OF:HGNC:11411->HGNC_GROUP:1491",
    "rel": "MEMBER_OF",
    "source": "HGNC:11411",
@@ -3114,6 +6088,29 @@
    "match_reason": "lists “Dravet syndrome”"
   },
   {
+   "id": "STUDIES:NCT:NCT07531745->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07531745",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT07531745->INT:ion337",
+   "rel": "TESTS",
+   "source": "NCT:NCT07531745",
+   "target": "INT:ion337",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "STUDIES:NCT:NCT06872125->MONDO:0100135",
    "rel": "STUDIES",
    "source": "NCT:NCT06872125",
@@ -3140,6 +6137,18 @@
    "id": "STUDIES:NCT:NCT07251673->MONDO:0100135",
    "rel": "STUDIES",
    "source": "NCT:NCT07251673",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05126914->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05126914",
    "target": "MONDO:0100135",
    "source_name": "ClinicalTrials.gov",
    "source_tier": 1,
@@ -3218,6 +6227,29 @@
    "method": "curated_import"
   },
   {
+   "id": "STUDIES:NCT:NCT06401538->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06401538",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06401538->INT:bmb-101",
+   "rel": "TESTS",
+   "source": "NCT:NCT06401538",
+   "target": "INT:bmb-101",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
    "id": "STUDIES:NCT:NCT05651204->MONDO:0100135",
    "rel": "STUDIES",
    "source": "NCT:NCT05651204",
@@ -3228,6 +6260,968 @@
    "status": "observation",
    "method": "curated_import",
    "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04462770->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04462770",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT04462770->INT:clemizole-hcl",
+   "rel": "TESTS",
+   "source": "NCT:NCT04462770",
+   "target": "INT:clemizole-hcl",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01238250->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01238250",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "mentions the gene SCN1A"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06924827->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06924827",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06924827->INT:epidiolex",
+   "rel": "TESTS",
+   "source": "NCT:NCT06924827",
+   "target": "INT:epidiolex",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07801404->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07801404",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06738732->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06738732",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06738732->INT:cbd",
+   "rel": "TESTS",
+   "source": "NCT:NCT06738732",
+   "target": "INT:cbd",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07225231->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07225231",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05485831->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05485831",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05485831->INT:epidiolex",
+   "rel": "TESTS",
+   "source": "NCT:NCT05485831",
+   "target": "INT:epidiolex",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06112275->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06112275",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06112275->INT:etx101",
+   "rel": "TESTS",
+   "source": "NCT:NCT06112275",
+   "target": "INT:etx101",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06283212->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06283212",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06283212->INT:etx101",
+   "rel": "TESTS",
+   "source": "NCT:NCT06283212",
+   "target": "INT:etx101",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06660394->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06660394",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06660394->INT:lp352",
+   "rel": "TESTS",
+   "source": "NCT:NCT06660394",
+   "target": "INT:lp352",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05472389->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05472389",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04740476->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04740476",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT04740476->INT:zorevunersen",
+   "rel": "TESTS",
+   "source": "NCT:NCT04740476",
+   "target": "INT:zorevunersen",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05044819->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05044819",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05044819->INT:cannabidiol",
+   "rel": "TESTS",
+   "source": "NCT:NCT05044819",
+   "target": "INT:cannabidiol",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03655223->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03655223",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07176832->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07176832",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT07176832->INT:stiripentol",
+   "rel": "TESTS",
+   "source": "NCT:NCT07176832",
+   "target": "INT:stiripentol",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "TESTS:NCT:NCT07176832->INT:stiripentol-oral",
+   "rel": "TESTS",
+   "source": "NCT:NCT07176832",
+   "target": "INT:stiripentol-oral",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06118255->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06118255",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06118255->INT:fenfluramine",
+   "rel": "TESTS",
+   "source": "NCT:NCT06118255",
+   "target": "INT:fenfluramine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05982717->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05982717",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05364021->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05364021",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05364021->INT:lp352",
+   "rel": "TESTS",
+   "source": "NCT:NCT05364021",
+   "target": "INT:lp352",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05544058->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05544058",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05626634->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05626634",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05626634->INT:lp352",
+   "rel": "TESTS",
+   "source": "NCT:NCT05626634",
+   "target": "INT:lp352",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04940624->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04940624",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT04940624->INT:soticlestat",
+   "rel": "TESTS",
+   "source": "NCT:NCT04940624",
+   "target": "INT:soticlestat",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT07592650->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT07592650",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04442295->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04442295",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT04442295->INT:stk-001",
+   "rel": "TESTS",
+   "source": "NCT:NCT04442295",
+   "target": "INT:stk-001",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03936777->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03936777",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT03936777->INT:zx008",
+   "rel": "TESTS",
+   "source": "NCT:NCT03936777",
+   "target": "INT:zx008",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04069689->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04069689",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT04069689->INT:epx-100",
+   "rel": "TESTS",
+   "source": "NCT:NCT04069689",
+   "target": "INT:epx-100",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03467113->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03467113",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT03467113->INT:zx008-0-2-to",
+   "rel": "TESTS",
+   "source": "NCT:NCT03467113",
+   "target": "INT:zx008-0-2-to",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "TESTS:NCT:NCT03467113->INT:cannabidiol",
+   "rel": "TESTS",
+   "source": "NCT:NCT03467113",
+   "target": "INT:cannabidiol",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03650452->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03650452",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT03650452->INT:tak-935",
+   "rel": "TESTS",
+   "source": "NCT:NCT03650452",
+   "target": "INT:tak-935",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT03857451->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT03857451",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02926898->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02926898",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02926898->INT:zx008",
+   "rel": "TESTS",
+   "source": "NCT:NCT02926898",
+   "target": "INT:zx008",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02682927->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02682927",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02682927->INT:zx008",
+   "rel": "TESTS",
+   "source": "NCT:NCT02682927",
+   "target": "INT:zx008",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02823145->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02823145",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02823145->INT:zx008",
+   "rel": "TESTS",
+   "source": "NCT:NCT02823145",
+   "target": "INT:zx008",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02758626->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02758626",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02091375->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02091375",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02091375->INT:gwp42003",
+   "rel": "TESTS",
+   "source": "NCT:NCT02091375",
+   "target": "INT:gwp42003",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02224703->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02224703",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02224703->INT:gwp42003",
+   "rel": "TESTS",
+   "source": "NCT:NCT02224703",
+   "target": "INT:gwp42003",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02415686->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02415686",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02224573->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02224573",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02224573->INT:gwp42003",
+   "rel": "TESTS",
+   "source": "NCT:NCT02224573",
+   "target": "INT:gwp42003",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02896608->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02896608",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02229032->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02229032",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT02091206->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT02091206",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT02091206->INT:gwp42003",
+   "rel": "TESTS",
+   "source": "NCT:NCT02091206",
+   "target": "INT:gwp42003",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT01607073->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT01607073",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT01607073->INT:verapamil",
+   "rel": "TESTS",
+   "source": "NCT:NCT01607073",
+   "target": "INT:verapamil",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06422377->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06422377",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT06422377->INT:soticlestat",
+   "rel": "TESTS",
+   "source": "NCT:NCT06422377",
+   "target": "INT:soticlestat",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06395792->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06395792",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05560282->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05560282",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05560282->INT:fenfluramine",
+   "rel": "TESTS",
+   "source": "NCT:NCT05560282",
+   "target": "INT:fenfluramine",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06371794->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06371794",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05140122->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05140122",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05140122->INT:multiple",
+   "rel": "TESTS",
+   "source": "NCT:NCT05140122",
+   "target": "INT:multiple",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT06504511->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT06504511",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT05163314->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT05163314",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT05163314->INT:soticlestat",
+   "rel": "TESTS",
+   "source": "NCT:NCT05163314",
+   "target": "INT:soticlestat",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04537832->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04537832",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "STUDIES:NCT:NCT04485104->MONDO:0100135",
+   "rel": "STUDIES",
+   "source": "NCT:NCT04485104",
+   "target": "MONDO:0100135",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "lists “Dravet syndrome”"
+  },
+  {
+   "id": "TESTS:NCT:NCT04485104->INT:gwp42003",
+   "rel": "TESTS",
+   "source": "NCT:NCT04485104",
+   "target": "INT:gwp42003",
+   "source_name": "ClinicalTrials.gov",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
   },
   {
    "id": "REPRESENTED_BY:MONDO:0100135->ORG:nord:epilepsy-foundation",
@@ -3478,6 +7472,235 @@
    "rel": "LEADS",
    "source": "RES:nih:11230297",
    "target": "NIH:R01NS134938",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS131467->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS131467",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:8581396->NIH:R01NS131467",
+   "rel": "LEADS",
+   "source": "RES:nih:8581396",
+   "target": "NIH:R01NS131467",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R56NS146841->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R56NS146841",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:10406460->NIH:R56NS146841",
+   "rel": "LEADS",
+   "source": "RES:nih:10406460",
+   "target": "NIH:R56NS146841",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS126392->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS126392",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:7347049->NIH:R01NS126392",
+   "rel": "LEADS",
+   "source": "RES:nih:7347049",
+   "target": "NIH:R01NS126392",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21NS145127->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21NS145127",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:7347049->NIH:R21NS145127",
+   "rel": "LEADS",
+   "source": "RES:nih:7347049",
+   "target": "NIH:R21NS145127",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS143722->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS143722",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:9239549->NIH:R01NS143722",
+   "rel": "LEADS",
+   "source": "RES:nih:9239549",
+   "target": "NIH:R01NS143722",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R21NS152136->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R21NS152136",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:14328931->NIH:R21NS152136",
+   "rel": "LEADS",
+   "source": "RES:nih:14328931",
+   "target": "NIH:R21NS152136",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01NS136214->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01NS136214",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:11811756->NIH:R01NS136214",
+   "rel": "LEADS",
+   "source": "RES:nih:11811756",
+   "target": "NIH:R01NS136214",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R01EB035016->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R01EB035016",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:10734158->NIH:R01EB035016",
+   "rel": "LEADS",
+   "source": "RES:nih:10734158",
+   "target": "NIH:R01EB035016",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "RESEARCHES:NIH:R61NS138832->HGNC:10585",
+   "rel": "RESEARCHES",
+   "source": "NIH:R61NS138832",
+   "target": "HGNC:10585",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import",
+   "match_reason": "project text mentions SCN1A"
+  },
+  {
+   "id": "LEADS:RES:nih:11412421->NIH:R61NS138832",
+   "rel": "LEADS",
+   "source": "RES:nih:11412421",
+   "target": "NIH:R61NS138832",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8960090->NIH:R61NS138832",
+   "rel": "LEADS",
+   "source": "RES:nih:8960090",
+   "target": "NIH:R61NS138832",
+   "source_name": "NIH RePORTER",
+   "source_tier": 1,
+   "retrieved": "2026-10-04",
+   "status": "observation",
+   "method": "curated_import"
+  },
+  {
+   "id": "LEADS:RES:nih:8624334->NIH:R61NS138832",
+   "rel": "LEADS",
+   "source": "RES:nih:8624334",
+   "target": "NIH:R61NS138832",
    "source_name": "NIH RePORTER",
    "source_tier": 1,
    "retrieved": "2026-10-04",
