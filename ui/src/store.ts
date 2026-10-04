@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { Model } from './graph/model'
 import { neighbours, other } from './graph/model'
+import type { LensId } from './graph/lens'
 
 export type Selection = { kind: 'node' | 'edge'; id: string } | null
 
@@ -14,6 +15,10 @@ interface State {
   minSim: number
   showBridges: boolean
   setShowBridges: (v: boolean) => void
+  lens: LensId | null          // overview: diseases connected through one kind of link only
+  lensSharedOnly: boolean
+  setLens: (l: LensId | null) => void
+  setLensSharedOnly: (v: boolean) => void
   focusTick: number
   layoutTick: number
   setModel: (m: Model) => void
@@ -56,6 +61,10 @@ export const useStore = create<State>((set, get) => ({
   minSim: DEFAULT_MIN_SIM,
   showBridges: true,
   setShowBridges: (showBridges) => set({ showBridges }),
+  lens: null,
+  lensSharedOnly: true,
+  setLens: (lens) => set({ lens, selected: null, layoutTick: get().layoutTick + 1 }),
+  setLensSharedOnly: (lensSharedOnly) => set({ lensSharedOnly, layoutTick: get().layoutTick + 1 }),
   focusTick: 0,
   layoutTick: 0,
 
@@ -119,6 +128,7 @@ export const useStore = create<State>((set, get) => ({
       neighbours(model, id).slice(0, 12).forEach((x) => next.add(x.node.id))
     }
     set({
+      lens: null,
       visible: next,
       selected: { kind: 'node', id },
       focusTick: get().focusTick + 1,
@@ -130,7 +140,7 @@ export const useStore = create<State>((set, get) => ({
     const { model } = get()
     if (!model) return
     const seeds = seedSet(model)
-    set({ visible: new Set(seeds), seeds, selected: null, minSim: DEFAULT_MIN_SIM,
+    set({ visible: new Set(seeds), seeds, selected: null, minSim: DEFAULT_MIN_SIM, lens: null,
           layoutTick: get().layoutTick + 1 })
   },
 }))

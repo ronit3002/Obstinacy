@@ -6,6 +6,7 @@ import { useStore } from '../store'
 import { TYPE_ICON } from '../ui/icons'
 import { TYPE_COLOR, nodeLabel, nodeSubtitle } from './model'
 import { drawBlueprint } from './blueprint'
+import { LENSES, lensView } from './lens'
 
 cytoscape.use(fcose)
 
@@ -31,7 +32,10 @@ const style: cytoscape.StylesheetJson = [
       'curve-style': 'unbundled-bezier', 'control-point-distances': [-34], 'control-point-weights': [0.5],
       'line-color': '#7c3aed', 'line-style': 'dashed', 'line-dash-pattern': [7, 5], width: 2, opacity: 0.35 } as never },
   { selector: 'edge[rel="DISEASE_BRIDGE"].hi', style: { opacity: 0.8 } },
-  { selector: 'edge[rel="MEMBER_OF"]', style: { 'line-color': '#c4b5fd', width: 1.5 } },
+  { selector: 'edge[rel="MEMBER_OF"]', style: { 'line-color': '#fdba74', width: 1.5 } },
+  // connection lens: disease -- hub edges coloured like the hub type
+  { selector: 'edge[rel="LENS"]', style: { 'line-color': 'data(color)', width: 2, opacity: 0.5 } },
+  { selector: 'edge[rel="LENS"].hi', style: { opacity: 0.95 } },
   { selector: 'edge[rel="DISCUSSES"]', style: { 'line-color': '#94a3b8', 'line-style': 'dashed', 'line-dash-pattern': [3, 4] } as never },
   { selector: 'edge.faded', style: { opacity: 0.05 } },
   // weak links stay in the layout (so similar diseases still sit closer) but are invisible
@@ -47,7 +51,8 @@ export default function GraphView() {
   const cyRef = useRef<cytoscape.Core | null>(null)
   const els = useRef(new Map<string, NodeEls>())
   const [ids, setIds] = useState<string[]>([])
-  const { model, visible, minSim, showBridges, layoutTick, focusTick, selected } = useStore()
+  const { model, visible, minSim, showBridges, layoutTick, focusTick, selected, lens, lensSharedOnly } = useStore()
+  const mode = useRef('map')
 
   /** Move every HTML node to its Cytoscape position; redraw the warped grid underneath. */
   const place = () => {
@@ -84,7 +89,11 @@ export default function GraphView() {
       useStore.getState().select({ kind: 'node', id })
       useStore.getState().expand(id)
     })
-    cy.on('tap', 'edge', (ev) => useStore.getState().select({ kind: 'edge', id: ev.target.id() }))
+    cy.on('tap', 'edge', (ev) => {
+      // a lens edge is derived; tapping it opens the hub it leads to (the drug, trial, family, ...)
+      if (ev.target.data('rel') === 'LENS') useStore.getState().select({ kind: 'node', id: ev.target.data('target') })
+      else useStore.getState().select({ kind: 'edge', id: ev.target.id() })
+    })
     cy.on('tap', (ev) => { if (ev.target === cy) useStore.getState().select(null) })
     cy.on('mouseover', 'node', (ev) => { els.current.get(ev.target.id())?.root.classList.add('is-hover'); box.current!.style.cursor = 'pointer'; place() })
     cy.on('mouseout', 'node', (ev) => { els.current.get(ev.target.id())?.root.classList.remove('is-hover'); box.current!.style.cursor = ''; place() })
@@ -110,9 +119,13 @@ export default function GraphView() {
     const cy = cyRef.current
     if (!cy || !model) return
     const added: string[] = []
+    const view = lens ? lensView(model, lens, lensSharedOnly, minSim) : null
+    const key = lens ? `${lens}:${lensSharedOnly}:${lens === 'symptoms' ? minSim : ''}` : 'map'
+    if (key !== mode.current) { cy.elements().remove(); mode.current = key }  // switching view starts fresh
+    const want = view ? view.nodes : visible
     cy.batch(() => {
-      cy.nodes().forEach((n) => { if (!visible.has(n.id())) n.remove() })
-      for (const id of visible) {
+      cy.nodes().forEach((n) => { if (!want.has(n.id())) n.remove() })
+      for (const id of want) {
         const n = model.nodes.get(id)!
         if (cy.getElementById(id).nonempty()) continue
         const anchor = (model.adj.get(id) ?? [])
@@ -123,7 +136,16 @@ export default function GraphView() {
           position: { x: base.x + (Math.random() - 0.5) * 80, y: base.y + (Math.random() - 0.5) * 80 } })
         added.push(id)
       }
-      for (const id of visible) {
+      if (view) {
+        const hubColor = TYPE_COLOR[LENSES.find((l) => l.id === lens)!.hubType] ?? '#94a3b8'
+        for (const e of view.edges) {
+          if (cy.getElementById(e.id).nonempty()) continue
+          cy.add({ group: 'edges', data: e.real
+            ? { id: e.id, source: e.source, target: e.target, rel: 'DISEASE_MATCH', status: 'inference', score: e.score ?? 0 }
+            : { id: e.id, source: e.source, target: e.target, rel: 'LENS', color: hubColor, via: e.via } })
+        }
+      }
+      for (const id of view ? [] : visible) {
         for (const e of model.adj.get(id) ?? []) {
           if (visible.has(e.source) && visible.has(e.target) && cy.getElementById(e.id).empty()) {
             if (e.rel === 'DISEASE_BRIDGE' && ((e.shared_gene_groups as unknown[]) ?? []).length) continue
@@ -136,14 +158,20 @@ export default function GraphView() {
     setIds(cy.nodes().map((n) => n.id()))
     if (!added.length) return
 
-    const first = added.length === visible.size
+    const first = added.length === want.size
     const layout = cy.layout({ name: 'fcose', animate: false, randomize: false, fit: false,
       nodeRepulsion: () => 32000, nodeSeparation: 150, quality: 'proof', gravity: 0.15,
       // similar diseases pull together (short ideal length), dissimilar ones drift apart
-      idealEdgeLength: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 540 - 11 * e.data('score') : e.data('rel') === 'DISEASE_BRIDGE' ? 420 : e.data('rel') === 'MEMBER_OF' ? 110 : 80),
+      idealEdgeLength: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 540 - 11 * e.data('score') : e.data('rel') === 'DISEASE_BRIDGE' ? 420
+        : e.data('rel') === 'MEMBER_OF' ? 110 : e.data('rel') === 'LENS' ? 150 : 80),
       edgeElasticity: (e: cytoscape.EdgeSingular) => (e.data('rel') === 'DISEASE_MATCH' ? 0.2 + e.data('score') / 100 : e.data('rel') === 'DISEASE_BRIDGE' ? 0.12 : 0.6),
     } as never)
     layout.one('layoutstop', () => {
+      if (view) {  // lens overviews keep fcose's positions
+        cy.fit(cy.elements(), Math.min(130, cy.width() * 0.12))
+        place()
+        return
+      }
       // genes sit like a satellite at the disease's upper right (the label lives below the bubble)
       cy.nodes('[type="Gene"]').forEach((g) => {
         const parents = g.neighborhood('node[type="Disease"]')
@@ -175,7 +203,7 @@ export default function GraphView() {
       place()
     })
     layout.run()
-  }, [model, visible, layoutTick])
+  }, [model, visible, layoutTick, lens, lensSharedOnly, minSim])
 
   useLayoutEffect(place, [ids])
 
@@ -305,7 +333,7 @@ function NodeView({ id, type, title, subtitle, register }: {
           <div className={big
             ? 'rounded-full bg-white/90 px-2.5 py-0.5 text-[12.5px] font-semibold tracking-tight text-ink shadow-[0_1px_2px_rgba(15,23,42,0.08)] ring-1 ring-black/5'
             : type === 'Gene' ? 'text-[11.5px] font-semibold text-[#2f6bff]'
-            : type === 'GeneGroup' ? 'max-w-[150px] whitespace-normal text-[11px] font-semibold leading-tight text-[#7c3aed]'
+            : type === 'GeneGroup' ? 'max-w-[150px] whitespace-normal text-[11px] font-semibold leading-tight text-[#ea580c]'
             : 'text-[11px] font-medium text-ink-2'}>
             {title}
           </div>

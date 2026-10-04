@@ -731,7 +731,7 @@ function GeneGroupCard({ n, m }: { n: GNode; m: Model }) {
       </div>
       <div className="mt-3">
         {genes.length > 1 && (
-          <Callout icon={<Lightbulb size={16} />} title="Different names, same building block" color="#7c3aed">
+          <Callout icon={<Lightbulb size={16} />} title="Different names, same building block" color="#ea580c">
             These genes all encode parts of the same protein family, so their diseases may share biology and research,
             even though their names differ.
           </Callout>

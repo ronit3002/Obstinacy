@@ -5,6 +5,7 @@ import GraphView from './graph/GraphView'
 import { buildModel } from './graph/model'
 import Controls from './panels/Controls'
 import DetailPanel from './panels/DetailPanel'
+import LensPanel from './panels/LensPanel'
 import SearchBar from './panels/SearchBar'
 import { useStore } from './store'
 import type { GraphData } from './types'
@@ -47,6 +48,7 @@ export default function App() {
         <SearchBar />
       </div>
 
+      <LensPanel />
       <Controls />
       <DetailPanel />
 

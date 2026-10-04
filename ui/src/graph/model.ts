@@ -61,7 +61,7 @@ export const TYPE_COLOR: Record<string, string> = {
   Researcher: '#a16207',
   Intervention: '#0d9488',
   Grant: '#b45309',
-  GeneGroup: '#7c3aed',
+  GeneGroup: '#ea580c',
 }
 
 export const TYPE_LABEL: Record<string, string> = {
