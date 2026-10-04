@@ -3,12 +3,41 @@ Source code for Global AI Hackathon: Challenge Track 5
 
 ## Demo data pipeline (what feeds the web app)
 
+All diseases come from **`seeds.yaml`** (MONDO ID + gene per disease). Nothing else decides which diseases exist;
+diseases that only appear in papers are marked `paper_scoped` and kept off the map.
+
+| Step | Script | What it does | Output |
+|---|---|---|---|
+| 1 | `extractor.py` | Downloads MONDO + HPO (once), resolves each seed (name, synonyms, xrefs), joins HPO symptoms | `seeds_resolved.json`, `seed_phenotypes.csv` |
+| 2 | `resolve.py` | Gene identity and aliases (HGNC) | `genes_resolved.json`, `gene_aliases.json` |
+| 3 | `clinvar.py` | Pathogenic / likely pathogenic variants per seed gene (default 200) | `variants.csv` |
+| 4 | `graph.py` | Builds the graph, imports papers (+ aliases, curated mechanisms), symptom similarity, disease matches, variant ranking | `graph.json`, `disease_connections.json` |
+| 5 | `enrich.py` | Trials, patient groups, NIH grants/PIs, HGNC gene families, curated mechanism quotes | `enrichment.json` |
+| 6 | `export_ui_data.py` | Merges everything for the app, adds shared-asset links and top variants | `ui/public/graph.json` |
+
 ```sh
-python graph.py --paper-bundle data/processed/paper_candidates_real.json                 --aliases data/raw/disease_aliases.json --mechanisms data/raw/mechanism.json
-python enrich.py            # trials, patient groups, NIH grants/PIs, HGNC gene families (cached in data/raw/enrichment_cache)
+pip install pandas pyyaml requests networkx beautifulsoup4
+python extractor.py
+python resolve.py
+python clinvar.py
+python graph.py --paper-bundle data/processed/paper_candidates_real.json \
+                --aliases data/raw/disease_aliases.json --mechanisms data/raw/mechanism.json
+python enrich.py            # cached in data/raw/enrichment_cache; add --refresh to refetch
 python export_ui_data.py    # -> ui/public/graph.json
-cd ui && npm install && npm run dev
+cd ui && npm install && npm run dev    # http://localhost:5173
 ```
+
+### Adding a disease
+1. Add an entry to `seeds.yaml`: `- mondo: MONDO:xxxxxxx` with `genes: [SYMBOL]`.
+2. Rerun steps 1–6 above (all outputs are regenerated from the seeds).
+3. Optional, for richer links:
+   - **Papers:** fetch abstracts with `python make_papers.py <PMIDs>`, run `paper_pipeline.py` on them, and pass the
+     bundle to `graph.py --paper-bundle` (needs an LLM API key in `.env`).
+   - **Mechanisms:** add rows to `data/curated/mechanisms.json` (disease MONDO ID, mechanism ID, PMID, a sentence
+     copied verbatim from that abstract). `enrich.py` checks every quote against PubMed and drops non-matches.
+   - **Paper disease names:** if a paper names the disease differently, add an alias in `data/raw/disease_aliases.json`.
+
+`data/raw/` is gitignored, so every teammate needs to run step 1 once to download the ontologies.
 
 `enrich.py` uses structured sources only (no LLM): ClinicalTrials.gov API v2, NIH RePORTER API v2, HGNC REST,
 and the repo's NORD, RareConnect and RARe-SOURCE scrapers. Every edge records its source, retrieval date and a
