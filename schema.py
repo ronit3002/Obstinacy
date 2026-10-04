@@ -701,7 +701,9 @@ def build_example():
 
     return G, papers
 
-
+def is_core_disease(d):
+    return d.get("type") == "Disease" and not d.get("paper_scoped")
+    
 # --------------------------------------------------------------------- demo --
 if __name__ == "__main__":
     G, source_texts = build_example()

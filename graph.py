@@ -397,7 +397,6 @@ def build_graph(names, alt):
                 review_stars=review_stars,
                 last_evaluated=row.last_evaluated,
             )
-
     return G
 
 
@@ -690,6 +689,19 @@ def add_ui_match_edges(G, matches):
 
     return ui_graph
 
+def add_ui_variant_edges(ui_graph):
+    """Disease -> Variant shortcut edges for the frontend only (derived through the disease's genes)."""
+    for disease_id, data in list(ui_graph.nodes(data=True)):
+        if data.get("type") != "Disease":
+            continue
+        genes = {v for _, v, e in ui_graph.out_edges(disease_id, data=True)
+                 if e.get("rel") == "ASSOCIATED_WITH" and ui_graph.nodes[v].get("type") == "Gene"}
+        for gene_id in genes:
+            for variant_id, _, e in list(ui_graph.in_edges(gene_id, data=True)):
+                if e.get("rel") == "IN_GENE" and ui_graph.nodes[variant_id].get("type") == "Variant":
+                    ui_graph.add_edge(disease_id, variant_id, key=f"HAS_VARIANT:{disease_id}:{variant_id}",
+                                      rel="HAS_VARIANT", source="derived: disease-gene and variant-gene links",
+                                      source_tier=1, retrieved=TODAY, status="computed", method="computed")
 
 # ---------------------------------------------------------- Gephi export ------
 
@@ -973,6 +985,275 @@ def write_two_disease_gephi(
         output_path,
     )
 
+def rank_variants_for_disease(G, disease_id, top_k=5):
+    """
+    Rank variants for display for a selected disease.
+
+    This is a display-priority score, NOT a clinical pathogenicity score.
+
+    Maximum score = 100:
+      - ClinVar classification: 30
+      - ClinVar review strength: 15
+      - Disease / trait match: 20
+      - Molecular consequence: 20
+      - Literature support: 10
+      - Mechanism evidence: 5
+    """
+
+    disease_data = G.nodes[disease_id]
+
+    disease_name = (
+        disease_data.get("name")
+        or disease_data.get("label")
+        or ""
+    ).lower()
+
+    # -------------------------------------------------
+    # Find genes associated with this disease
+    # -------------------------------------------------
+    genes = {
+        v
+        for _, v, d in G.out_edges(disease_id, data=True)
+        if d.get("rel") == "ASSOCIATED_WITH"
+        and G.nodes[v].get("type") == "Gene"
+    }
+
+    candidates = []
+
+    for gene_id in genes:
+
+        # -------------------------------------------------
+        # Find variants in this gene
+        # -------------------------------------------------
+        for variant_id, _, edge_data in G.in_edges(
+            gene_id, data=True
+        ):
+            if edge_data.get("rel") != "IN_GENE":
+                continue
+
+            variant = G.nodes[variant_id]
+
+            if variant.get("type") != "Variant":
+                continue
+
+            score = 0
+            reasons = []
+
+            # -------------------------------------------------
+            # 1. ClinVar classification: up to 30 points
+            # -------------------------------------------------
+            classification = (
+                variant.get("classification") or ""
+            ).lower().strip()
+
+            classification_scores = {
+                "pathogenic": 30,
+                "likely pathogenic": 24,
+                "uncertain significance": 9,
+                "vus": 9,
+                "likely benign": 3,
+                "benign": 0,
+            }
+
+            class_score = classification_scores.get(
+                classification,
+                6
+            )
+
+            score += class_score
+
+            if class_score >= 24:
+                reasons.append(
+                    "pathogenic ClinVar classification"
+                )
+
+            # -------------------------------------------------
+            # 2. ClinVar review strength: up to 15 points
+            # -------------------------------------------------
+
+            review = (
+                edge_data.get("review_status")
+                or edge_data.get("reviewStatus")
+                or ""
+            ).lower().strip()
+
+            review_scores = {
+                "practice guideline": 15,
+                "reviewed by expert panel": 14,
+                "criteria provided, multiple submitters, no conflicts": 11,
+                "criteria provided, single submitter": 6,
+                "no assertion criteria provided": 1,
+            }
+
+            review_score = 0
+
+            for label, points in review_scores.items():
+                if label in review:
+                    review_score = points
+                    break
+                
+            score += review_score
+
+            if review_score >= 11:
+                reasons.append("strong ClinVar review")
+            elif review_score >= 6:
+                reasons.append("ClinVar review evidence")
+            # -------------------------------------------------
+            # 3. Disease / trait match: up to 20 points
+            # -------------------------------------------------
+            traits = str(
+                variant.get("traits") or ""
+            ).lower()
+
+            disease_match = False
+
+            disease_words = {
+                word
+                for word in disease_name.split()
+                if len(word) >= 4
+            }
+
+            trait_words = {
+                word
+                for word in traits.split()
+                if len(word) >= 4
+            }
+
+            if disease_name and disease_name in traits:
+                disease_match = True
+
+            elif disease_words & trait_words:
+                disease_match = True
+
+            trait_score = 20 if disease_match else 0
+
+            score += trait_score
+
+            if disease_match:
+                reasons.append(
+                    "ClinVar trait matches selected disease"
+                )
+
+            # -------------------------------------------------
+            # 4. Molecular consequence: up to 20 points
+            # -------------------------------------------------
+            consequence = (
+                variant.get("consequence") or ""
+            ).lower().strip()
+
+            consequence_scores = {
+                "frameshift": 20,
+                "nonsense": 20,
+                "stop gained": 20,
+                "splice acceptor": 18,
+                "splice donor": 18,
+                "start lost": 16,
+                "missense": 10,
+                "in-frame deletion": 8,
+                "in-frame insertion": 8,
+                "synonymous": 2,
+            }
+
+            consequence_score = 0
+
+            for label, points in consequence_scores.items():
+                if label in consequence:
+                    consequence_score = points
+                    break
+
+            score += consequence_score
+
+            if consequence_score:
+                reasons.append(
+                    f"{variant.get('consequence')} consequence"
+                )
+
+            # -------------------------------------------------
+            # 5. Literature support: up to 10 points
+            # -------------------------------------------------
+            literature_support = 0
+
+            for _, claim_id, edge_data in G.in_edges(
+                variant_id, data=True
+            ):
+                if edge_data.get("rel") == "ABOUT":
+
+                    # Each claim provides 5 points,
+                    # capped at 10.
+                    literature_support += 5
+
+            literature_support = min(
+                literature_support,
+                10
+            )
+
+            score += literature_support
+
+            if literature_support:
+                reasons.append(
+                    f"{literature_support} points literature support"
+                )
+
+            # -------------------------------------------------
+            # 6. Mechanism evidence: up to 5 points
+            # -------------------------------------------------
+            mechanism_support = 0
+
+            for _, mechanism_id, edge_data in G.out_edges(
+                variant_id, data=True
+            ):
+                if edge_data.get("rel") == "DISRUPTS":
+                    mechanism_support += 5
+
+            mechanism_support = min(
+                mechanism_support,
+                5
+            )
+
+            score += mechanism_support
+
+            if mechanism_support:
+                reasons.append(
+                    "mechanism evidence"
+                )
+
+            # -------------------------------------------------
+            # Store candidate
+            # -------------------------------------------------
+            candidates.append({
+                "variant_id": variant_id,
+                "name": variant.get(
+                    "name",
+                    variant_id
+                ),
+                "classification": variant.get(
+                    "classification"
+                ),
+                "review_status": variant.get(
+                    "review_status"
+                    or "reviewStatus"
+                ),
+                "consequence": variant.get(
+                    "consequence"
+                ),
+                "traits": variant.get(
+                    "traits"
+                ),
+                "score": min(score, 100),
+                "reasons": reasons,
+            })
+
+    # -------------------------------------------------
+    # Rank
+    # -------------------------------------------------
+    candidates.sort(
+        key=lambda x: (
+            -x["score"],
+            x["name"] or ""
+        )
+    )
+
+    return candidates[:top_k]
 
 # ------------------------------------------------------------------ main -----
 
@@ -994,6 +1275,8 @@ def main():
         help="Manual review decisions for paper claims",
     )
 
+    parser.add_argument("--aliases", type=Path)
+    parser.add_argument("--mechanisms", type=Path)
     args = parser.parse_args()
 
     if bool(
@@ -1042,45 +1325,31 @@ def main():
     if args.paper_bundle:
         from paper_graph import (
             add_reviewed_papers,
+            add_curated_mechanisms,
+            load_aliases,
         )
-        from paper_security import (
-            load_json,
-            MAX_BUNDLE_BYTES,
-        )
+        from paper_security import load_json, MAX_BUNDLE_BYTES
 
-        print(
-            "\n== Adding reviewed papers =="
-        )
+        print("\n== Adding reviewed papers ==")
 
         before_nodes = G.number_of_nodes()
         before_edges = G.number_of_edges()
 
-        paper_bundle = load_json(
-            args.paper_bundle,
-            MAX_BUNDLE_BYTES,
-        )
+        paper_bundle = load_json(args.paper_bundle, MAX_BUNDLE_BYTES)
+        paper_review = load_json(args.paper_review)
 
-        paper_review = load_json(
-            args.paper_review,
-        )
+        aliases = load_aliases(args.aliases) if args.aliases else None
+        G = add_reviewed_papers(G, paper_bundle, paper_review, aliases=aliases)
 
-        G = add_reviewed_papers(
-            G,
-            paper_bundle,
-            paper_review,
-        )
+        if args.mechanisms:
+            G = add_curated_mechanisms(G, load_json(args.mechanisms), paper_bundle)
 
-        print(
-            "  nodes added:",
-            G.number_of_nodes()
-            - before_nodes,
-        )
+        texts = {p["source"]["source_id"]: p["source"]["text"]
+                 for p in paper_bundle["papers"]}
+        print("  unverified claim quotes:", len(S.unverified_claims(G, texts)))
 
-        print(
-            "  edges added:",
-            G.number_of_edges()
-            - before_edges,
-        )
+        print("  nodes added:", G.number_of_nodes() - before_nodes)
+        print("  edges added:", G.number_of_edges() - before_edges)
 
     # ---------------------------------------------------------
     # 4. Graph summary
@@ -1618,6 +1887,8 @@ def main():
         matches,
     )
 
+    add_ui_variant_edges(ui_graph)
+    
     ui_graph_path = (
         PROC / "ui_graph.json"
     )
@@ -1627,62 +1898,57 @@ def main():
         node_link_data(ui_graph),
     )
 
-    # ---------------------------------------------------------
-    # 13. Save GEXF
-    # ---------------------------------------------------------
+    # -------------------------------------------------
+    # DEBUG: find and inspect one GRIN2B variant
+    # -------------------------------------------------
 
-    G_gephi = sanitize_for_gexf(
-        G
+    target_variant_name = (
+        "NM_000834.5(GRIN2B):c.1108G>T (p.Glu370Ter)"
     )
 
-    nx.write_gexf(
-        G_gephi,
-        PROC / "graph.gexf",
-    )
+    variant_id = None
 
-    # ---------------------------------------------------------
-    # 14. Two-disease Gephi test
-    # ---------------------------------------------------------
+    for node_id, data in G.nodes(data=True):
+        if (
+            data.get("type") == "Variant"
+            and data.get("name") == target_variant_name
+        ):
+            variant_id = node_id
+            break
 
-    write_two_disease_gephi(
+    print("\n== DEBUG VARIANT ==")
+
+    if variant_id is None:
+        print("Variant not found:", target_variant_name)
+
+    else:
+        print("ID:", variant_id)
+        print("NODE:")
+        print(G.nodes[variant_id])
+
+        print("\nINCOMING EDGES:")
+        for u, _, d in G.in_edges(variant_id, data=True):
+            print(u, d)
+
+        print("\nOUTGOING EDGES:")
+        for _, v, d in G.out_edges(variant_id, data=True):
+            print(v, d)
+        print("\n== Top variants for GRIN2B disease ==")
+
+    top_variants = rank_variants_for_disease(
         G,
-        matches,
         "MONDO:0014505",
-        "MONDO:0014947",
+        top_k=5,
     )
 
-    # ---------------------------------------------------------
-    # 15. Final output summary
-    # ---------------------------------------------------------
-
-    print(
-        "\nWrote:"
-    )
-
-    print(
-        f"  {phenotype_matrix_path}"
-    )
-
-    print(
-        f"  {disease_connections_path}"
-    )
-
-    print(
-        f"  {graph_path}"
-    )
-
-    print(
-        f"  {ui_graph_path}"
-    )
-
-    print(
-        f"  {PROC / 'graph.gexf'}"
-    )
-
-    print(
-        f"  {PROC / 'graph_two_diseases.gexf'}"
-    )
-
+    for i, v in enumerate(top_variants, 1):
+        print(
+            f"{i}. {v['name']}\n"
+            f"   score: {v['score']}/100\n"
+            f"   classification: {v['classification']}\n"
+            f"   consequence: {v['consequence']}\n"
+            f"   reasons: {', '.join(v['reasons'])}"
+        )
 
 if __name__ == "__main__":
     main()

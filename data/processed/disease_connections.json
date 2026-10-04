@@ -129,7 +129,7 @@
     "meaningful_phenotype_link": true,
     "same_gene_different_mechanism": false,
     "why_connected": [
-      "Meaningful phenotype overlap: Stereotypical hand wringing, Midline hand movements, Stereotypic upper-extremity movements."
+      "Meaningful phenotype overlap: Midline hand movements, Stereotypical hand wringing, Stereotypic upper-extremity movements."
     ],
     "shared_phenotype_labels": [
       "Intellectual disability",
@@ -143,8 +143,8 @@
       "Stereotypical hand wringing"
     ],
     "informative_shared_phenotype_labels": [
-      "Stereotypical hand wringing",
       "Midline hand movements",
+      "Stereotypical hand wringing",
       "Stereotypic upper-extremity movements"
     ],
     "evidence_quality": 1.0,
@@ -238,7 +238,7 @@
     "meaningful_phenotype_link": true,
     "same_gene_different_mechanism": false,
     "why_connected": [
-      "Meaningful phenotype overlap: Stereotypical hand wringing, Midline hand movements, Inappropriate laughter."
+      "Meaningful phenotype overlap: Midline hand movements, Stereotypical hand wringing, Inappropriate laughter."
     ],
     "shared_phenotype_labels": [
       "Microcephaly",
@@ -259,8 +259,8 @@
       "Cerebral visual impairment"
     ],
     "informative_shared_phenotype_labels": [
-      "Stereotypical hand wringing",
       "Midline hand movements",
+      "Stereotypical hand wringing",
       "Inappropriate laughter"
     ],
     "evidence_quality": 1.0,
@@ -406,7 +406,7 @@
     "meaningful_phenotype_link": true,
     "same_gene_different_mechanism": false,
     "why_connected": [
-      "Meaningful phenotype overlap: Stereotypical hand wringing, Midline hand movements, EEG with abnormally slow frequencies."
+      "Meaningful phenotype overlap: Midline hand movements, Stereotypical hand wringing, EEG with abnormally slow frequencies."
     ],
     "shared_phenotype_labels": [
       "Autistic behavior",
@@ -424,8 +424,8 @@
       "Stereotypical hand wringing"
     ],
     "informative_shared_phenotype_labels": [
-      "Stereotypical hand wringing",
       "Midline hand movements",
+      "Stereotypical hand wringing",
       "EEG with abnormally slow frequencies"
     ],
     "evidence_quality": 1.0,

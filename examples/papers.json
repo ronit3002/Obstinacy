@@ -1,9 +1,8 @@
 [
   {
-    "source_id": "synthetic-demo-1",
-    "title": "Synthetic extraction fixture — not medical evidence",
-    "source_kind": "abstract",
+    "source_id": "user-image:GRIN2B",
     "source_tier": 3,
-    "text": "This is a fictional test fixture. Authors: Alex Example. In a small fictional study, Example syndrome was associated with GENE-X. Seizures were not observed in patients with Example syndrome. The study does not establish causation."
+    "title": "Unverified user table row: DEE27",
+    "text": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263)."
   }
 ]

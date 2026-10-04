@@ -1,0 +1,480 @@
+{
+  "schema_version": 2,
+  "prompt_version": "papers-v4-anchored-evidence",
+  "model": "claude-sonnet-5-5",
+  "verifier_model": "claude-sonnet-5-5",
+  "provider": "anthropic",
+  "created_at": "2026-10-04T01:59:48.684484+00:00",
+  "papers": [
+    {
+      "source": {
+        "source_id": "user-image:GRIN2B",
+        "text": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+        "title": "Unverified user table row: DEE27",
+        "url": null,
+        "source_kind": "abstract",
+        "source_tier": 3,
+        "sha256": "96ba1aed1d9738beffc640d0b85b1fc23b37fe18d365400aa413dba6592b038d"
+      },
+      "claims": [
+        {
+          "local_id": "C1",
+          "statement": "The table row lists GRIN2B as the gene for DEE27.",
+          "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+          "subject": "E1",
+          "object": "E2",
+          "relation": "ASSOCIATED_WITH",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Unverified user-supplied table, not a scientific paper",
+          "limitations": "Not separately extracted; see source evidence and limitation-category claims.",
+          "category": "background",
+          "evidence": {
+            "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+            "start": 0,
+            "end": 186
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "DEE27",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "DEE27",
+                "canonical_id": "MONDO:0014505",
+                "status": "resolved",
+                "candidates": [
+                  {
+                    "id": "MONDO:0014505",
+                    "label": "developmental and epileptic encephalopathy, 27",
+                    "kind": "Disease"
+                  }
+                ],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E2": {
+              "local_id": "E2",
+              "kind": "Gene",
+              "mention": "GRIN2B",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "GRIN2B",
+                "canonical_id": "HGNC:4586",
+                "status": "resolved",
+                "candidates": [
+                  {
+                    "id": "HGNC:4586",
+                    "label": "GRIN2B",
+                    "kind": "Gene"
+                  }
+                ],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "user-image:GRIN2B",
+          "source_sha256": "96ba1aed1d9738beffc640d0b85b1fc23b37fe18d365400aa413dba6592b038d",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source row lists GRIN2B as the gene for DEE27. The candidate says only that the table row lists it, which keeps the source attribution and the unverified-table context. Both entities resolve correctly, and the candidate makes no causal claim."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:dfe0897499a2363a1b9f223cfdcdf6903e5989d6a4c7e80089775de65ed75290"
+        },
+        {
+          "local_id": "C2",
+          "statement": "The table row lists c.2065G>A (p.Gly689Ser) as an example variant for DEE27.",
+          "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+          "subject": "E1",
+          "object": "E3",
+          "relation": "ASSOCIATED_WITH",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Unverified user-supplied table, not a scientific paper",
+          "limitations": "Not separately extracted; see source evidence and limitation-category claims.",
+          "category": "background",
+          "evidence": {
+            "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+            "start": 0,
+            "end": 186
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "DEE27",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "DEE27",
+                "canonical_id": "MONDO:0014505",
+                "status": "resolved",
+                "candidates": [
+                  {
+                    "id": "MONDO:0014505",
+                    "label": "developmental and epileptic encephalopathy, 27",
+                    "kind": "Disease"
+                  }
+                ],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E3": {
+              "local_id": "E3",
+              "kind": "Variant",
+              "mention": "c.2065G>A (p.Gly689Ser)",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "c.2065G>A (p.Gly689Ser)",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "user-image:GRIN2B",
+          "source_sha256": "96ba1aed1d9738beffc640d0b85b1fc23b37fe18d365400aa413dba6592b038d",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source row lists c.2065G>A (p.Gly689Ser) as an example variant for DEE27. The candidate keeps the 'table row lists' framing and the unverified-table context. The variant has no canonical ID, but the quoted mention identifies it unambiguously."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:71395fa6a7381d31f5c4e6c7a70f152ee275dc82849c0bd6cf4f99740670228f"
+        },
+        {
+          "local_id": "C3",
+          "statement": "The table row lists c.2065G>A (p.Gly689Ser) as a variant in GRIN2B.",
+          "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+          "subject": "E3",
+          "object": "E2",
+          "relation": "IN_GENE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Unverified user-supplied table, not a scientific paper",
+          "limitations": "Not separately extracted; see source evidence and limitation-category claims.",
+          "category": "background",
+          "evidence": {
+            "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+            "start": 0,
+            "end": 186
+          },
+          "entities": {
+            "E3": {
+              "local_id": "E3",
+              "kind": "Variant",
+              "mention": "c.2065G>A (p.Gly689Ser)",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "c.2065G>A (p.Gly689Ser)",
+                "canonical_id": null,
+                "status": "unresolved",
+                "candidates": [],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E2": {
+              "local_id": "E2",
+              "kind": "Gene",
+              "mention": "GRIN2B",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "GRIN2B",
+                "canonical_id": "HGNC:4586",
+                "status": "resolved",
+                "candidates": [
+                  {
+                    "id": "HGNC:4586",
+                    "label": "GRIN2B",
+                    "kind": "Gene"
+                  }
+                ],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "user-image:GRIN2B",
+          "source_sha256": "96ba1aed1d9738beffc640d0b85b1fc23b37fe18d365400aa413dba6592b038d",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The same row lists GRIN2B as the gene and c.2065G>A (p.Gly689Ser) as the example variant for DEE27. This supports the variant being in GRIN2B as listed by the table. The candidate is framed as a table listing, and the variant mention is unambiguous despite the missing ID."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:d54ea01abe1a971a626185f0418be36bf6251a9c988c1b6eb5890acc3671b41b"
+        },
+        {
+          "local_id": "C4",
+          "statement": "The table row lists global developmental delay (HP:0001263) as a feature of DEE27.",
+          "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+          "subject": "E1",
+          "object": "E4",
+          "relation": "HAS_PHENOTYPE",
+          "polarity": "affirmed",
+          "status": "observation",
+          "study_context": "Unverified user-supplied table, not a scientific paper",
+          "limitations": "Not separately extracted; see source evidence and limitation-category claims.",
+          "category": "background",
+          "evidence": {
+            "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+            "start": 0,
+            "end": 186
+          },
+          "entities": {
+            "E1": {
+              "local_id": "E1",
+              "kind": "Disease",
+              "mention": "DEE27",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "DEE27",
+                "canonical_id": "MONDO:0014505",
+                "status": "resolved",
+                "candidates": [
+                  {
+                    "id": "MONDO:0014505",
+                    "label": "developmental and epileptic encephalopathy, 27",
+                    "kind": "Disease"
+                  }
+                ],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            },
+            "E4": {
+              "local_id": "E4",
+              "kind": "Phenotype",
+              "mention": "Global developmental delay",
+              "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+              "evidence": {
+                "quote": "Unverified user-supplied table, not a scientific paper. The row for DEE27 lists gene GRIN2B, example variant c.2065G>A (p.Gly689Ser), and feature Global developmental delay (HP:0001263).",
+                "start": 0,
+                "end": 186
+              },
+              "resolution": {
+                "mention": "Global developmental delay",
+                "canonical_id": "HP:0001263",
+                "status": "resolved",
+                "candidates": [
+                  {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay",
+                    "kind": "Phenotype"
+                  }
+                ],
+                "method": "exact_label_or_synonym",
+                "vocabulary_snapshots": {
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/mondo.json": "ba19a3be2a384f21d2a09eaa726daedf6f06b9747ae011ab81d29fcd4dd8d3ee",
+                  "/Users/ronitsajnani/gaihack/Bison/data/raw/hp.json": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501",
+                  "/Users/ronitsajnani/gaihack/Bison/data/processed/genes_resolved.json": "449e76e4a27d93458afab43360884155b7567de4961e5d85f7e5dd84a482e6e4"
+                }
+              }
+            }
+          },
+          "source_id": "user-image:GRIN2B",
+          "source_sha256": "96ba1aed1d9738beffc640d0b85b1fc23b37fe18d365400aa413dba6592b038d",
+          "verification": {
+            "supported": true,
+            "entities_correct": true,
+            "relation_correct": true,
+            "polarity_correct": true,
+            "context_preserved": true,
+            "reason": "The source row lists the feature Global developmental delay (HP:0001263) for DEE27. The candidate keeps the table-listing attribution and adds no new claim. The entity IDs match the source."
+          },
+          "review_status": "pending",
+          "id": "CLAIM:684a22fbcd3517d85485cdbf8805cd777e38805cdf501c1d68b6e44ea12a94c5"
+        }
+      ],
+      "summary": [],
+      "rejected": [
+        {
+          "summary_attempt": 1,
+          "sentences": [],
+          "reason": "Empty summary, unsafe content or invalid citations; use only supplied IDs."
+        },
+        {
+          "summary_attempt": 2,
+          "sentences": [
+            {
+              "text": "The material provided is an unverified table, not a scientific paper.",
+              "claim_ids": [
+                "CLAIM:dfe0897499a2363a1b9f223cfdcdf6903e5989d6a4c7e80089775de65ed75290"
+              ]
+            },
+            {
+              "text": "The table has a row for a condition called DEE27, and that row lists the gene GRIN2B.",
+              "claim_ids": [
+                "CLAIM:dfe0897499a2363a1b9f223cfdcdf6903e5989d6a4c7e80089775de65ed75290"
+              ]
+            },
+            {
+              "text": "The table row gives one example gene change in GRIN2B, written as c.2065G>A (p.Gly689Ser).",
+              "claim_ids": [
+                "CLAIM:71395fa6a7381d31f5c4e6c7a70f152ee275dc82849c0bd6cf4f99740670228f",
+                "CLAIM:d54ea01abe1a971a626185f0418be36bf6251a9c988c1b6eb5890acc3671b41b"
+              ]
+            },
+            {
+              "text": "The table row lists delays in overall development as a feature of DEE27.",
+              "claim_ids": [
+                "CLAIM:684a22fbcd3517d85485cdbf8805cd777e38805cdf501c1d68b6e44ea12a94c5"
+              ]
+            },
+            {
+              "text": "The table does not describe a study, patients, laboratory tests or results, so no research findings or patient outcomes can be reported from it.",
+              "claim_ids": [
+                "CLAIM:dfe0897499a2363a1b9f223cfdcdf6903e5989d6a4c7e80089775de65ed75290"
+              ]
+            }
+          ],
+          "reason": "Most clauses match the source: the material is an unverified table, the DEE27 row lists GRIN2B, the example variant c.2065G>A (p.Gly689Ser), and global developmental delay. Two problems remain. (1) Unsupported clause: the final sentence says the table 'does not describe a study, patients, laboratory tests or results'. The source only says it is an unverified table, not a scientific paper, and its single quoted row mentions none of these. Claiming it contains no such content is an inference from silence, and the cited claim (CLAIM:dfe0...) does not state it. Rephrase to something like 'The material is only a table row and reports no research findings', limited to what the source says. (2) Readability: 'DEE27' is never explained, and the notation 'c.2065G>A (p.Gly689Ser)' is dense specialist shorthand left unexplained, so a reader with no medical background would struggle with it. Either omit the notation or explain it briefly as a code for the specific gene change. 'Global developmental delay' is paraphrased as 'delays in overall development', which is acceptable. Coverage of the central content is adequate."
+        }
+      ],
+      "security_flags": [],
+      "summary_audit": {
+        "supported": false,
+        "coherent": true,
+        "main_findings_covered": true,
+        "limitations_preserved": true,
+        "plain_language": false,
+        "reason": "Most clauses match the source: the material is an unverified table, the DEE27 row lists GRIN2B, the example variant c.2065G>A (p.Gly689Ser), and global developmental delay. Two problems remain. (1) Unsupported clause: the final sentence says the table 'does not describe a study, patients, laboratory tests or results'. The source only says it is an unverified table, not a scientific paper, and its single quoted row mentions none of these. Claiming it contains no such content is an inference from silence, and the cited claim (CLAIM:dfe0...) does not state it. Rephrase to something like 'The material is only a table row and reports no research findings', limited to what the source says. (2) Readability: 'DEE27' is never explained, and the notation 'c.2065G>A (p.Gly689Ser)' is dense specialist shorthand left unexplained, so a reader with no medical background would struggle with it. Either omit the notation or explain it briefly as a code for the specific gene change. 'Global developmental delay' is paraphrased as 'delays in overall development', which is acceptable. Coverage of the central content is adequate."
+      },
+      "coverage": {
+        "retained_categories": [
+          "background"
+        ],
+        "retained_entity_types": [
+          "Disease",
+          "Gene",
+          "Phenotype",
+          "Variant"
+        ],
+        "unresolved_mentions": [
+          "c.2065G>A (p.Gly689Ser)"
+        ]
+      },
+      "quality": {
+        "publication_status": "pending_manual_review",
+        "summary_status": "withheld",
+        "scientific_claims": 4,
+        "authorship_claims": 0,
+        "resolution_note": "Only unique exact ontology matches are canonical; suggestions need review.",
+        "scope_note": "Source-grounded extraction, not independent scientific validation."
+      }
+    }
+  ],
+  "api_calls": [
+    {
+      "response_id": "msg_011CfgNSoTfBDM9ms7jzNEVs",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011CfgNTEnfSRuus98oLuk6w",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011CfgNTeMFr6eLUoaBGGT4E",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011CfgNTsqN5t3HrasRvHgJU",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    },
+    {
+      "response_id": "msg_011CfgNURg2qV3piBHuWZPED",
+      "model": "claude-sonnet-5-5",
+      "status": "end_turn",
+      "provider": "anthropic"
+    }
+  ],
+  "bundle_sha256": "a9ab1608d4488d0545b33d6fb1e2e429ab1cea8861b05545dfd61a0c4711a213"
+}
